@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-1.0" maxWidth="-1.0" prefHeight="516.0" prefWidth="794.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Controllers.LogonController">
+    <children>
+        <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <GridPane prefHeight="386.0" prefWidth="674.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.4000244140625" minWidth="10.0"
+                                           prefWidth="133.40003662109376"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="533.5999771118165" minWidth="10.0"
+                                           prefWidth="507.99996337890633"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0"
+                                           prefWidth="128.399951171875"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="85.6" minHeight="10.0" prefHeight="20.399991989135742"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="400.80000801086425" minHeight="10.0" prefHeight="400.80000801086425"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="8.199972534179722"
+                                        prefHeight="30.40001831054684" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.7999923706055" minWidth="10.0"
+                                                   prefWidth="220.20003662109374"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0"
+                                                   prefWidth="80.99996337890624"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0"
+                                                   prefWidth="245.5999633789063"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="86.39998626708984" minHeight="10.0"
+                                                prefHeight="57.59999771118164" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="295.1999935150146" minHeight="10.0"
+                                                prefHeight="264.0000022888184" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="122.39998779296877" minHeight="10.0"
+                                                prefHeight="81.59995117187503" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="28.0" prefWidth="242.0" text="Logowanie">
+                                            <font>
+                                                <Font size="31.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="28.0" prefWidth="242.0" text="Nazwa użytkownika"/>
+                                        <TextField fx:id="logNazwaUzytkownika"/>
+                                        <Label prefHeight="28.0" prefWidth="242.0" text="Hasło"/>
+                                        <PasswordField fx:id="logHaslo"/>
+                                        <Label prefHeight="18.0" prefWidth="387.0"/>
+                                        <Button mnemonicParsing="false" onAction="#logowanie" prefHeight="90.0"
+                                                prefWidth="210.0" style="-fx-background-color: #33cc33;" text="Log in"/>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="58.0" prefWidth="236.0" text="Rejestracja">
+                                            <font>
+                                                <Font size="31.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="30.0" prefWidth="236.0" text="Nazwa użytkownika"/>
+                                        <TextField fx:id="RejNazwaUzytkownika"/>
+                                        <Label prefHeight="34.0" prefWidth="236.0" text="E-mail"/>
+                                        <TextField fx:id="RejEmail"/>
+                                        <Label prefHeight="28.0" prefWidth="278.0" text="Hasło"/>
+                                        <PasswordField fx:id="RejHaslo"/>
+                                        <Label prefHeight="18.0" prefWidth="387.0"/>
+                                        <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="236.0"
+                                                style="-fx-background-color: #9999ff;" text="Sign in"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            </center>
+            <top>
+                <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="640.0"
+                         BorderPane.alignment="CENTER">
+                    <items>
+                        <Button mnemonicParsing="false" prefHeight="26.0"
+                                style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out"
+                                textFill="WHITE"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0"
+                               style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="13.10.2018"
+                               textAlignment="CENTER" textFill="WHITE"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="55.0"
+                               style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="00:00"
+                               textAlignment="CENTER" textFill="WHITE"/>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="416.0" text="Witaj użytkowniku"/>
+                    </items>
+                    <BorderPane.margin>
+                        <Insets/>
+                    </BorderPane.margin>
+                    <cursor>
+                        <Cursor fx:constant="H_RESIZE"/>
+                    </cursor>
+                </ToolBar>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>

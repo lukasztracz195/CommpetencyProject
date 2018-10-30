@@ -11,8 +11,7 @@
         <property name="hibernate.connection.password">aezakmi195</property>
 
         <!-- List of XML mapping files -->
-        <mapping class = "pl.project_competencies.model.entities.User"/>
-
+        <mapping class="pl.competencyproject.model.entities.User"/>
     </session-factory>
 
 </hibernate-configuration>
