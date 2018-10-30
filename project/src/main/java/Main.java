@@ -7,7 +7,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.project_competencies.connection.SessionFactoryConfig;
 
-import java.math.BigInteger;
 
 public class Main extends Application {
 
@@ -17,7 +16,6 @@ public class Main extends Application {
         SessionFactoryConfig.getSessionFactory(configFileName);
         launch(args);
         SessionFactoryConfig.getSessionFactory(configFileName).close();
-        BigInteger bi = new BigInteger("5");
     }
 
     @Override
