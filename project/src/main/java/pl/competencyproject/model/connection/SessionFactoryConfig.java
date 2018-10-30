@@ -11,20 +11,19 @@ import java.util.Map;
 public class SessionFactoryConfig {
 
     private static Map<String, SessionFactory> sessionFactories = new HashMap<>();
-    private String configFileName = "hibernate.cfg.xml";
+    private static String configFileName = "hibernate.cfg.xml";
 
     private SessionFactoryConfig() {
 
     }
 
     public synchronized static SessionFactory getSessionFactory() {
-        String configFileName = "hibernate.cfg.xml";
-        SessionFactory result = sessionFactories.get(configFileName);
+        SessionFactory result = sessionFactories.get(getName());
 
         if (result == null || result.isClosed()) {
 
-            result = configure(configFileName);
-            sessionFactories.put(configFileName, result);
+            result = configure(getName());
+            sessionFactories.put(getName(), result);
         }
 
         return result;
@@ -32,5 +31,9 @@ public class SessionFactoryConfig {
 
     private static SessionFactory configure(String configFileName) {
         return new Configuration().configure(configFileName).buildSessionFactory();
+    }
+
+    private static String getName(){
+        return configFileName;
     }
 }

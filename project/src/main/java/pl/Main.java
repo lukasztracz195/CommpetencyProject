@@ -28,9 +28,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/logon.fxml"));
+
+
+
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
-        //SessionFactoryConfig.getSessionFactory();
         primaryStage.setTitle("Hello World!");
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
@@ -48,7 +50,7 @@ public class Main extends Application {
 
     @Override
     public void stop() {
-        //SessionFactoryConfig.getSessionFactory().close();
+
     }
 
 

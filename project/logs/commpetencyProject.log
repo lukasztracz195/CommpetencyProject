@@ -2014,3 +2014,570 @@ INFO  25-10-2018 02:01:07.641 [JavaFX Application Thread] HHH000400: Using diale
 INFO  25-10-2018 02:01:07.968 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
 INFO  25-10-2018 02:01:08.027 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
 INFO  25-10-2018 02:01:08.211 [JavaFX Application Thread] HHH000182: No default (no-argument) constructor for class: pl.competencyproject.model.entities.User (class must be instantiated by Interceptor)
+INFO  27-10-2018 21:31:48.269 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:31:48.277 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:31:48.996 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:31:49.253 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:31:49.254 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:31:49.254 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:31:49.293 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:31:49.410 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:31:49.451 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:31:49.477 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@20c21f1d [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@eb06b5dd [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1es1p7csfranx|5f19fb93, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@3fa22224 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1es1p7csfranx|621d6362, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1es1p7csfranx|16c44140, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:31:50.438 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:33:25.457 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:33:25.459 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:33:26.048 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:33:26.303 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:33:26.303 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:33:26.303 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:33:26.325 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:33:26.444 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:33:26.488 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:33:26.504 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e6a5d9d5 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@8269c2fe [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1es3s2n41ncbf|352aeb61, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@efeadcee [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1es3s2n41ncbf|1246281a, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1es3s2n41ncbf|412bb8e, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:33:27.338 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:34:07.840 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:34:07.841 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:34:08.492 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:34:08.733 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:34:08.733 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:34:08.733 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:34:08.754 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:34:08.863 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:34:08.893 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:34:08.915 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@68d2f2a6 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@719f2bf6 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1es4ot41t6yv3x|45262c10, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@264a4ae9 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1es4ot41t6yv3x|a6e8783, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1es4ot41t6yv3x|5bbd6a8c, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:34:09.908 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:34:45.699 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:34:45.701 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:34:46.348 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:34:46.580 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:34:46.580 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:34:46.580 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:34:46.602 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:34:46.701 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:34:46.734 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:34:46.750 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@ae1caef2 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@35da6771 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1es5i0eixy2in|e8190d1, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@bb788d1a [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1es5i0eixy2in|6fea816b, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1es5i0eixy2in|3d7020e6, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:34:47.551 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:34:47.905 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:34:47.955 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 21:34:48.731 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 21:34:48.758 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 21:34:48.758 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 21:35:58.250 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:35:58.252 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:35:58.967 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:35:59.202 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:35:59.202 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:35:59.202 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:35:59.225 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:35:59.331 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:35:59.365 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:35:59.382 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@a87df35b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@124d3216 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1es721n16nle61|282d7d94, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@bd1ef2e9 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1es721n16nle61|73f6d43d, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1es721n16nle61|54722311, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:36:00.230 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:38:49.343 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:38:49.346 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:38:50.021 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:38:50.261 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:38:50.262 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:38:50.262 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:38:50.286 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:38:50.409 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:38:50.451 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:38:50.470 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@d4c114bd [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@faa659b4 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1esaq1har8bbp|6f7964de, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@3ecd7f9b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1esaq1har8bbp|5b25a616, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1esaq1har8bbp|15caa85d, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:38:51.289 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:38:51.639 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:38:51.683 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 21:38:58.986 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 21:38:59.013 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 21:38:59.014 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 21:41:53.825 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:41:53.827 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:41:54.612 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:41:54.850 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:41:54.850 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:41:54.850 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:41:54.878 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:41:54.987 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:41:55.026 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:41:55.041 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@ddb190e4 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@6cd4edcf [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1eseogy1mz9fum|352aeb61, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@da5607bf [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1eseogy1mz9fum|1246281a, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1eseogy1mz9fum|412bb8e, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:41:55.911 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:41:56.256 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:41:56.300 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 21:42:00.561 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 21:42:00.588 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 21:42:00.588 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 21:46:57.559 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:46:57.561 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:46:58.359 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:46:58.599 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:46:58.600 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:46:58.600 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:46:58.624 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:46:58.729 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:46:58.766 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:46:58.783 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@13762109 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@f60f6412 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1esl6ud14owuyf|5cd3dc78, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@7ddb26ee [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1esl6ud14owuyf|1e40d863, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1esl6ud14owuyf|15f6289e, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:46:59.667 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:47:24.621 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:47:24.624 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:47:25.302 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:47:25.547 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:47:25.547 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:47:25.548 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:47:25.570 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:47:25.679 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:47:25.725 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:47:25.740 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@3ceafff9 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@d3054a57 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1eslrmz1cufsrz|7ef7e8d1, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@7487b3c8 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1eslrmz1cufsrz|65899baf, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1eslrmz1cufsrz|80e8db8, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:47:26.581 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:47:26.958 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:47:27.014 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 21:47:27.777 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 21:47:27.803 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 21:47:27.803 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 21:50:57.214 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:50:57.215 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:50:57.912 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:50:58.197 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:50:58.198 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:50:58.198 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:50:58.226 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:50:58.331 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:50:58.364 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:50:58.381 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@1e5ede64 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@e659c062 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1esqbq2anmgd5|d428dc2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2328b60b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1esqbq2anmgd5|1ec6c792, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1esqbq2anmgd5|1d14d9f, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:51:13.241 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:51:13.585 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:51:13.636 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 21:51:20.904 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 21:51:20.930 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 21:51:20.930 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 21:51:47.743 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:51:47.744 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:51:48.433 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:51:48.666 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:51:48.666 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:51:48.666 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:51:48.691 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:51:48.800 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:51:48.833 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:51:48.850 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@6bff40e5 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@454fe2c9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1esrenu1x9k8z8|8f0dd54, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@4a856b05 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1esrenu1x9k8z8|8c03333, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1esrenu1x9k8z8|13f970de, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:52:17.704 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:52:17.956 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:52:17.998 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  27-10-2018 21:56:11.671 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:56:11.673 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:56:12.338 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:56:12.580 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:56:12.580 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:56:12.581 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:56:12.604 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:56:12.708 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:56:12.740 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:56:12.755 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@da019d0a [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@8287811e [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1esx2ar1ccczob|3f235d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@aad2d97c [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1esx2ar1ccczob|169eb622, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1esx2ar1ccczob|1a098853, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:56:18.848 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:56:19.134 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:56:19.183 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  27-10-2018 21:59:42.997 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 21:59:42.999 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 21:59:43.927 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 21:59:44.255 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 21:59:44.255 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 21:59:44.255 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 21:59:44.283 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 21:59:44.449 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 21:59:44.521 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 21:59:44.552 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@266c306c [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@7583018d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1et1lmzonbp8|3cd0766a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@92b81904 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1et1lmzonbp8|1c5b853f, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1et1lmzonbp8|71ebbf9e, numHelperThreads -> 3 ]
+INFO  27-10-2018 21:59:45.500 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 21:59:45.820 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 21:59:45.872 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  27-10-2018 22:02:27.741 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:02:27.743 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:02:28.422 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:02:28.707 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:02:28.708 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:02:28.708 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:02:28.738 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:02:28.855 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:02:28.887 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:02:28.904 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@38cbca54 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@1a551e19 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1et54j01vatx9n|6e30da42, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@59679e42 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1et54j01vatx9n|ad86e91, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1et54j01vatx9n|7252deb5, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:02:29.863 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:02:30.153 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 22:02:30.211 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  27-10-2018 22:03:33.821 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:03:33.823 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:03:34.466 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:03:34.699 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:03:34.700 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:03:34.700 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:03:34.723 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:03:34.831 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:03:34.865 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:03:34.884 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@3f7b5798 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@c88d101b [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1et6jftsa8s02|6c311790, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@307f7b3c [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1et6jftsa8s02|14e87d48, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1et6jftsa8s02|6593d237, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:03:35.735 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:03:36.078 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 22:03:36.122 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 22:03:40.394 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 22:03:40.421 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 22:03:40.421 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 22:05:21.488 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:05:21.490 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:05:22.077 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:05:22.322 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:05:22.323 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:05:22.323 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:05:22.348 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:05:22.450 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:05:22.479 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:05:22.499 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@7008d9a6 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@c4a4963e [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1et8uhaeqnfuc|421e522c, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@db23c930 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1et8uhaeqnfuc|c6cf22f, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1et8uhaeqnfuc|8e7d5cb, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:05:23.327 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:06:01.493 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:06:01.495 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:06:02.120 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:06:02.373 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:06:02.374 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:06:02.374 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:06:02.398 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:06:02.513 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:06:02.555 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:06:02.573 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@93d1fe66 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@5904c4a1 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1et9pdzfwfuj0|5a0ad3fb, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@45ff0b66 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1et9pdzfwfuj0|2224a01c, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1et9pdzfwfuj0|67845814, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:06:11.387 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:06:11.762 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 22:06:11.824 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+ERROR 27-10-2018 22:06:31.110 [JavaFX Application Thread] could not read a hi value
+java.sql.SQLSyntaxErrorException: Table 'compproject.hibernate_sequence' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1024)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:353)
+	at org.hibernate.id.enhanced.TableStructure.executeQuery(TableStructure.java:216)
+	at org.hibernate.id.enhanced.TableStructure.access$300(TableStructure.java:46)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:138)
+	at org.hibernate.id.enhanced.TableStructure$1$1.execute(TableStructure.java:126)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:57)
+	at org.hibernate.id.enhanced.TableStructure$1.getNextValue(TableStructure.java:125)
+	at org.hibernate.id.enhanced.NoopOptimizer.generate(NoopOptimizer.java:40)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:482)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at pl.competencyproject.model.DAO.ManageUsers.addUser(ManageUsers.java:34)
+	at pl.Main.start(Main.java:34)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+WARN  27-10-2018 22:06:31.137 [JavaFX Application Thread] SQL Error: 1146, SQLState: 42S02
+ERROR 27-10-2018 22:06:31.137 [JavaFX Application Thread] Table 'compproject.hibernate_sequence' doesn't exist
+INFO  27-10-2018 22:10:02.285 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:10:02.287 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:10:02.998 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:10:03.244 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:10:03.244 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:10:03.245 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:10:03.267 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:10:03.368 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:10:03.401 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:10:03.418 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@34f6afa0 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@178ff2a9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1etev8n1a29vjh|5cd3dc78, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@9f5bb585 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1etev8n1a29vjh|1e40d863, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1etev8n1a29vjh|15f6289e, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:10:04.253 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:10:04.629 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 22:10:04.675 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  27-10-2018 22:12:17.578 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  27-10-2018 22:12:17.580 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  27-10-2018 22:12:18.197 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  27-10-2018 22:12:18.440 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  27-10-2018 22:12:18.440 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  27-10-2018 22:12:18.441 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  27-10-2018 22:12:18.462 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  27-10-2018 22:12:18.562 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  27-10-2018 22:12:18.595 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  27-10-2018 22:12:18.610 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@7f2f2960 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@61c86c69 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2s76vc9y1ethrk03u1n02|5cd3dc78, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@e9942f45 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2s76vc9y1ethrk03u1n02|1e40d863, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2s76vc9y1ethrk03u1n02|15f6289e, numHelperThreads -> 3 ]
+INFO  27-10-2018 22:12:19.484 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  27-10-2018 22:12:19.886 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  27-10-2018 22:12:19.931 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  29-10-2018 13:31:35.872 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  29-10-2018 13:31:35.879 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  29-10-2018 13:31:36.533 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  29-10-2018 13:31:36.797 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  29-10-2018 13:31:36.798 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  29-10-2018 13:31:36.798 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  29-10-2018 13:31:36.828 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  29-10-2018 13:31:36.929 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  29-10-2018 13:31:36.958 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  29-10-2018 13:31:36.975 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@c844329f [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@713d7d01 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2ww8xe9y1h7x0gyvqcnkf|28be4e55, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ffd457ba [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2ww8xe9y1h7x0gyvqcnkf|3507d9cf, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2ww8xe9y1h7x0gyvqcnkf|65078e09, numHelperThreads -> 3 ]
+INFO  29-10-2018 13:31:43.042 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  29-10-2018 13:31:43.406 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  29-10-2018 13:31:43.455 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  29-10-2018 13:33:00.099 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  29-10-2018 13:33:00.101 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  29-10-2018 13:33:00.730 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  29-10-2018 13:33:00.970 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  29-10-2018 13:33:00.970 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  29-10-2018 13:33:00.971 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  29-10-2018 13:33:00.997 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  29-10-2018 13:33:01.103 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  29-10-2018 13:33:01.138 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  29-10-2018 13:33:01.153 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e018c2ac [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@60f7f747 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2ww8xe9y1h7ytex19rj87p|6c1a374e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@db8dad88 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2ww8xe9y1h7ytex19rj87p|2871872d, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2ww8xe9y1h7ytex19rj87p|490c331f, numHelperThreads -> 3 ]
+INFO  29-10-2018 13:33:01.968 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  29-10-2018 13:33:02.299 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  29-10-2018 13:33:02.344 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  29-10-2018 13:37:10.375 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  29-10-2018 13:37:10.378 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  29-10-2018 13:37:11.238 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  29-10-2018 13:37:11.494 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  29-10-2018 13:37:11.495 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  29-10-2018 13:37:11.495 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  29-10-2018 13:37:11.520 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  29-10-2018 13:37:11.623 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  29-10-2018 13:37:11.653 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  29-10-2018 13:37:11.669 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@ae3de9ba [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@bfac937d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2ww8xe9y1h846px1njrk4c|24d2db0e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ad27808d [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2ww8xe9y1h846px1njrk4c|3423126f, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2ww8xe9y1h846px1njrk4c|58ff90f2, numHelperThreads -> 3 ]
+INFO  29-10-2018 13:37:12.547 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  29-10-2018 13:37:12.870 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  29-10-2018 13:37:12.911 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final
+INFO  29-10-2018 13:37:59.468 [JavaFX Application Thread] HHH000412: Hibernate Core {5.3.6.Final}
+INFO  29-10-2018 13:37:59.470 [JavaFX Application Thread] HHH000206: hibernate.properties not found
+INFO  29-10-2018 13:38:00.111 [JavaFX Application Thread] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+INFO  29-10-2018 13:38:00.360 [JavaFX Application Thread] HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://db4free.net:3306/compproject
+INFO  29-10-2018 13:38:00.360 [JavaFX Application Thread] HHH10001001: Connection properties: {user=januszteam, password=****}
+INFO  29-10-2018 13:38:00.361 [JavaFX Application Thread] HHH10001003: Autocommit mode: false
+INFO  29-10-2018 13:38:00.382 [MLog-Init-Reporter] MLog clients using slf4j logging.
+INFO  29-10-2018 13:38:00.484 [JavaFX Application Thread] Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+INFO  29-10-2018 13:38:00.519 [JavaFX Application Thread] HHH10001007: JDBC isolation level: <unknown>
+INFO  29-10-2018 13:38:00.537 [JavaFX Application Thread] Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@dfa9e497 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@e35670f6 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 2ww8xe9y1h858f71mwhpdv|445b595d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@1579857c [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 2ww8xe9y1h858f71mwhpdv|725aa4aa, jdbcUrl -> jdbc:mysql://db4free.net:3306/compproject, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 2ww8xe9y1h858f71mwhpdv|7824fa23, numHelperThreads -> 3 ]
+INFO  29-10-2018 13:38:01.439 [JavaFX Application Thread] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO  29-10-2018 13:38:01.756 [JavaFX Application Thread] HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+INFO  29-10-2018 13:38:01.799 [JavaFX Application Thread] HV000001: Hibernate Validator 6.0.12.Final

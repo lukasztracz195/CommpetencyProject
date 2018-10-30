@@ -1,4 +1,4 @@
-package Controllers;
+package pl.competencyproject.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,3 +38,4 @@ public class MainController implements Initializable {
     }
 
 }
+

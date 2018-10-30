@@ -12,6 +12,11 @@
 
         <!-- List of XML mapping files -->
         <mapping class="pl.competencyproject.model.entities.User"/>
+        <mapping class="pl.competencyproject.model.entities.Stat"/>
+        <mapping class="pl.competencyproject.model.entities.Definition"/>
+        <mapping class="pl.competencyproject.model.entities.Level"/>
+        <mapping class="pl.competencyproject.model.entities.Translation"/>
+        <mapping class="pl.competencyproject.model.entities.Example"/>
     </session-factory>
 
 </hibernate-configuration>

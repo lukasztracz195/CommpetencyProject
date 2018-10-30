@@ -1,46 +1,33 @@
 package pl.competencyproject.model.entities;
 
 import javax.persistence.*;
-import java.sql.Date;
-
 @Entity
+@Table(name ="USERS")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUser")
+   // @Column(name = "idUser")
     private int idUser;
 
-    @Column(name = "email")
+   // @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
+   // @Column(name = "password")
     private String password;
 
-    @Column(name = "active")
+    //@Column(name = "active")
     private boolean active;
 
-    @Column(name = "confirmed")
-    private boolean confirmed;
-    private Date creationDate;
-
-    public User(String email, String xxxxxxxx, java.util.Date date) {
-    }
-
-    public User(String email, String password, Date creationDate) {
+    public User(String email, String password, boolean active) {
         this.email = email;
         this.password = password;
-        this.creationDate = creationDate;
-        this.confirmed = false;
+        this.active = active;
     }
 
-    public boolean isConfirmed() {
-        return confirmed;
+    public User() {
     }
 
-    public void setConfirmed(boolean confirmed) {
-        this.confirmed = confirmed;
-    }
 
     public int getIdUser() {
         return idUser;
@@ -74,19 +61,8 @@ public class User {
         this.active = active;
     }
 
-    public boolean isConfirmaed() {
-        return confirmed;
-    }
 
-    public void setConfirmaed(boolean confirmaed) {
-        this.confirmed = confirmaed;
-    }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+
 }
