@@ -1,2 +1,6 @@
-D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\.pl\project_competencies\connection\SessionFactoryConfig.java
-D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\Main.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\project_competencies\model\entities\User.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\main\Main.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\project_competencies\model\mutex\Mutex.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\project_competencies\model\entities\Stats.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\project_competencies\model\connection\GeneralSQL.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\project_competencies\model\connection\SessionFactoryConfig.java

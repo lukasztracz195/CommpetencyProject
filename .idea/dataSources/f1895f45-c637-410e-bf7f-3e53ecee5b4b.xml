@@ -1095,5 +1095,258 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
+    <table id="274" parent="2" name="DEFINITIONS"/>
+    <table id="275" parent="2" name="EXAMPLES"/>
+    <table id="276" parent="2" name="LEVELS"/>
+    <table id="277" parent="2" name="STATS"/>
+    <table id="278" parent="2" name="TRANSLATIONS"/>
+    <table id="279" parent="2" name="USERS"/>
+    <column id="280" parent="274" name="idDefinition">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="274" name="idTranslation">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="274" name="plDefinition">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="274" name="engDefinition">
+      <Position>4</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="284" parent="274" name="idTranslation">
+      <ColNames>idTranslation</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="285" parent="274" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idDefinition</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="286" parent="274" name="DEFINITIONS_ibfk_1">
+      <ColNames>idTranslation</ColNames>
+      <RefSchemaName>compproject</RefSchemaName>
+      <RefTableName>TRANSLATIONS</RefTableName>
+      <RefColNames>idtranslation</RefColNames>
+    </foreign-key>
+    <column id="287" parent="275" name="idExample">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="275" name="idTranslation">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="275" name="engExample">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="275" name="plExample">
+      <Position>4</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="291" parent="275" name="idTranslation">
+      <ColNames>idTranslation</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="292" parent="275" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idExample</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="293" parent="275" name="EXAMPLES_ibfk_1">
+      <ColNames>idTranslation</ColNames>
+      <RefSchemaName>compproject</RefSchemaName>
+      <RefTableName>TRANSLATIONS</RefTableName>
+      <RefColNames>idtranslation</RefColNames>
+    </foreign-key>
+    <column id="294" parent="276" name="idLevel">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="276" name="levelName">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="276" name="categorie">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="297" parent="276" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idLevel</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="298" parent="277" name="idStats">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="299" parent="277" name="idUser">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="277" name="idLevel">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="301" parent="277" name="dataInput">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="277" name="valueProgres">
+      <Position>5</Position>
+      <DataType>decimal(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="303" parent="277" name="dataInput">
+      <ColNames>dataInput</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="304" parent="277" name="idUser">
+      <ColNames>idUser</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="305" parent="277" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idStats</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="306" parent="277" name="dataInput">
+      <ColNames>dataInput</ColNames>
+      <UnderlyingIndexName>dataInput</UnderlyingIndexName>
+    </key>
+    <foreign-key id="307" parent="277" name="STATS_ibfk_1">
+      <ColNames>idUser</ColNames>
+      <RefSchemaName>compproject</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefColNames>iduser</RefColNames>
+    </foreign-key>
+    <column id="308" parent="278" name="idTranslation">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="278" name="idLevel">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="278" name="engWord">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="311" parent="278" name="plWord">
+      <Position>4</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="312" parent="278" name="idLevel">
+      <ColNames>idLevel</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="313" parent="278" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idTranslation</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="314" parent="278" name="TRANSLATIONS_ibfk_1">
+      <ColNames>idLevel</ColNames>
+      <RefSchemaName>compproject</RefSchemaName>
+      <RefTableName>LEVELS</RefTableName>
+      <RefColNames>idlevel</RefColNames>
+    </foreign-key>
+    <column id="315" parent="279" name="idUser">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="316" parent="279" name="login">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="317" parent="279" name="password">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="318" parent="279" name="email">
+      <Position>4</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="319" parent="279" name="active">
+      <Position>5</Position>
+      <DataType>bit(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="320" parent="279" name="confirmed">
+      <Position>6</Position>
+      <DataType>bit(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="321" parent="279" name="creationDate">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="322" parent="279" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idUser</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>
