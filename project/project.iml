@@ -93,7 +93,7 @@
     <orderEntry type="module-library">
       <library name="Maven: javafx-packager:javafx-packager:1.8.0_20">
         <CLASSES>
-          <root url="jar://F:/PROGRAMY/Java 8/jdk/lib/ant-javafx.jar!/" />
+          <root url="jar://D:/Program Files/Java/jdk1.8.0_191/lib/ant-javafx.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -182,5 +182,6 @@
     <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-artifact-transfer:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-shared-utils:3.2.0" level="project" />
     <orderEntry type="library" name="Maven: classworlds:classworlds:1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
   </component>
 </module>

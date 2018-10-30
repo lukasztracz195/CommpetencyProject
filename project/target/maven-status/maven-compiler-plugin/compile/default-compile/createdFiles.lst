@@ -17,3 +17,4 @@ pl\Main$1.class
 pl\competencyproject\controller\TestController.class
 pl\competencyproject\controller\LogonController.class
 pl\competencyproject\model\Mutex$1.class
+pl\competencyproject\model\messages\Email.class
