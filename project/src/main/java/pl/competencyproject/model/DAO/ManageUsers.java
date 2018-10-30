@@ -121,9 +121,17 @@ public class ManageUsers {
         User user = (User) result.get(0);
         if(user.getPassword().equals(password)) return true;
         return false;
-
-
     }
 
+    public boolean checkLogedUser(int IdUser){
+        Session session = factory.openSession();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
+        query.addEntity(User.class);
+        query.setParameter("idUser",IdUser).getFirstResult();
+        List result = query.list();
+        User user = (User) result.get(0);
+        if(user.isActive()) return true;
+        return false;
+    }
 
 }
