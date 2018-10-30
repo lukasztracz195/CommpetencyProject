@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="516.0" prefWidth="794.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Controllers.TeachingController">
+    <children>
+        <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <ToolBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+                    <items>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0"
+                                style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out"
+                                textFill="WHITE"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="70.0"
+                               style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="13.10.2018"
+                               textAlignment="CENTER" textFill="WHITE"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.6" prefWidth="55.0"
+                               style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="00:00"
+                               textAlignment="CENTER" textFill="WHITE"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="409.0"
+                               text="Witaj użytkowniku" textAlignment="CENTER"/>
+                    </items>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <cursor>
+                        <Cursor fx:constant="H_RESIZE"/>
+                    </cursor>
+                </ToolBar>
+            </top>
+            <center>
+                <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.4000244140625" minWidth="10.0"
+                                           prefWidth="61.6000244140625"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="684.0" minWidth="10.0"
+                                           prefWidth="673.5999755859375"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0"
+                                           prefWidth="59.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="30.0"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="21.600003051757817"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="372.000048828125"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977"
+                                        prefHeight="38.39995117187499" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="10.0" prefHeight="18.399999999999977"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <SplitPane dividerPositions="0.5007473841554558" orientation="VERTICAL" prefHeight="343.0"
+                                   prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="136.0" prefWidth="573.0">
+                                    <children>
+                                        <GridPane layoutX="-8.0" layoutY="-2.0" prefHeight="180.0" prefWidth="681.0"
+                                                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0"
+                                                                   prefWidth="227.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0"
+                                                                   prefWidth="229.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0"
+                                                                   prefWidth="226.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="26.0"
+                                                                vgrow="SOMETIMES"/>
+                                                <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="148.0"
+                                                                vgrow="SOMETIMES"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <Label alignment="CENTER" cacheShape="false" centerShape="false"
+                                                       contentDisplay="CENTER" prefHeight="26.0" prefWidth="227.0"
+                                                       style="-fx-background-color: #ff9966; -fx-background-radius: 15;"
+                                                       text="english" textAlignment="CENTER">
+                                                    <GridPane.margin>
+                                                        <Insets/>
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0"
+                                                       prefWidth="227.0"
+                                                       style="-fx-background-color: #00cc33; -fx-background-radius: 15;"
+                                                       text="polish" GridPane.columnIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets/>
+                                                    </GridPane.margin>
+                                                    <padding>
+                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="226.0"
+                                                               text="Definition"/>
+                                                        <TextArea prefHeight="132.0" prefWidth="226.0"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="46.0" prefWidth="134.0" GridPane.columnIndex="1"
+                                                      GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="230.0"
+                                                               text="Definicja"/>
+                                                        <TextArea prefHeight="130.0" prefWidth="213.0"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="148.0" prefWidth="400.0" GridPane.columnIndex="2"
+                                                      GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="350.0"
+                                                               text="Inne polskie znaczenia"/>
+                                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="356.0"
+                                                               style="-fx-background-color: #33ccff;" text="Znaczenie 2"/>
+                                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="341.0"
+                                                               style="-fx-background-color: #66ffff;" text="Znaczenie 3"/>
+                                                    </children>
+                                                </VBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER"
+                                                               prefHeight="26.0" prefWidth="76.0" text=" ENG &gt;&gt;"/>
+                                                        <Button mnemonicParsing="false" prefHeight="25.0"
+                                                                prefWidth="131.0"
+                                                                style="-fx-background-color: #3399ff; -fx-background-radius: 15;"
+                                                                text="Google Translator" textFill="WHITE"/>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER"
+                                                               prefHeight="26.0" prefWidth="72.0" text=" &gt;&gt;  PL"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="137.0" prefWidth="662.0">
+                                    <children>
+                                        <VBox layoutX="-2.0" prefHeight="173.0" prefWidth="674.0"
+                                              AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="-2.0"
+                                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="683.0"
+                                                       style="-fx-background-color: #ffffcc;"
+                                                       text="Przykład użycia 1 PL"/>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="800.0"
+                                                       style="-fx-background-color: #ffffcc;"
+                                                       text="Przykład użycia 1 ENG"/>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="800.0"
+                                                       style="-fx-background-color: #ffff99;"
+                                                       text="Przykład użycia 2 PL"/>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="800.0"
+                                                       style="-fx-background-color: #ffff99;"
+                                                       text="Przykład użycia 2 ENG"/>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="704.0"
+                                                       style="-fx-background-color: #ffff33;"
+                                                       text="Przykład użycia 3 PL"/>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="800.0"
+                                                       style="-fx-background-color: #ffff33;"
+                                                       text="Przykład użycia 3 ENG"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                        <Label alignment="CENTER" prefHeight="21.0" prefWidth="670.0"
+                               text="Teaching B1 temat  1/10 from words 53" GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+                        <BorderPane prefHeight="269.0" prefWidth="120.0" GridPane.rowIndex="2">
+                            <center>
+                                <Button disable="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0"
+                                        style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="&lt;&lt;"
+                                        BorderPane.alignment="CENTER"/>
+                            </center>
+                        </BorderPane>
+                        <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <center>
+                                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0"
+                                        style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="&gt;&gt;"
+                                        BorderPane.alignment="CENTER"/>
+                            </center>
+                            <cursor>
+                                <Cursor fx:constant="H_RESIZE"/>
+                            </cursor>
+                        </BorderPane>
+                        <Button disable="true" mnemonicParsing="false" prefHeight="12.0" prefWidth="674.0"
+                                style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Finish"
+                                GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Button mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="62.0"
+                                style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu"/>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="918.0"
+                               style="-fx-background-color: #99ff99; -fx-background-radius: 15;"
+                               text="Twój poziom biegłości językowej na poziomie B1 stanowi 80 % a w temacie ____ 30%"
+                               GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
