@@ -22,14 +22,14 @@ public class ManageUsers {
     }
 
     /* Method to CREATE an user in the database */
-    public Integer addUser(String email, String password, boolean active) {
+    public Integer addUser(String email, String password) {
         Session session = factory.openSession();
         Transaction tx = null;
         Integer idUser = null;
 
         try {
             tx = session.beginTransaction();
-            User user = new User(email, password, active);
+            User user = new User(email, password, true);
             idUser = (Integer) session.save(user);
             tx.commit();
         } catch (HibernateException e) {
@@ -41,27 +41,9 @@ public class ManageUsers {
         return idUser;
     }
 
-    /* Method to  READ all the users */
-   /* public List<User> listUsers( ){
-        Session session = factory.openSession();
-        Transaction tx = null;
-        List users = null;
-        try {
-            tx = session.beginTransaction();
-             users = session.createQuery("FROM USERS").list();
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return users;
-    }
-    */
 
-    /* Method to UPDATE salary for an employee */
-    public void updateUser(Integer UserID, String password ){
+    /* Method to UPDATE password for an user */
+    public void updatePasswordUser(Integer UserID, String password ){
         Session session = factory.openSession();
         Transaction tx = null;
 
@@ -69,6 +51,25 @@ public class ManageUsers {
             tx = session.beginTransaction();
             User user = (User)session.get(User.class, UserID);
             user.setPassword( password );
+            session.update(user);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    /* Method to UPDATE active status for an user */
+    public void updateActiveUser(Integer UserID, boolean active ){
+        Session session = factory.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            User user = (User)session.get(User.class, UserID);
+            user.setActive(active);
             session.update(user);
             tx.commit();
         } catch (HibernateException e) {
@@ -96,14 +97,33 @@ public class ManageUsers {
             session.close();
         }
     }
-/*
-    public boolean existUser(String email, String password)throws HibernateException{
+
+    public int existUser(String email)throws HibernateException{
         Session session = factory.openSession();
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS u WHERE u.email ='" + email + "'",User.class);
-        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
+        query.addEntity(User.class);
+        query.setParameter("email",email);
+        List result = query.list();
+        if(result .size() != 0) {
+            User user = (User) result.get(0);
+            return user.getIdUser();
+        }
+        return -1;
+
+    }
+
+    public boolean checkUserPassword(int IdUser, String password){
+        Session session = factory.openSession();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
+        query.addEntity(User.class);
+        query.setParameter("idUser",IdUser).getFirstResult();
+        List result = query.list();
+        User user = (User) result.get(0);
+        if(user.getPassword().equals(password)) return true;
+        return false;
 
 
     }
-*/
+
 
 }

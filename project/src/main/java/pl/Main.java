@@ -29,10 +29,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        /*
+
         ManageUsers mu = new ManageUsers();
-        System.out.println(mu.existUser("lukasztracz195@gmail.com","Ala ma kota").get(0).toString());
-*/
+        int id = mu.existUser("lukasztracz195@gmail.com");
+        System.out.println("Czy w bazie znajduje sie takie hasło dla usera o ID: "+id+" ->"+mu.checkUserPassword(id,"Ala ma kota"));
+
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
