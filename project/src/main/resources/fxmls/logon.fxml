@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.competencyproject.controller.LogonController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
     <children>
         <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -87,9 +86,9 @@
             <top>
                 <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                     <items>
-                        <Button fx:id="LogOutLabel" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
-                        <Label fx:id="DateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="13.10.2018" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="00:00" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="LogOutButton" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+                        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Label alignment="CENTER" prefHeight="27.0" prefWidth="416.0" />
                     </items>
                     <BorderPane.margin>

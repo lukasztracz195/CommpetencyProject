@@ -1,12 +1,11 @@
 package pl.competencyproject.model.DAO;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ManageUsers {
@@ -43,7 +42,7 @@ public class ManageUsers {
     }
 
     /* Method to  READ all the users */
-    public List<User> listUsers( ){
+   /* public List<User> listUsers( ){
         Session session = factory.openSession();
         Transaction tx = null;
         List users = null;
@@ -59,6 +58,7 @@ public class ManageUsers {
         }
         return users;
     }
+    */
 
     /* Method to UPDATE salary for an employee */
     public void updateUser(Integer UserID, String password ){
@@ -96,6 +96,14 @@ public class ManageUsers {
             session.close();
         }
     }
+/*
+    public boolean existUser(String email, String password)throws HibernateException{
+        Session session = factory.openSession();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS u WHERE u.email ='" + email + "'",User.class);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
 
+
+    }
+*/
 
 }

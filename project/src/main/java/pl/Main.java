@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.Mutex;
 
 import java.io.FileNotFoundException;
@@ -28,22 +29,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-
-
+        /*
+        ManageUsers mu = new ManageUsers();
+        System.out.println(mu.existUser("lukasztracz195@gmail.com","Ala ma kota").get(0).toString());
+*/
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
-        primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        root.getChildren().add(btn);
+        primaryStage.setTitle("TeachingEnglishApp");
         primaryStage.setScene(new Scene(root, 794, 516));
         primaryStage.show();
     }
