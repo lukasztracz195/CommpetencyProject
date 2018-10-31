@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pl.competencyproject.model.DAO.ManageUsers;
+import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.messages.Email;
 
@@ -27,6 +28,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
+        //SessionLogon.sign("lukasztracz195@gmail.com","zaq12wsx");
+        SessionLogon.login("lukasztracz195@gmail.com","zaq12wsx");
+        System.out.println("Id zalogowanego usera: "+
+                SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
+                SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
+
+
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
@@ -36,7 +44,10 @@ public class Main extends Application {
 
     @Override
     public void stop() {
-
+        SessionLogon.logOut();
+        System.out.println("Id wylogowanego usera: "+
+                SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
+                SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
     }
 
 

@@ -31,7 +31,7 @@ public class ManageUsers {
         try {
             tx = session.beginTransaction();
             String passwordEncrypted = encryptMD5(password);
-            User user = new User(email, passwordEncrypted, true);
+            User user = new User(email, passwordEncrypted, false);
             idUser = (Integer) session.save(user);
             tx.commit();
         } catch (HibernateException e) {
