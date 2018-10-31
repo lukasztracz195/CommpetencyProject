@@ -6,3 +6,5 @@ project/logs/
 *.lst
 
 *.jar
+
+project/LockFile
