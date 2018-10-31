@@ -1,3 +1,4 @@
+pl\competencyproject\model\DAO\SessionLogon.class
 pl\competencyproject\model\entities\Level.class
 pl\competencyproject\model\entities\Example.class
 pl\competencyproject\model\entities\Definition.class
@@ -5,7 +6,6 @@ pl\competencyproject\model\entities\User.class
 pl\competencyproject\model\connection\SessionFactoryConfig.class
 pl\competencyproject\model\entities\Stats.class
 pl\competencyproject\model\entities\Translation.class
-pl\competencyproject\model\connection\Cos.class
 pl\competencyproject\controller\MainController.class
 pl\competencyproject\controller\MenuLayoutController.class
 pl\Main.class

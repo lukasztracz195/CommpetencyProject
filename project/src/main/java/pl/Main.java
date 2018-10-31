@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.Mutex;
+import pl.competencyproject.model.messages.Email;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,12 +26,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
-
-        ManageUsers mu = new ManageUsers();
-        int id = mu.existUser("lukasztracz195@gmail.com");
-      //  System.out.println("Czy w bazie znajduje sie takie hasło dla usera o ID: "+id+" ->"+mu.checkUserPassword(id,"Ala ma kota"));
-       // System.out.println("Czy użytkownik jest zalogowany: "+mu.checkLogedUser(id));
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();

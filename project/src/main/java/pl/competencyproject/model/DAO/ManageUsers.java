@@ -5,6 +5,9 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class ManageUsers {
@@ -25,10 +28,10 @@ public class ManageUsers {
         org.hibernate.Session session = factory.openSession();
         Transaction tx = null;
         Integer idUser = null;
-
         try {
             tx = session.beginTransaction();
-            User user = new User(email, password, true);
+            String passwordEncrypted = encryptMD5(password);
+            User user = new User(email, passwordEncrypted, true);
             idUser = (Integer) session.save(user);
             tx.commit();
         } catch (HibernateException e) {
@@ -43,20 +46,18 @@ public class ManageUsers {
 
     /* Method to UPDATE password for an user */
     public static void updatePasswordUser(Integer UserID, String password ){
-        Session session = factory.openSession();
-        Transaction tx = null;
+            Transaction tx = null;
+        try (Session session = factory.openSession()) {
 
-        try {
             tx = session.beginTransaction();
-            User user = (User)session.get(User.class, UserID);
-            user.setPassword( password );
+            User user = session.get(User.class, UserID);
+            String passwordEncrypted = encryptMD5(password);
+            user.setPassword(passwordEncrypted);
             session.update(user);
             tx.commit();
         } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
+            if (tx != null) tx.rollback();
             e.printStackTrace();
-        } finally {
-            session.close();
         }
     }
 
@@ -118,8 +119,8 @@ public class ManageUsers {
         query.setParameter("idUser",IdUser).getFirstResult();
         List result = query.list();
         User user = (User) result.get(0);
-        if(user.getPassword().equals(password)) return true;
-        return false;
+        String passwordUser = encryptMD5(password);
+        return user.getPassword().equals(passwordUser);
     }
 
     public static boolean checkLogedUser(int IdUser){
@@ -133,4 +134,20 @@ public class ManageUsers {
         return false;
     }
 
+    private static String encryptMD5(String password)   {
+        String hash = "35454B055CC325EA1AF2126E27707052";
+        MessageDigest md = null;
+        String myHash = null;
+        try {
+            md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+             myHash = DatatypeConverter
+                    .printHexBinary(digest).toUpperCase();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return myHash;
+
+    }
 }
