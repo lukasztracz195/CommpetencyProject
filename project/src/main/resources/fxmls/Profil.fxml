@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller..TeachingController">
+    <children>
+        <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <ToolBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+                    <items>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="13.10.2018" textAlignment="CENTER" textFill="WHITE" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.6" prefWidth="55.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="00:00" textAlignment="CENTER" textFill="WHITE" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="409.0" text="Witaj uzytkowniku" textAlignment="CENTER" />
+                    </items>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <cursor>
+                        <Cursor fx:constant="H_RESIZE" />
+                    </cursor>
+                </ToolBar>
+            </top>
+            <center>
+                <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.4000244140625" minWidth="10.0" prefWidth="61.6000244140625" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="684.0" minWidth="10.0" prefWidth="673.5999755859375" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0" prefWidth="59.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="21.600003051757817" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="372.000048828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977" prefHeight="38.39995117187499" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="10.0" prefHeight="18.399999999999977" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <BorderPane prefHeight="269.0" prefWidth="120.0" GridPane.rowIndex="2" />
+                        <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <cursor>
+                                <Cursor fx:constant="H_RESIZE" />
+                            </cursor>
+                        </BorderPane>
+                        <Button disable="false" mnemonicParsing="false" prefHeight="12.0" prefWidth="674.0" style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Zapisz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="918.0" style="-fx-background-color: #99ff99; -fx-background-radius: 15;" text="Ogolne ustawienia konta" GridPane.columnIndex="1" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <children>
+                                <GridPane layoutX="-4.0" layoutY="-2.0" prefHeight="377.0" prefWidth="678.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <VBox fillWidth="false" prefHeight="377.0" prefWidth="195.0">
+                                            <children>
+
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Login" textAlignment="CENTER" />
+                                                <Label prefHeight="17.0" prefWidth="252.0" />
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Haslo" textAlignment="CENTER" />
+                                                <Label prefHeight="59.0" prefWidth="229.0" />
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Poziom bieglosci jezykowej" textAlignment="CENTER" />
+                                            </children></VBox>
+                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                            <children>
+                                                <TextField fx:id="logNazwaUzytkownika" minHeight="0.0" prefHeight="25.0" prefWidth="180.0" text="tkaczuknazar@gmail.com" />
+                                                <Label prefHeight="17.0" prefWidth="252.0" />
+                                                <TextField fx:id="logNazwaUzytkownika" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="180.0" promptText="****************" />
+                                                <Label prefHeight="59.0" prefWidth="229.0" />
+                                                <GridPane prefHeight="64.0" prefWidth="226.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                                                            <children>
+                                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #66ff33; -fx-background-radius: 15;" text="B1" textAlignment="CENTER" />
+                                                                <Label prefHeight="17.0" prefWidth="252.0" />
+                                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #66ff33; -fx-background-radius: 15;" text="B2" textAlignment="CENTER" />
+                                                            </children></VBox>
+                                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                                            <children>
+                                                                <TextField fx:id="logNazwaUzytkownika" editable="false" prefHeight="25.0" prefWidth="71.0" text="89%" />
+                                                                <Label prefHeight="17.0" prefWidth="226.0" />
+                                                                <TextField fx:id="logNazwaUzytkownika" editable="false" prefHeight="25.0" prefWidth="71.0" text="65%" />
+                                                            </children></VBox>
+                                                    </children>
+                                                </GridPane>
+                                            </children></VBox>
+                                        <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                                            <children>
+                                                <Label prefHeight="42.0" prefWidth="252.0" />
+                                                <TextField fx:id="logNazwaUzytkownika" prefHeight="25.0" prefWidth="180.0" text="Nowe haslo" />
+                                                <Label prefHeight="17.0" prefWidth="226.0" />
+                                                <TextField fx:id="logNazwaUzytkownika" prefWidth="180.0" text="Potwierdz haslo" />
+                                                <Label prefHeight="17.0" prefWidth="226.0" />
+                                            </children></VBox>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
