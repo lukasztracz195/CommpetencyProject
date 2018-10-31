@@ -5,13 +5,12 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ManageUsers {
 
-    private static SessionFactory factory;
-
+    private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
+/*
     public ManageUsers() {
         try {
             factory = SessionFactoryConfig.getSessionFactory();
@@ -20,10 +19,10 @@ public class ManageUsers {
             throw new ExceptionInInitializerError(ex);
         }
     }
-
+*/
     /* Method to CREATE an user in the database */
-    public Integer addUser(String email, String password) {
-        Session session = factory.openSession();
+    public static Integer addUser(String email, String password) {
+        org.hibernate.Session session = factory.openSession();
         Transaction tx = null;
         Integer idUser = null;
 
@@ -43,7 +42,7 @@ public class ManageUsers {
 
 
     /* Method to UPDATE password for an user */
-    public void updatePasswordUser(Integer UserID, String password ){
+    public static void updatePasswordUser(Integer UserID, String password ){
         Session session = factory.openSession();
         Transaction tx = null;
 
@@ -62,7 +61,7 @@ public class ManageUsers {
     }
 
     /* Method to UPDATE active status for an user */
-    public void updateActiveUser(Integer UserID, boolean active ){
+    public static void updateActiveUser(Integer UserID, boolean active ){
         Session session = factory.openSession();
         Transaction tx = null;
 
@@ -81,7 +80,7 @@ public class ManageUsers {
     }
 
     /* Method to DELETE an user from the records */
-    public void deleteUser(Integer UserID){
+    public static void deleteUser(Integer UserID){
         Session session = factory.openSession();
         Transaction tx = null;
 
@@ -98,7 +97,7 @@ public class ManageUsers {
         }
     }
 
-    public int existUser(String email)throws HibernateException{
+    public static int existUser(String email)throws HibernateException{
         Session session = factory.openSession();
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
@@ -112,7 +111,7 @@ public class ManageUsers {
 
     }
 
-    public boolean checkUserPassword(int IdUser, String password){
+    public static boolean checkUserPassword(int IdUser, String password){
         Session session = factory.openSession();
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
         query.addEntity(User.class);
@@ -123,7 +122,7 @@ public class ManageUsers {
         return false;
     }
 
-    public boolean checkLogedUser(int IdUser){
+    public static boolean checkLogedUser(int IdUser){
         Session session = factory.openSession();
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
         query.addEntity(User.class);
