@@ -1,11 +1,8 @@
 package pl;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pl.competencyproject.model.DAO.ManageUsers;
@@ -32,8 +29,8 @@ public class Main extends Application {
 
         ManageUsers mu = new ManageUsers();
         int id = mu.existUser("lukasztracz195@gmail.com");
-        System.out.println("Czy w bazie znajduje sie takie hasło dla usera o ID: "+id+" ->"+mu.checkUserPassword(id,"Ala ma kota"));
-
+      //  System.out.println("Czy w bazie znajduje sie takie hasło dla usera o ID: "+id+" ->"+mu.checkUserPassword(id,"Ala ma kota"));
+       // System.out.println("Czy użytkownik jest zalogowany: "+mu.checkLogedUser(id));
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
