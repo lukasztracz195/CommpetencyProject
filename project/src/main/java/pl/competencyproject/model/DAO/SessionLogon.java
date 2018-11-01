@@ -41,11 +41,5 @@ public class SessionLogon {
         genereatedCode = code;
         return code;
     }
-
-    public static int generateCode(){
-        Random random = new Random();
-        int code = random.nextInt(8999) + 1000;
-        genereatedCode = code;
-        return code;
-    }
+    
 }
