@@ -3,7 +3,7 @@ package pl.competencyproject.model.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="LEVELS")
+@Table(name = "LEVELS")
 public class Level {
 
     @Id
@@ -11,6 +11,7 @@ public class Level {
     private int idLevel;
 
     private String levelName;
+
 
     private String categorie;
 
@@ -32,5 +33,17 @@ public class Level {
 
     public String getCategorie() {
         return categorie;
+    }
+
+    public void setIdLevel(int idLevel) {
+        this.idLevel = idLevel;
+    }
+
+    public void setLevelName(String levelName) {
+        this.levelName = levelName;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 }
