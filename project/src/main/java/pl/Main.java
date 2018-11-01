@@ -29,12 +29,16 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         //SessionLogon.sign("lukasztracz195@gmail.com","zaq12wsx");
+        /*
         SessionLogon.login("lukasztracz195@gmail.com","zaq12wsx");
         System.out.println("Id zalogowanego usera: "+
                 SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
                 SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
 
-
+        Email.mailRejestration("lukasztracz195@gmail.com");
+        System.out.println(SessionLogon.genereatedCode);
+            */
+        System.out.println(ManageUsers.genereateHash());
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
         AnchorPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");

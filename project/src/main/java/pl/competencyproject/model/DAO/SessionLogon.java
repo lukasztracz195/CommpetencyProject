@@ -1,10 +1,13 @@
 package pl.competencyproject.model.DAO;
 
+import java.util.Random;
+
 public class SessionLogon {
 
     public static int IdLoggedUser = -1;
     public static boolean correctPassword = false;
     public static boolean logged = false;
+    public static int genereatedCode;
 
     public static void login(String email, String password) {
         IdLoggedUser = ManageUsers.existUser(email);
@@ -20,7 +23,7 @@ public class SessionLogon {
     }
 
     public static void logOut() {
-        if (IdLoggedUser >= 0) {
+        if (IdLoggedUser > 0) {
             ManageUsers.updateActiveUser(IdLoggedUser, false);
             logged = false;
         }
@@ -29,5 +32,12 @@ public class SessionLogon {
     public static void sign(String email, String password) {
         IdLoggedUser = ManageUsers.addUser(email, password);
         login(email, password);
+    }
+
+    public static int generateCode(){
+        Random random = new Random();
+        int code = random.nextInt(8999) + 1000;
+        genereatedCode = code;
+        return code;
     }
 }

@@ -284,6 +284,7 @@
                 </executions>
                 <configuration>
                     <mainClass>pl.Main</mainClass>
+                    <cleanupDaemonThreads>false</cleanupDaemonThreads>
                 </configuration>
             </plugin>
 
