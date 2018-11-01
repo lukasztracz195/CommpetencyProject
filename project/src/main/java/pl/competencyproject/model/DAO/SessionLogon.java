@@ -9,7 +9,7 @@ public class SessionLogon {
     public static boolean logged = false;
     public static int genereatedCode;
 
-    public static void login(String email, String password) {
+    public static void logIn(String email, String password) {
         IdLoggedUser = ManageUsers.existUser(email);
         if (IdLoggedUser >= 0) {
             if (ManageUsers.checkUserPassword(IdLoggedUser, password)) {
@@ -31,7 +31,8 @@ public class SessionLogon {
 
     public static void sign(String email, String password) {
         IdLoggedUser = ManageUsers.addUser(email, password);
-        login(email, password);
+        if(IdLoggedUser != -1)  logIn(email, password);
+
     }
 
     public static int generateCode(){

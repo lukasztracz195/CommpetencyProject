@@ -1,5 +1,7 @@
 package pl.competencyproject.model.entities;
 
+import pl.competencyproject.model.DAO.ManageUsers;
+
 import javax.persistence.*;
 @Entity
 @Table(name ="USERS")
@@ -7,22 +9,35 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @Column(name = "idUser")
     private int idUser;
 
-   // @Column(name = "Email")
     private String email;
 
-   // @Column(name = "password")
+    private String hash;
+
     private String password;
 
-    //@Column(name = "active")
     private boolean active;
+
+    public User(String email, String password,String hash, boolean active) {
+        this.email = email;
+        this.password = password;
+        this.active = active;
+        this.hash = hash;
+    }
 
     public User(String email, String password, boolean active) {
         this.email = email;
         this.password = password;
         this.active = active;
+        this.hash = null;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+        this.active = false;
+        this.hash = null;
     }
 
     public User() {
@@ -40,6 +55,10 @@ public class User {
     public String getEmail() {
         return email;
     }
+
+    public String getHash() { return hash; }
+
+    public void setHash(String hash) { this.hash = hash;}
 
     public void setEmail(String email) {
         this.email = email;
