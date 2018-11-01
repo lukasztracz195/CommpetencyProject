@@ -9,20 +9,12 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Random;
 
 public class ManageUsers {
 
     private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
-/*
-    public ManageUsers() {
-        try {
-            factory = SessionFactoryConfig.getSessionFactory();
-        } catch (Throwable ex) {
-            System.err.println("Failed to create sessionFactory object." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
-*/
+
     /* Method to CREATE an user in the database */
     public static Integer addUser(String email, String password) {
         org.hibernate.Session session = factory.openSession();
@@ -149,5 +141,16 @@ public class ManageUsers {
         }
         return myHash;
 
+    }
+
+    public static String genereateHash(){
+        StringBuilder sb = new StringBuilder();
+        String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random random = new Random();
+        for(int i=0;i<32;i++){
+            if(random.nextInt(2) % 2 == 0)sb.append(String.valueOf(random.nextInt(9)));
+            else sb.append(base.charAt(random.nextInt(25)));
+        }
+        return sb.toString();
     }
 }
