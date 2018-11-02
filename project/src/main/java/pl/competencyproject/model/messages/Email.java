@@ -17,7 +17,7 @@ public class Email {
     private static final boolean sessionDebug = false;
     private static final String pass = "pr0jektk0mpetencyjny";
 
-    public static void mailRejestration(String to) {
+    public static void mailRegestration(String to) {
         try {
             String subject = "Kod potwierdzający rejestrację";
             String messageText = "Twój kod to: " + String.valueOf(SessionLogon.generateCode());

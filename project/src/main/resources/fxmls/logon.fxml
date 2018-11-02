@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
     <children>
         <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -54,8 +54,8 @@
                                         <TextField fx:id="logNazwaUzytkownika" />
                                         <Label prefHeight="28.0" prefWidth="242.0" text="Hasło" />
                                         <PasswordField fx:id="logHaslo" />
-                                        <Label prefHeight="18.0" prefWidth="387.0" />
-                                        <Button fx:id="logButton" mnemonicParsing="false" onAction="#logowanie" prefHeight="90.0" prefWidth="210.0" style="-fx-background-color: #33cc33;" text="Log in" />
+                                        <Label fx:id="logErrorLabel" prefHeight="18.0" prefWidth="387.0" />
+                                        <Button fx:id="logButton" mnemonicParsing="false" onAction="#login" prefHeight="90.0" prefWidth="210.0" style="-fx-background-color: #33cc33;" text="Log in" />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -66,11 +66,11 @@
                                             </font>
                                         </Label>
                                         <Label prefHeight="28.0" prefWidth="236.0" text="E-mail" />
-                                        <TextField fx:id="RejEmail" />
+                                        <TextField fx:id="RejNazwaUzytkownika" />
                                         <Label prefHeight="28.0" prefWidth="278.0" text="Hasło" />
                                         <PasswordField fx:id="RejHaslo" />
-                                        <Label prefHeight="18.0" prefWidth="387.0" />
-                                        <Button fx:id="signButton" mnemonicParsing="false" prefHeight="95.0" prefWidth="236.0" style="-fx-background-color: #9999ff;" text="Sign in" />
+                                        <Label fx:id="rejErrorLabel" prefHeight="18.0" prefWidth="387.0" />
+                                        <Button fx:id="signButton" mnemonicParsing="false" onAction="#registration" prefHeight="95.0" prefWidth="236.0" style="-fx-background-color: #9999ff;" text="Sign in" />
                                     </children>
                                 </VBox>
                             </children>
@@ -86,7 +86,7 @@
             <top>
                 <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="640.0" BorderPane.alignment="CENTER">
                     <items>
-                        <Button fx:id="LogOutButton" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+                        <Button fx:id="LogOutButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
                         <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Label alignment="CENTER" prefHeight="27.0" prefWidth="416.0" />
