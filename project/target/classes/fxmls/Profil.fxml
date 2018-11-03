@@ -12,17 +12,17 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller..TeachingController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ProfileController">
     <children>
         <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <ToolBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
                     <items>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="13.10.2018" textAlignment="CENTER" textFill="WHITE" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.6" prefWidth="55.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" text="00:00" textAlignment="CENTER" textFill="WHITE" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="409.0" text="Witaj uzytkowniku" textAlignment="CENTER" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+                  <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+                  <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                     </items>
                     <opaqueInsets>
                         <Insets />
@@ -81,9 +81,9 @@
                                             </children></VBox>
                                         <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                             <children>
-                                                <TextField fx:id="logNazwaUzytkownika" minHeight="0.0" prefHeight="25.0" prefWidth="180.0" text="tkaczuknazar@gmail.com" />
+                                                <TextField fx:id="profilNazwaUzytkownika" minHeight="0.0" prefHeight="25.0" prefWidth="180.0" text="tkaczuknazar@gmail.com" />
                                                 <Label prefHeight="17.0" prefWidth="252.0" />
-                                                <TextField fx:id="logNazwaUzytkownika" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="180.0" promptText="****************" />
+                                                <TextField fx:id="profilHaslo" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="180.0" promptText="****************" />
                                                 <Label prefHeight="59.0" prefWidth="229.0" />
                                                 <GridPane prefHeight="64.0" prefWidth="226.0">
                                                     <columnConstraints>
@@ -103,9 +103,17 @@
                                                             </children></VBox>
                                                         <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                                             <children>
-                                                                <TextField fx:id="logNazwaUzytkownika" editable="false" prefHeight="25.0" prefWidth="71.0" text="89%" />
-                                                                <Label prefHeight="17.0" prefWidth="226.0" />
-                                                                <TextField fx:id="logNazwaUzytkownika" editable="false" prefHeight="25.0" prefWidth="71.0" text="65%" />
+                                                <Label prefHeight="33.0" prefWidth="28.0" text="80%" textFill="#1e8404">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                                <Label prefHeight="28.0" prefWidth="114.0" />
+                                                <Label prefHeight="0.0" prefWidth="28.0" text="65%" textFill="#1e8404">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
                                                             </children></VBox>
                                                     </children>
                                                 </GridPane>
@@ -113,9 +121,9 @@
                                         <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                                             <children>
                                                 <Label prefHeight="42.0" prefWidth="252.0" />
-                                                <TextField fx:id="logNazwaUzytkownika" prefHeight="25.0" prefWidth="180.0" text="Nowe haslo" />
+                                                <TextField fx:id="profilNoweHaslo" prefHeight="25.0" prefWidth="180.0" text="Nowe haslo" />
                                                 <Label prefHeight="17.0" prefWidth="226.0" />
-                                                <TextField fx:id="logNazwaUzytkownika" prefWidth="180.0" text="Potwierdz haslo" />
+                                                <TextField fx:id="profilPotwierdzHaslo" prefWidth="180.0" text="Potwierdz haslo" />
                                                 <Label prefHeight="17.0" prefWidth="226.0" />
                                             </children></VBox>
                                     </children>

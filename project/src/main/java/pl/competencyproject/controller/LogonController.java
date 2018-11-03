@@ -13,11 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import pl.competencyproject.model.DAO.ManageUsers;
+import pl.competencyproject.model.messages.Email;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
@@ -36,6 +39,10 @@ public class LogonController implements Initializable {
     @FXML
     private TextField RejHaslo;
     @FXML
+    private Label logErrorLabel;
+    @FXML
+    private Label rejErrorLabel;
+    @FXML
     private Label clockLabel;
 
     @FXML
@@ -44,7 +51,6 @@ public class LogonController implements Initializable {
     @FXML
     private Button LogOutButton;
     private Timeline timeline;
-    private int secconds = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,11 +59,59 @@ public class LogonController implements Initializable {
         LogOutButton.setDisable(true);
         clockDate();
     }
-
     @FXML
-    public void logowanie() {
+    public void login(){
+//        ManageUsers manageUsers=new ManageUsers();
+//        logErrorLabel.setText(" ");
+//        boolean checker=true;
+//
+//        if(manageUsers.existUser(LogNazwaUzytkownika.getText())!=-1) {
+//            if (manageUsers.checkUserPassword(manageUsers.existUser(LogNazwaUzytkownika.getText()), LogHaslo.getText())==checker) {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
+        Pane pane = null;
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MenuLayoutController menuLayoutController = loader.getController();
+        menuLayoutController.setMainController(mainController);
+        mainController.setScreen(pane);
+//            } else {
+//                logErrorLabel.setText("Podano nieprawidłowe hasło");
+//            }
+//        } else{
+//            logErrorLabel.setText("Podana Nazwa Użytkownika nie istnieje");
+//        }
+   }
+    @FXML
+    public void registration(){
+        Email email=new Email();
+        ManageUsers manageUsers=new ManageUsers();
+        rejErrorLabel.setText("");
+        CharSequence at="@";
+        CharSequence dot=".";
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/MainMenuLayout.fxml"));
+        if(RejNazwaUzytkownika.getText().toLowerCase().contains(at)&&RejNazwaUzytkownika.getText().toLowerCase().contains(dot)) {
+            if (manageUsers.existUser(RejNazwaUzytkownika.getText()) == -1) {
+                email.mailRegestration(RejNazwaUzytkownika.getText());
+            } else {
+                rejErrorLabel.setText("Podana Nazwa Użytkownika już istnieje");
+            }
+        } else {
+            rejErrorLabel.setText("Podano nieprawidłowy adres email");
+        }
+    }
+/*
+    @FXML
+    public void exitApplication(ActionEvent event) {
+        mainController.
+        Platform.exit();
+        timeline.stop();
+    }
+*/
+    public void loginMenu(){
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
@@ -68,14 +122,7 @@ public class LogonController implements Initializable {
         menuLayoutController.setMainController(mainController);
         mainController.setScreen(pane);
     }
-/*
-    @FXML
-    public void exitApplication(ActionEvent event) {
-        mainController.
-        Platform.exit();
-        timeline.stop();
-    }
-*/
+
     private void clockDate() {
         timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),

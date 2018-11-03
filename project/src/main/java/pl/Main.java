@@ -3,7 +3,7 @@ package pl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
@@ -34,12 +34,12 @@ public class Main extends Application {
                 SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
                 SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
 
-        //Email.mailRejestration("lukasztracz195@gmail.com");
+        //Email.mailRegestration("lukasztracz195@gmail.com");
        // System.out.println(SessionLogon.genereatedCode);
 
        // System.out.println(ManageUsers.genereateHash());
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
-        AnchorPane root = loader.load();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainScreen.fxml"));
+        StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
         primaryStage.setScene(new Scene(root, 794, 516));
         primaryStage.show();
