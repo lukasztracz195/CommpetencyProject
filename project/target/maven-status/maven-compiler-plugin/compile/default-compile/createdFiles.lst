@@ -1,4 +1,5 @@
 pl\competencyproject\model\DAO\SessionLogon.class
+pl\competencyproject\model\DAO\MenageStat.class
 pl\competencyproject\model\entities\Level.class
 pl\competencyproject\model\entities\Example.class
 pl\competencyproject\model\entities\Definition.class

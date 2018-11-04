@@ -20,7 +20,7 @@ public class MainController implements Initializable {
     }
 
     public void loadLogonScreen() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/logon.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/Logon.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();

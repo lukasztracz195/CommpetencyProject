@@ -3,70 +3,76 @@ package pl.competencyproject.controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.ManageUsers;
+import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.messages.Email;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class LogonController implements Initializable {
 
     private MainController mainController;
 
     @FXML
-    private TextField LogNazwaUzytkownika;
+    private TextField emailTextField;
     @FXML
-    private TextField LogHaslo;
+    private PasswordField passwordTextField;
     @FXML
-    private TextField RejNazwaUzytkownika;
+    private TextField codeTextField;
     @FXML
-    private TextField RejEmail;
+    private Label emailFeedbackLabel;
     @FXML
-    private TextField RejHaslo;
-    @FXML
-    private Label logErrorLabel;
-    @FXML
-    private Label rejErrorLabel;
+    private Label passwordFeedbackLabel;
     @FXML
     private Label clockLabel;
-
     @FXML
     private Label dateLabel;
-
     @FXML
-    private Button LogOutButton;
+    private Label codeLabel;
+    @FXML
+    private ToggleButton toggleButton;
+    @FXML
+    private Button approvesButton;
+    @FXML
+    private Button logOutButton;
     private Timeline timeline;
+    private boolean statusLogin = true;
+    private boolean approvesCode = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        LogOutButton.setDisable(true);
+        codeLabel.setVisible(false);
+        codeTextField.setVisible(false);
+        codeTextField.setDisable(true);
+        logOutButton.setDisable(true);
+        codeLabel.setDisable(true);
+        toggleButton.setId("LogIn");
+        toggleButton.setText("<<<<");
         clockDate();
     }
+
     @FXML
-    public void login(){
-//        ManageUsers manageUsers=new ManageUsers();
-//        logErrorLabel.setText(" ");
-//        boolean checker=true;
-//
-//        if(manageUsers.existUser(LogNazwaUzytkownika.getText())!=-1) {
-//            if (manageUsers.checkUserPassword(manageUsers.existUser(LogNazwaUzytkownika.getText()), LogHaslo.getText())==checker) {
+    private void login() {
+        SessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
+
+        if (!SessionLogon.correctPassword) {
+            passwordFeedbackLabel.setText("This password is worng");
+        }
+        if (SessionLogon.IdLoggedUser == -1) {
+            emailFeedbackLabel.setText("User with this email not exist");
+        }
+        /*
+// To trzeba zamienić na jedną linijkę
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
         Pane pane = null;
         try {
@@ -77,50 +83,95 @@ public class LogonController implements Initializable {
         MenuLayoutController menuLayoutController = loader.getController();
         menuLayoutController.setMainController(mainController);
         mainController.setScreen(pane);
-//            } else {
-//                logErrorLabel.setText("Podano nieprawidłowe hasło");
-//            }
-//        } else{
-//            logErrorLabel.setText("Podana Nazwa Użytkownika nie istnieje");
-//        }
-   }
-    @FXML
-    public void registration(){
-        Email email=new Email();
-        ManageUsers manageUsers=new ManageUsers();
-        rejErrorLabel.setText("");
-        CharSequence at="@";
-        CharSequence dot=".";
+        //******************************
+        */
+        logOutButton.setDisable(false);
+        emailTextField.clear();
+        passwordTextField.clear();
+        emailFeedbackLabel.setText("Użytkownik został zalogowany");
+    }
 
-        if(RejNazwaUzytkownika.getText().toLowerCase().contains(at)&&RejNazwaUzytkownika.getText().toLowerCase().contains(dot)) {
-            if (manageUsers.existUser(RejNazwaUzytkownika.getText()) == -1) {
-                email.mailRegestration(RejNazwaUzytkownika.getText());
-            } else {
-                rejErrorLabel.setText("Podana Nazwa Użytkownika już istnieje");
+    @FXML
+    public void registration() {
+        String email = emailTextField.getText();
+        if (checkEmail(email)) {
+            Email.mailRegestration(email);
+            codeLabel.setVisible(true);
+            codeLabel.setDisable(false);
+            codeTextField.setVisible(true);
+            codeTextField.setDisable(false);
+            approvesButton.setText("Aproves your Code");
+            this.approvesCode = true;
+        }
+
+    }
+
+    public void loginMenu() {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenu.fxml"));
+        Pane pane = null;
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MenuLayoutController menuLayoutController = loader.getController();
+        menuLayoutController.setMainController(mainController);
+        mainController.setScreen(pane);
+    }
+
+    @FXML
+    public void controlLogSignCheckButton() {
+        if (statusLogin) {
+            login();
+            if (SessionLogon.logged){
+               // loginMenu();
             }
         } else {
-            rejErrorLabel.setText("Podano nieprawidłowy adres email");
+            if (!approvesCode) {
+                registration();
+            } else {
+                if (checkCode()) {
+                    System.out.println(checkCode());
+                    SessionLogon.sign(emailTextField.getText(), passwordTextField.getText());
+                    emailFeedbackLabel.setText("Użytkownik został utowrzony");
+                    logOutButton.setDisable(false);
+                   // loginMenu();
+                } else {
+                    System.out.println(checkCode());
+                    emailTextField.clear();
+                    passwordTextField.clear();
+                    emailFeedbackLabel.setText("Your code is wrong");
+                }
+            }
+        }
+
+    }
+
+    public void changeToogleButton() {
+        if (statusLogin) {
+            statusLogin = false;
+            toggleButton.setId("SignIn");
+            approvesButton.setText("Sign in");
+            emailTextField.clear();
+            passwordTextField.clear();
+            toggleButton.setText(">>>>");
+        } else {
+            statusLogin = true;
+            emailTextField.clear();
+            passwordTextField.clear();
+            toggleButton.setText("<<<<");
+            toggleButton.setId("LogIn");
+            approvesButton.setText("Log in");
         }
     }
-/*
-    @FXML
-    public void exitApplication(ActionEvent event) {
-        mainController.
-        Platform.exit();
-        timeline.stop();
-    }
-*/
-    public void loginMenu(){
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+    private boolean checkCode() {
+        int code = Integer.valueOf(codeTextField.getText());
+        if (code == SessionLogon.genereatedCode) {
+            return true;
         }
-        MenuLayoutController menuLayoutController = loader.getController();
-        menuLayoutController.setMainController(mainController);
-        mainController.setScreen(pane);
+        codeTextField.clear();
+        return false;
     }
 
     private void clockDate() {
@@ -129,7 +180,6 @@ public class LogonController implements Initializable {
                 ae -> setClock()));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
     }
 
     private void setClock() {
@@ -138,7 +188,8 @@ public class LogonController implements Initializable {
         clockLabel.setText(dtf.format((now)));
         setDate();
     }
-    private void setDate(){
+
+    private void setDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDateTime now = LocalDateTime.now();
         dateLabel.setText(dtf.format((now)));
@@ -148,5 +199,37 @@ public class LogonController implements Initializable {
         this.mainController = mainController;
     }
 
+    private boolean checkEmail(String email) {
 
+        if (ManageUsers.existUser(email) == -1) {
+            if (email.contains("@")) {
+                String afterMonkey = email.substring(email.indexOf("@"));
+                if (afterMonkey.contains(".")) {
+                    return true;
+                } else {
+                    emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
+                    emailTextField.clear();
+                    passwordTextField.clear();
+                    return false;
+                }
+            } else {
+                emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
+                emailTextField.clear();
+                passwordTextField.clear();
+                return false;
+            }
+        } else {
+            emailFeedbackLabel.setText("Podana Nazwa Użytkownika już istnieje, zaloguj się");
+            emailTextField.clear();
+            passwordTextField.clear();
+            return false;
+        }
+    }
+
+    @FXML
+    public void logOut(){
+        SessionLogon.logOut();
+        logOutButton.setDisable(true);
+        emailFeedbackLabel.setText("Użytkownik został wylogowany");
+    }
 }

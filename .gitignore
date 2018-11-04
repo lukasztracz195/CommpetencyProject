@@ -1,8 +1,5 @@
 
 project/target/
-
 project/logs/
-
-*.lst
-
 project/LockFile
+*.lst
