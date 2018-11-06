@@ -8,11 +8,9 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
-import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Random;
 
 public class ManageUsers {
 
@@ -22,6 +20,7 @@ public class ManageUsers {
     public static Integer addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
+
         if (ManageUsers.existUser(email) == -1) {
             org.hibernate.Session session = factory.openSession();
             try {
