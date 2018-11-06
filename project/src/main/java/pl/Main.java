@@ -4,12 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
-import pl.competencyproject.model.messages.Email;
+import pl.competencyproject.model.Time.GeneralClock;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,35 +24,21 @@ public class Main extends Application {
         }
 
 
+    }
 
+    @Override
+    public void init() {
+        SessionLogon.time = GeneralClock.getInstance();
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        String password = "zaq12nknksngbksnkbsnfkbnxchdfhfasfhfdshdfgfhdhsdhewheherhrqgsfgqwrtq fdateryq43wtqwrefgw4q3tq54tgqryq3yq3wsx";
-        System.out.println("Ile znakow ma kod: "+ManageUsers.encryptSHA1(password).length());
-        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
-        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
-        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
-        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
-        /*
-        SessionLogon.sign("lukasztracz195@gmail.com","zaq12wsx");
-
-       // SessionLogon.logIn("lukasztracz195@gmail.com","zaq12wsx");
-        System.out.println("Id zalogowanego usera: "+
-                SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
-                SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
-
-        //Email.mailRegestration("lukasztracz195@gmail.com");
-       // System.out.println(SessionLogon.genereatedCode);
-*/
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/Logon.fxml"));
         AnchorPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
         Scene scene = new Scene(root, 794, 516);
-       // scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        // scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -63,9 +47,9 @@ public class Main extends Application {
     @Override
     public void stop() {
         SessionLogon.logOut();
-        //System.out.println("Id wylogowanego usera: "+
-            //    SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
-             //   SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
+        System.out.println("Id wylogowanego usera: " +
+                SessionLogon.IdLoggedUser + " Czy hasło jego sie zgadza: " +
+                SessionLogon.correctPassword + " Czy jest zalogowany: " + SessionLogon.logged);
     }
 
 

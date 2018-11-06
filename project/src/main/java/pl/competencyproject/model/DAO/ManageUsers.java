@@ -8,20 +8,18 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
-import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Random;
 
 public class ManageUsers {
 
     private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
 
     /* Method to CREATE an user in the database */
-    public static Integer addUser(String email, String password) {
+    public static int addUser(String email, String password) {
         Transaction tx = null;
-        Integer idUser = -1;
+        int idUser = -1;
         if (ManageUsers.existUser(email) == -1) {
             org.hibernate.Session session = factory.openSession();
             try {
@@ -97,15 +95,9 @@ public class ManageUsers {
     }
 
     public static int existUser(String email) throws HibernateException {
-        Session session = factory.openSession();
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
-        query.addEntity(User.class);
-        query.setParameter("email", email);
-        List result = query.list();
-        if (result.size() != 0) {
-            User user = (User) result.get(0);
-            return user.getIdUser();
-        }
+
+        User user = getUser(email);
+        if (user != null) return user.getIdUser();
         return -1;
 
     }
@@ -123,25 +115,30 @@ public class ManageUsers {
         return user;
     }
 
-
-    public static boolean checkUserPassword(int IdUser, String password) {
+    public static User getUser(int IdUser) {
         Session session = factory.openSession();
+        User user = null;
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
         query.addEntity(User.class);
         query.setParameter("idUser", IdUser).getFirstResult();
         List result = query.list();
-        User user = (User) result.get(0);
+        if (result.size() != 0) {
+            user = (User) result.get(0);
+        }
+        return user;
+    }
+
+
+    public static boolean checkUserPassword(int IdUser, String password) {
+
+        User user = getUser(IdUser);
         String passwordUser = encryptSHA1(password);
         return user.getPassword().equals(passwordUser);
     }
 
     public static boolean checkLogedUser(int IdUser) {
-        Session session = factory.openSession();
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
-        query.addEntity(User.class);
-        query.setParameter("idUser", IdUser).getFirstResult();
-        List result = query.list();
-        User user = (User) result.get(0);
+
+        User user = getUser(IdUser);
         if (user.isActive()) return true;
         return false;
     }

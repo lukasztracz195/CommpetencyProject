@@ -1,5 +1,6 @@
 package pl.competencyproject.model.DAO;
 
+import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
 
 import java.util.Random;
@@ -10,6 +11,7 @@ public class SessionLogon {
     public static boolean correctPassword = false;
     public static boolean logged = false;
     public static int genereatedCode;
+    public static GeneralClock time;
 
     public static void logIn(String email, String password) {
         User tmpUser = ManageUsers.getUser(email);
@@ -46,4 +48,15 @@ public class SessionLogon {
         return code;
     }
 
+    public static boolean checkCode(String text) {
+        int code = Integer.valueOf(text);
+        if (code == genereatedCode) {
+            return true;
+        }
+        return false;
+    }
+
+    public static GeneralClock getClockDate(){
+        return time;
+    }
 }

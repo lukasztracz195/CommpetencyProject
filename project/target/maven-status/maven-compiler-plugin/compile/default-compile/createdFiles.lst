@@ -14,6 +14,7 @@ pl\competencyproject\model\DAO\ManageUsers.class
 pl\competencyproject\model\entities\Stat.class
 pl\competencyproject\controller\TeachingController.class
 pl\competencyproject\model\Mutex.class
+pl\competencyproject\model\Time\GeneralClock.class
 pl\competencyproject\controller\TestController.class
 pl\competencyproject\controller\LogonController.class
 pl\competencyproject\model\Mutex$1.class
