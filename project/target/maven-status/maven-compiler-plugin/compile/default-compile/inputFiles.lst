@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\connection\SessionFactoryConfig.java
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MenuLayoutController.java
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\Main.java
@@ -19,3 +20,26 @@ C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencypro
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TestController.java
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Stat.java
 C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\User.java
+=======
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\SessionLogon.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\User.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Time\GeneralClock.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\MenageStat.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TestController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Example.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MenuLayoutController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\ManageUsers.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Level.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\LogonController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\ManageLevels.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TeachingController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MainController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\ProfileController.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Definition.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\Main.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\messages\Email.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Translation.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\connection\SessionFactoryConfig.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Stat.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Mutex.java
+>>>>>>> master
