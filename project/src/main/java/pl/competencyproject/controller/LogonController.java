@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.JavaFxLoader;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.messages.Email;
 
@@ -45,6 +46,7 @@ public class LogonController implements Initializable {
     private Button approvesButton;
     @FXML
     private Button logOutButton;
+
     private Timeline timeline;
     private boolean statusLogin = true;
     private boolean approvesCode = false;
@@ -63,7 +65,6 @@ public class LogonController implements Initializable {
         setclockDate();
     }
 
-    @FXML
     private void login() {
         SessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
         clearAllFeedbackLabels();
@@ -76,7 +77,6 @@ public class LogonController implements Initializable {
             emailFeedbackLabel.setText("User with this email not exist");
         }
         /*
-// To trzeba zamienić na jedną linijkę
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
         Pane pane = null;
         try {
@@ -97,8 +97,8 @@ public class LogonController implements Initializable {
         }
     }
 
-    @FXML
-    public void registration() {
+
+    private void registration() {
         String email = emailTextField.getText();
         if (checkEmail(email)) {
             Email.mailRegestration(email);
@@ -109,17 +109,22 @@ public class LogonController implements Initializable {
             approvesButton.setText("Aproves your Code");
             this.approvesCode = true;
         }
-
     }
 
-    public void loginMenu() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenu.fxml"));
+    private void loginMenu() {
+        /*FXMLLoader loader=new FXMLLoader();
+        JavaFxLoader javaFxLoader=new JavaFxLoader();
+        Pane pane=null;
+        pane=javaFxLoader.load("MainMenuLayout.fxml",loader);*/
+
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         MenuLayoutController menuLayoutController = loader.getController();
         menuLayoutController.setMainController(mainController);
         mainController.setScreen(pane);
@@ -130,7 +135,7 @@ public class LogonController implements Initializable {
         if (statusLogin) {
             login();
             if (SessionLogon.logged) {
-                // loginMenu();
+                 loginMenu();
             }
         } else {
             if (!approvesCode) {
@@ -142,7 +147,7 @@ public class LogonController implements Initializable {
                     clearAllFeedbackLabels();
                     emailFeedbackLabel.setText("Użytkownik został utowrzony");
                     logOutButton.setDisable(false);
-                    // loginMenu();
+                    loginMenu();
                 } else {
                     codeTextField.clear();
                     clearFieldsEmailAndPassword();
