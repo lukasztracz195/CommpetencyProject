@@ -80,7 +80,6 @@ public class ManageUsers {
     public static void deleteUser(Integer UserID) {
         Session session = factory.openSession();
         Transaction tx = null;
-
         try {
             tx = session.beginTransaction();
             User user = (User) session.get(User.class, UserID);
@@ -102,6 +101,21 @@ public class ManageUsers {
 
     }
 
+    public static void updateEmail(Integer UserID, String email) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            User user = session.get(User.class, UserID);
+            user.setEmail(email);
+            session.update(user);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        }
+    }
+
     public static User getUser(String email) {
         Session session = factory.openSession();
         User user = null;
@@ -117,13 +131,17 @@ public class ManageUsers {
 
     public static User getUser(int IdUser) {
         Session session = factory.openSession();
-        User user = null;
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
-        query.addEntity(User.class);
-        query.setParameter("idUser", IdUser).getFirstResult();
-        List result = query.list();
-        if (result.size() != 0) {
-            user = (User) result.get(0);
+        Transaction tx = null;
+        User user= null;
+        try {
+            tx = session.beginTransaction();
+             user = (User) session.get(User.class, IdUser);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
         return user;
     }
