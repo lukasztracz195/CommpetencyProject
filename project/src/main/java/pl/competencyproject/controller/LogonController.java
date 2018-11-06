@@ -90,7 +90,6 @@ public class LogonController implements Initializable {
         //******************************
         */
         logOutButton.setDisable(false);
-        clearFieldsEmailAndPassword();
         if (SessionLogon.logged) {
             emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
             emailFeedbackLabel.setText("Użytkownik został zalogowany");
@@ -155,6 +154,8 @@ public class LogonController implements Initializable {
     }
 
     public void changeToogleButton() {
+        clearAllFeedbackLabels();
+        clearFieldsEmailAndPassword();
         if (statusLogin) {
             statusLogin = false;
             toggleButton.setId("SignIn");
@@ -218,6 +219,7 @@ public class LogonController implements Initializable {
     @FXML
     public void logOut() {
         SessionLogon.logOut();
+        clearAllFeedbackLabels();
         logOutButton.setDisable(true);
         emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
         emailFeedbackLabel.setText("Użytkownik został wylogowany");

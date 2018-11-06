@@ -10,6 +10,7 @@ pl\competencyproject\controller\ProfileController.class
 pl\competencyproject\controller\MainController.class
 pl\competencyproject\controller\MenuLayoutController.class
 pl\Main.class
+pl\competencyproject\model\DAO\ManageLevels.class
 pl\competencyproject\model\DAO\ManageUsers.class
 pl\competencyproject\model\entities\Stat.class
 pl\competencyproject\controller\TeachingController.class
