@@ -8,15 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.messages.Email;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class LogonController implements Initializable {
@@ -48,9 +48,11 @@ public class LogonController implements Initializable {
     private Timeline timeline;
     private boolean statusLogin = true;
     private boolean approvesCode = false;
+    private GeneralClock clock;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         codeLabel.setVisible(false);
         codeTextField.setVisible(false);
         codeTextField.setDisable(true);
@@ -58,17 +60,19 @@ public class LogonController implements Initializable {
         codeLabel.setDisable(true);
         toggleButton.setId("LogIn");
         toggleButton.setText("<<<<");
-        clockDate();
+        setclockDate();
     }
 
     @FXML
     private void login() {
         SessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
-
+        clearAllFeedbackLabels();
         if (!SessionLogon.correctPassword) {
-            passwordFeedbackLabel.setText("This password is worng");
+            passwordFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
+            passwordFeedbackLabel.setText("This password is wrong");
         }
         if (SessionLogon.IdLoggedUser == -1) {
+            emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
             emailFeedbackLabel.setText("User with this email not exist");
         }
         /*
@@ -86,9 +90,11 @@ public class LogonController implements Initializable {
         //******************************
         */
         logOutButton.setDisable(false);
-        emailTextField.clear();
-        passwordTextField.clear();
-        emailFeedbackLabel.setText("Użytkownik został zalogowany");
+        clearFieldsEmailAndPassword();
+        if (SessionLogon.logged) {
+            emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
+            emailFeedbackLabel.setText("Użytkownik został zalogowany");
+        }
     }
 
     @FXML
@@ -123,23 +129,24 @@ public class LogonController implements Initializable {
     public void controlLogSignCheckButton() {
         if (statusLogin) {
             login();
-            if (SessionLogon.logged){
-               // loginMenu();
+            if (SessionLogon.logged) {
+                // loginMenu();
             }
         } else {
             if (!approvesCode) {
                 registration();
             } else {
-                if (checkCode()) {
-                    System.out.println(checkCode());
+                if (SessionLogon.checkCode(codeTextField.getText())) {
+
                     SessionLogon.sign(emailTextField.getText(), passwordTextField.getText());
+                    clearAllFeedbackLabels();
                     emailFeedbackLabel.setText("Użytkownik został utowrzony");
                     logOutButton.setDisable(false);
-                   // loginMenu();
+                    // loginMenu();
                 } else {
-                    System.out.println(checkCode());
-                    emailTextField.clear();
-                    passwordTextField.clear();
+                    codeTextField.clear();
+                    clearFieldsEmailAndPassword();
+                    clearAllFeedbackLabels();
                     emailFeedbackLabel.setText("Your code is wrong");
                 }
             }
@@ -165,42 +172,25 @@ public class LogonController implements Initializable {
         }
     }
 
-    private boolean checkCode() {
-        int code = Integer.valueOf(codeTextField.getText());
-        if (code == SessionLogon.genereatedCode) {
-            return true;
-        }
-        codeTextField.clear();
-        return false;
-    }
-
-    private void clockDate() {
+    private void setclockDate() {
+        clock = SessionLogon.getClockDate();
         timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),
-                ae -> setClock()));
+                ae -> {
+                    clockLabel.setText(clock.getTime());
+                    dateLabel.setText(clock.getDate());
+                }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
-    private void setClock() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        clockLabel.setText(dtf.format((now)));
-        setDate();
-    }
-
-    private void setDate() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        dateLabel.setText(dtf.format((now)));
-    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
     private boolean checkEmail(String email) {
-
+        clearAllFeedbackLabels();
         if (ManageUsers.existUser(email) == -1) {
             if (email.contains("@")) {
                 String afterMonkey = email.substring(email.indexOf("@"));
@@ -208,28 +198,39 @@ public class LogonController implements Initializable {
                     return true;
                 } else {
                     emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
-                    emailTextField.clear();
-                    passwordTextField.clear();
+                    clearFieldsEmailAndPassword();
                     return false;
                 }
             } else {
+
                 emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
-                emailTextField.clear();
-                passwordTextField.clear();
+                clearFieldsEmailAndPassword();
                 return false;
             }
         } else {
+
             emailFeedbackLabel.setText("Podana Nazwa Użytkownika już istnieje, zaloguj się");
-            emailTextField.clear();
-            passwordTextField.clear();
+            clearFieldsEmailAndPassword();
             return false;
         }
     }
 
     @FXML
-    public void logOut(){
+    public void logOut() {
         SessionLogon.logOut();
         logOutButton.setDisable(true);
+        emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
         emailFeedbackLabel.setText("Użytkownik został wylogowany");
+    }
+
+    private void clearFieldsEmailAndPassword() {
+        emailTextField.clear();
+        passwordTextField.clear();
+    }
+
+    private void clearAllFeedbackLabels() {
+        emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
+        emailFeedbackLabel.setText("");
+        passwordFeedbackLabel.setText("");
     }
 }

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -28,9 +25,9 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0" prefWidth="128.399951171875" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="85.6" minHeight="10.0" prefHeight="43.60000495910644" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="400.80000801086425" minHeight="10.0" prefHeight="326.7999950408936" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="107.99998779296874" minHeight="8.199972534179722" prefHeight="107.99998779296874" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="85.6" minHeight="10.0" prefHeight="58.40000915527344" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="400.80000801086425" minHeight="10.0" prefHeight="371.9999755859375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="107.99998779296874" minHeight="8.199972534179722" prefHeight="51.20002441406251" vgrow="SOMETIMES" />
                     </rowConstraints>
                <children>
                   <VBox prefHeight="344.0" prefWidth="542.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -64,9 +61,9 @@
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <Label fx:id="emailFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0">
+                        <Label fx:id="emailFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" prefHeight="34.0" prefWidth="516.0" text="Password">
@@ -79,9 +76,9 @@
                               <Font size="18.0" />
                            </font>
                         </PasswordField>
-                        <Label fx:id="passwordFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0">
+                        <Label fx:id="passwordFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="codeLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" text="Code">
@@ -94,9 +91,9 @@
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <Label fx:id="codeFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0">
+                        <Label fx:id="codeFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Button fx:id="approvesButton" mnemonicParsing="false" onAction="#controlLogSignCheckButton" prefHeight="58.0" prefWidth="516.0" style="-fx-background-color: #0066ff; -fx-background-radius: 60;" text="Log in" textFill="WHITE">
@@ -109,22 +106,16 @@
                </children>
                 </GridPane>
             </center>
-            <top>
-                <ToolBar accessibleRole="BUTTON" cache="true" cacheHint="QUALITY" cacheShape="false" centerShape="false" focusTraversable="false" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="false" prefHeight="22.0" prefWidth="640.0" scaleShape="false" BorderPane.alignment="CENTER">
-                    <items>
-                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
-                        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+         <top>
+            <FlowPane prefHeight="31.0" prefWidth="794.0" style="-fx-background-color: #C0C0C0 Silver;" BorderPane.alignment="CENTER">
+               <children>
+                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp" />
                         <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="27.0" prefWidth="416.0" scaleShape="false" text="TeachingEnglishApp" />
-                    </items>
-                    <BorderPane.margin>
-                        <Insets />
-                    </BorderPane.margin>
-                    <cursor>
-                        <Cursor fx:constant="H_RESIZE" />
-                    </cursor>
-                </ToolBar>
-            </top>
+                        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+                        <Button fx:id="logOutButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textAlignment="CENTER" textFill="WHITE" />
+               </children>
+            </FlowPane>
+         </top>
         </BorderPane>
     </children>
 </AnchorPane>
