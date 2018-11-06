@@ -24,10 +24,20 @@ public class Main extends Application {
         if (lockFile) {
             launch(args);
         }
+
+
+
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
+        String password = "zaq12nknksngbksnkbsnfkbnxchdfhfasfhfdshdfgfhdhsdhewheherhrqgsfgqwrtq fdateryq43wtqwrefgw4q3tq54tgqryq3yq3wsx";
+        System.out.println("Ile znakow ma kod: "+ManageUsers.encryptSHA1(password).length());
+        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
+        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
+        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
+        System.out.println("SHA1: "+ManageUsers.encryptSHA1(password));
         /*
         SessionLogon.sign("lukasztracz195@gmail.com","zaq12wsx");
 
@@ -53,9 +63,9 @@ public class Main extends Application {
     @Override
     public void stop() {
         SessionLogon.logOut();
-        System.out.println("Id wylogowanego usera: "+
-                SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
-                SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
+        //System.out.println("Id wylogowanego usera: "+
+            //    SessionLogon.IdLoggedUser+" Czy hasło jego sie zgadza: "+
+             //   SessionLogon.correctPassword+" Czy jest zalogowany: "+SessionLogon.logged);
     }
 
 

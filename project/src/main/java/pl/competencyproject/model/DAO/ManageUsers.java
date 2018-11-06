@@ -26,9 +26,8 @@ public class ManageUsers {
             org.hibernate.Session session = factory.openSession();
             try {
                 tx = session.beginTransaction();
-                String hash = ManageUsers.genereateHash();
-                String passwordEncrypted = encryptMD5(password, hash);
-                User user = new User(email, passwordEncrypted, hash, false);
+                String passwordEncrypted = encryptSHA1(password);
+                User user = new User(email, passwordEncrypted, false);
                 idUser = (Integer) session.save(user);
                 tx.commit();
             } catch (HibernateException e) {
@@ -50,9 +49,7 @@ public class ManageUsers {
 
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
-            String hash = ManageUsers.genereateHash();
-            String passwordEncrypted = encryptMD5(password, hash);
-            user.setHash(hash);
+            String passwordEncrypted = encryptSHA1(password);
             user.setPassword(passwordEncrypted);
             session.update(user);
             tx.commit();
@@ -113,6 +110,20 @@ public class ManageUsers {
 
     }
 
+    public static User getUser(String email) {
+        Session session = factory.openSession();
+        User user = null;
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
+        query.addEntity(User.class);
+        query.setParameter("email", email);
+        List result = query.list();
+        if (result.size() != 0) {
+            user = (User) result.get(0);
+        }
+        return user;
+    }
+
+
     public static boolean checkUserPassword(int IdUser, String password) {
         Session session = factory.openSession();
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
@@ -120,7 +131,7 @@ public class ManageUsers {
         query.setParameter("idUser", IdUser).getFirstResult();
         List result = query.list();
         User user = (User) result.get(0);
-        String passwordUser = encryptMD5(password, user.getHash());
+        String passwordUser = encryptSHA1(password);
         return user.getPassword().equals(passwordUser);
     }
 
@@ -135,30 +146,22 @@ public class ManageUsers {
         return false;
     }
 
-    private static String encryptMD5(String password, String hash) {
-        MessageDigest md = null;
-        String myHash = null;
+    public static String encryptSHA1(String password) {
+        MessageDigest mDigest = null;
+        StringBuffer sb = new StringBuffer();
         try {
-            md = MessageDigest.getInstance("MD5");
-            md.update(password.getBytes());
-            byte[] digest = md.digest();
-            myHash = DatatypeConverter
-                    .printHexBinary(digest).toUpperCase();
+            mDigest = MessageDigest.getInstance("SHA1");
+            byte[] result = mDigest.digest(password.getBytes());
+
+            for (int i = 0; i < result.length; i++) {
+                sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return myHash;
-
-    }
-
-    private static String genereateHash() {
-        StringBuilder sb = new StringBuilder();
-        String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Random random = new Random();
-        for (int i = 0; i < 32; i++) {
-            if (random.nextInt(2) % 2 == 0) sb.append(String.valueOf(random.nextInt(9)));
-            else sb.append(base.charAt(random.nextInt(25)));
-        }
         return sb.toString();
     }
+
+
 }

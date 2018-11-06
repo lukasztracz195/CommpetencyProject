@@ -1,5 +1,7 @@
 package pl.competencyproject.model.DAO;
 
+import pl.competencyproject.model.entities.User;
+
 import java.util.Random;
 
 public class SessionLogon {
@@ -10,15 +12,17 @@ public class SessionLogon {
     public static int genereatedCode;
 
     public static void logIn(String email, String password) {
-        IdLoggedUser = ManageUsers.existUser(email);
-        if (IdLoggedUser >= 0) {
-            if (ManageUsers.checkUserPassword(IdLoggedUser, password)) {
+        User tmpUser = ManageUsers.getUser(email);
+        if(tmpUser != null){
+            IdLoggedUser = tmpUser.getIdUser();
+            tmpUser = ManageUsers.getUser(email);
+            if(ManageUsers.encryptSHA1(password).equals(tmpUser.getPassword())){
                 correctPassword = true;
-                if (!ManageUsers.checkLogedUser(IdLoggedUser)) {
+                if(!tmpUser.isActive()){
                     ManageUsers.updateActiveUser(IdLoggedUser, true);
                     logged = true;
-                } else logged = false;
-            } else correctPassword = false;
+                }
+            }
         }
     }
 
