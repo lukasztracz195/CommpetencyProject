@@ -21,25 +21,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="6" />
+          <entry key="java" value="8" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="8" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1318" />
+          <entry key="java" value="1583" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1318" />
+          <entry key="JAVA" value="1583" />
           <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
@@ -47,69 +47,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="171" column="55" selection-start-line="171" selection-start-column="55" selection-end-line="171" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="84" column="66" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/SessionLogon.java">
+        <entry file="file://$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="146" column="4" selection-start-line="146" selection-start-column="4" selection-end-line="150" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
-                <element signature="e#790#791#0" expanded="true" />
-                <element signature="e#817#818#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/ProfileController.java">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageLevels.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+            <state relative-caret-position="68">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/MenageStat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+            <state relative-caret-position="-153">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="-311">
+              <caret line="97" column="22" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+              <folding>
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#832#833#0" expanded="true" />
+                <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#974#975#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,8 +130,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java" />
         <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java" />
+        <option value="$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java" />
       </list>
     </option>
   </component>
@@ -134,8 +142,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="141" />
-    <option name="y" value="-12" />
+    <option name="x" value="1655" />
+    <option name="y" value="-16" />
     <option name="width" value="1932" />
     <option name="height" value="1085" />
   </component>
@@ -242,12 +250,144 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAO" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="competencyproject" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAO" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CommpetencyProject" type="58d84e3e:PackageViewProjectNode" />
+              <item name="project" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="58d84e3e:PackageViewProjectNode" />
+              <item name="project" type="616d4139:PackageViewModuleNode" />
+              <item name="pl" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541550800337" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541556441163" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -262,7 +402,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Run">
+  <component name="RunManager" selected="JUnit.ManageUsersTest">
     <configuration name="ManageUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
@@ -309,7 +449,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManageUsersTest.loggerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ManageUsersTest.loggerActiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
         <pattern>
@@ -319,13 +459,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
       <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
-      <option name="METHOD_NAME" value="loggerTest" />
+      <option name="METHOD_NAME" value="loggerActiveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManageUsersTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ManageUsersTest.loggerDisaktiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
         <pattern>
@@ -335,7 +475,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
       <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
-      <option name="METHOD_NAME" value="updateTest" />
+      <option name="METHOD_NAME" value="loggerDisaktiveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -369,19 +509,19 @@
     </configuration>
     <list>
       <item itemvalue="Maven.Run" />
-      <item itemvalue="JUnit.ManageUsersTest.addTest" />
-      <item itemvalue="JUnit.ManageUsersTest.updateTest" />
-      <item itemvalue="JUnit.ManageUsersTest.loggerTest" />
+      <item itemvalue="JUnit.ManageUsersTest.loggerActiveTest" />
+      <item itemvalue="JUnit.ManageUsersTest.loggerDisaktiveTest" />
       <item itemvalue="JUnit.ManageUsersTest.deleteTest" />
       <item itemvalue="JUnit.ManageUsersTest" />
+      <item itemvalue="JUnit.ManageUsersTest.addTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ManageUsersTest" />
         <item itemvalue="JUnit.ManageUsersTest.deleteTest" />
-        <item itemvalue="JUnit.ManageUsersTest.loggerTest" />
-        <item itemvalue="JUnit.ManageUsersTest.updateTest" />
         <item itemvalue="JUnit.ManageUsersTest.addTest" />
+        <item itemvalue="JUnit.ManageUsersTest.loggerDisaktiveTest" />
+        <item itemvalue="JUnit.ManageUsersTest.loggerActiveTest" />
       </list>
     </recent_temporary>
   </component>
@@ -399,34 +539,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ManageUsersTest_addTest - 2018.11.06 at 23h 54m 19s.xml">
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 27m 29s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 29m 07s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 30m 19s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 32m 22s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 37m 01s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 02h 40m 06s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_addTest - 2018.11.07 at 02h 41m 47s.xml">
       <configuration name="ManageUsersTest.addTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 17m 06s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    <history-entry file="ManageUsersTest_addTest - 2018.11.07 at 02h 46m 36s.xml">
+      <configuration name="ManageUsersTest.addTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 18m 33s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 20m 19s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 25m 37s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 37m 35s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 40m 34s.xml">
-      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_loggerTest - 2018.11.07 at 00h 55m 07s.xml">
-      <configuration name="ManageUsersTest.loggerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ManageUsersTest_deleteTest - 2018.11.07 at 00h 58m 39s.xml">
+    <history-entry file="ManageUsersTest_deleteTest - 2018.11.07 at 02h 49m 26s.xml">
       <configuration name="ManageUsersTest.deleteTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ManageUsersTest - 2018.11.07 at 01h 00m 12s.xml">
+    <history-entry file="ManageUsersTest - 2018.11.07 at 03h 02m 55s.xml">
       <configuration name="ManageUsersTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -434,17 +574,16 @@
     <option name="totallyTimeSpent" value="17000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3147651" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32952183" />
@@ -456,9 +595,8 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32952183" />
-      <window_info anchor="right" id="JSF" />
-      <window_info anchor="right" id="CDI" />
-      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -467,6 +605,9 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="JSF" order="8" />
+      <window_info anchor="right" id="CDI" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -483,17 +624,6 @@
         <state relative-caret-position="-561" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-          <folding>
-            <element signature="e#943#944#0" expanded="true" />
-            <element signature="e#974#975#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -501,27 +631,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding>
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="325">
+          <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java">
+    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageLevels.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="171" column="55" selection-start-line="171" selection-start-column="55" selection-end-line="171" selection-end-column="55" />
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="106" column="33" lean-forward="true" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
+        <state relative-caret-position="-311">
+          <caret line="97" column="22" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/MenageStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -172,6 +172,10 @@ public class ManageUsers {
         return user.getPassword().equals(passwordUser);
     }
 
+    public static boolean checkUserEmail(int IdUser, String email) {
+        User user = getUser(IdUser);
+        return user.getEmail().equals(email);
+    }
 
 
     public static boolean checkLogedUser(int IdUser) {
