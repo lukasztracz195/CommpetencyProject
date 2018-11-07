@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.Time.GeneralClock;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,10 +38,11 @@ public class ProfileController implements Initializable{
     private Label dateLabel;
 
     private Timeline timeline;
+    private GeneralClock clock;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        clockDate();
+        setclockDate();
     }
 
     @FXML
@@ -57,31 +59,22 @@ public class ProfileController implements Initializable{
         mainController.setScreen(pane);
     }
 
-    private void clockDate() {
-        timeline = new Timeline(new KeyFrame(
-                Duration.millis(1000),
-                ae -> setClock()));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-
-    }
-
-    private void setClock() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        clockLabel.setText(dtf.format((now)));
-        setDate();
-    }
-    private void setDate(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        LocalDateTime now = LocalDateTime.now();
-        dateLabel.setText(dtf.format((now)));
-    }
-
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
         SessionLogon.logOut();
+    }
+
+    private void setclockDate() {
+        clock = SessionLogon.getClockDate();
+        timeline = new Timeline(new KeyFrame(
+                Duration.millis(1000),
+                ae -> {
+                    clockLabel.setText(clock.getTime());
+                    dateLabel.setText(clock.getDate());
+                }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     public void setMainController(MainController mainController) {
