@@ -3,22 +3,18 @@ package pl.competencyproject.model.DAO;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
-import pl.competencyproject.model.entities.User;
-import sun.nio.cs.ext.MacArabic;
-
-import static junit.framework.TestCase.assertSame;
-import static org.mockito.Mockito.mock;
 
 class ManageUsersTest {
 
-   String email = "testuser@gmail.com";
+   String email = "testUser1@gmail.com";
+   String emailChange="testUser2@gmail.com";
    String password = "qwerty1";
    String passwordChanged="qwerty2";
 
-   int id = -1;
-   boolean logged = true;
+    int id = -1;
+    boolean loggedTest1 = true;
+    boolean loggedTest2 = false;
     @Before
     public void create(){
         SessionFactoryConfig.getSessionFactory();
@@ -33,22 +29,34 @@ class ManageUsersTest {
     }
 
     @Test
-    public void updateTest(){
-        ManageUsers.updatePasswordUser(ManageUsers.existUser(email),passwordChanged);
-        ManageUsers.checkUserPassword(ManageUsers.existUser(email),passwordChanged);
+    public void updateEmailTest(){
+        ManageUsers.updateEmail(ManageUsers.existUser(email),emailChange);
+        ManageUsers.checkUserEmail(ManageUsers.existUser(emailChange),emailChange);
 
     }
 
     @Test
-    public void loggerTest(){
-        ManageUsers.updateActiveUser(ManageUsers.existUser(email),logged);
-        ManageUsers.checkLogedUser(ManageUsers.existUser(email));
+    public void updatePasswordTest(){
+        ManageUsers.updatePasswordUser(ManageUsers.existUser(emailChange),passwordChanged);
+        ManageUsers.checkUserPassword(ManageUsers.existUser(emailChange),passwordChanged);
+
     }
 
+    @Test
+    public void loggerEnableTest(){
+        ManageUsers.updateActiveUser(ManageUsers.existUser(emailChange),loggedTest1);
+        ManageUsers.checkLogedUser(ManageUsers.existUser(emailChange));
+    }
+
+    @Test
+    public void loggerDisableTest(){
+        ManageUsers.updateActiveUser(ManageUsers.existUser(emailChange),loggedTest2);
+        ManageUsers.checkLogedUser(ManageUsers.existUser(emailChange));
+    }
     @Test
     public void deleteTest(){
-        ManageUsers.deleteUser(ManageUsers.existUser(email));
-        Assertions.assertEquals(-1,ManageUsers.existUser(email));
+        ManageUsers.deleteUser(ManageUsers.existUser(emailChange));
+        Assertions.assertEquals(-1,ManageUsers.existUser(emailChange));
     }
 
 
