@@ -97,7 +97,7 @@ public class ManageUsers {
 
     public static int existUser(String email) throws HibernateException {
 
-        Session session = factory.openSession();
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
         User user = null;
         int id = -1;
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
