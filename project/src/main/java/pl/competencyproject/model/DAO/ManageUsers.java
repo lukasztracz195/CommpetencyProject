@@ -20,7 +20,8 @@ public class ManageUsers {
 
     public static int addUser(String email, String password) {
         Transaction tx = null;
-        int idUser = -1;
+        Integer idUser = -1;
+
         if (ManageUsers.existUser(email) == -1) {
             org.hibernate.Session session = SessionFactoryConfig.getSessionFactory().openSession();
             try {
@@ -96,9 +97,18 @@ public class ManageUsers {
 
     public static int existUser(String email) throws HibernateException {
 
-        User user = getUser(email);
-        if (user != null) return user.getIdUser();
-        return -1;
+        Session session = factory.openSession();
+        User user = null;
+        int id = -1;
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
+        query.addEntity(User.class);
+        query.setParameter("email", email);
+        List result = query.list();
+        if (result.size() != 0) {
+            user = (User) result.get(0);
+        }
+        if(user != null) { id = user.getIdUser(); }
+        return id;
 
     }
 
@@ -147,6 +157,13 @@ public class ManageUsers {
         return user;
     }
 
+    public static String getPassword(int IdUser) {
+        User user = getUser(IdUser);
+        return user.getPassword();
+    }
+
+
+
 
     public static boolean checkUserPassword(int IdUser, String password) {
 
@@ -154,6 +171,8 @@ public class ManageUsers {
         String passwordUser = encryptSHA1(password);
         return user.getPassword().equals(passwordUser);
     }
+
+
 
     public static boolean checkLogedUser(int IdUser) {
 

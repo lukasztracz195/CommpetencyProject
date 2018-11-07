@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e33fa57d-be97-447d-bbd7-f380cd5582ec" name="Default Changelist" comment="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/controller/LogonController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/controller/MainController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/controller/TeachingController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/controller/TestController.class" afterDir="false" />
-=======
->>>>>>> master
-=======
->>>>>>> master
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/logs/commpetencyProject.log" beforeDir="false" afterPath="$PROJECT_DIR$/project/logs/commpetencyProject.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Stat.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Stat.java" afterDir="false" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/MainMenuLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/MainMenuLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/MainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/MainScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/Nauka.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/Nauka.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/test.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/LogonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/MenuLayoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/controller/MenuLayoutController.class" afterDir="false" />
-=======
-=======
->>>>>>> master
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/LogonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/MenuLayoutController.class" beforeDir="false" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/TeachingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/Controllers/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/fxmls/logon.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/fxmls/logon.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/pl/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/pl/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/pl/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/pl/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/model/entities/Stat.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/pl/competencyproject/model/entities/Stat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/project-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/project-1.0.jar" afterDir="false" />
-    </list>
+    <list default="true" id="b0034787-de6b-445c-91d8-3ad55a6e0cb0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/project/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,406 +9,78 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1947476039">
+    <session id="-2134604228">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="1" />
-          <entry key="java" value="4" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="7" />
+          <entry key="java" value="5" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="4" />
-          <entry key="Properties" value="2" />
-          <entry key="XML" value="7" />
+          <entry key="JAVA" value="5" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="877" />
-          <entry key="txt" value="60" />
-          <entry key="xml" value="40" />
+          <entry key="java" value="1318" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="877" />
-          <entry key="PLAIN_TEXT" value="60" />
-          <entry key="XML" value="40" />
+          <entry key="JAVA" value="1318" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
-      <usages-collector id="statistics.spring.boot.mvc.usages" />
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.spring.boot.run.usages" />
-    </session>
-    <session id="1867183626">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="19" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="4" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.3" value="3" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="20" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="17" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="fxml" value="25" />
-=======
-          <entry key="fxml" value="5" />
->>>>>>> master
-=======
-          <entry key="fxml" value="5" />
->>>>>>> master
-          <entry key="java" value="4424" />
-          <entry key="properties" value="19" />
-          <entry key="txt" value="16" />
-          <entry key="xml" value="471" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="4424" />
-          <entry key="PLAIN_TEXT" value="33" />
-          <entry key="Properties" value="19" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="XML" value="496" />
-=======
-          <entry key="XML" value="476" />
->>>>>>> master
-=======
-          <entry key="XML" value="476" />
->>>>>>> master
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="JAVA/User" value="1" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="fxml" value="5" />
-=======
-          <entry key="fxml" value="1" />
->>>>>>> master
-=======
-          <entry key="fxml" value="1" />
->>>>>>> master
-          <entry key="iml" value="1" />
-          <entry key="java" value="31" />
-          <entry key="log" value="1" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="31" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="2" />
-          <entry key="UML" value="1" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="XML" value="17" />
-=======
-          <entry key="XML" value="13" />
->>>>>>> master
-=======
-          <entry key="XML" value="13" />
->>>>>>> master
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.spring.boot.mvc.usages" />
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.spring.boot.run.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java">
+        <entry file="file://$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
->>>>>>> master
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
->>>>>>> master
+            <state relative-caret-position="357">
+              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding>
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-              </folding>
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
->>>>>>> master
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
->>>>>>> master
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-=======
-=======
->>>>>>> master
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
->>>>>>> master
-            <state relative-caret-position="87">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding>
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-              </folding>
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/MainMenuLayout.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="98" selection-start-line="7" selection-start-column="98" selection-end-line="7" selection-end-column="98" />
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
->>>>>>> master
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/MainScreen.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="97" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="97" />
-=======
-=======
->>>>>>> master
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/Nauka.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/test.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="104" lean-forward="true" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java">
-          <provider selected="true" editor-type-id="text-editor">
-=======
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java">
-          <provider selected="true" editor-type-id="text-editor">
->>>>>>> master
-            <state relative-caret-position="190">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-=======
-=======
->>>>>>> master
         <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1843">
-              <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
+            <state relative-caret-position="187">
+              <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#974#975#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -465,224 +88,41 @@
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>k</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
-    <option name="WARN_ABOUT_CRLF" value="false" />
-    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
-    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
-    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-        <option value="$PROJECT_DIR$/project/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/project/src/main/java/SingletonApp.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/singletonAplication/SingletonApp.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/connection/SessionFactoryConfig.java" />
->>>>>>> master
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/mutex/Mutex.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/entities/User.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/Main.java" />
-        <option value="$USER_HOME$/.m2/settings.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/main/Main.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/connection/GeneralSQL.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/mutex/Mutex.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/main/user.hbm.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/entities/User.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/connection/GeneralSQL.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/user.hbm.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/entities/Users.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/entities/Usesrs.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/entities/Usesrs.java" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/user.hbm.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/entities/User.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/connection/GeneralSQL.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/connection/HibernateUtil.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/entities/Stats.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/main/Main.java" />
-        <option value="$PROJECT_DIR$/project/src/java/pl/main/Main.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Users.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Translations.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Stats.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/USERS.java" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/LEVELS.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/EXAMPLES.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/TRANSLATIONS.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/STATS.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/DEFINITIONS.java" />
         <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Translation.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Definition.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Example.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Level.java" />
-        <option value="$PROJECT_DIR$/project/pom.xml" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Stat.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/Main.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java" />
-        <option value="$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/project/src/main/resources/fxmls/MainMenuLayout.fxml" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/fxmls/MainScreen.fxml" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/fxmls/Nauka.fxml" />
-        <option value="$PROJECT_DIR$/project/src/main/resources/fxmls/test.fxml" />
-=======
->>>>>>> master
-=======
->>>>>>> master
+        <option value="$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="downloadSourcesAutomatically" value="true" />
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-1088" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="141" />
+    <option name="y" value="-12" />
+    <option name="width" value="1932" />
+    <option name="height" value="1085" />
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Hibernate</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>HibernateConfigDomInspection</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-          <expand>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
->>>>>>> master
-          <expand>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="CommpetencyProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="project" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
@@ -718,69 +158,80 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pl" type="462c0819:PsiDirectoryNode" />
               <item name="competencyproject" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
->>>>>>> master
-=======
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
->>>>>>> master
             </path>
             <path>
               <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pl" type="462c0819:PsiDirectoryNode" />
+              <item name="competencyproject" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="fxmls" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pl" type="462c0819:PsiDirectoryNode" />
+              <item name="competencyproject" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="connection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pl" type="462c0819:PsiDirectoryNode" />
+              <item name="competencyproject" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pl" type="462c0819:PsiDirectoryNode" />
+              <item name="competencyproject" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommpetencyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="find action&#9;ACTION&#9;GotoAction" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540674363748" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/project/src/main/java" />
-    <property name="last_opened_file_path" value="F:/PROGRAMY/Git/bin/git.exe" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15234375" />
-    <property name="project.structure.side.proportion" value="0.36551723" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\resources\fxmls" />
-      <recent name="D:\STUDIA\SEM_5\CommpetencyProject\project\src\main" />
-      <recent name="D:\STUDIA\SEM_5\CommpetencyProject\project\src" />
-      <recent name="D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\resources" />
-      <recent name="D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\STUDIA\SEM_5\Projekt kompetencyjny\project\src\main\resources" />
-    </key>
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541549784881" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -795,26 +246,83 @@
     </option>
   </component>
   <component name="RunManager" selected="Maven.Run">
-    <configuration name="All Features in: Projekt kompetencyjny" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="3" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="Projekt kompetencyjny" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm3SMFormatter" />
-      <option name="SUGGESTED_NAME" value="All Features in: Projekt kompetencyjny" />
+    <configuration name="ManageUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="PATTERN" value="pl.competencyproject.model.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="project-1.0.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/project/target/project-1.0.jar" />
-      <method v="2" />
+    <configuration name="ManageUsersTest.addTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.competencyproject.model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
+      <option name="METHOD_NAME" value="addTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageUsersTest.deleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.competencyproject.model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
+      <option name="METHOD_NAME" value="deleteTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageUsersTest.loggerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.competencyproject.model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
+      <option name="METHOD_NAME" value="loggerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageUsersTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.competencyproject.model.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.competencyproject.model.DAO" />
+      <option name="MAIN_CLASS_NAME" value="pl.competencyproject.model.DAO.ManageUsersTest" />
+      <option name="METHOD_NAME" value="updateTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Run" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -835,7 +343,7 @@
             <option name="profilesMap">
               <map />
             </option>
-            <option name="resolveToWorkspace" value="true" />
+            <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$/project" />
           </MavenRunnerParameters>
         </option>
@@ -844,13 +352,19 @@
     </configuration>
     <list>
       <item itemvalue="Maven.Run" />
-      <item itemvalue="Cucumber java.All Features in: Projekt kompetencyjny" />
-      <item itemvalue="JAR Application.project-1.0.jar" />
+      <item itemvalue="JUnit.ManageUsersTest.addTest" />
+      <item itemvalue="JUnit.ManageUsersTest.updateTest" />
+      <item itemvalue="JUnit.ManageUsersTest.loggerTest" />
+      <item itemvalue="JUnit.ManageUsersTest.deleteTest" />
+      <item itemvalue="JUnit.ManageUsersTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.project-1.0.jar" />
-        <item itemvalue="Cucumber java.All Features in: Projekt kompetencyjny" />
+        <item itemvalue="JUnit.ManageUsersTest" />
+        <item itemvalue="JUnit.ManageUsersTest.deleteTest" />
+        <item itemvalue="JUnit.ManageUsersTest.loggerTest" />
+        <item itemvalue="JUnit.ManageUsersTest.updateTest" />
+        <item itemvalue="JUnit.ManageUsersTest.addTest" />
       </list>
     </recent_temporary>
   </component>
@@ -859,575 +373,134 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e33fa57d-be97-447d-bbd7-f380cd5582ec" name="Default Changelist" comment="" />
-      <created>1538596317624</created>
+      <changelist id="b0034787-de6b-445c-91d8-3ad55a6e0cb0" name="Default Changelist" comment="" />
+      <created>1541541939442</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1538596317624</updated>
-      <workItem from="1538596318844" duration="251000" />
-      <workItem from="1538934030208" duration="156000" />
-      <workItem from="1538934208234" duration="113000" />
-      <workItem from="1539344326474" duration="696000" />
-      <workItem from="1539345136622" duration="1255000" />
-      <workItem from="1539430288429" duration="3669000" />
-      <workItem from="1539434361822" duration="6235000" />
-      <workItem from="1539445355389" duration="951000" />
-      <workItem from="1539459563098" duration="916000" />
-      <workItem from="1539513074094" duration="7311000" />
-      <workItem from="1539526450540" duration="14000" />
-      <workItem from="1540214517594" duration="8192000" />
-      <workItem from="1540236109964" duration="4989000" />
-      <workItem from="1540242422647" duration="3223000" />
-      <workItem from="1540282566109" duration="1162000" />
-      <workItem from="1540307696905" duration="2075000" />
-      <workItem from="1540325465815" duration="4000" />
-      <workItem from="1540423150499" duration="4902000" />
-      <workItem from="1540428186902" duration="65000" />
-      <workItem from="1540455374010" duration="7000" />
-      <workItem from="1540468843253" duration="341000" />
-      <workItem from="1540482800904" duration="8000" />
-      <workItem from="1540664373710" duration="9071000" />
-      <workItem from="1540682532744" duration="8000" />
-      <workItem from="1540815777956" duration="1344000" />
-      <workItem from="1540846432371" duration="128000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <workItem from="1540846588526" duration="834000" />
-=======
-      <workItem from="1540846588526" duration="693000" />
->>>>>>> master
-=======
-      <workItem from="1540846588526" duration="693000" />
->>>>>>> master
+      <updated>1541541939442</updated>
     </task>
-    <task id="LOCAL-00001" summary="coś">
-      <created>1540308222428</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1540308222428</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Features_in__Projekt_kompetencyjny - 2018.10.12 at 14h 03m 56s.xml">
-      <configuration name="All Features in: Projekt kompetencyjny" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="ManageUsersTest_addTest - 2018.11.06 at 23h 54m 19s.xml">
+      <configuration name="ManageUsersTest.addTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_Features_in__Projekt_kompetencyjny - 2018.10.22 at 15h 51m 53s.xml">
-      <configuration name="All Features in: Projekt kompetencyjny" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 17m 06s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
     </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="57920000" />
-=======
-    <option name="totallyTimeSpent" value="57779000" />
->>>>>>> master
-=======
-    <option name="totallyTimeSpent" value="57779000" />
->>>>>>> master
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 18m 33s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 20m 19s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 25m 37s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 37m 35s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_updateTest - 2018.11.07 at 00h 40m 34s.xml">
+      <configuration name="ManageUsersTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_loggerTest - 2018.11.07 at 00h 55m 07s.xml">
+      <configuration name="ManageUsersTest.loggerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest_deleteTest - 2018.11.07 at 00h 58m 39s.xml">
+      <configuration name="ManageUsersTest.deleteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ManageUsersTest - 2018.11.07 at 01h 00m 12s.xml">
+      <configuration name="ManageUsersTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1684435" />
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1684435" />
->>>>>>> master
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1684435" />
->>>>>>> master
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" weight="0.32995737" />
-      <window_info id="Persistence" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6395973" visible="true" weight="0.47722343" />
-=======
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6395973" visible="true" weight="0.47722343" />
->>>>>>> master
-=======
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6395973" visible="true" weight="0.47722343" />
->>>>>>> master
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="7" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.36040267" side_tool="true" weight="0.4794326" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
-      <window_info anchor="bottom" id="Spring" order="13" weight="0.329718" />
-      <window_info anchor="bottom" id="Hibernate Console" order="14" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" id="Database" order="7" weight="0.20362474" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3295302" />
-      <window_info anchor="right" id="JSF" order="9" />
-      <window_info anchor="right" id="CDI" order="10" weight="0.3295302" />
-      <window_info anchor="right" id="Bean Validation" order="11" weight="0.32995737" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" weight="0.32995737" />
-      <window_info id="Persistence" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6395973" weight="0.4794326" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="7" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.36040267" side_tool="true" weight="0.4794326" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
-      <window_info anchor="bottom" id="Spring" order="13" weight="0.329718" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" id="Database" order="7" weight="0.20362474" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3295302" />
-      <window_info anchor="right" id="JSF" order="9" />
-      <window_info anchor="right" id="CDI" order="10" weight="0.3295302" />
-      <window_info anchor="right" id="Bean Validation" order="11" weight="0.32995737" />
-    </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="coś" />
-    <option name="LAST_COMMIT_MESSAGE" value="coś" />
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CometenceProject/src/main/java/Main.java" />
-    <entry file="file://$PROJECT_DIR$/project/target/classes/Main.class" />
-    <entry file="file://$PROJECT_DIR$/project/target/maven-archiver/pom.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/target/classes/hibernate.cfg.xml">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="67" lean-forward="true" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
-        </state>
+        <state relative-caret-position="-153" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/Hibernate_5_3_6_5_3_6.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/dataSources/952e55f1-2081-43a0-adfc-a3720e9cdb01.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/logs/keepInMind.log" />
-    <entry file="jar://F:/PROGRAMY/Java 8/jdk/src.zip!/java/math/BigInteger.java">
+    <entry file="file://$PROJECT_DIR$/project/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/.pl/project_competencies/singletonAplication/SingletonApp.java" />
-    <entry file="uml://JAVA/User">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>User</OriginalElement>
-          <nodes>
-            <node x="" y="">User</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="36.0" y="15.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.m2/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/project_competencies/model/connection/HibernateUtil.java" />
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/Mutex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-core/3.0/maven-core-3.0-sources.jar!/org/apache/maven/lifecycle/internal/MojoExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="211" selection-start-line="211" selection-end-line="211" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/GeneralSQL.java" />
-    <entry file="file://$PROJECT_DIR$/project/project.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/user.hbm.xml" />
-    <entry file="file://$PROJECT_DIR$/project/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5339">
-          <caret line="303" column="58" lean-forward="true" selection-start-line="303" selection-start-column="58" selection-end-line="303" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/PROGRAMY/Java 8/jdk/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="137" column="36" lean-forward="true" selection-start-line="137" selection-start-column="36" selection-end-line="137" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Stat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Definition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Translation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Example.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
+        <state relative-caret-position="-561" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        <state relative-caret-position="199">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/hibernate.cfg.xml">
+    <entry file="file://$PROJECT_DIR$/project/src/test/java/pl/competencyproject/model/DAO/ManageUsersTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="357">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="85">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/DAO/ManageUsers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1843">
-          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/LogonController.java">
+    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/model/connection/SessionFactoryConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/MenuLayoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TeachingController.java">
-<<<<<<< HEAD
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java">
-<<<<<<< HEAD
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/MainMenuLayout.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="98" selection-start-line="7" selection-start-column="98" selection-end-line="7" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/MainScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="97" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/Nauka.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/test.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="104" lean-forward="true" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
-=======
-      <provider selected="true" editor-type-id="text-editor">
-=======
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/java/pl/competencyproject/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
->>>>>>> master
-        <state relative-caret-position="190">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/main/resources/fxmls/logon.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Hibernate (project)|Hibernate</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Hibernate|project</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Hibernate 5.3.6-5.3.6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.36551723" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
