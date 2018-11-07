@@ -7,3 +7,5 @@ project/LockFile
 *.log
 
 *.jar
+
+\.idea/workspace\.xml
