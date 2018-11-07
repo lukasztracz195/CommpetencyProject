@@ -34,6 +34,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
+//       int id =  ManageUsers.existUser("test@examle.pl");
+//       ManageUsers.deleteUser(id);
+
+
+
+
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/Logon.fxml"));
         AnchorPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");

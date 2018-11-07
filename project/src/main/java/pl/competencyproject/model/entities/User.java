@@ -1,7 +1,5 @@
 package pl.competencyproject.model.entities;
 
-import pl.competencyproject.model.DAO.ManageUsers;
-
 import javax.persistence.*;
 @Entity
 @Table(name ="USERS")
