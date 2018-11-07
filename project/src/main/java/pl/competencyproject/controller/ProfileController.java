@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import pl.competencyproject.model.DAO.SessionLogon;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,6 +81,7 @@ public class ProfileController implements Initializable{
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
+        SessionLogon.logOut();
     }
 
     public void setMainController(MainController mainController) {

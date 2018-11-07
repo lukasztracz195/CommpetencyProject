@@ -55,6 +55,7 @@ public class LogonController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
         codeLabel.setVisible(false);
         codeTextField.setVisible(false);
         codeTextField.setDisable(true);
@@ -76,24 +77,12 @@ public class LogonController implements Initializable {
             emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
             emailFeedbackLabel.setText("User with this email not exist");
         }
-        /*
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        MenuLayoutController menuLayoutController = loader.getController();
-        menuLayoutController.setMainController(mainController);
-        mainController.setScreen(pane);
-        //******************************
-        */
-        logOutButton.setDisable(false);
+
         if (SessionLogon.logged) {
             emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
             emailFeedbackLabel.setText("Użytkownik został zalogowany");
         }
+        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
     }
 
 
@@ -111,11 +100,6 @@ public class LogonController implements Initializable {
     }
 
     private void loginMenu() {
-        /*FXMLLoader loader=new FXMLLoader();
-        JavaFxLoader javaFxLoader=new JavaFxLoader();
-        Pane pane=null;
-        pane=javaFxLoader.load("MainMenuLayout.fxml",loader);*/
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
         Pane pane = null;
         try {
@@ -123,7 +107,6 @@ public class LogonController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         MenuLayoutController menuLayoutController = loader.getController();
         menuLayoutController.setMainController(mainController);
         mainController.setScreen(pane);
@@ -225,7 +208,8 @@ public class LogonController implements Initializable {
     public void logOut() {
         SessionLogon.logOut();
         clearAllFeedbackLabels();
-        logOutButton.setDisable(true);
+        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
+
         emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
         emailFeedbackLabel.setText("Użytkownik został wylogowany");
     }

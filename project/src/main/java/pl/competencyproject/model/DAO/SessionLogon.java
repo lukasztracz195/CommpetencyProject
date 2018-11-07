@@ -31,6 +31,8 @@ public class SessionLogon {
         if (IdLoggedUser > 0) {
             ManageUsers.updateActiveUser(IdLoggedUser, false);
             logged = false;
+            correctPassword = false;
+            IdLoggedUser = -1;
         }
     }
 

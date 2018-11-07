@@ -1,30 +1,8 @@
-<<<<<<< HEAD
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\connection\SessionFactoryConfig.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MenuLayoutController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\Main.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\MenageStat.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Translation.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\JavaFxLoader.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Mutex.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Level.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\messages\Email.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Time\GeneralClock.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Definition.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Example.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TeachingController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\SessionLogon.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MainController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\ManageUsers.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\LogonController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\ProfileController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TestController.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Stat.java
-C:\Users\Piter\Desktop\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\User.java
-=======
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\SessionLogon.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\User.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Time\GeneralClock.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\DAO\MenageStat.java
+D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\JavaFxLoader.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\TestController.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Example.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\controller\MenuLayoutController.java
@@ -42,4 +20,3 @@ D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\mo
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\connection\SessionFactoryConfig.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\entities\Stat.java
 D:\STUDIA\SEM_5\CommpetencyProject\project\src\main\java\pl\competencyproject\model\Mutex.java
->>>>>>> master
