@@ -14,15 +14,16 @@ import java.util.List;
 
 public class ManageUsers {
 
-    private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
 
     /* Method to CREATE an user in the database */
+
+
     public static int addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
 
         if (ManageUsers.existUser(email) == -1) {
-            org.hibernate.Session session = factory.openSession();
+            org.hibernate.Session session = SessionFactoryConfig.getSessionFactory().openSession();
             try {
                 tx = session.beginTransaction();
                 String passwordEncrypted = encryptSHA1(password);
@@ -44,7 +45,7 @@ public class ManageUsers {
     public static void updatePasswordUser(Integer UserID, String password) {
         Transaction tx = null;
 
-        try (Session session = factory.openSession()) {
+        try (Session session = SessionFactoryConfig.getSessionFactory().openSession()) {
 
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
@@ -60,7 +61,7 @@ public class ManageUsers {
 
     /* Method to UPDATE active status for an user */
     public static void updateActiveUser(Integer UserID, boolean active) {
-        Session session = factory.openSession();
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
@@ -79,9 +80,8 @@ public class ManageUsers {
 
     /* Method to DELETE an user from the records */
     public static void deleteUser(Integer UserID) {
-        Session session = factory.openSession();
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
         Transaction tx = null;
-
         try {
             tx = session.beginTransaction();
             User user = (User) session.get(User.class, UserID);
@@ -112,8 +112,23 @@ public class ManageUsers {
 
     }
 
+    public static void updateEmail(Integer UserID, String email) {
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            User user = session.get(User.class, UserID);
+            user.setEmail(email);
+            session.update(user);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        }
+    }
+
     public static User getUser(String email) {
-        Session session = factory.openSession();
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
         User user = null;
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
@@ -126,14 +141,18 @@ public class ManageUsers {
     }
 
     public static User getUser(int IdUser) {
-        Session session = factory.openSession();
-        User user = null;
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idUser =  :idUser");
-        query.addEntity(User.class);
-        query.setParameter("idUser", IdUser).getFirstResult();
-        List result = query.list();
-        if (result.size() != 0) {
-            user = (User) result.get(0);
+        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+        Transaction tx = null;
+        User user= null;
+        try {
+            tx = session.beginTransaction();
+             user = (User) session.get(User.class, IdUser);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
         return user;
     }

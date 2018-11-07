@@ -4,10 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.connection.SessionFactoryConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,19 +32,14 @@ public class Main extends Application {
     @Override
     public void init() {
         SessionLogon.time = GeneralClock.getInstance();
+        SessionFactoryConfig.getSessionFactory();
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-//       int id =  ManageUsers.existUser("test@examle.pl");
-//       ManageUsers.deleteUser(id);
-
-
-
-
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/Logon.fxml"));
-        AnchorPane root = loader.load();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainScreen.fxml"));
+        StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
         Scene scene = new Scene(root, 794, 516);
         // scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -56,6 +54,7 @@ public class Main extends Application {
         System.out.println("Id wylogowanego usera: " +
                 SessionLogon.IdLoggedUser + " Czy hasło jego sie zgadza: " +
                 SessionLogon.correctPassword + " Czy jest zalogowany: " + SessionLogon.logged);
+        SessionFactoryConfig.getSessionFactory().close();
     }
 
 

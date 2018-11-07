@@ -40,13 +40,12 @@ public class MenageStat {
     /* GET STAT */
     public static Stat getStat(int IdStat) {
         Stat stat = null;
+        Transaction tx = null;
+        Session session = (Session) SessionFactoryConfig.getSessionFactory();
         if (IdStat > 0) {
-            Session session = factory.openSession();
-            NativeQuery query = session.createSQLQuery("SELECT * FROM STATS WHERE IdStat =  :IdStat");
-            query.addEntity(User.class);
-            query.setParameter("IdStat", IdStat).getFirstResult();
-            List result = query.list();
-            stat = (Stat) result.get(0);
+            tx = session.beginTransaction();
+            stat = session.get(Stat.class, IdStat);
+            tx.commit();
         }
         return stat;
     }

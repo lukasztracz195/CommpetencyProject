@@ -17,7 +17,6 @@ public class SessionLogon {
         User tmpUser = ManageUsers.getUser(email);
         if(tmpUser != null){
             IdLoggedUser = tmpUser.getIdUser();
-            tmpUser = ManageUsers.getUser(email);
             if(ManageUsers.encryptSHA1(password).equals(tmpUser.getPassword())){
                 correctPassword = true;
                 if(!tmpUser.isActive()){

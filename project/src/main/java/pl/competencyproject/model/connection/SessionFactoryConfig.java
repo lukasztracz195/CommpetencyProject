@@ -12,21 +12,22 @@ public class SessionFactoryConfig {
 
     private static Map<String, SessionFactory> sessionFactories = new HashMap<>();
     private static String configFileName = "hibernate.cfg.xml";
+    private static SessionFactory session;
 
     private SessionFactoryConfig() {
 
     }
 
     public synchronized static SessionFactory getSessionFactory() {
-        SessionFactory result = sessionFactories.get(getName());
+        session = sessionFactories.get(getName());
 
-        if (result == null || result.isClosed()) {
+        if (session == null || session.isClosed()) {
 
-            result = configure(getName());
-            sessionFactories.put(getName(), result);
+            session = configure(getName());
+            sessionFactories.put(getName(), session);
         }
 
-        return result;
+        return session;
     }
 
     private static SessionFactory configure(String configFileName) {
