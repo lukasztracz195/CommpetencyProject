@@ -14,6 +14,7 @@ import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.JavaFxLoader;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.messages.Email;
 
 import java.io.IOException;
@@ -51,6 +52,7 @@ public class LogonController implements Initializable {
     private boolean statusLogin = true;
     private boolean approvesCode = false;
     private GeneralClock clock;
+    private  SessionLogon sessionLogon = SessionLogon.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,7 +69,7 @@ public class LogonController implements Initializable {
     }
 
     private void login() {
-        SessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
+        sessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
         clearAllFeedbackLabels();
         if (!SessionLogon.correctPassword) {
             passwordFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
@@ -119,13 +121,14 @@ public class LogonController implements Initializable {
             if (SessionLogon.logged) {
                  loginMenu();
             }
+
         } else {
             if (!approvesCode) {
                 registration();
             } else {
-                if (SessionLogon.checkCode(codeTextField.getText())) {
+                if (sessionLogon.checkCode(codeTextField.getText())) {
 
-                    SessionLogon.sign(emailTextField.getText(), passwordTextField.getText());
+                    sessionLogon.sign(emailTextField.getText(), passwordTextField.getText());
                     clearAllFeedbackLabels();
                     emailFeedbackLabel.setText("Użytkownik został utowrzony");
                     logOutButton.setDisable(false);
@@ -162,7 +165,7 @@ public class LogonController implements Initializable {
     }
 
     private void setclockDate() {
-        clock = SessionLogon.getClockDate();
+        clock = sessionLogon.getClockDate();
         timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 ae -> {
@@ -180,7 +183,7 @@ public class LogonController implements Initializable {
 
     private boolean checkEmail(String email) {
         clearAllFeedbackLabels();
-        if (ManageUsers.existUser(email) == -1) {
+        if (ManageUsers.getInstance().existUser(email) == -1) {
             if (email.contains("@")) {
                 String afterMonkey = email.substring(email.indexOf("@"));
                 if (afterMonkey.contains(".")) {
@@ -206,10 +209,10 @@ public class LogonController implements Initializable {
 
     @FXML
     public void logOut() {
-        SessionLogon.logOut();
+        sessionLogon.logOut();
         clearAllFeedbackLabels();
         if(!SessionLogon.logged){  logOutButton.setDisable(true);}
-
+        sessionLogon.closeSession();
         emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
         emailFeedbackLabel.setText("Użytkownik został wylogowany");
     }

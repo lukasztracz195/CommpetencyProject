@@ -12,44 +12,61 @@ public class SessionLogon {
     public static boolean logged = false;
     public static int genereatedCode;
     public static GeneralClock time;
+    private ManageUsers manageUsers = ManageUsers.getInstance();
+    private static SessionLogon instance;
 
-    public static void logIn(String email, String password) {
-        User tmpUser = ManageUsers.getUser(email);
-        if(tmpUser != null){
+    private SessionLogon() {
+
+    }
+
+    public static SessionLogon getInstance() {
+        if (instance == null) {
+            synchronized (GeneralClock.class) {
+                if (instance == null) {
+                    instance = new SessionLogon();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void logIn(String email, String password) {
+        User tmpUser = manageUsers.getUser(email);
+        if (tmpUser != null) {
             IdLoggedUser = tmpUser.getIdUser();
-            if(ManageUsers.encryptSHA1(password).equals(tmpUser.getPassword())){
+            if (manageUsers.encryptSHA1(password).equals(tmpUser.getPassword())) {
                 correctPassword = true;
-                if(!tmpUser.isActive()){
-                    ManageUsers.updateActiveUser(IdLoggedUser, true);
+                if (!tmpUser.isActive()) {
+                    manageUsers.updateActiveUser(IdLoggedUser, true);
                     logged = true;
                 }
             }
         }
     }
 
-    public static void logOut() {
+    public void logOut() {
         if (IdLoggedUser > 0) {
-            ManageUsers.updateActiveUser(IdLoggedUser, false);
+            manageUsers.updateActiveUser(IdLoggedUser, false);
             logged = false;
             correctPassword = false;
             IdLoggedUser = -1;
         }
     }
 
-    public static void sign(String email, String password) {
-        IdLoggedUser = ManageUsers.addUser(email, password);
-        if(IdLoggedUser != -1)  logIn(email, password);
+    public void sign(String email, String password) {
+        IdLoggedUser = manageUsers.addUser(email, password);
+        if (IdLoggedUser != -1) logIn(email, password);
 
     }
 
-    public static int generateCode(){
+    public int generateCode() {
         Random random = new Random();
         int code = random.nextInt(8999) + 1000;
         genereatedCode = code;
         return code;
     }
 
-    public static boolean checkCode(String text) {
+    public boolean checkCode(String text) {
         int code = Integer.valueOf(text);
         if (code == genereatedCode) {
             return true;
@@ -57,7 +74,11 @@ public class SessionLogon {
         return false;
     }
 
-    public static GeneralClock getClockDate(){
+    public GeneralClock getClockDate() {
         return time;
+    }
+
+    public void closeSession(){
+        manageUsers.closeSession();
     }
 }

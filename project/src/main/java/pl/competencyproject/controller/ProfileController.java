@@ -30,6 +30,8 @@ public class ProfileController implements Initializable{
     @FXML
     private TextField profilPotwierdzHaslo;
 
+    private static SessionLogon session = SessionLogon.getInstance();
+
     @FXML
     private Label clockLabel;
 
@@ -81,7 +83,7 @@ public class ProfileController implements Initializable{
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
-        SessionLogon.logOut();
+        session.logOut();
     }
 
     public void setMainController(MainController mainController) {

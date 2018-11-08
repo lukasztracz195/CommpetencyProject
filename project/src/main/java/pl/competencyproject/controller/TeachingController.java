@@ -29,6 +29,8 @@ public class TeachingController implements Initializable {
 
     private Timeline timeline;
 
+    private static SessionLogon session = SessionLogon.getInstance();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         clockDate();
@@ -72,7 +74,7 @@ public class TeachingController implements Initializable {
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
-        SessionLogon.logOut();
+        session.logOut();
     }
 
     public void setMainController(MainController mainController) {

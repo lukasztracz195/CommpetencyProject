@@ -9,3 +9,5 @@ project/LockFile
 *.jar
 
 \.idea/workspace\.xml
+
+*.class

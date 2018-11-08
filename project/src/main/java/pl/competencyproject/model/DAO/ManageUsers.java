@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
 
@@ -14,17 +15,35 @@ import java.util.List;
 
 public class ManageUsers {
 
+    private  static ManageUsers instance;
+    private  static  SessionFactory SessionFactory;
+    private Session session;
+
+private ManageUsers(){
+    SessionFactory = SessionFactoryConfig.getSessionFactory();
+    session = SessionFactory.openSession();
+}
+
+public static  ManageUsers getInstance(){
+    if (instance == null) {
+        synchronized (ManageUsers.class) {
+            if (instance == null) {
+                instance = new ManageUsers();
+            }
+        }
+    }
+    return instance;
+}
 
     /* Method to CREATE an user in the database */
-
-
-    public static int addUser(String email, String password) {
+    public int addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
 
-        if (ManageUsers.existUser(email) == -1) {
-            org.hibernate.Session session = SessionFactoryConfig.getSessionFactory().openSession();
+        if (this.existUser(email) == -1) {
+            if(!session.isOpen()){session = SessionFactory.openSession(); }
             try {
+
                 tx = session.beginTransaction();
                 String passwordEncrypted = encryptSHA1(password);
                 User user = new User(email, passwordEncrypted, false);
@@ -42,11 +61,11 @@ public class ManageUsers {
 
 
     /* Method to UPDATE password for an user */
-    public static void updatePasswordUser(Integer UserID, String password) {
+    public  void updatePasswordUser(Integer UserID, String password) {
         Transaction tx = null;
 
-        try (Session session = SessionFactoryConfig.getSessionFactory().openSession()) {
-
+        try {
+            if(!session.isOpen()){session = SessionFactory.openSession(); }
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
             String passwordEncrypted = encryptSHA1(password);
@@ -60,11 +79,11 @@ public class ManageUsers {
     }
 
     /* Method to UPDATE active status for an user */
-    public static void updateActiveUser(Integer UserID, boolean active) {
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+    public  void updateActiveUser(Integer UserID, boolean active) {
         Transaction tx = null;
 
         try {
+            if(!session.isOpen()){session = SessionFactory.openSession(); }
             tx = session.beginTransaction();
             User user = (User) session.get(User.class, UserID);
             user.setActive(active);
@@ -79,8 +98,7 @@ public class ManageUsers {
     }
 
     /* Method to DELETE an user from the records */
-    public static void deleteUser(Integer UserID) {
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+    public  void deleteUser(Integer UserID) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -95,11 +113,11 @@ public class ManageUsers {
         }
     }
 
-    public static int existUser(String email) throws HibernateException {
+    public  int existUser(String email) throws HibernateException {
 
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
         User user = null;
         int id = -1;
+        if(!session.isOpen()){session = SessionFactory.openSession(); }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
         query.setParameter("email", email);
@@ -112,10 +130,10 @@ public class ManageUsers {
 
     }
 
-    public static void updateEmail(Integer UserID, String email) {
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+    public  void updateEmail(Integer UserID, String email) {
         Transaction tx = null;
         try {
+            if(!session.isOpen()){session = SessionFactory.openSession(); }
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
             user.setEmail(email);
@@ -127,9 +145,10 @@ public class ManageUsers {
         }
     }
 
-    public static User getUser(String email) {
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+    public  User getUser(String email) {
+
         User user = null;
+        if(!session.isOpen()){session = SessionFactory.openSession(); }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
         query.setParameter("email", email);
@@ -140,11 +159,11 @@ public class ManageUsers {
         return user;
     }
 
-    public static User getUser(int IdUser) {
-        Session session = SessionFactoryConfig.getSessionFactory().openSession();
+    public  User getUser(int IdUser) {
         Transaction tx = null;
         User user= null;
         try {
+            if(!session.isOpen()){session = SessionFactory.openSession(); }
             tx = session.beginTransaction();
              user = (User) session.get(User.class, IdUser);
             tx.commit();
@@ -157,7 +176,7 @@ public class ManageUsers {
         return user;
     }
 
-    public static String getPassword(int IdUser) {
+    public  String getPassword(int IdUser) {
         User user = getUser(IdUser);
         return user.getPassword();
     }
@@ -165,27 +184,27 @@ public class ManageUsers {
 
 
 
-    public static boolean checkUserPassword(int IdUser, String password) {
+    public  boolean checkUserPassword(int IdUser, String password) {
 
         User user = getUser(IdUser);
         String passwordUser = encryptSHA1(password);
         return user.getPassword().equals(passwordUser);
     }
 
-    public static boolean checkUserEmail(int IdUser, String email) {
+    public  boolean checkUserEmail(int IdUser, String email) {
         User user = getUser(IdUser);
         return user.getEmail().equals(email);
     }
 
 
-    public static boolean checkLogedUser(int IdUser) {
+    public  boolean checkLogedUser(int IdUser) {
 
         User user = getUser(IdUser);
         if (user.isActive()) return true;
         return false;
     }
 
-    public static String encryptSHA1(String password) {
+    public  String encryptSHA1(String password) {
         MessageDigest mDigest = null;
         StringBuffer sb = new StringBuffer();
         try {
@@ -203,4 +222,7 @@ public class ManageUsers {
     }
 
 
+    public void closeSession(){
+        SessionFactory.close();
+    }
 }

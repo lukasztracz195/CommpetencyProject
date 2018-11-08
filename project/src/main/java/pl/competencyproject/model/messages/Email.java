@@ -16,11 +16,12 @@ public class Email {
     private static final String from = "commpetencyproject@gmail.com";
     private static final boolean sessionDebug = false;
     private static final String pass = "pr0jektk0mpetencyjny";
+    private static SessionLogon session = SessionLogon.getInstance();
 
     public static void mailRegestration(String to) {
         try {
             String subject = "Kod potwierdzający rejestrację";
-            String messageText = "Twój kod to: " + String.valueOf(SessionLogon.generateCode());
+            String messageText = "Twój kod to: " + String.valueOf(session.generateCode());
             createMail(to,subject,messageText);
             System.out.println("message send successfully");
         } catch (Exception ex) {
@@ -31,7 +32,7 @@ public class Email {
     public static void mailChangePassword(String to) {
         try {
             String subject = "Kod potwierdzający zmianę hasła";
-            String messageText = "Twój kod to: " + String.valueOf(SessionLogon.generateCode());
+            String messageText = "Twój kod to: " + String.valueOf(session.generateCode());
             createMail(to,subject,messageText);
             System.out.println("message send successfully");
         } catch (Exception ex) {

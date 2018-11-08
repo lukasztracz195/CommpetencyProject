@@ -32,6 +32,8 @@ public class MenuLayoutController implements Initializable{
 
     private GeneralClock clock;
 
+    private SessionLogon session = SessionLogon.getInstance();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setclockDate();
@@ -133,7 +135,7 @@ public class MenuLayoutController implements Initializable{
     }
 
     private void setclockDate() {
-        clock = SessionLogon.getClockDate();
+        clock = session.getClockDate();
         timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 ae -> {
@@ -147,7 +149,7 @@ public class MenuLayoutController implements Initializable{
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
-        SessionLogon.logOut();
+        session.logOut();
     }
 
     public void setMainController(MainController mainController) {

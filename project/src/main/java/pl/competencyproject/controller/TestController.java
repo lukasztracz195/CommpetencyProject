@@ -33,6 +33,8 @@ public class TestController implements Initializable {
 
     private Timeline timeline;
 
+    private static SessionLogon session = SessionLogon.getInstance();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         clockDate();
@@ -76,7 +78,7 @@ public class TestController implements Initializable {
     @FXML
     public void logout(){
         mainController.loadLogonScreen();
-        SessionLogon.logOut();
+        session.logOut();
     }
 
     public void setMainController(MainController mainController) {
