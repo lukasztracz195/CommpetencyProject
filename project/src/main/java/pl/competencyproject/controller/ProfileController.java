@@ -68,7 +68,7 @@ public class ProfileController implements Initializable{
     }
 
     private void setclockDate() {
-        clock = SessionLogon.getClockDate();
+        clock = SessionLogon.getInstance().getClockDate();
         timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 ae -> {
