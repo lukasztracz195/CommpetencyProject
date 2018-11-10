@@ -21,7 +21,7 @@ public class Stat {
     @Temporal(TemporalType.TIMESTAMP)
     Date dateInput;
 
-    private double valueProgres;
+    private double valueProgress;
 
     public Stat() {
     }
@@ -30,7 +30,7 @@ public class Stat {
         this.idUser = idUser;
         this.idLevel = idLevel;
         this.dateInput = new Date();
-        this.valueProgres = valueProgress;
+        this.valueProgress = valueProgress;
     }
 
 
@@ -66,12 +66,12 @@ public class Stat {
         this.dateInput = dateInput;
     }
 
-    public double getValueProgres() {
-        return valueProgres;
+    public double getValueProgress() {
+        return valueProgress;
     }
 
-    public void setValueProgres(double valueProgres) {
-        this.valueProgres = valueProgres;
+    public void setValueProgress(double valueProgres) {
+        this.valueProgress = valueProgres;
     }
 
 }
