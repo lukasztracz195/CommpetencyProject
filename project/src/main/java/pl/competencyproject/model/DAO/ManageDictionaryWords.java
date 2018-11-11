@@ -2,7 +2,6 @@ package pl.competencyproject.model.DAO;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
@@ -52,7 +51,7 @@ public class ManageDictionaryWords {
         }
         return idDictionary;
     }
-    
+
     public List<Dictionary_Words> getDictionaryByLevel(int idLevel) {
 
         if (!session.isOpen()) {
