@@ -30,14 +30,14 @@ public class ManageLevels {
         return instance;
     }
 
-    public  int createLevel(String levelName, String categorie){
+    public  int createLevel(String levelName, String nameCategorie){
         Transaction tx = null;
-        int idLevel = -1;
+        Integer idLevel = -1;
         if (SessionLogon.IdLoggedUser > 0) {
             if(!session.isOpen()){session = SessionFactory.openSession(); }
             try {
                 tx = session.beginTransaction();
-                Level level = new Level(levelName,categorie);
+                Level level = new Level(levelName,nameCategorie);
                 idLevel = (Integer) session.save(level);
                 tx.commit();
             } catch (HibernateException e) {

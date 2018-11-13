@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import pl.competencyproject.model.DAO.ManageLevels;
+import pl.competencyproject.model.DAO.MenageStat;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
@@ -12,31 +14,33 @@ import pl.competencyproject.model.connection.SessionFactoryConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 
 public class Main extends Application {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-      //  Mutex mutex = new Mutex();
-       // boolean lockFile = mutex.lockInstance("LockFile");
-      //  if (lockFile) {
-     //       launch(args);
+        Mutex mutex = new Mutex();
+        boolean lockFile = mutex.lockInstance("LockFile");
+        if (lockFile) {
+            launch(args);
 
-      //  }
-    SessionFactoryConfig.getSessionFactory();
+        }
+        SessionFactoryConfig.getSessionFactory();
 
     }
 
     @Override
     public void init() {
-       SessionLogon.time = GeneralClock.getInstance();
-       //SessionFactoryConfig.getSessionFactory();
+        SessionLogon.time = GeneralClock.getInstance();
+
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
+        SessionLogon.IdLoggedUser = 98;
+         MenageStat.createStat( 1, 0.5);
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainScreen.fxml"));
         StackPane root = loader.load();
@@ -51,7 +55,8 @@ public class Main extends Application {
     @Override
     public void stop() {
         SessionLogon.getInstance().logOut();
-       // SessionFactoryConfig.getSessionFactory().close();
+        SessionLogon.getInstance().closeSession();
+        // SessionFactoryConfig.getSessionFactory().close();
     }
 
 

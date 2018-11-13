@@ -102,7 +102,7 @@ public static  ManageUsers getInstance(){
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            User user = (User) session.get(User.class, UserID);
+            User user = session.get(User.class, UserID);
             session.delete(user);
             tx.commit();
         } catch (HibernateException e) {
@@ -223,6 +223,6 @@ public static  ManageUsers getInstance(){
 
 
     public void closeSession(){
-        SessionFactory.close();
+        if(session.isOpen()) session.close();
     }
 }

@@ -10,14 +10,14 @@ public class Level {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLevel;
 
-    private String levelName;
+    private String nameLevel;
 
 
-    private String categorie;
+    private String nameCategorie;
 
     public Level(String levelName, String categorie) {
-        this.levelName = levelName;
-        this.categorie = categorie;
+        this.nameLevel = levelName;
+        this.nameCategorie = categorie;
     }
 
     public Level() {
@@ -28,11 +28,11 @@ public class Level {
     }
 
     public String getLevelName() {
-        return levelName;
+        return nameLevel;
     }
 
     public String getCategorie() {
-        return categorie;
+        return nameCategorie;
     }
 
     public void setIdLevel(int idLevel) {
@@ -40,10 +40,10 @@ public class Level {
     }
 
     public void setLevelName(String levelName) {
-        this.levelName = levelName;
+        this.nameLevel = levelName;
     }
 
     public void setCategorie(String categorie) {
-        this.categorie = categorie;
+        this.nameCategorie = categorie;
     }
 }
