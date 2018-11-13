@@ -12,12 +12,31 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MenageStat {
+public class ManageStat {
 
-    private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
+    private static ManageStat instance;
+    private static org.hibernate.SessionFactory SessionFactory;
+    private Session session;
+
+    private ManageStat() {
+        SessionFactory = SessionFactoryConfig.getSessionFactory();
+        session = SessionFactory.openSession();
+    }
+
+    public static ManageStat getInstance() {
+        if (instance == null) {
+            synchronized (ManageFamilie.class) {
+                if (instance == null) {
+                    instance = new ManageStat();
+                }
+            }
+        }
+        return instance;
+    }
+     private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
 
     /* CREATE STAT*/
-    public static int createStat(int IdLevel, double valueProgress) {
+    public static int addStat(int IdLevel, double valueProgress) {
         Transaction tx = null;
         Integer idStat = -1;
         if (SessionLogon.IdLoggedUser > 0) {
@@ -56,6 +75,21 @@ public class MenageStat {
         Date now = new Date();
         long beetwenDays = beetwenDays(stat.getDateInput(),now);
 
+    }
+    /*  DELETE STAT */
+    public  void deleteStat(int IdStat) {
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Stat stat = (Stat) session.get(Stat.class, IdStat);
+            session.delete(stat);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 
     private static long beetwenDays(Date d1, Date d2){
