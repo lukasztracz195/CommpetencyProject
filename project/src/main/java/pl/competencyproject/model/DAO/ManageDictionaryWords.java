@@ -31,7 +31,7 @@ public class ManageDictionaryWords {
         return instance;
     }
 
-    public int insertDictionaryWords(int idLevel, int idFamili, int idWordENG, int idWordPL){
+    public int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL){
 
         Transaction tx = null;
         int idDictionary = -1;
@@ -39,7 +39,7 @@ public class ManageDictionaryWords {
             if(!session.isOpen()){session = SessionFactory.openSession(); }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel,idFamili,idWordENG,idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel,idFamilie,idWordENG,idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {

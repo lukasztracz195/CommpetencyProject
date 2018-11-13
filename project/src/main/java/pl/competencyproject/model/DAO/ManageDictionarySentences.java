@@ -35,7 +35,7 @@ public class ManageDictionarySentences {
     public int insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
         Transaction tx = null;
         int idDictionary = -1;
-        if (SessionLogon.IdLoggedUser > 0 && !existDictionarySentences(idLevel,sentencesENG,sentencesPL)) {
+        if (SessionLogon.IdLoggedUser > 0 && existDictionarySentences(idLevel, sentencesENG, sentencesPL) == -1) {
             if (!session.isOpen()) {
                 session = SessionFactory.openSession();
             }
@@ -54,19 +54,41 @@ public class ManageDictionarySentences {
         return idDictionary;
     }
 
-    public boolean existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
+    public int existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
         if (!session.isOpen()) {
             session = SessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel AND sentencesENG = : sentencesENG AND sentencesPL = " +
                 ":sentencesPL");
+        query.addEntity(Dictionary_Sentences.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("sentencesENG", sentencesENG);
         query.setParameter("sentencesPL", sentencesPL);
-        List resutl = query.list();
-        if (resutl.size() != 0)
-            return true;
-        return false;
+        List result = query.list();
+        if (result.size() != 0) {
+            Dictionary_Sentences dicSentency = (Dictionary_Sentences) result.get(0);
+            return dicSentency.getIdDictionary();
+        }
+        return -1;
+    }
+
+    public Dictionary_Sentences getDictionary_Sentences( int idDictionary){
+        Transaction tx = null;
+        Dictionary_Sentences dicSentency = null;
+        try {
+            if (!session.isOpen()) {
+                session = SessionFactory.openSession();
+            }
+            tx = session.beginTransaction();
+            dicSentency = (Dictionary_Sentences) session.get(Dictionary_Sentences.class, idDictionary);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return dicSentency;
     }
 
 
