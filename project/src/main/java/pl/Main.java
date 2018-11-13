@@ -19,12 +19,12 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-      //  Mutex mutex = new Mutex();
-       // boolean lockFile = mutex.lockInstance("LockFile");
-      //  if (lockFile) {
-     //       launch(args);
+        Mutex mutex = new Mutex();
+        boolean lockFile = mutex.lockInstance("LockFile");
+        if (lockFile) {
+            launch(args);
 
-      //  }
+        }
     SessionFactoryConfig.getSessionFactory();
 
     }
