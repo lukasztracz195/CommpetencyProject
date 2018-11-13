@@ -1,5 +1,7 @@
 package pl.competencyproject.model.entities;
 
+import org.hibernate.HibernateException;
+
 import javax.persistence.*;
 
 @Entity
@@ -35,6 +37,10 @@ public class Level {
         return categorie;
     }
 
+    public  void deleteLevel(int idLevel) {
+        this.idLevel = idLevel;
+    }
+
     public void setIdLevel(int idLevel) {
         this.idLevel = idLevel;
     }
@@ -46,4 +52,10 @@ public class Level {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
+
+
+    public  int addLevel(String nameLevel, String nameCategorie) {
+        return idLevel;
+    }
+
 }

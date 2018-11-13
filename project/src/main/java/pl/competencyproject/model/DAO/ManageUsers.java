@@ -8,6 +8,8 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,10 +21,14 @@ public class ManageUsers {
     private  static  SessionFactory SessionFactory;
     private Session session;
 
+    static Connection conn = null;
+
 private ManageUsers(){
     SessionFactory = SessionFactoryConfig.getSessionFactory();
     session = SessionFactory.openSession();
 }
+
+
 
 public static  ManageUsers getInstance(){
     if (instance == null) {
