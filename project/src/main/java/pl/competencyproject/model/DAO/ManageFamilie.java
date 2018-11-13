@@ -31,7 +31,7 @@ public class ManageFamilie {
         return instance;
     }
 
-    public int insertFamilie(int idLevel, String headFamilie) {
+    public int addFamilie(int idLevel, String headFamilie) {
         Transaction tx = null;
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existFamilie(idLevel, headFamilie) == -1) {
@@ -89,11 +89,11 @@ public class ManageFamilie {
         return familie;
     }
 
-    public  void deleteFamilie(Integer id) {
+    public  void deleteFamilie(Integer idFamilie) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Familie familie = (Familie) session.get(Familie.class, id);
+            Familie familie = (Familie) session.get(Familie.class, idFamilie);
             session.delete(familie);
             tx.commit();
         } catch (HibernateException e) {

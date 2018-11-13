@@ -26,7 +26,7 @@ public class Main extends Application {
             launch(args);
 
         }
-        SessionFactoryConfig.getSessionFactory();
+    SessionFactoryConfig.getSessionFactory();
 
     }
 

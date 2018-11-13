@@ -8,6 +8,8 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.User;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -15,9 +17,13 @@ import java.util.List;
 
 public class ManageUsers extends GeneralManager{
 
+    static Connection conn = null;
+
 private ManageUsers(){
     super();
 }
+
+
 
 public static  ManageUsers getInstance(){
     if (instance == null) {
