@@ -78,7 +78,7 @@ public class SessionLogon {
         return time;
     }
 
-    public void closeSession(){
+    public void closeSession() {
         manageUsers.closeSession();
     }
 }

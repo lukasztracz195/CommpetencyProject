@@ -1,26 +1,21 @@
 package pl.competencyproject.model.DAO;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Stat;
-import pl.competencyproject.model.entities.User;
 
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ManageStat {
+public class ManageStat extends GeneralManager {
 
     private static ManageStat instance;
-    private static org.hibernate.SessionFactory SessionFactory;
-    private Session session;
 
     private ManageStat() {
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+        super();
     }
 
     public static ManageStat getInstance() {
@@ -33,7 +28,8 @@ public class ManageStat {
         }
         return instance;
     }
-     private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
+
+    private static SessionFactory factory = SessionFactoryConfig.getSessionFactory();
 
     /* CREATE STAT*/
     public static int addStat(int IdLevel, double valueProgress) {
@@ -70,14 +66,15 @@ public class ManageStat {
     }
 
     /* UPDATE STAT */
-    public static void updateStat(int IdStat, int valueProgress){
+    public static void updateStat(int IdStat, int valueProgress) {
         Stat stat = getStat(IdStat);
         Date now = new Date();
-        long beetwenDays = beetwenDays(stat.getDateInput(),now);
+        long beetwenDays = beetwenDays(stat.getDateInput(), now);
 
     }
+
     /*  DELETE STAT */
-    public  void deleteStat(int IdStat) {
+    public void deleteStat(int IdStat) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -92,7 +89,7 @@ public class ManageStat {
         }
     }
 
-    private static long beetwenDays(Date d1, Date d2){
+    private static long beetwenDays(Date d1, Date d2) {
         long diffInMillies = Math.abs(d2.getTime() - d1.getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return diff;

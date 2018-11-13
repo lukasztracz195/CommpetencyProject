@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.model.DAO.ManageLevels;
-import pl.competencyproject.model.DAO.MenageStat;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
@@ -38,9 +37,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
-        SessionLogon.IdLoggedUser = 98;
-         MenageStat.createStat( 1, 0.5);
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainScreen.fxml"));
         StackPane root = loader.load();

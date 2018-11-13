@@ -1,28 +1,21 @@
 package pl.competencyproject.model.DAO;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Word_ENG;
 
 import java.util.List;
 
-public class ManageWordsENG {
+public class ManageWordsENG extends GeneralManager {
 
-    private  static ManageWordsENG instance;
-    private  static org.hibernate.SessionFactory SessionFactory;
-    private Session session;
+    private static ManageWordsENG instance;
 
-
-    private ManageWordsENG(){
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+    private ManageWordsENG() {
+        super();
     }
 
-    private ManageWordsENG getInstance(){
+    private ManageWordsENG getInstance() {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {
                 if (instance == null) {
@@ -33,12 +26,14 @@ public class ManageWordsENG {
         return instance;
     }
 
-    public int addWordENG(String strENG){
+    public int addWordENG(String strENG) {
         Transaction tx = null;
         int idWordENG = -1;
 
         if (this.existWordENG(strENG) == -1) {
-            if(!session.isOpen()){session = SessionFactory.openSession(); }
+            if (!session.isOpen()) {
+                session = SessionFactory.openSession();
+            }
             try {
                 tx = session.beginTransaction();
                 Word_ENG wordENG = new Word_ENG(strENG);
@@ -54,20 +49,22 @@ public class ManageWordsENG {
         return idWordENG;
     }
 
-    public int existWordENG(String strENG){
-        if(!session.isOpen()){session = SessionFactory.openSession(); }
+    public int existWordENG(String strENG) {
+        if (!session.isOpen()) {
+            session = SessionFactory.openSession();
+        }
         NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_ENG WHERE wordENG =  :wordENG");
         query.addEntity(Word_ENG.class);
         query.setParameter("wordENG", strENG);
         List result = query.list();
         if (result.size() != 0) {
-            Word_ENG word= (Word_ENG) result.get(0);
+            Word_ENG word = (Word_ENG) result.get(0);
             return word.getIdWordENG();
         }
         return -1;
     }
 
-    public  void deleteWordENG(Integer idWordENG) {
+    public void deleteWordENG(Integer idWordENG) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

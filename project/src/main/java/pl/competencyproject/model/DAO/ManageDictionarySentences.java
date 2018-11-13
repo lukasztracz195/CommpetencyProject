@@ -1,23 +1,18 @@
 package pl.competencyproject.model.DAO;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Dictionary_Sentences;
 
 import java.util.List;
 
-public class ManageDictionarySentences {
+public class ManageDictionarySentences extends GeneralManager {
 
     private static ManageDictionarySentences instance;
-    private static org.hibernate.SessionFactory SessionFactory;
-    private Session session;
 
     private ManageDictionarySentences() {
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+        super();
     }
 
     public static ManageDictionarySentences getInstance() {
@@ -72,7 +67,7 @@ public class ManageDictionarySentences {
         return -1;
     }
 
-    public Dictionary_Sentences getDictionary_Sentences( int idDictionary){
+    public Dictionary_Sentences getDictionary_Sentences(int idDictionary) {
         Transaction tx = null;
         Dictionary_Sentences dicSentency = null;
         try {

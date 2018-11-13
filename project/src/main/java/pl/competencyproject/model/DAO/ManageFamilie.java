@@ -1,23 +1,19 @@
 package pl.competencyproject.model.DAO;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Familie;
 
 import java.util.List;
 
-public class ManageFamilie {
+public class ManageFamilie extends GeneralManager {
+
 
     private static ManageFamilie instance;
-    private static org.hibernate.SessionFactory SessionFactory;
-    private Session session;
 
     private ManageFamilie() {
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+        super();
     }
 
     public static ManageFamilie getInstance() {
@@ -89,7 +85,7 @@ public class ManageFamilie {
         return familie;
     }
 
-    public  void deleteFamilie(Integer idFamilie) {
+    public void deleteFamilie(Integer idFamilie) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

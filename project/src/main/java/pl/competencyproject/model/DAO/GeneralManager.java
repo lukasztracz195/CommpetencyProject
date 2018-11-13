@@ -6,7 +6,7 @@ import pl.competencyproject.model.connection.SessionFactoryConfig;
 
 public abstract class GeneralManager {
 
-    protected  static ManageUsers instance;
+    private  static GeneralManager instance;
     protected  static org.hibernate.SessionFactory SessionFactory;
     protected Session session;
 

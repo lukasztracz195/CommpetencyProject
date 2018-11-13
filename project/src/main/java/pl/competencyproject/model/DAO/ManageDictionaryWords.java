@@ -1,26 +1,22 @@
 package pl.competencyproject.model.DAO;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Dictionary_Words;
 
 import java.util.List;
 
-public class ManageDictionaryWords {
+public class ManageDictionaryWords extends GeneralManager {
 
-    private  static ManageDictionaryWords instance;
-    private  static org.hibernate.SessionFactory SessionFactory;
-    private Session session;
+    private static ManageDictionaryWords instance;
 
-    private ManageDictionaryWords(){
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+
+    private ManageDictionaryWords() {
+        super();
     }
 
-    public static ManageDictionaryWords getInstance(){
+    public static ManageDictionaryWords getInstance() {
         if (instance == null) {
             synchronized (ManageDictionaryWords.class) {
                 if (instance == null) {
@@ -31,15 +27,17 @@ public class ManageDictionaryWords {
         return instance;
     }
 
-    public int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL){
+    public int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0) {
-            if(!session.isOpen()){session = SessionFactory.openSession(); }
+            if (!session.isOpen()) {
+                session = SessionFactory.openSession();
+            }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel,idFamilie,idWordENG,idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idFamilie, idWordENG, idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
