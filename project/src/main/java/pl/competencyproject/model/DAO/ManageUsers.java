@@ -35,7 +35,7 @@ public class ManageUsers extends GeneralManager {
 
         if (this.existUser(email) == -1) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
 
@@ -61,7 +61,7 @@ public class ManageUsers extends GeneralManager {
 
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
@@ -81,7 +81,7 @@ public class ManageUsers extends GeneralManager {
 
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             User user = (User) session.get(User.class, UserID);
@@ -117,7 +117,7 @@ public class ManageUsers extends GeneralManager {
         User user = null;
         int id = -1;
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
@@ -137,7 +137,7 @@ public class ManageUsers extends GeneralManager {
         Transaction tx = null;
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
@@ -154,7 +154,7 @@ public class ManageUsers extends GeneralManager {
 
         User user = null;
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
@@ -171,7 +171,7 @@ public class ManageUsers extends GeneralManager {
         User user = null;
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             user = (User) session.get(User.class, IdUser);

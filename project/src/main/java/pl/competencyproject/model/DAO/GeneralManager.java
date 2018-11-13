@@ -7,12 +7,12 @@ import pl.competencyproject.model.connection.SessionFactoryConfig;
 public abstract class GeneralManager {
 
     private  static GeneralManager instance;
-    protected  static org.hibernate.SessionFactory SessionFactory;
+    protected  static SessionFactory sessionFactory;
     protected Session session;
 
     protected GeneralManager(){
-        SessionFactory = SessionFactoryConfig.getSessionFactory();
-        session = SessionFactory.openSession();
+        sessionFactory = SessionFactoryConfig.getSessionFactory();
+        session = sessionFactory.openSession();
     }
 
     protected void closeSession(){

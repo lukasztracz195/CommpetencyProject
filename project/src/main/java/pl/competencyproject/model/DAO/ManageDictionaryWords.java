@@ -33,7 +33,7 @@ public class ManageDictionaryWords extends GeneralManager {
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
@@ -53,7 +53,7 @@ public class ManageDictionaryWords extends GeneralManager {
     public List<Dictionary_Words> getDictionaryByLevel(int idLevel) {
 
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel");
         query.addEntity(Dictionary_Words.class);
@@ -65,7 +65,7 @@ public class ManageDictionaryWords extends GeneralManager {
     public List<Dictionary_Words> getDictionaryByFamilie(int idFamilie) {
 
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamilie =  :idFamilie");
         query.addEntity(Dictionary_Words.class);

@@ -32,7 +32,7 @@ public class ManageWordsENG extends GeneralManager {
 
         if (this.existWordENG(strENG) == -1) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
@@ -51,7 +51,7 @@ public class ManageWordsENG extends GeneralManager {
 
     public int existWordENG(String strENG) {
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_ENG WHERE wordENG =  :wordENG");
         query.addEntity(Word_ENG.class);

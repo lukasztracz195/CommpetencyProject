@@ -32,7 +32,7 @@ public class ManageFamilie extends GeneralManager {
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existFamilie(idLevel, headFamilie) == -1) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
@@ -51,7 +51,7 @@ public class ManageFamilie extends GeneralManager {
 
     public int existFamilie(int idLevel, String headFamilie) {
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         Familie familie = null;
         NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIE WHERE idLevel = :idLevel AND headFamilie = : headFamilie");
@@ -71,7 +71,7 @@ public class ManageFamilie extends GeneralManager {
         Familie familie = null;
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             familie = (Familie) session.get(Familie.class, idFamili);

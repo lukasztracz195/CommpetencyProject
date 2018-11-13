@@ -31,7 +31,7 @@ public class ManageLevels extends GeneralManager {
         int idLevel = -1;
         if (this.existLevel(nameLevel, nameCategorie) != -1) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
@@ -71,7 +71,7 @@ public class ManageLevels extends GeneralManager {
         Level level2 = null;
         int id = -1;
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE nameLevel =  :nameLevel AND nameCategorie = :nameCategorie");
         query.addEntity(Level.class);
@@ -97,7 +97,7 @@ public class ManageLevels extends GeneralManager {
         Level level = null;
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             level = (Level) session.get(Level.class, idLevel);

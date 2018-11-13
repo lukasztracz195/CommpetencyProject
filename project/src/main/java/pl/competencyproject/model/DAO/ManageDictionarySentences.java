@@ -32,7 +32,7 @@ public class ManageDictionarySentences extends GeneralManager {
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existDictionarySentences(idLevel, sentencesENG, sentencesPL) == -1) {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
@@ -51,7 +51,7 @@ public class ManageDictionarySentences extends GeneralManager {
 
     public int existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel AND sentencesENG = : sentencesENG AND sentencesPL = " +
                 ":sentencesPL");
@@ -72,7 +72,7 @@ public class ManageDictionarySentences extends GeneralManager {
         Dictionary_Sentences dicSentency = null;
         try {
             if (!session.isOpen()) {
-                session = SessionFactory.openSession();
+                session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
             dicSentency = (Dictionary_Sentences) session.get(Dictionary_Sentences.class, idDictionary);
