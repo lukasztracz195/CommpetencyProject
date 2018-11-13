@@ -13,15 +13,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-public class ManageUsers {
-
-    private  static ManageUsers instance;
-    private  static  SessionFactory SessionFactory;
-    private Session session;
+public class ManageUsers extends GeneralManager{
 
 private ManageUsers(){
-    SessionFactory = SessionFactoryConfig.getSessionFactory();
-    session = SessionFactory.openSession();
+    super();
 }
 
 public static  ManageUsers getInstance(){
@@ -221,8 +216,4 @@ public static  ManageUsers getInstance(){
         return sb.toString();
     }
 
-
-    public void closeSession(){
-        if(session.isOpen()) session.close();
-    }
 }
