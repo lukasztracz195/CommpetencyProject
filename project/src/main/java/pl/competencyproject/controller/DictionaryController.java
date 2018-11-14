@@ -1,5 +1,5 @@
 package pl.competencyproject.controller;
 
-public class DictionaryController {
+public class DictionaryController extends MainController{
 
 }

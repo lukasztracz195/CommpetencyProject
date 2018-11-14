@@ -84,8 +84,7 @@ public class ManageUsers extends GeneralManager {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            User user = (User) session.get(User.class, UserID);
-            user.setActive(active);
+            User user = (User) session.get(User.class, UserID);user.setActive(active);
             session.update(user);
             tx.commit();
         } catch (HibernateException e) {

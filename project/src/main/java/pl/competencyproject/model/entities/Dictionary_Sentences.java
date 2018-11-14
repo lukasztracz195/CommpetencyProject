@@ -3,7 +3,7 @@ package pl.competencyproject.model.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "DICTIONARY_SENETENCES")
+@Table(name = "DICTIONARY_SENTENCES")
 public class Dictionary_Sentences {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

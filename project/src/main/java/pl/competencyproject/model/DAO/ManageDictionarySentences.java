@@ -53,7 +53,7 @@ public class ManageDictionarySentences extends GeneralManager {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel AND sentencesENG = : sentencesENG AND sentencesPL = " +
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel AND sentencesENG = :sentencesENG AND sentencesPL = " +
                 ":sentencesPL");
         query.addEntity(Dictionary_Sentences.class);
         query.setParameter("idLevel", idLevel);

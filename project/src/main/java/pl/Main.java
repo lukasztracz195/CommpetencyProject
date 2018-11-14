@@ -5,11 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import pl.competencyproject.model.DAO.ManageLevels;
+import pl.competencyproject.model.DAO.ManageDictionarySentences;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,14 +24,11 @@ public class Main extends Application {
             launch(args);
 
         }
-    SessionFactoryConfig.getSessionFactory();
-
     }
 
     @Override
     public void init() {
         SessionLogon.time = GeneralClock.getInstance();
-
     }
 
     @Override
@@ -52,7 +48,6 @@ public class Main extends Application {
     public void stop() {
         SessionLogon.getInstance().logOut();
         SessionLogon.getInstance().closeSession();
-        // SessionFactoryConfig.getSessionFactory().close();
     }
 
 
