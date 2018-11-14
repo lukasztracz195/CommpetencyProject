@@ -4,10 +4,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Stat;
+import pl.competencyproject.model.entities.User;
 
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ManageStat extends GeneralManager {
@@ -87,6 +90,27 @@ public class ManageStat extends GeneralManager {
         } finally {
             session.close();
         }
+    }
+
+    public int existStat(int idStat) throws HibernateException {
+
+        Stat stat = null;
+        int id = -1;
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idStat =  :idStat");
+        query.addEntity(Stat.class);
+        query.setParameter("isStat", idStat);
+        List result = query.list();
+        if (result.size() != 0) {
+            stat = (Stat) result.get(0);
+        }
+        if (stat != null) {
+            id = stat.getIdUser();
+        }
+        return id;
+
     }
 
     private static long beetwenDays(Date d1, Date d2) {

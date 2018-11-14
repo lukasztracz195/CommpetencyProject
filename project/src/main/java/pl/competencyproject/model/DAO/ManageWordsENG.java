@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.entities.Word_ENG;
+import pl.competencyproject.model.entities.Word_PL;
 
 import java.util.List;
 
@@ -77,6 +78,25 @@ public class ManageWordsENG extends GeneralManager {
         } finally {
             session.close();
         }
+    }
+
+    public Word_ENG getWordENG(int idWordENG) {
+        Transaction tx = null;
+        Word_ENG word = null;
+        try {
+            if (!session.isOpen()) {
+                session = sessionFactory.openSession();
+            }
+            tx = session.beginTransaction();
+            word = (Word_ENG) session.get(Word_ENG.class, idWordENG);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return word;
     }
 
 
