@@ -92,22 +92,22 @@ public class ManageStat extends GeneralManager {
         }
     }
 
-    public int existStat(String email) throws HibernateException {
+    public int existStat(int idStat) throws HibernateException {
 
-        User user = null;
+        Stat stat = null;
         int id = -1;
         if (!session.isOpen()) {
-            session = SessionFactory.openSession();
+            session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
-        query.addEntity(User.class);
-        query.setParameter("email", email);
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idStat =  :idStat");
+        query.addEntity(Stat.class);
+        query.setParameter("isStat", idStat);
         List result = query.list();
         if (result.size() != 0) {
-            user = (User) result.get(0);
+            stat = (Stat) result.get(0);
         }
-        if (user != null) {
-            id = user.getIdUser();
+        if (stat != null) {
+            id = stat.getIdUser();
         }
         return id;
 
