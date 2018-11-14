@@ -21,6 +21,7 @@ public class Mutex {
                             file.delete();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            file.delete();
                         }
                     }
                 });
@@ -28,6 +29,7 @@ public class Mutex {
             }
         } catch (Exception e) {
             e.printStackTrace();
+
         }
         return false;
     }

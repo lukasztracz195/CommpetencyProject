@@ -22,7 +22,6 @@ public class Main extends Application {
         boolean lockFile = mutex.lockInstance("LockFile");
         if (lockFile) {
             launch(args);
-
         }
     }
 
