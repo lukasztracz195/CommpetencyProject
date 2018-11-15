@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
+import pl.competencyproject.model.CSV.CSVReader;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
@@ -18,6 +19,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws FileNotFoundException {
+        //CSVReader.SelectCSV("ENG PL");
         Mutex mutex = new Mutex();
         boolean lockFile = mutex.lockInstance("LockFile");
         if (lockFile) {

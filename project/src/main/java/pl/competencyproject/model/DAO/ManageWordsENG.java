@@ -12,11 +12,10 @@ public class ManageWordsENG extends GeneralManager {
 
     private static ManageWordsENG instance;
 
-    private ManageWordsENG() {
-        super();
+    private ManageWordsENG() { super();
     }
 
-    private ManageWordsENG getInstance() {
+    public static ManageWordsENG getInstance() {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {
                 if (instance == null) {
