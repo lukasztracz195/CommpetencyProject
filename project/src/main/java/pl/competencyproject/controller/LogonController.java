@@ -1,26 +1,19 @@
 package pl.competencyproject.controller;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
-import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.messages.Email;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LogonController implements Initializable {
-
-    private MainController mainController;
+public class LogonController extends AbstractController implements Initializable {
 
     @FXML
     private TextField emailTextField;
@@ -45,16 +38,16 @@ public class LogonController implements Initializable {
     @FXML
     private Button logOutButton;
 
-    private Timeline timeline;
     private boolean statusLogin = true;
     private boolean approvesCode = false;
-    private GeneralClock clock;
-    private  SessionLogon sessionLogon = SessionLogon.getInstance();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
+        if (!SessionLogon.logged) {
+            logOutButton.setDisable(true);
+        }
         codeLabel.setVisible(false);
         codeTextField.setVisible(false);
         codeTextField.setDisable(true);
@@ -62,7 +55,7 @@ public class LogonController implements Initializable {
         codeLabel.setDisable(true);
         toggleButton.setId("LogIn");
         toggleButton.setText("<<<<");
-        setclockDate();
+        super.setClockDate(clockLabel, dateLabel);
     }
 
     private void login() {
@@ -77,7 +70,9 @@ public class LogonController implements Initializable {
             emailFeedbackLabel.setText("User with this email not exist");
         }
 
-        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
+        if (!SessionLogon.logged) {
+            logOutButton.setDisable(true);
+        }
     }
 
 
@@ -108,7 +103,7 @@ public class LogonController implements Initializable {
         if (statusLogin) {
             login();
             if (SessionLogon.logged) {
-                 loginMenu();
+                loginMenu();
             }
 
         } else {
@@ -152,23 +147,6 @@ public class LogonController implements Initializable {
         }
     }
 
-    private void setclockDate() {
-        clock = sessionLogon.getClockDate();
-        timeline = new Timeline(new KeyFrame(
-                Duration.millis(1000),
-                ae -> {
-                    clockLabel.setText(clock.getTime());
-                    dateLabel.setText(clock.getDate());
-                }));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
     private boolean checkEmail(String email) {
         clearAllFeedbackLabels();
         if (ManageUsers.getInstance().existUser(email) == -1) {
@@ -199,7 +177,9 @@ public class LogonController implements Initializable {
     public void logOut() {
         sessionLogon.logOut();
         clearAllFeedbackLabels();
-        if(!SessionLogon.logged){  logOutButton.setDisable(true);}
+        if (!SessionLogon.logged) {
+            logOutButton.setDisable(true);
+        }
         sessionLogon.closeSession();
         emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
         emailFeedbackLabel.setText("Użytkownik został wylogowany");
