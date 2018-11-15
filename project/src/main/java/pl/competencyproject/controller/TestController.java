@@ -4,21 +4,18 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.SessionLogon;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class TestController implements Initializable {
+public class TestController extends BackController implements Initializable {
 
     private MainController mainController;
 
@@ -42,16 +39,7 @@ public class TestController implements Initializable {
 
     @FXML
     public void back() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        MenuLayoutController menuLayoutController = loader.getController();
-        menuLayoutController.setMainController(mainController);
-        mainController.setScreen(pane);
+        super.back(mainController, this);
     }
 
     private void clockDate() {
@@ -69,14 +57,15 @@ public class TestController implements Initializable {
         clockLabel.setText(dtf.format((now)));
         setDate();
     }
-    private void setDate(){
+
+    private void setDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDateTime now = LocalDateTime.now();
         dateLabel.setText(dtf.format((now)));
     }
 
     @FXML
-    public void logout(){
+    public void logout() {
         mainController.loadLogonScreen();
         session.logOut();
     }

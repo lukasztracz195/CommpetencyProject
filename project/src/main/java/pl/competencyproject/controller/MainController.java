@@ -11,8 +11,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
     @FXML
     private StackPane mainStackPane;
+
+    public static final String Logon = "/fxmls/Logon.fxml";
+    public static final String Menu = "/fxmls/MainMenuLayout.fxml";
+    public static final String MainScreen = "/fxmls/MainScreen.fxml";
+    public static final String Teaching = "/fxmls/Nauka.fxml";
+    public static final String Dictionary = "/fxmls/Slownik.fxml";
+    public static final String Test = "/fxmls/test.fxml";
+    public static final String Account = "/fxmls/Profil.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -20,17 +29,28 @@ public class MainController implements Initializable {
     }
 
     public void loadLogonScreen() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/Logon.fxml"));
+
+        FXMLLoader loader = this.createLoader(MainController.Logon, this);
+        Pane pane = MainController.createPane(loader);
+        LogonController logonController = loader.getController();
+        logonController.setMainController(this);
+        setScreen(pane);
+    }
+
+    public static FXMLLoader createLoader(String fxml, Object toGetClass) {
+        return new FXMLLoader(toGetClass.getClass().getResource(fxml));
+    }
+
+    public static Pane createPane(FXMLLoader loader) {
         Pane pane = null;
         try {
             pane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        LogonController logonController = loader.getController();
-        logonController.setMainController(this);
-        setScreen(pane);
+        return pane;
     }
+
 
     public void setScreen(Pane pane) {
         mainStackPane.getChildren().clear();

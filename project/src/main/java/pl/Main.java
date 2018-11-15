@@ -5,19 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
-
-
-
 
 
 public class Main extends Application {
@@ -40,7 +34,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
 
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
         Scene scene = new Scene(root, 794, 516);

@@ -4,22 +4,17 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Time.GeneralClock;
 
-import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class ProfileController implements Initializable{
+public class ProfileController extends  BackController implements Initializable{
     private MainController mainController;
 
     @FXML
@@ -49,16 +44,7 @@ public class ProfileController implements Initializable{
 
     @FXML
     public void back() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        MenuLayoutController menuLayoutController = loader.getController();
-        menuLayoutController.setMainController(mainController);
-        mainController.setScreen(pane);
+        super.back(mainController, this);
     }
 
     @FXML

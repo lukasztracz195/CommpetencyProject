@@ -6,8 +6,7 @@ import java.nio.channels.FileLock;
 
 public class Mutex {
 
-
-    public boolean lockInstance(final String lockFile) {
+    public boolean lockInstance( String lockFile) {
         try {
             final File file = new File(lockFile);
             final RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
@@ -28,7 +27,7 @@ public class Mutex {
                 return true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+           // e.printStackTrace();
 
         }
         return false;

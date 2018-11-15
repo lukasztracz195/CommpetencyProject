@@ -12,12 +12,9 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
-import pl.competencyproject.model.JavaFxLoader;
 import pl.competencyproject.model.Time.GeneralClock;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.messages.Email;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,10 +77,6 @@ public class LogonController implements Initializable {
             emailFeedbackLabel.setText("User with this email not exist");
         }
 
-        if (SessionLogon.logged) {
-            emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
-            emailFeedbackLabel.setText("Użytkownik został zalogowany");
-        }
         if(!SessionLogon.logged){  logOutButton.setDisable(true);}
     }
 
@@ -102,15 +95,11 @@ public class LogonController implements Initializable {
     }
 
     private void loginMenu() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxmls/MainMenuLayout.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        MenuLayoutController menuLayoutController = loader.getController();
-        menuLayoutController.setMainController(mainController);
+
+        FXMLLoader loader = MainController.createLoader(MainController.Menu, this);
+        Pane pane = MainController.createPane(loader);
+        MenuLayoutController controller = loader.getController();
+        controller.setMainController(mainController);
         mainController.setScreen(pane);
     }
 
@@ -130,7 +119,6 @@ public class LogonController implements Initializable {
 
                     sessionLogon.sign(emailTextField.getText(), passwordTextField.getText());
                     clearAllFeedbackLabels();
-                    emailFeedbackLabel.setText("Użytkownik został utowrzony");
                     logOutButton.setDisable(false);
                     loginMenu();
                 } else {
@@ -189,19 +177,19 @@ public class LogonController implements Initializable {
                 if (afterMonkey.contains(".")) {
                     return true;
                 } else {
-                    emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
+                    emailFeedbackLabel.setText("Wrong email");
                     clearFieldsEmailAndPassword();
                     return false;
                 }
             } else {
 
-                emailFeedbackLabel.setText("Podano nieprawidłowy adres email");
+                emailFeedbackLabel.setText("Wrong email");
                 clearFieldsEmailAndPassword();
                 return false;
             }
         } else {
 
-            emailFeedbackLabel.setText("Podana Nazwa Użytkownika już istnieje, zaloguj się");
+            emailFeedbackLabel.setText("This email just exist in Database");
             clearFieldsEmailAndPassword();
             return false;
         }
