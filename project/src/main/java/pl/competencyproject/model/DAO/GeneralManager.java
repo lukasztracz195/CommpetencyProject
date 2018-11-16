@@ -8,7 +8,7 @@ public abstract class GeneralManager {
 
     private  static GeneralManager instance;
     protected  static SessionFactory sessionFactory;
-    protected Session session;
+    protected static Session session;
 
     protected GeneralManager(){
         sessionFactory = SessionFactoryConfig.getSessionFactory();

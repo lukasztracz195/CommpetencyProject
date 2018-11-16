@@ -17,9 +17,9 @@ public class ManageWordsPL extends GeneralManager{
         super();
     }
 
-    private ManageWordsPL getInstance() {
+    public static ManageWordsPL getInstance() {
         if (instance == null) {
-            synchronized (ManageWordsENG.class) {
+            synchronized (ManageWordsPL.class) {
                 if (instance == null) {
                     instance = new ManageWordsPL();
                 }
@@ -56,7 +56,7 @@ public class ManageWordsPL extends GeneralManager{
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_PL WHERE wordPL =  :wordPL");
-        query.addEntity(Word_ENG.class);
+        query.addEntity(Word_PL.class);
         query.setParameter("wordPL", strPL);
         List result = query.list();
         if (result.size() != 0) {

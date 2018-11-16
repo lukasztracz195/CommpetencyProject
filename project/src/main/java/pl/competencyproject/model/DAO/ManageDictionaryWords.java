@@ -27,7 +27,7 @@ public class ManageDictionaryWords extends GeneralManager {
         return instance;
     }
 
-    public int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
+    public static int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;

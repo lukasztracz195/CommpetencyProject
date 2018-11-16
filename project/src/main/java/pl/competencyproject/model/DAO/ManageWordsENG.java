@@ -12,8 +12,7 @@ public class ManageWordsENG extends GeneralManager {
 
     private static ManageWordsENG instance;
 
-    private ManageWordsENG() {
-        super();
+    private ManageWordsENG() { super();
     }
 
     public static ManageWordsENG getInstance() {
