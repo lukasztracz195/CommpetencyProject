@@ -20,7 +20,6 @@ public class MenuLayoutController extends AbstractController implements Initiali
     @FXML
     private Label dateLabel;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
@@ -88,7 +87,6 @@ public class MenuLayoutController extends AbstractController implements Initiali
         mainController.setScreen(pane);
         */
     }
-
 
     @FXML
     public void logout() {

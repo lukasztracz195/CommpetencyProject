@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
+import pl.competencyproject.model.DAO.ManageWordsENG;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
@@ -15,7 +16,6 @@ import java.io.IOException;
 
 
 public class Main extends Application {
-
 
     public static void main(String[] args) throws FileNotFoundException {
         Mutex mutex = new Mutex();
@@ -33,6 +33,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
+        ManageWordsENG manger = ManageWordsENG.getInstance();
+        manger.addWordENG("house");
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
@@ -49,7 +51,6 @@ public class Main extends Application {
         SessionLogon.getInstance().logOut();
         SessionLogon.getInstance().closeSession();
     }
-
 
 }
 

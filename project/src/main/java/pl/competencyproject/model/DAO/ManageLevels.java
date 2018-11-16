@@ -29,7 +29,7 @@ public class ManageLevels extends GeneralManager {
     public int addLevel(String nameLevel, String nameCategorie) {
         Transaction tx = null;
         int idLevel = -1;
-        if (this.existLevel(nameLevel, nameCategorie) != -1) {
+        if (this.existLevel(nameLevel, nameCategorie) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }

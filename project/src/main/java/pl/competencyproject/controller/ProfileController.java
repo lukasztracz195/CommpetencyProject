@@ -20,7 +20,6 @@ public class ProfileController extends AbstractController implements Initializab
     @FXML
     private TextField profilPotwierdzHaslo;
 
-
     @FXML
     private Label clockLabel;
 

@@ -16,7 +16,7 @@ public class ManageWordsENG extends GeneralManager {
         super();
     }
 
-    private ManageWordsENG getInstance() {
+    public static ManageWordsENG getInstance() {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {
                 if (instance == null) {
