@@ -27,7 +27,7 @@ public class ManageDictionaryWords extends GeneralManager {
         return instance;
     }
 
-    public static int insertDictionaryWords(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
+    public static int insertDictionaryWordswithoutFamilie(int idLevel, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;
@@ -37,7 +37,30 @@ public class ManageDictionaryWords extends GeneralManager {
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idFamilie, idWordENG, idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idWordENG, idWordPL,true);
+                idDictionary = (Integer) session.save(dictionary);
+                tx.commit();
+            } catch (HibernateException e) {
+                if (tx != null) tx.rollback();
+                e.printStackTrace();
+            } finally {
+                session.close();
+            }
+        }
+        return idDictionary;
+    }
+
+    public static int insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
+
+        Transaction tx = null;
+        int idDictionary = -1;
+        if (SessionLogon.IdLoggedUser > 0) {
+            if (!session.isOpen()) {
+                session = sessionFactory.openSession();
+            }
+            try {
+                tx = session.beginTransaction();
+                Dictionary_Words dictionary = new Dictionary_Words(idFamilie, idWordENG, idWordPL,false);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {

@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.entities.Level;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class ManageLevels extends GeneralManager {
@@ -73,23 +74,16 @@ public class ManageLevels extends GeneralManager {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE nameLevel =  :nameLevel AND nameCategorie = :nameCategorie");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameCategorie = :nameCategorie");
         query.addEntity(Level.class);
         query.setParameter("nameLevel", nameLevel);
+        query.setParameter("nameCategorie", nameCategorie);
         List result = query.list();
         if (result.size() != 0) {
             level = (Level) result.get(0);
-        }
-        List result2 = query.list();
-        query.setParameter("nameCategorie", nameCategorie);
-        if (result2.size() != 0) {
-            level2 = (Level) result2.get(0);
-        }
-        if (level.equals(level2) && level != null) {
             id = level.getIdLevel();
         }
         return id;
-
     }
 
     public Level getLevel(int idLevel) {
@@ -111,5 +105,39 @@ public class ManageLevels extends GeneralManager {
         return level;
     }
 
+    public List<Level> getAllLevels() {
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS");
+        query.addEntity(Level.class);
+        List list = query.list();
+        if(list == null){ list = new LinkedList(); }
+        return list;
+    }
+
+    public List<String> getCategories(String nameLevel) {
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("SELECT nameCategorie FROM LEVELS");
+        List result = query.list();
+        if (result == null) {
+            result = new LinkedList<>();
+        }
+        return result;
+    }
+
+    public List<String> getNamesLevels() {
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("SELECT nameLevel FROM LEVELS");
+        List result = query.list();
+        if (result == null) {
+            result = new LinkedList<>();
+        }
+        return result;
+    }
 
 }

@@ -20,12 +20,23 @@ public class Dictionary_Words {
 
     public Dictionary_Words(){};
 
-    public Dictionary_Words(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
+     public Dictionary_Words(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
         this.idLevel = idLevel;
         this.idFamilie = idFamilie;
         this.idWordENG = idWordENG;
         this.idWordPL = idWordPL;
     }
+
+    public Dictionary_Words(int idLevelFamilie, int idWordENG, int idWordPL, boolean LeveltrueFamiliefalse) {
+
+        this.idWordENG = idWordENG;
+        this.idWordPL = idWordPL;
+        if(LeveltrueFamiliefalse){
+            this.idLevel = idLevelFamilie;
+        }else { this.idFamilie = idLevelFamilie; }
+    }
+
+
 
     public int getIdDictionaryWords() {
         return idDictionaryWords;

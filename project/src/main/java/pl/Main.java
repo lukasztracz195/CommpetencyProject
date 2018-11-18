@@ -7,12 +7,17 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.CSV.CSVReader;
+import pl.competencyproject.model.CSV.LibraryCSV;
+import pl.competencyproject.model.DAO.ManageLevels;
+import pl.competencyproject.model.DAO.ManageWordsENG;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.entities.Level;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -34,9 +39,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        ManageWordsENG manger = ManageWordsENG.getInstance();
-        manger.addWordENG("house");
-
+        
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");

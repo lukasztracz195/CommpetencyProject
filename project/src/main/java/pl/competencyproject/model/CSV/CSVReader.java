@@ -8,13 +8,18 @@ import java.io.IOException;
 
 public class CSVReader
 {
+    LibraryCSV library;
+
+    public CSVReader(){
+        library = new LibraryCSV();
+    }
     public static void SelectCSV(String CSVname)//throws IOException
     {
+
         final String DELIMITER = ";";
-        /*if(CSVname=="DICTIONARY_SENTENCES")
+        if(CSVname=="DICTIONARY_SENTENCES")
         {
             ManageDictionarySentences MDS = ManageDictionarySentences.getInstance();
-            SessionLogon.IdLoggedUser = 98;
             BufferedReader fileReader = null;
             try
             {
@@ -39,7 +44,7 @@ public class CSVReader
             {
                 e.printStackTrace();
             }
-        }*/
+        }
         if(CSVname=="ENG PL")
         {
             SessionLogon.IdLoggedUser = 98;
@@ -71,7 +76,7 @@ public class CSVReader
                     MWP.addWordPL(WordPL);
                     IdWordENG=MWE.existWordENG(WordENG);
                     IdWordPL=MWP.existWordPL(WordPL);
-                    MDW.insertDictionaryWords(1,1,IdWordENG, IdWordPL);
+                    MDW.insertDictionaryWordswithoutFamilie(1,IdWordENG, IdWordPL);
                     i=0;
                 }
             }catch (IOException e)

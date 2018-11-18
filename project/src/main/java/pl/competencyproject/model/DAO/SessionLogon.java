@@ -42,6 +42,7 @@ public class SessionLogon {
                 }
             }
         }
+        doSomethingbyLoggedUser();
     }
 
     public void logOut() {
@@ -80,5 +81,12 @@ public class SessionLogon {
 
     public void closeSession() {
         manageUsers.closeSession();
+    }
+
+    public void doSomethingbyLoggedUser(){
+        if(SessionLogon.IdLoggedUser != -1){
+
+
+        }
     }
 }
