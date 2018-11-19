@@ -10,7 +10,7 @@ import java.util.List;
 public class ManageDictionaryWords extends GeneralManager {
 
     private static ManageDictionaryWords instance;
-
+    public static final String TABLE = "DICTIONARY_WORDS";
 
     private ManageDictionaryWords() {
         super();
@@ -27,10 +27,10 @@ public class ManageDictionaryWords extends GeneralManager {
         return instance;
     }
 
-    public static int insertDictionaryWordswithoutFamilie(int idLevel, int idWordENG, int idWordPL) {
+    public  Integer insertDictionaryWordswithoutFamilie(int idLevel, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
-        int idDictionary = -1;
+        Integer idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
@@ -38,6 +38,7 @@ public class ManageDictionaryWords extends GeneralManager {
             try {
                 tx = session.beginTransaction();
                 Dictionary_Words dictionary = new Dictionary_Words(idLevel, idWordENG, idWordPL,true);
+                System.out.println(dictionary.toString());
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
@@ -50,7 +51,7 @@ public class ManageDictionaryWords extends GeneralManager {
         return idDictionary;
     }
 
-    public static int insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
+    public  Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;

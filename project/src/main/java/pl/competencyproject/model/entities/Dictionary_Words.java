@@ -8,19 +8,22 @@ public class Dictionary_Words {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idDictionaryWords;
+    private Integer idDictionaryWords;
 
-    private int idLevel;
+    private Integer idLevel;
 
-    private int idFamilie;
+    private Integer idFamilie;
 
-    private int idWordENG;
+    private Integer idWordENG;
 
-    private int idWordPL;
+    private Integer idWordPL;
 
-    public Dictionary_Words(){};
+    public Dictionary_Words() {
+    }
 
-     public Dictionary_Words(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
+    ;
+
+    public Dictionary_Words(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
         this.idLevel = idLevel;
         this.idFamilie = idFamilie;
         this.idWordENG = idWordENG;
@@ -31,11 +34,14 @@ public class Dictionary_Words {
 
         this.idWordENG = idWordENG;
         this.idWordPL = idWordPL;
-        if(LeveltrueFamiliefalse){
+        if (LeveltrueFamiliefalse) {
             this.idLevel = idLevelFamilie;
-        }else { this.idFamilie = idLevelFamilie; }
+            this.idFamilie = null;
+        } else {
+            this.idFamilie = idLevelFamilie;
+            this.idLevel = null;
+        }
     }
-
 
 
     public int getIdDictionaryWords() {
@@ -72,6 +78,12 @@ public class Dictionary_Words {
 
     public void setIdWordPL(int idWordPL) {
         this.idWordPL = idWordPL;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("id:{ " + idDictionaryWords + "} idLevel:{ " + idLevel + " } idFamilie:{ " + idFamilie + " } idWordENG:{ " + idWordENG + " } idWordPL:{ " + idWordPL + " }");
+        return sb.toString();
     }
 }
 

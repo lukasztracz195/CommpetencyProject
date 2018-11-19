@@ -6,83 +6,103 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class CSVReader
-{
-    LibraryCSV library;
+public class CSVReader {
+    private LibraryCSV library;
+    private String choosedCSV;
+    private int choosedLevel;
+    public static CSVReader instance;
 
-    public CSVReader(){
+    private CSVReader() {
         library = new LibraryCSV();
     }
-    public static void SelectCSV(String CSVname)//throws IOException
-    {
 
-        final String DELIMITER = ";";
-        if(CSVname=="DICTIONARY_SENTENCES")
-        {
-            ManageDictionarySentences MDS = ManageDictionarySentences.getInstance();
-            BufferedReader fileReader = null;
-            try
-            {
-                String line = "";
-                String fileToParse = System.getProperty("user.dir")+"\\src\\main\\resources\\backubDBinCSV\\DICTIONARY_SENTENCES.csv";
-                fileReader = new BufferedReader(new FileReader(fileToParse));
-                String SentenceENG="";String SentencePL="";
-                int i=0;
-                while ((line = fileReader.readLine()) != null)
-                {
-                    String[] tokens = line.split(DELIMITER);
-                    for(String token : tokens)
-                    {
-                        if(i==0)SentenceENG=token;
-                        if(i==1)SentencePL=token;
-                        i++;
-                    }
-                    i=0;
-                    MDS.insertDictionarySentece(1,SentenceENG,SentencePL);
+    public static CSVReader getInstance() {
+        if (instance == null) {
+            synchronized (ManageFamilie.class) {
+                if (instance == null) {
+                    instance = new CSVReader();
                 }
-            }catch (IOException e)
-            {
-                e.printStackTrace();
             }
         }
-        if(CSVname=="ENG PL")
-        {
-            SessionLogon.IdLoggedUser = 98;
+        return instance;
+    }
+
+
+    public void chooseLevel(String nameLevel, String nameCategorie) {
+        ManageLevels ml = ManageLevels.getInstance();
+        int id = ml.existLevel(nameLevel, nameCategorie);
+        if (id != -1) {
+            choosedLevel = id;
+        }
+    }
+
+    public void chooseCSV(String CSVname)//throws IOException
+    {
+        if (library.existFileCSVinFolder(CSVname)) {
+            choosedCSV = CSVname;
+        }
+    }
+
+    public void insertDictionarySentences() {
+        ManageDictionarySentences MDS = ManageDictionarySentences.getInstance();
+        BufferedReader fileReader = null;
+        try {
+            String line = "";
+            fileReader = new BufferedReader(new FileReader(library.getFullFolderPath() + choosedCSV + ".csv"));
+            String SentenceENG = "";
+            String SentencePL = "";
+            int i = 0;
+            while ((line = fileReader.readLine()) != null) {
+                String[] tokens = line.split(";");
+                for (String token : tokens) {
+                    if (i == 0) SentenceENG = token;
+                    if (i == 1) SentencePL = token;
+                    i++;
+                }
+                i = 0;
+                MDS.insertDictionarySentece(choosedLevel, SentenceENG, SentencePL);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertDictionaryWords() {
+
+        try {
             ManageWordsENG MWE = ManageWordsENG.getInstance();
             ManageWordsPL MWP = ManageWordsPL.getInstance();
             ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
             BufferedReader fileReader = null;
-            try
-            {
-                String line = "";
-                String fileToParse = System.getProperty("user.dir") + "\\project\\src\\main\\resources\\backubDBinCSV\\ENG PL.csv";
-                fileReader = new BufferedReader(new FileReader(fileToParse));
-                String WordENG="";
-                String WordPL="";
-                int IdWordENG=0;
-                int IdWordPL=0;
-                int i=0;
-                fileReader.readLine();
-                while ((line = fileReader.readLine()) != null)
-                {
-                    String[] tokens = line.split(DELIMITER);
-                    for(String token : tokens)
-                    {
-                        if(i==0) WordENG=token;
-                        if(i==1) WordPL=token;
-                        i++;
-                    }
-                    MWE.addWordENG(WordENG);
-                    MWP.addWordPL(WordPL);
-                    IdWordENG=MWE.existWordENG(WordENG);
-                    IdWordPL=MWP.existWordPL(WordPL);
-                    MDW.insertDictionaryWordswithoutFamilie(1,IdWordENG, IdWordPL);
-                    i=0;
+
+            String line = "";
+            fileReader = new BufferedReader(new FileReader(library.getFullFolderPath() + choosedCSV + ".csv"));
+            String WordENG = "";
+            String WordPL = "";
+            int IdWordENG = 0;
+            int IdWordPL = 0;
+            int i = 0;
+            fileReader.readLine();
+            while ((line = fileReader.readLine()) != null) {
+                String[] tokens = line.split(";");
+                for (String token : tokens) {
+                    if (i == 0) WordENG = token;
+                    if (i == 1) WordPL = token;
+                    i++;
                 }
-            }catch (IOException e)
-            {
-                e.printStackTrace();
+                MWE.addWordENG(WordENG);
+                MWP.addWordPL(WordPL);
+                IdWordENG = MWE.existWordENG(WordENG);
+                if(IdWordENG == -1){ IdWordENG = MWE.addWordENG(WordENG); }
+                IdWordPL = MWP.existWordPL(WordPL);
+                if(IdWordPL == -1){ MWP.addWordPL(WordPL); }
+                System.out.println("choosedLevel= "+choosedLevel+" IdWordENG= "+IdWordENG+" IdWordPL= "+IdWordPL);
+                MDW.insertDictionaryWordswithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                i = 0;
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
 }

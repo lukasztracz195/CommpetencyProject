@@ -10,7 +10,7 @@ public class Level {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idLevel;
+    private Integer idLevel;
 
     private String nameLevel;
 

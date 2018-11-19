@@ -11,7 +11,7 @@ import java.util.List;
 public class ManageWordsENG extends GeneralManager {
 
     private static ManageWordsENG instance;
-
+    public static final String TABLE = "WORDS_ENG";
     private ManageWordsENG() { super();
     }
 

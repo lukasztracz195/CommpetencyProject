@@ -10,6 +10,7 @@ import java.util.List;
 public class ManageDictionarySentences extends GeneralManager {
 
     private static ManageDictionarySentences instance;
+    public static final String TABLE = "DICTIONARY_SENTENCES";
 
     private ManageDictionarySentences() {
         super();

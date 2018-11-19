@@ -12,7 +12,7 @@ import java.util.List;
 public class ManageWordsPL extends GeneralManager{
 
     private static ManageWordsPL instance;
-
+    public static final String TABLE = "WORDS_PL";
     private ManageWordsPL() {
         super();
     }

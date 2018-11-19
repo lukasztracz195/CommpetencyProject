@@ -16,7 +16,7 @@ public class ManageUsers extends GeneralManager {
     private ManageUsers() {
         super();
     }
-
+    public static final String TABLE = "USERS";
     public static ManageUsers getInstance() {
         if (instance == null) {
             synchronized (ManageUsers.class) {

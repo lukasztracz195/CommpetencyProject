@@ -19,7 +19,6 @@ public class LibraryCSV {
             File[] files = director.listFiles();
             for (File file : files) {
                 String name = file.getName();
-                System.out.println(name);
                 String[] nameS = name.split(".csv");
                 listFilesCSV.add(nameS[0]);
             }
@@ -29,7 +28,7 @@ public class LibraryCSV {
     private void setPathApplication() {
         StringBuilder sb = new StringBuilder();
         sb.append(System.getProperty("user.dir"));
-        sb.append("\\src\\main\\resources\\" + nameFolder);
+        sb.append("\\src\\main\\resources\\" + nameFolder+"\\");
         fullFolderPath = sb.toString();
         listFilesCSV = new LinkedList<>();
     }

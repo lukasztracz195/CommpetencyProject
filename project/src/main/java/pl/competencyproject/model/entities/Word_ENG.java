@@ -8,7 +8,7 @@ public class Word_ENG {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idWordENG;
+    private Integer idWordENG;
 
     private String wordENG;
 

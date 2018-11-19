@@ -11,7 +11,7 @@ import java.util.List;
 public class ManageLevels extends GeneralManager {
 
     private static ManageLevels instance;
-
+    public static final String TABLE = "LEVELS";
     private ManageLevels() {
         super();
     }

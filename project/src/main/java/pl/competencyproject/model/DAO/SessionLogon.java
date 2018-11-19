@@ -1,5 +1,6 @@
 package pl.competencyproject.model.DAO;
 
+import pl.competencyproject.model.CSV.CSVReader;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
 
@@ -85,8 +86,10 @@ public class SessionLogon {
 
     public void doSomethingbyLoggedUser(){
         if(SessionLogon.IdLoggedUser != -1){
-
-
+            CSVReader csvReader = CSVReader.getInstance();
+            csvReader.chooseCSV("ENG PL");
+            csvReader.chooseLevel("B2", "Security");
+            csvReader.insertDictionaryWords();
         }
     }
 }

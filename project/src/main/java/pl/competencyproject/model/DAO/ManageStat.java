@@ -20,7 +20,7 @@ public class ManageStat extends GeneralManager {
     private ManageStat() {
         super();
     }
-
+    public static final String TABLE = "STATS";
     public static ManageStat getInstance() {
         if (instance == null) {
             synchronized (ManageFamilie.class) {

@@ -8,9 +8,9 @@ public class Familie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFamilie;
+    private Integer idFamilie;
 
-    private int idLevel;
+    private Integer idLevel;
 
     private String headFamilie;
 
@@ -19,6 +19,7 @@ public class Familie {
     public Familie(int idLevel, String headFamilie) {
         this.idLevel = idLevel;
         this.headFamilie = headFamilie;
+
     }
 
     public int getIdFamilie() {

@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class Dictionary_Sentences {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idDictionary;
+    private Integer idDictionary;
 
-    private int idLevel;
+    private Integer idLevel;
 
     private String sentencesENG;
 

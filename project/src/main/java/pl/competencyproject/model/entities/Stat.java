@@ -12,11 +12,11 @@ public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int idStats;
+    private Integer idStats;
 
-    private int idUser;
+    private Integer idUser;
 
-    private int idLevel;
+    private Integer idLevel;
 
     @Temporal(TemporalType.TIMESTAMP)
     Date dateInput;

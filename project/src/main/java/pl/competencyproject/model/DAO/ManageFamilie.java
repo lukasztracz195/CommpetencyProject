@@ -11,7 +11,7 @@ public class ManageFamilie extends GeneralManager {
 
 
     private static ManageFamilie instance;
-
+    public static final String TABLE = "FAMILIES";
     private ManageFamilie() {
         super();
     }
@@ -54,10 +54,10 @@ public class ManageFamilie extends GeneralManager {
             session = sessionFactory.openSession();
         }
         Familie familie = null;
-        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIE WHERE idLevel = :idLevel AND headFamilie = : headFamilie");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel AND headFamilie = :headFamilie");
         query.addEntity(Familie.class);
         query.setParameter("idLevel", idLevel);
-        query.setParameter("sentencesENG", headFamilie);
+        query.setParameter("headFamilie", headFamilie);
         List result = query.list();
         if (result.size() != 0) {
             familie = (Familie) result.get(0);
