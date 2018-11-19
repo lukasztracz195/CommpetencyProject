@@ -97,4 +97,24 @@ public class ManageDictionaryWords extends GeneralManager {
         List result = query.list();
         return result;
     }
+
+    public Integer existDictionaryWords(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL){
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie = :idFamilie AND idWordENG = :idWordENG AND idWordPL =" +
+                " " +
+                ":idWordPL");
+        query.addEntity(Dictionary_Words.class);
+        query.setParameter("idLevel", idLevel);
+        query.setParameter("idFamilie", idFamilie);
+        query.setParameter("idWordENG", idWordENG);
+        query.setParameter("idWordPL", idWordPL);
+        List result = query.list();
+        if(result.size() != 0){
+            Dictionary_Words dic = (Dictionary_Words) result.get(0);
+            return dic.getIdDictionaryWords();
+        }
+        return -1;
+    }
 }

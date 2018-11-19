@@ -79,8 +79,8 @@ public class CSVReader {
             fileReader = new BufferedReader(new FileReader(library.getFullFolderPath() + choosedCSV + ".csv"));
             String WordENG = "";
             String WordPL = "";
-            int IdWordENG = 0;
-            int IdWordPL = 0;
+            Integer IdWordENG = 0;
+            Integer IdWordPL = 0;
             int i = 0;
             fileReader.readLine();
             while ((line = fileReader.readLine()) != null) {
@@ -93,11 +93,16 @@ public class CSVReader {
                 MWE.addWordENG(WordENG);
                 MWP.addWordPL(WordPL);
                 IdWordENG = MWE.existWordENG(WordENG);
-                if(IdWordENG == -1){ IdWordENG = MWE.addWordENG(WordENG); }
+                if (IdWordENG == -1) {
+                    IdWordENG = MWE.addWordENG(WordENG);
+                }
                 IdWordPL = MWP.existWordPL(WordPL);
-                if(IdWordPL == -1){ MWP.addWordPL(WordPL); }
-                System.out.println("choosedLevel= "+choosedLevel+" IdWordENG= "+IdWordENG+" IdWordPL= "+IdWordPL);
-                MDW.insertDictionaryWordswithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                if (IdWordPL == -1) {
+                    MWP.addWordPL(WordPL);
+                }
+                if(MDW.existDictionaryWords(choosedLevel,null, IdWordENG, IdWordPL) ==-1) {
+                    MDW.insertDictionaryWordswithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                }
                 i = 0;
             }
         } catch (IOException e) {

@@ -72,6 +72,9 @@ public class LogonController extends AbstractController implements Initializable
 
         if (!SessionLogon.logged) {
             logOutButton.setDisable(true);
+            emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
+            emailFeedbackLabel.setText("User with this email is logged just");
+            clearFieldsEmailAndPassword();
         }
     }
 
@@ -181,8 +184,7 @@ public class LogonController extends AbstractController implements Initializable
             logOutButton.setDisable(true);
         }
         sessionLogon.closeSession();
-        emailFeedbackLabel.setTextFill(new Color(0, 1, 0, 1));
-        emailFeedbackLabel.setText("Użytkownik został wylogowany");
+
     }
 
     private void clearFieldsEmailAndPassword() {
