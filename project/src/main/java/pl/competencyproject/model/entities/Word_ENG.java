@@ -1,9 +1,16 @@
 package pl.competencyproject.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "WORDS_ENG")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Word_ENG {
 
     @Id
@@ -12,17 +19,8 @@ public class Word_ENG {
 
     private String wordENG;
 
-    public Word_ENG(){}
-
     public Word_ENG(String wordENG) {
         this.wordENG= wordENG;
     }
 
-    public int getIdWordENG() {
-        return idWordENG;
-    }
-
-    public String getWordENG() {
-        return wordENG;
-    }
 }

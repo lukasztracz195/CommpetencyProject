@@ -12,14 +12,25 @@ public class ManageWordsENG extends GeneralManager {
 
     private static ManageWordsENG instance;
     public static final String TABLE = "WORDS_ENG";
-    private ManageWordsENG() { super();
+    private ManageWordsENG(boolean test) { super(test);
     }
 
     public static ManageWordsENG getInstance() {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {
                 if (instance == null) {
-                    instance = new ManageWordsENG();
+                    instance = new ManageWordsENG(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageWordsENG getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageWordsENG.class) {
+                if (instance == null) {
+                    instance = new ManageWordsENG(true);
                 }
             }
         }

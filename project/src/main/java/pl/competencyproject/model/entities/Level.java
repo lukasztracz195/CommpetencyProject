@@ -1,11 +1,16 @@
 package pl.competencyproject.model.entities;
 
-import org.hibernate.HibernateException;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "LEVELS")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Level {
 
     @Id
@@ -22,40 +27,5 @@ public class Level {
         this.nameCategorie = categorie;
     }
 
-    public Level() {
-    }
-
-    public int getIdLevel() {
-        return idLevel;
-    }
-
-    public String getLevelName() {
-        return nameLevel;
-    }
-
-    public String getCategorie() {
-        return nameCategorie;
-    }
-
-    public  void deleteLevel(int idLevel) {
-        this.idLevel = idLevel;
-    }
-
-    public void setIdLevel(int idLevel) {
-        this.idLevel = idLevel;
-    }
-
-    public void setLevelName(String levelName) {
-        this.nameLevel = levelName;
-    }
-
-    public void setCategorie(String categorie) {
-        this.nameCategorie = categorie;
-    }
-
-
-    public  int addLevel(String nameLevel, String nameCategorie) {
-        return idLevel;
-    }
 
 }

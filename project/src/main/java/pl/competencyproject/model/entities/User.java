@@ -1,8 +1,15 @@
 package pl.competencyproject.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 @Entity
 @Table(name ="USERS")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -25,42 +32,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.active = false;
-    }
-
-    public User() {
-    }
-
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 
     @Override

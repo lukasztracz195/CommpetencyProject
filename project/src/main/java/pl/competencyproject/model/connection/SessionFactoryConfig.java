@@ -11,18 +11,30 @@ import java.util.Map;
 public class SessionFactoryConfig {
 
     private static Map<String, SessionFactory> sessionFactories = new HashMap<>();
-    private static String configFileName = "hibernate.cfg.xml";
 
     private SessionFactoryConfig() {
 
     }
 
     public synchronized static SessionFactory getSessionFactory() {
+        String configFileName = "hibernate.cfg.xml";
         SessionFactory session = sessionFactories.get(configFileName);
 
         if (session == null || session.isClosed()) {
             session = configure(configFileName);
             sessionFactories.put(configFileName, session);
+        }
+
+        return session;
+    }
+
+    public synchronized static SessionFactory getTestSessionFactory() {
+        String testConfigFileName = "hiberante_test.cfg.xml";
+        SessionFactory session = sessionFactories.get(testConfigFileName);
+
+        if (session == null || session.isClosed()) {
+            session = configure(testConfigFileName);
+            sessionFactories.put(testConfigFileName, session);
         }
 
         return session;

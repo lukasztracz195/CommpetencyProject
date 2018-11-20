@@ -12,15 +12,26 @@ public class ManageFamilie extends GeneralManager {
 
     private static ManageFamilie instance;
     public static final String TABLE = "FAMILIES";
-    private ManageFamilie() {
-        super();
+    private ManageFamilie(boolean test) {
+        super(test);
     }
 
     public static ManageFamilie getInstance() {
         if (instance == null) {
             synchronized (ManageFamilie.class) {
                 if (instance == null) {
-                    instance = new ManageFamilie();
+                    instance = new ManageFamilie(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageFamilie getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageFamilie.class) {
+                if (instance == null) {
+                    instance = new ManageFamilie(true);
                 }
             }
         }

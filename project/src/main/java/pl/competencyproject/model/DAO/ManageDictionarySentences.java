@@ -12,15 +12,27 @@ public class ManageDictionarySentences extends GeneralManager {
     private static ManageDictionarySentences instance;
     public static final String TABLE = "DICTIONARY_SENTENCES";
 
-    private ManageDictionarySentences() {
-        super();
+    private ManageDictionarySentences(boolean test) {
+        super(test);
     }
+
 
     public static ManageDictionarySentences getInstance() {
         if (instance == null) {
             synchronized (ManageDictionarySentences.class) {
                 if (instance == null) {
-                    instance = new ManageDictionarySentences();
+                    instance = new ManageDictionarySentences(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageDictionarySentences getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageDictionarySentences.class) {
+                if (instance == null) {
+                    instance = new ManageDictionarySentences(true);
                 }
             }
         }

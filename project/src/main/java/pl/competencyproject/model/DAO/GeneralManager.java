@@ -13,11 +13,13 @@ public abstract class GeneralManager {
     protected  static SessionFactory sessionFactory;
     protected static Session session;
 
-    protected GeneralManager(){
-        sessionFactory = SessionFactoryConfig.getSessionFactory();
+    protected GeneralManager(boolean test ){
+        if(!test){
+        sessionFactory = SessionFactoryConfig.getSessionFactory();}
+        else{ sessionFactory = SessionFactoryConfig.getTestSessionFactory(); }
         session = sessionFactory.openSession();
     }
-
+/*
     public void  trancateTable(String table){
         Transaction tx = null;
             if (!session.isOpen()) {
@@ -38,7 +40,7 @@ public abstract class GeneralManager {
             session.close();
         }
     }
-
+*/
     protected void closeSession(){
         if(session.isOpen()) session.close();
     }

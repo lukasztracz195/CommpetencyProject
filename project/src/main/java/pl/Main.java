@@ -27,7 +27,6 @@ public class Main extends Application {
     @Override
     public void init() {
         SessionLogon.time = GeneralClock.getInstance();
-  
     }
 
 

@@ -1,11 +1,18 @@
 package pl.competencyproject.model.entities;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "STATS")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Stat {
 
 
@@ -21,57 +28,12 @@ public class Stat {
     @Temporal(TemporalType.TIMESTAMP)
     Date dateInput;
 
-    private double valueProgress;
+    private Double valueProgress;
 
-    public Stat() {
-    }
-
-    public Stat(int idUser, int idLevel, double valueProgress) {
+    public Stat(Integer idUser, Integer idLevel, Double valueProgress) {
         this.idUser = idUser;
         this.idLevel = idLevel;
         this.dateInput = new Date();
         this.valueProgress = valueProgress;
     }
-
-
-    public int getIdStats() {
-        return idStats;
-    }
-
-    public void setIdStats(int idStats) {
-        this.idStats = idStats;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public int getIdLevel() {
-        return idLevel;
-    }
-
-    public void setIdLevel(int idLevel) {
-        this.idLevel = idLevel;
-    }
-
-    public Date getDateInput() {
-        return dateInput;
-    }
-
-    public void setDateInput(Date dateInput) {
-        this.dateInput = dateInput;
-    }
-
-    public double getValueProgress() {
-        return valueProgress;
-    }
-
-    public void setValueProgress(double valueProgres) {
-        this.valueProgress = valueProgres;
-    }
-
 }

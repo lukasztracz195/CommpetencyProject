@@ -1,9 +1,17 @@
 package pl.competencyproject.model.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "DICTIONARY_WORDS")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Dictionary_Words {
 
     @Id
@@ -18,65 +26,11 @@ public class Dictionary_Words {
 
     private Integer idWordPL;
 
-    public Dictionary_Words() {
-    }
 
-    ;
-
-    public Dictionary_Words(int idLevel, int idFamilie, int idWordENG, int idWordPL) {
+    public Dictionary_Words(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL) {
         this.idLevel = idLevel;
         this.idFamilie = idFamilie;
         this.idWordENG = idWordENG;
-        this.idWordPL = idWordPL;
-    }
-
-    public Dictionary_Words(int idLevelFamilie, int idWordENG, int idWordPL, boolean LeveltrueFamiliefalse) {
-
-        this.idWordENG = idWordENG;
-        this.idWordPL = idWordPL;
-        if (LeveltrueFamiliefalse) {
-            this.idLevel = idLevelFamilie;
-            this.idFamilie = null;
-        } else {
-            this.idFamilie = idLevelFamilie;
-            this.idLevel = null;
-        }
-    }
-
-
-    public int getIdDictionaryWords() {
-        return idDictionaryWords;
-    }
-
-    public int getIdLevel() {
-        return idLevel;
-    }
-
-    public void setIdLevel(int idLevel) {
-        this.idLevel = idLevel;
-    }
-
-    public int getIdFamilie() {
-        return idFamilie;
-    }
-
-    public void setIdFamilie(int idFamilie) {
-        this.idFamilie = idFamilie;
-    }
-
-    public int getIdWordENG() {
-        return idWordENG;
-    }
-
-    public void setIdWordENG(int idWordENG) {
-        this.idWordENG = idWordENG;
-    }
-
-    public int getIdWordPL() {
-        return idWordPL;
-    }
-
-    public void setIdWordPL(int idWordPL) {
         this.idWordPL = idWordPL;
     }
 

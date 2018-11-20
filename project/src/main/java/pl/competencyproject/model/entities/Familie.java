@@ -1,9 +1,16 @@
 package pl.competencyproject.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "FAMILIES")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Familie {
 
     @Id
@@ -14,31 +21,10 @@ public class Familie {
 
     private String headFamilie;
 
-    public Familie(){}
-
-    public Familie(int idLevel, String headFamilie) {
+    public Familie(Integer idLevel, String headFamilie) {
         this.idLevel = idLevel;
         this.headFamilie = headFamilie;
 
     }
 
-    public int getIdFamilie() {
-        return idFamilie;
-    }
-
-    public int getIdLevel() {
-        return idLevel;
-    }
-
-    public void setIdLevel(int idLevel) {
-        this.idLevel = idLevel;
-    }
-
-    public String getHeadFamilie() {
-        return headFamilie;
-    }
-
-    public void setHeadFamilie(String headFamilie) {
-        this.headFamilie = headFamilie;
-    }
 }

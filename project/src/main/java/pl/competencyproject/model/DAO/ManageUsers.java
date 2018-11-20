@@ -13,15 +13,27 @@ public class ManageUsers extends GeneralManager {
 
     private static ManageUsers instance;
 
-    private ManageUsers() {
-        super();
+    private ManageUsers(boolean test) {
+        super(test);
     }
+
     public static final String TABLE = "USERS";
     public static ManageUsers getInstance() {
         if (instance == null) {
             synchronized (ManageUsers.class) {
                 if (instance == null) {
-                    instance = new ManageUsers();
+                    instance = new ManageUsers(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageUsers getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageUsers.class) {
+                if (instance == null) {
+                    instance = new ManageUsers(true);
                 }
             }
         }

@@ -12,15 +12,26 @@ public class ManageLevels extends GeneralManager {
 
     private static ManageLevels instance;
     public static final String TABLE = "LEVELS";
-    private ManageLevels() {
-        super();
+    private ManageLevels(boolean test) {
+        super(test);
     }
 
     public static ManageLevels getInstance() {
         if (instance == null) {
             synchronized (ManageLevels.class) {
                 if (instance == null) {
-                    instance = new ManageLevels();
+                    instance = new ManageLevels(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageLevels getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageLevels.class) {
+                if (instance == null) {
+                    instance = new ManageLevels(true);
                 }
             }
         }

@@ -17,15 +17,26 @@ public class ManageStat extends GeneralManager {
 
     private static ManageStat instance;
 
-    private ManageStat() {
-        super();
+    private ManageStat(boolean test) {
+        super(test);
     }
     public static final String TABLE = "STATS";
     public static ManageStat getInstance() {
         if (instance == null) {
             synchronized (ManageFamilie.class) {
                 if (instance == null) {
-                    instance = new ManageStat();
+                    instance = new ManageStat(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageStat getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageFamilie.class) {
+                if (instance == null) {
+                    instance = new ManageStat(true);
                 }
             }
         }

@@ -13,15 +13,26 @@ public class ManageWordsPL extends GeneralManager{
 
     private static ManageWordsPL instance;
     public static final String TABLE = "WORDS_PL";
-    private ManageWordsPL() {
-        super();
+    private ManageWordsPL(boolean test) {
+        super(test);
     }
 
     public static ManageWordsPL getInstance() {
         if (instance == null) {
             synchronized (ManageWordsPL.class) {
                 if (instance == null) {
-                    instance = new ManageWordsPL();
+                    instance = new ManageWordsPL(false);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static ManageWordsPL getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageWordsPL.class) {
+                if (instance == null) {
+                    instance = new ManageWordsPL(false);
                 }
             }
         }

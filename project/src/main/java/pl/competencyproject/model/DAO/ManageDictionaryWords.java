@@ -3,6 +3,7 @@ package pl.competencyproject.model.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.jboss.util.Null;
 import pl.competencyproject.model.entities.Dictionary_Words;
 
 import java.util.List;
@@ -12,22 +13,33 @@ public class ManageDictionaryWords extends GeneralManager {
     private static ManageDictionaryWords instance;
     public static final String TABLE = "DICTIONARY_WORDS";
 
-    private ManageDictionaryWords() {
-        super();
+    private ManageDictionaryWords(boolean test) {
+        super(test);
     }
 
     public static ManageDictionaryWords getInstance() {
         if (instance == null) {
             synchronized (ManageDictionaryWords.class) {
                 if (instance == null) {
-                    instance = new ManageDictionaryWords();
+                    instance = new ManageDictionaryWords(false);
                 }
             }
         }
         return instance;
     }
 
-    public  Integer insertDictionaryWordswithoutFamilie(int idLevel, int idWordENG, int idWordPL) {
+    public static ManageDictionaryWords getTestInstance() {
+        if (instance == null) {
+            synchronized (ManageDictionaryWords.class) {
+                if (instance == null) {
+                    instance = new ManageDictionaryWords(true);
+                }
+            }
+        }
+        return instance;
+    }
+
+    public  Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
         Integer idDictionary = -1;
@@ -37,7 +49,7 @@ public class ManageDictionaryWords extends GeneralManager {
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idWordENG, idWordPL,true);
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel, null,idWordENG, idWordPL);
                 System.out.println(dictionary.toString());
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
@@ -61,7 +73,7 @@ public class ManageDictionaryWords extends GeneralManager {
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idFamilie, idWordENG, idWordPL,false);
+                Dictionary_Words dictionary = new Dictionary_Words(null,idFamilie, idWordENG, idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
