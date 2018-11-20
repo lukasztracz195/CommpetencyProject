@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
-import pl.competencyproject.model.DAO.*;
+import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
 
@@ -25,10 +25,9 @@ public class Main extends Application {
     }
 
     @Override
-    public void init() {
+    public void init() throws FileNotFoundException {
         SessionLogon.time = GeneralClock.getInstance();
     }
-
 
 
     @Override

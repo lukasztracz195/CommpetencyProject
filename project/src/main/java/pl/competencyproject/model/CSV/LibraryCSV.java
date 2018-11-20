@@ -10,7 +10,7 @@ public class LibraryCSV {
     private File director;
     private final String nameFolder = "backubDBinCSV";
 
-    public LibraryCSV() {
+    LibraryCSV() {
         setPathApplication();
         director = new File(fullFolderPath);
         if (!director.isDirectory()) {

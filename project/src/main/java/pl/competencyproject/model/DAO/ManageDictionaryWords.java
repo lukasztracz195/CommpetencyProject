@@ -3,7 +3,6 @@ package pl.competencyproject.model.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import org.jboss.util.Null;
 import pl.competencyproject.model.entities.Dictionary_Words;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class ManageDictionaryWords extends GeneralManager {
         return instance;
     }
 
-    public  Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
+    public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
         Integer idDictionary = -1;
@@ -49,7 +48,7 @@ public class ManageDictionaryWords extends GeneralManager {
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel, null,idWordENG, idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel, null, idWordENG, idWordPL);
                 System.out.println(dictionary.toString());
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
@@ -63,7 +62,7 @@ public class ManageDictionaryWords extends GeneralManager {
         return idDictionary;
     }
 
-    public  Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
+    public Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;
@@ -73,7 +72,7 @@ public class ManageDictionaryWords extends GeneralManager {
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(null,idFamilie, idWordENG, idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(null, idFamilie, idWordENG, idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
@@ -110,20 +109,38 @@ public class ManageDictionaryWords extends GeneralManager {
         return result;
     }
 
-    public Integer existDictionaryWords(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL){
+    public Integer existDictionaryWords(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie = :idFamilie AND idWordENG = :idWordENG AND idWordPL =" +
-                " " +
-                ":idWordPL");
+        NativeQuery query = session.createSQLQuery(
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie = :idFamilie AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
         query.addEntity(Dictionary_Words.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idFamilie", idFamilie);
         query.setParameter("idWordENG", idWordENG);
         query.setParameter("idWordPL", idWordPL);
         List result = query.list();
-        if(result.size() != 0){
+        if (!result.isEmpty()) {
+            System.out.println("Nie pusta");
+            Dictionary_Words dic = (Dictionary_Words) result.get(0);
+            return dic.getIdDictionaryWords();
+        }
+        return -1;
+    }
+
+    public Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery(
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie IS NULL AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+        query.addEntity(Dictionary_Words.class);
+        query.setParameter("idLevel", idLevel);
+        query.setParameter("idWordENG", idWordENG);
+        query.setParameter("idWordPL", idWordPL);
+        List result = query.list();
+        if (!result.isEmpty()) {
             Dictionary_Words dic = (Dictionary_Words) result.get(0);
             return dic.getIdDictionaryWords();
         }

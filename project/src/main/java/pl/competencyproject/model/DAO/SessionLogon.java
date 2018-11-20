@@ -86,12 +86,6 @@ public class SessionLogon {
 
     public void doSomethingbyLoggedUser(){
         if(SessionLogon.IdLoggedUser != -1){
-            /*
-            CSVReader csvReader = CSVReader.getInstance();
-            csvReader.chooseCSV("ENG PL");
-            csvReader.chooseLevel("B2", "Security");
-            csvReader.insertDictionaryWords();
-            */
         }
     }
 }
