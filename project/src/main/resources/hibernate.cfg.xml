@@ -16,7 +16,7 @@
         <mapping class="pl.competencyproject.model.entities.Dictionary_Sentences"/>
         <mapping class="pl.competencyproject.model.entities.Level"/>
         <mapping class="pl.competencyproject.model.entities.Dictionary_Words"/>
-        <mapping class="pl.competencyproject.model.entities.Familie"/>
+        <mapping class="pl.competencyproject.model.entities.Family"/>
         <mapping class="pl.competencyproject.model.entities.Word_ENG"/>
         <mapping class="pl.competencyproject.model.entities.Word_PL"/>
     </session-factory>

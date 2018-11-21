@@ -7,7 +7,6 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 import pl.competencyproject.model.entities.Stat;
-import pl.competencyproject.model.entities.User;
 
 import java.util.Date;
 import java.util.List;
@@ -23,7 +22,7 @@ public class ManageStat extends GeneralManager {
     public static final String TABLE = "STATS";
     public static ManageStat getInstance() {
         if (instance == null) {
-            synchronized (ManageFamilie.class) {
+            synchronized (ManageFamily.class) {
                 if (instance == null) {
                     instance = new ManageStat(false);
                 }
@@ -34,7 +33,7 @@ public class ManageStat extends GeneralManager {
 
     public static ManageStat getTestInstance() {
         if (instance == null) {
-            synchronized (ManageFamilie.class) {
+            synchronized (ManageFamily.class) {
                 if (instance == null) {
                     instance = new ManageStat(true);
                 }

@@ -3,51 +3,51 @@ package pl.competencyproject.model.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.entities.Familie;
+import pl.competencyproject.model.entities.Family;
 
 import java.util.List;
 
-public class ManageFamilie extends GeneralManager {
+public class ManageFamily extends GeneralManager {
 
 
-    private static ManageFamilie instance;
+    private static ManageFamily instance;
     public static final String TABLE = "FAMILIES";
-    private ManageFamilie(boolean test) {
+    private ManageFamily(boolean test) {
         super(test);
     }
 
-    public static ManageFamilie getInstance() {
+    public static ManageFamily getInstance() {
         if (instance == null) {
-            synchronized (ManageFamilie.class) {
+            synchronized (ManageFamily.class) {
                 if (instance == null) {
-                    instance = new ManageFamilie(false);
+                    instance = new ManageFamily(false);
                 }
             }
         }
         return instance;
     }
 
-    public static ManageFamilie getTestInstance() {
+    public static ManageFamily getTestInstance() {
         if (instance == null) {
-            synchronized (ManageFamilie.class) {
+            synchronized (ManageFamily.class) {
                 if (instance == null) {
-                    instance = new ManageFamilie(true);
+                    instance = new ManageFamily(true);
                 }
             }
         }
         return instance;
     }
 
-    public int addFamilie(int idLevel, String headFamilie) {
+    public int addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
-        if (SessionLogon.IdLoggedUser > 0 && existFamilie(idLevel, headFamilie) == -1) {
+        if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
-                Familie dictionary = new Familie(idLevel, headFamilie);
+                Family dictionary = new Family(idLevel, headFamily);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
@@ -60,32 +60,32 @@ public class ManageFamilie extends GeneralManager {
         return idDictionary;
     }
 
-    public int existFamilie(int idLevel, String headFamilie) {
+    public int existFamily(int idLevel, String headFamily) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        Familie familie = null;
-        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel AND headFamilie = :headFamilie");
-        query.addEntity(Familie.class);
+        Family family = null;
+        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel AND headFamily = :headFamily");
+        query.addEntity(Family.class);
         query.setParameter("idLevel", idLevel);
-        query.setParameter("headFamilie", headFamilie);
+        query.setParameter("headFamily", headFamily);
         List result = query.list();
         if (result.size() != 0) {
-            familie = (Familie) result.get(0);
-            return familie.getIdFamilie();
+            family = (Family) result.get(0);
+            return family.getIdFamily();
         }
         return -1;
     }
 
-    public Familie getFamili(int idFamili) {
+    public Family getFamili(int idFamili) {
         Transaction tx = null;
-        Familie familie = null;
+        Family family = null;
         try {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            familie = (Familie) session.get(Familie.class, idFamili);
+            family = (Family) session.get(Family.class, idFamili);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -93,15 +93,15 @@ public class ManageFamilie extends GeneralManager {
         } finally {
             session.close();
         }
-        return familie;
+        return family;
     }
 
-    public void deleteFamilie(Integer idFamilie) {
+    public void deleteFamily(Integer idFamily) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Familie familie = (Familie) session.get(Familie.class, idFamilie);
-            session.delete(familie);
+            Family family = (Family) session.get(Family.class, idFamily);
+            session.delete(family);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

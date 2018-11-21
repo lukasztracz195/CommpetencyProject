@@ -1,9 +1,6 @@
 package pl.competencyproject.model.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Dictionary_Words {
 
     @Id
@@ -21,7 +19,7 @@ public class Dictionary_Words {
 
     private Integer idLevel;
 
-    private Integer idFamilie;
+    private Integer idFamily;
 
     private Integer idWordENG;
 
@@ -30,15 +28,9 @@ public class Dictionary_Words {
 
     public Dictionary_Words(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL) {
         this.idLevel = idLevel;
-        this.idFamilie = idFamilie;
+        this.idFamily = idFamilie;
         this.idWordENG = idWordENG;
         this.idWordPL = idWordPL;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("id:{ " + idDictionaryWords + "} idLevel:{ " + idLevel + " } idFamilie:{ " + idFamilie + " } idWordENG:{ " + idWordENG + " } idWordPL:{ " + idWordPL + " }");
-        return sb.toString();
     }
 }
 

@@ -4,6 +4,8 @@ import pl.competencyproject.model.DAO.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CSVReader {
     private LibraryCSV library;
@@ -22,7 +24,7 @@ public class CSVReader {
 
     public static CSVReader getInstance() {
         if (instance == null) {
-            synchronized (ManageFamilie.class) {
+            synchronized (ManageFamily.class) {
                 if (instance == null) {
                     instance = new CSVReader();
                 }
@@ -101,6 +103,24 @@ public class CSVReader {
         return records;
     }
 
+    public Integer insertFamily() {
+        String line = fileOfCSV.getRead().nextLine();
+        List<String> listStringPL = new ArrayList<>();
+        List<String> listStringENG = new ArrayList<>();
+        if (checkHeaderWordsSentenses(line)) {
+            String[] headerParts = line.split(";");
+            setIndexesPLENG(headerParts);
+            while (fileOfCSV.getRead().hasNextLine()) {
+                line = fileOfCSV.getRead().nextLine();
+                String[] tokens = line.split(";");
+                listStringPL.add(tokens[PLindex]);
+                listStringENG.add(tokens[ENGindex]);
+            }
+
+        }
+        return 0;
+    }
+
 
     private boolean checkHeaderWordsSentenses(String header) {
         if (header.equals("WordPL;WordENG") || header.equals("WordENG;WordPL")) {
@@ -136,5 +156,21 @@ public class CSVReader {
         return addedId;
     }
 
+    private String findShortestString(List<String> list){
+        String shortString = list.get(0);
+        for(int i =1;i<list.size();i++){
+            if(list.get(i).length() < shortString.length()){
+                shortString = list.get(i);
+            }
+        }
+        String[] array = shortString.split(" ");
+        int size = array.length;
+        String shortStr = array[0];
+        int sizeStr = shortStr.length();
+        for(int i =1;i<size;i++ ){
+            
+        }
+        return shortString;
+    }
 
 }

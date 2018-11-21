@@ -9,6 +9,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/testcompproject</property>
         <property name="hibernate.connection.username">testerjanuszteam</property>
         <property name="hibernate.connection.password">aezakmi195</property>
+        <property name="show_sql">true</property>
 
         <!-- List of XML mapping files -->
         <mapping class="pl.competencyproject.model.entities.User"/>
@@ -16,7 +17,7 @@
         <mapping class="pl.competencyproject.model.entities.Dictionary_Sentences"/>
         <mapping class="pl.competencyproject.model.entities.Level"/>
         <mapping class="pl.competencyproject.model.entities.Dictionary_Words"/>
-        <mapping class="pl.competencyproject.model.entities.Familie"/>
+        <mapping class="pl.competencyproject.model.entities.Family"/>
         <mapping class="pl.competencyproject.model.entities.Word_ENG"/>
         <mapping class="pl.competencyproject.model.entities.Word_PL"/>
     </session-factory>

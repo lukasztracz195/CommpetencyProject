@@ -13,19 +13,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Familie {
+public class Family {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFamilie;
+    private Integer idFamily;
 
     private Integer idLevel;
 
-    private String headFamilie;
+    private String headFamily;
 
-    public Familie(Integer idLevel, String headFamilie) {
+    public Family(Integer idLevel, String headFamily) {
         this.idLevel = idLevel;
-        this.headFamilie = headFamilie;
+        this.headFamily = headFamily;
 
     }
 

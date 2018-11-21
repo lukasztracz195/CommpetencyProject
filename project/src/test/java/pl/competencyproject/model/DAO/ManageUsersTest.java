@@ -1,6 +1,6 @@
 package pl.competencyproject.model.DAO;
 
-/*
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,6 @@ class ManageUsersTest {
         String password = "qwerty1";
         int id = ManageUsers.getInstance().addUser(email, password);
         Assertions.assertEquals(id, manageUsers.existUser(email));
-
     }
 
     @Test
@@ -56,4 +55,3 @@ class ManageUsersTest {
 
 
 }
-*/
