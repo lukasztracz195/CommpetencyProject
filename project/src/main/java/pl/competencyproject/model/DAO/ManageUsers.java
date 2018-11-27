@@ -13,7 +13,7 @@ public class ManageUsers extends GeneralManager {
 
     private static ManageUsers instance;
 
-    private ManageUsers(boolean test) {
+    public ManageUsers(boolean test) {
         super(test);
     }
 

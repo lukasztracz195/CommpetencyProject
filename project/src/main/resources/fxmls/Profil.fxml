@@ -52,7 +52,7 @@
                                 <Cursor fx:constant="H_RESIZE" />
                             </cursor>
                         </BorderPane>
-                        <Button disable="false" mnemonicParsing="false" prefHeight="12.0" prefWidth="674.0" style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Save Changes" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button disable="false" mnemonicParsing="false" onAction="#save" prefHeight="12.0" prefWidth="674.0" style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Save Changes" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
@@ -81,8 +81,6 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="profilNazwaUzytkownika" layoutX="199.0" layoutY="12.0" minHeight="0.0" prefHeight="25.0" prefWidth="180.0" />
-                        <TextField fx:id="profilHaslo" alignment="TOP_LEFT" layoutX="199.0" layoutY="54.0" prefHeight="25.0" prefWidth="180.0" />
                         <TextField fx:id="profilNoweHaslo" layoutX="199.0" layoutY="130.0" prefHeight="25.0" prefWidth="180.0" promptText="New Password" />
                         <TextField fx:id="profilPotwierdzHaslo" layoutX="199.0" layoutY="173.0" prefWidth="180.0" promptText="Confirm Password" />
                         <Label alignment="CENTER" layoutX="14.0" layoutY="129.0" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Change your Password" textAlignment="CENTER">
@@ -115,11 +113,13 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="256.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Delete">
+                        <Button layoutX="256.0" layoutY="274.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #ff6666; -fx-background-radius: 15;" text="Delete">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <Label fx:id="profilNazwaUzytkownika" layoutX="199.0" layoutY="11.0" prefHeight="25.0" prefWidth="180.0" />
+                        <Label fx:id="profilHaslo" layoutX="199.0" layoutY="52.0" prefHeight="25.0" prefWidth="180.0" />
                      </children>
                         </AnchorPane>
                     </children>

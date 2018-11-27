@@ -64,9 +64,9 @@
                         <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
                         <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                   <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="259.0" text="Witaj użytkowniku">
+                        <Label fx:id="witaj" alignment="CENTER" prefHeight="27.0" prefWidth="259.0">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="18.0" />
                      </font></Label>
                     </items>
                     <BorderPane.margin>

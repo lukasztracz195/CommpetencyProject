@@ -56,6 +56,9 @@ public class LogonController extends AbstractController implements Initializable
         toggleButton.setId("LogIn");
         toggleButton.setText("<<<<");
         super.setClockDate(clockLabel, dateLabel);
+
+        super.email=emailTextField.getText();
+        super.password=passwordTextField.getText();
     }
 
     private void login() {
@@ -97,6 +100,7 @@ public class LogonController extends AbstractController implements Initializable
         FXMLLoader loader = MainController.createLoader(MainController.Menu, this);
         Pane pane = MainController.createPane(loader);
         MenuLayoutController controller = loader.getController();
+        controller.setEmailPassword(emailTextField.getText(),passwordTextField.getText());
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }

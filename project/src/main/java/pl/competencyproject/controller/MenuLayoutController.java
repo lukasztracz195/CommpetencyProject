@@ -14,6 +14,11 @@ import java.util.ResourceBundle;
 
 public class MenuLayoutController extends AbstractController implements Initializable {
 
+    //private String email1;
+    //private String password1;
+
+    @FXML
+    private Label witaj;
     @FXML
     private Label clockLabel;
 
@@ -23,6 +28,7 @@ public class MenuLayoutController extends AbstractController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
+        //super.setWelcome(witaj);
     }
 
     @FXML
@@ -31,6 +37,7 @@ public class MenuLayoutController extends AbstractController implements Initiali
         FXMLLoader loader = MainController.createLoader(MainController.Account, this);
         Pane pane = MainController.createPane(loader);
         ProfileController controller = loader.getController();
+        controller.setEmailPassword(super.email,super.password);
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }
@@ -92,5 +99,17 @@ public class MenuLayoutController extends AbstractController implements Initiali
     public void logout() {
         mainController.loadLogonScreen();
         sessionLogon.logOut();
+    }
+    /*public void setUserData(){
+        super.email=email1;
+        super.password=password1;
+    }*/
+    public void setEmailPassword(String email,String password){
+        super.email=email;
+        super.password=password;
+
+        String[] welcome=email.split("@");
+        String s="Witaj "+welcome[0].trim();
+        witaj.setText(s);
     }
 }

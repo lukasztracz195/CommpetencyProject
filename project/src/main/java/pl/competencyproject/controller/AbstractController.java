@@ -16,6 +16,8 @@ public abstract class AbstractController {
     private Timeline timeline;
     private GeneralClock clock;
     protected SessionLogon sessionLogon = SessionLogon.getInstance();
+    protected String email;
+    protected String password;
 
     protected void back(MainController mainController, Object toGetClass) {
         FXMLLoader loader = MainController.createLoader(MainController.Menu, toGetClass);
@@ -36,6 +38,11 @@ public abstract class AbstractController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+   /* protected void setWelcome(Label witaj){
+        String[] welcome=email.split("@");
+        String s="Witaj "+welcome[0].trim();
+        witaj.setText(s);
+    }*/
 
     protected void setMainController(MainController mainController) {
         this.mainController = mainController;
