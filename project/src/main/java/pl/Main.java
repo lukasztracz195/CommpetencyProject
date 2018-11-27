@@ -6,9 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
+import pl.competencyproject.model.DAO.ManageStat;
+import pl.competencyproject.model.DAO.ManageUsers;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.entities.User;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,8 +35,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");

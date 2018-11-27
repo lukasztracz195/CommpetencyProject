@@ -1,10 +1,7 @@
 package pl.competencyproject.model.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@ToString
 public class Stat {
 
 
@@ -27,15 +24,14 @@ public class Stat {
 
     private Integer idLevel;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    Date dateInput;
+    private Date dateInput;
 
     private Double valueProgress;
 
-    public Stat(Integer idUser, Integer idLevel, Double valueProgress) {
+    public Stat(int idUser, int idLevel, double valueProgress) {
         this.idUser = idUser;
         this.idLevel = idLevel;
-        this.dateInput = new Date();
         this.valueProgress = valueProgress;
+        this.dateInput = new Date();
     }
 }

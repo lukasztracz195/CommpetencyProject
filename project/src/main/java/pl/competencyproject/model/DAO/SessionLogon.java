@@ -8,10 +8,10 @@ import java.util.Random;
 
 public class SessionLogon {
 
-    public static int IdLoggedUser = -1;
+    public static Integer IdLoggedUser = -1;
     public static boolean correctPassword = false;
     public static boolean logged = false;
-    public static int genereatedCode;
+    public static Integer genereatedCode;
     public static GeneralClock time;
     private ManageUsers manageUsers = ManageUsers.getInstance();
     private static SessionLogon instance;
@@ -22,7 +22,7 @@ public class SessionLogon {
 
     public static SessionLogon getInstance() {
         if (instance == null) {
-            synchronized (GeneralClock.class) {
+            synchronized (SessionLogon.class) {
                 if (instance == null) {
                     instance = new SessionLogon();
                 }

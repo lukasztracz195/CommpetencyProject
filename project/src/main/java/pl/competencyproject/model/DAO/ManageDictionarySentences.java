@@ -88,7 +88,7 @@ public class ManageDictionarySentences extends GeneralManager {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            dicSentency = (Dictionary_Sentences) session.get(Dictionary_Sentences.class, idDictionary);
+            dicSentency = session.get(Dictionary_Sentences.class, idDictionary);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

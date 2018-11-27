@@ -107,6 +107,7 @@ public class CSVReader {
         String line = fileOfCSV.getRead().nextLine();
         List<String> listStringPL = new ArrayList<>();
         List<String> listStringENG = new ArrayList<>();
+        List<String> listWordENG = new ArrayList<>();
         if (checkHeaderWordsSentenses(line)) {
             String[] headerParts = line.split(";");
             setIndexesPLENG(headerParts);
@@ -115,8 +116,8 @@ public class CSVReader {
                 String[] tokens = line.split(";");
                 listStringPL.add(tokens[PLindex]);
                 listStringENG.add(tokens[ENGindex]);
+                listWordENG.add(selectlongestWord(tokens[ENGindex]));
             }
-
         }
         return 0;
     }
@@ -156,21 +157,86 @@ public class CSVReader {
         return addedId;
     }
 
-    private String findShortestString(List<String> list){
-        String shortString = list.get(0);
-        for(int i =1;i<list.size();i++){
-            if(list.get(i).length() < shortString.length()){
-                shortString = list.get(i);
+    private String selectlongestWord(String WordWithSpace) {
+        String[] stringArrray = WordWithSpace.split(" ");
+        int max = stringArrray[0].length();
+        int iterator = 0;
+        for (int i = 1; i < stringArrray.length; i++) {
+            int maxTmp = stringArrray[i].length();
+            if (maxTmp > max) {
+                max = maxTmp;
+                iterator = i;
             }
         }
-        String[] array = shortString.split(" ");
-        int size = array.length;
-        String shortStr = array[0];
-        int sizeStr = shortStr.length();
-        for(int i =1;i<size;i++ ){
-            
+        return stringArrray[iterator];
+    }
+
+
+    private String LCS(String word1, String word2) {
+        int m, n, maxi, ind;
+        int a[][];
+        m = word1.length();
+        n = word2.length();
+        maxi = 0;
+        ind = 0;
+        a = new int[Math.max(m, n) + 1][Math.max(m, n) + 1];
+        for (int i = 0; i < Math.max(m, n) + 1; i++) {
+            a[0][i] = 0;
+            a[i][0] = 0;
         }
-        return shortString;
+        for (int i = 1; i <= m; i++)
+            for (int j = 1; j <= n; j++)
+                if (word1.charAt(i - 1) != word2.charAt(j - 1))
+                    a[i][j] = 0;
+                else {
+                    a[i][j] = a[i - 1][j - 1] + 1;
+                    if (a[i][j] > maxi) {
+                        maxi = a[i][j];
+                        ind = i;
+                    }
+                }
+        return word1.substring(ind - maxi, ind);
+    }
+
+    private int levenstein(String source, String destiny) {
+        int i, j, m, n, cost;
+        int d[][];
+        m = source.length();
+        n = destiny.length();
+        d = new int[m + 1][n + 1];
+
+        for (i = 0; i <= m; i++)
+            d[i][0] = i;
+        for (j = 1; j <= n; j++)
+            d[0][j] = j;
+
+        for (i = 1; i <= m; i++) {
+            for (j = 1; j <= n; j++) {
+                if (source.charAt(i - 1) == destiny.charAt(j - 1))
+                    cost = 0;
+                else
+                    cost = 1;
+
+                d[i][j] = Math.min(d[i - 1][j] + 1,         /* remove */
+                        Math.min(d[i][j - 1] + 1,          /* insert */
+                                d[i - 1][j - 1] + cost));   /* change */
+            }
+        }
+
+        return d[m][n];
+    }
+
+    private String findHeadFamily(List<String> list){
+        int min = list.get(0).length();
+        int interator = 0;
+        for(int i=1;i<list.size();i++){
+            int tmpMin = list.get(i).length();
+            if(tmpMin < min){
+                min = tmpMin;
+                interator = i;
+            }
+        }
+        return list.get(interator);
     }
 
 }
