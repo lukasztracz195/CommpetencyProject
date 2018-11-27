@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController implements Initializable , Runnable{
 
     @FXML
     private StackPane mainStackPane;
@@ -57,5 +57,9 @@ public class MainController implements Initializable {
         mainStackPane.getChildren().add(pane);
     }
 
+    @Override
+    public void run() {
+
+    }
 }
 
