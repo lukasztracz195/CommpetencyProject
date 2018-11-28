@@ -31,7 +31,7 @@ public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
         if (instance == null) {
             synchronized (ManageWordsPL.class) {
                 if (instance == null) {
-                    instance = new ManageWordsPL(false);
+                    instance = new ManageWordsPL(true);
                 }
             }
         }

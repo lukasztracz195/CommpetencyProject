@@ -39,16 +39,16 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return instance;
     }
 
-    public Integer addLevel(String nameLevel, String nameOfCategory) {
+    public Integer addLevel(String nameLevel, String nameCategorie) {
         Transaction tx = null;
         int idLevel = -1;
-        if (this.existLevel(nameLevel, nameOfCategory) == -1) {
+        if (this.existLevel(nameLevel, nameCategorie) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
-                Level level = new Level(nameLevel, nameOfCategory);
+                Level level = new Level(nameLevel, nameCategorie);
                 idLevel = (Integer) session.save(level);
                 tx.commit();
             } catch (HibernateException e) {
@@ -78,7 +78,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
     }
 
     /* Method to check if level does EXIST*/
-    public Integer existLevel(String nameLevel, String nameOfCategory) throws HibernateException {
+    public Integer existLevel(String nameLevel, String nameCategorie) throws HibernateException {
 
         Level level = null;
         Level level2 = null;
@@ -86,10 +86,10 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameOfCategory = :nameOfCategory");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameCategorie = :nameCategorie");
         query.addEntity(Level.class);
         query.setParameter("nameLevel", nameLevel);
-        query.setParameter("nameOfCategory", nameOfCategory);
+        query.setParameter("nameCategorie", nameCategorie);
         List result = query.list();
         if (result.size() != 0) {
             level = (Level) result.get(0);
@@ -132,7 +132,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT nameOfCategory FROM LEVELS");
+        NativeQuery query = session.createSQLQuery("SELECT nameCategorie FROM LEVELS");
         List result = query.list();
         if (result == null) {
             result = new LinkedList<>();

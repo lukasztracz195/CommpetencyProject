@@ -10,6 +10,7 @@ class ManageUsersTest {
     private String email = "testUser1@gmail.com";
     private String emailChange = "testUser2@gmail.com";
     private ManageUsers manageUsers = ManageUsers.getTestInstance();
+
     int id = -1;
 
     @Test

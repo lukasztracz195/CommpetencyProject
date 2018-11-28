@@ -126,9 +126,9 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamilie =  :idFamilie");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily =  :idFamilie");
         query.addEntity(Dictionary_Words.class);
-        query.setParameter("idFamilie", idFamilie);
+        query.setParameter("idFamily", idFamilie);
         List result = query.list();
         return result;
     }
@@ -138,10 +138,10 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie = :idFamilie AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily = :idFamilie AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
         query.addEntity(Dictionary_Words.class);
         query.setParameter("idLevel", idLevel);
-        query.setParameter("idFamilie", idFamilie);
+        query.setParameter("idFamily", idFamilie);
         query.setParameter("idWordENG", idWordENG);
         query.setParameter("idWordPL", idWordPL);
         List result = query.list();
@@ -158,7 +158,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamilie IS NULL AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily IS NULL AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
         query.addEntity(Dictionary_Words.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idWordENG", idWordENG);

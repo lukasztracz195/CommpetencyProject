@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ManagingLevels {
 
-    public Integer addLevel(String nameLevel, String nameOfCategory);
+    public Integer addLevel(String nameLevel, String nameCategorie);
 
     public void deleteLevel(int idLevel);
 
-    public Integer existLevel(String nameLevel, String nameOfCategory) throws HibernateException;
+    public Integer existLevel(String nameLevel, String nameCategorie) throws HibernateException;
 
     public Level getLevel(int idLevel);
 

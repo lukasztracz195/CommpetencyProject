@@ -29,7 +29,5 @@ public class Dictionary_Sentences {
         this.sentencesENG = sentencesENG;
         this.sentencesPL = sentencesPL;
     }
-
-
 }
 

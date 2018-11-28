@@ -22,11 +22,11 @@ public class Level {
     private String nameLevel;
 
 
-    private String nameOfCategory;
+    private String nameCategorie;
 
     public Level(String levelName, String categorie) {
         this.nameLevel = levelName;
-        this.nameOfCategory = categorie;
+        this.nameCategorie = categorie;
     }
 
 

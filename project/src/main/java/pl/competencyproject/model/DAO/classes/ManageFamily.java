@@ -43,6 +43,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     public Integer addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
+       // SessionLogon.IdLoggedUser = 1;  // BROBLEM Z SESSIONLOGON
         if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();

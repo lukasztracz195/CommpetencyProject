@@ -41,6 +41,8 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return instance;
     }
 
+
+
     /* Method to CREATE an user in the database */
     public Integer addUser(String email, String password) {
         Transaction tx = null;

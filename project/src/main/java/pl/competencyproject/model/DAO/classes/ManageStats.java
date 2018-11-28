@@ -79,6 +79,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     }
 
     /* UPDATE STAT */
+//<<<<<<< Updated upstream:project/src/main/java/pl/competencyproject/model/DAO/classes/ManageStats.java
     public void updateStat(int IdStat, int valueProgress) {
 
         Transaction tx = null;
@@ -100,6 +101,19 @@ public class ManageStats extends GeneralManager implements ManagingStats {
             e.printStackTrace();
         }
     }
+//=======
+//
+//  //  private  void updateStat(int IdStat, int valueProgress) {
+//
+////    public static void updateStat(int IdStat, double valueProgress) {
+////
+////        Stat stat = getStat(IdStat);
+////        Date now = new Date();
+////        long beetwenDays = beetwenDays(stat.getDateInput(), now);
+////
+////
+////    }
+//>>>>>>> Stashed changes:project/src/main/java/pl/competencyproject/model/DAO/ManageStat.java
 
     /*  DELETE STAT */
     public void deleteStat(int IdStat) {
@@ -128,7 +142,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idStat =  :idStat");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idStat = :idStat");
         query.addEntity(Stat.class);
         query.setParameter("idStat", idStat);
         List result = query.list();
