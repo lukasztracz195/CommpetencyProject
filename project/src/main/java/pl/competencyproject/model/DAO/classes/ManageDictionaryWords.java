@@ -39,7 +39,29 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         }
         return instance;
     }
+    public Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
+        Transaction tx = null;
+        Integer idDictionary = -1;
+        if (SessionLogon.IdLoggedUser > 0) {
+            if (!session.isOpen()) {
+                session = sessionFactory.openSession();
+            }
+            try {
+                tx = session.beginTransaction();
+                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idFamily, idWordENG, idWordPL);
+                System.out.println(dictionary.toString());
+                idDictionary = (Integer) session.save(dictionary);
+                tx.commit();
+            } catch (HibernateException e) {
+                if (tx != null) tx.rollback();
+                e.printStackTrace();
+            } finally {
+                session.close();
+            }
+        }
+        return idDictionary;
+    }
     public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;

@@ -1,11 +1,14 @@
 package pl.competencyproject.model.CSV;
 
 import pl.competencyproject.model.DAO.classes.*;
+import pl.competencyproject.model.DAO.interfaces.ManagingWordsPL;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Math.abs;
 
 public class CSVReader {
     private LibraryCSV library;
@@ -105,12 +108,14 @@ public class CSVReader {
 
     public Integer insertFamily() {
         String line = fileOfCSV.getRead().nextLine();
-        List<String> listStringPL = new ArrayList<>();
-        List<String> listStringENG = new ArrayList<>();
-        List<String> listWordENG = new ArrayList<>();
+
         if (checkHeaderWordsSentenses(line)) {
+
             String[] headerParts = line.split(";");
             setIndexesPLENG(headerParts);
+            List<String> listStringENG = new ArrayList<>();
+            List<String> listWordENG = new ArrayList<>();
+            List<String> listStringPL = new ArrayList<>();
             while (fileOfCSV.getRead().hasNextLine()) {
                 line = fileOfCSV.getRead().nextLine();
                 String[] tokens = line.split(";");
@@ -118,6 +123,31 @@ public class CSVReader {
                 listStringENG.add(tokens[ENGindex]);
                 listWordENG.add(selectlongestWord(tokens[ENGindex]));
             }
+
+        String headFamily = findHeadFamily(listWordENG);
+        ManageFamily MF =ManageFamily.getInstance();
+       int idFamily =  MF.addFamily(choosedLevel,headFamily);
+        ManageWordsENG MWE = ManageWordsENG.getInstance();
+        ManageWordsPL MWP = ManageWordsPL.getInstance();
+        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
+        int IdWordENG;
+        int IdWordPL;
+        int howAdded =0;
+        for( int i = 0;i< listStringENG.size();i++){
+            String considered = listStringENG.get(i);
+            String translation = listStringPL.get(i);
+            if(isItFamily(headFamily,considered)){
+                IdWordENG = MWE.addWordENG(considered);
+                IdWordPL = MWP.addWordPL(translation);
+                if(IdWordENG == -1) IdWordENG = MWE.existWordENG(considered);
+                if(IdWordPL == -1) IdWordPL = MWP.existWordPL(translation);
+                if(MDW.existDictionaryWords(choosedLevel,idFamily,IdWordENG,IdWordPL) == -1){
+                    MDW.existDictionaryWords(choosedLevel,idFamily,IdWordENG,IdWordPL);
+                    howAdded++;
+                }
+            }
+        }
+            return howAdded;
         }
         return 0;
     }
@@ -157,7 +187,7 @@ public class CSVReader {
         return addedId;
     }
 
-    private String selectlongestWord(String WordWithSpace) {
+    public String selectlongestWord(String WordWithSpace) {
         String[] stringArrray = WordWithSpace.split(" ");
         int max = stringArrray[0].length();
         int iterator = 0;
@@ -171,8 +201,15 @@ public class CSVReader {
         return stringArrray[iterator];
     }
 
+    public boolean isItFamily(String head, String probablyMember){
+        String resultLCS = LCS(head,probablyMember);
+        Integer resultLevenstein = levenstein(resultLCS,head);
+        Integer difference = abs(head.length() - resultLevenstein);
+        if(difference <= 1) return true;
+        return false;
+    }
 
-    private String LCS(String word1, String word2) {
+    public String LCS(String word1, String word2) {
         int m, n, maxi, ind;
         int a[][];
         m = word1.length();
@@ -198,7 +235,7 @@ public class CSVReader {
         return word1.substring(ind - maxi, ind);
     }
 
-    private int levenstein(String source, String destiny) {
+    public int levenstein(String source, String destiny) {
         int i, j, m, n, cost;
         int d[][];
         m = source.length();
@@ -226,7 +263,7 @@ public class CSVReader {
         return d[m][n];
     }
 
-    private String findHeadFamily(List<String> list){
+    public String findHeadFamily(List<String> list){
         int min = list.get(0).length();
         int interator = 0;
         for(int i=1;i<list.size();i++){

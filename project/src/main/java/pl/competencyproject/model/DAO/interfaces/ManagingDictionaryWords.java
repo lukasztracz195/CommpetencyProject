@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ManagingDictionaryWords {
 
+    public Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL);
+
     public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL);
 
     public Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL);
