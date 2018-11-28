@@ -1,54 +1,55 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.entities.Word_ENG;
+import pl.competencyproject.model.DAO.interfaces.ManagingWordsPL;
 import pl.competencyproject.model.entities.Word_PL;
 
 import java.util.List;
 
-public class ManageWordsENG extends GeneralManager {
+public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
 
-    private static ManageWordsENG instance;
-    public static final String TABLE = "WORDS_ENG";
-    private ManageWordsENG(boolean test) { super(test);
+    private static ManageWordsPL instance;
+    public static final String TABLE = "WORDS_PL";
+    private ManageWordsPL(boolean test) {
+        super(test);
     }
 
-    public static ManageWordsENG getInstance() {
+    public static ManageWordsPL getInstance() {
         if (instance == null) {
-            synchronized (ManageWordsENG.class) {
+            synchronized (ManageWordsPL.class) {
                 if (instance == null) {
-                    instance = new ManageWordsENG(false);
+                    instance = new ManageWordsPL(false);
                 }
             }
         }
         return instance;
     }
 
-    public static ManageWordsENG getTestInstance() {
+    public static ManageWordsPL getTestInstance() {
         if (instance == null) {
-            synchronized (ManageWordsENG.class) {
+            synchronized (ManageWordsPL.class) {
                 if (instance == null) {
-                    instance = new ManageWordsENG(true);
+                    instance = new ManageWordsPL(false);
                 }
             }
         }
         return instance;
     }
 
-    public int addWordENG(String strENG) {
+    public Integer addWordPL(String strPL) {
         Transaction tx = null;
-        int idWordENG = -1;
+        int idWordPL = -1;
 
-        if (this.existWordENG(strENG) == -1) {
+        if (this.existWordPL(strPL) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
-                Word_ENG wordENG = new Word_ENG(strENG);
-                idWordENG = (Integer) session.save(wordENG);
+                Word_PL wordPL = new Word_PL(strPL);
+                idWordPL = (Integer) session.save(wordPL);
                 tx.commit();
             } catch (HibernateException e) {
                 if (tx != null) tx.rollback();
@@ -57,29 +58,29 @@ public class ManageWordsENG extends GeneralManager {
                 session.close();
             }
         }
-        return idWordENG;
+        return idWordPL;
     }
 
-    public int existWordENG(String strENG) {
+    public Integer existWordPL(String strPL) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_ENG WHERE wordENG =  :wordENG");
-        query.addEntity(Word_ENG.class);
-        query.setParameter("wordENG", strENG);
+        NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_PL WHERE wordPL =  :wordPL");
+        query.addEntity(Word_PL.class);
+        query.setParameter("wordPL", strPL);
         List result = query.list();
         if (result.size() != 0) {
-            Word_ENG word = (Word_ENG) result.get(0);
-            return word.getIdWordENG();
+            Word_PL word = (Word_PL) result.get(0);
+            return word.getIdWordPL();
         }
         return -1;
     }
 
-    public void deleteWordENG(Integer idWordENG) {
+    public void deleteWordPL(Integer idWordPL) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Word_ENG user = (Word_ENG) session.get(Word_ENG.class, idWordENG);
+            Word_PL user = (Word_PL) session.get(Word_PL.class, idWordPL);
             session.delete(user);
             tx.commit();
         } catch (HibernateException e) {
@@ -90,15 +91,15 @@ public class ManageWordsENG extends GeneralManager {
         }
     }
 
-    public Word_ENG getWordENG(int idWordENG) {
+    public Word_PL getWordPL(int idWordPL) {
         Transaction tx = null;
-        Word_ENG word = null;
+        Word_PL word = null;
         try {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            word = (Word_ENG) session.get(Word_ENG.class, idWordENG);
+            word = (Word_PL) session.get(Word_PL.class, idWordPL);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -108,6 +109,4 @@ public class ManageWordsENG extends GeneralManager {
         }
         return word;
     }
-
-
 }

@@ -1,14 +1,15 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.DAO.interfaces.ManagingLevels;
 import pl.competencyproject.model.entities.Level;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class ManageLevels extends GeneralManager {
+public class ManageLevels extends GeneralManager implements ManagingLevels {
 
     private static ManageLevels instance;
     public static final String TABLE = "LEVELS";
@@ -38,16 +39,16 @@ public class ManageLevels extends GeneralManager {
         return instance;
     }
 
-    public int addLevel(String nameLevel, String nameCategorie) {
+    public Integer addLevel(String nameLevel, String nameOfCategory) {
         Transaction tx = null;
         int idLevel = -1;
-        if (this.existLevel(nameLevel, nameCategorie) == -1) {
+        if (this.existLevel(nameLevel, nameOfCategory) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             try {
                 tx = session.beginTransaction();
-                Level level = new Level(nameLevel, nameCategorie);
+                Level level = new Level(nameLevel, nameOfCategory);
                 idLevel = (Integer) session.save(level);
                 tx.commit();
             } catch (HibernateException e) {
@@ -77,7 +78,7 @@ public class ManageLevels extends GeneralManager {
     }
 
     /* Method to check if level does EXIST*/
-    public int existLevel(String nameLevel, String nameCategorie) throws HibernateException {
+    public Integer existLevel(String nameLevel, String nameOfCategory) throws HibernateException {
 
         Level level = null;
         Level level2 = null;
@@ -85,10 +86,10 @@ public class ManageLevels extends GeneralManager {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameCategorie = :nameCategorie");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameOfCategory = :nameOfCategory");
         query.addEntity(Level.class);
         query.setParameter("nameLevel", nameLevel);
-        query.setParameter("nameCategorie", nameCategorie);
+        query.setParameter("nameOfCategory", nameOfCategory);
         List result = query.list();
         if (result.size() != 0) {
             level = (Level) result.get(0);
@@ -131,7 +132,7 @@ public class ManageLevels extends GeneralManager {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT nameCategorie FROM LEVELS");
+        NativeQuery query = session.createSQLQuery("SELECT nameOfCategory FROM LEVELS");
         List result = query.list();
         if (result == null) {
             result = new LinkedList<>();

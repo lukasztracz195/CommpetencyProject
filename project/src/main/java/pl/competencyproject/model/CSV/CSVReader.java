@@ -1,6 +1,6 @@
 package pl.competencyproject.model.CSV;
 
-import pl.competencyproject.model.DAO.*;
+import pl.competencyproject.model.DAO.classes.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,9 +34,9 @@ public class CSVReader {
     }
 
 
-    public void chooseLevel(String nameLevel, String nameCategorie) {
+    public void chooseLevel(String nameLevel, String nameOfCategory) {
         ManageLevels ml = ManageLevels.getInstance();
-        int id = ml.existLevel(nameLevel, nameCategorie);
+        int id = ml.existLevel(nameLevel, nameOfCategory);
         if (id != -1) {
             choosedLevel = id;
         }

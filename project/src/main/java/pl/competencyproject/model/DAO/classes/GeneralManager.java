@@ -1,10 +1,7 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
 
 public abstract class GeneralManager {
@@ -41,7 +38,7 @@ public abstract class GeneralManager {
         }
     }
 */
-    protected void closeSession(){
+    public void closeSession(){
         if(session.isOpen()) session.close();
     }
 

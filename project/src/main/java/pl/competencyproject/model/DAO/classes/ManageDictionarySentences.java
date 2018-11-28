@@ -1,13 +1,15 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.DAO.interfaces.ManagingDictionarySentences;
 import pl.competencyproject.model.entities.Dictionary_Sentences;
 
 import java.util.List;
 
-public class ManageDictionarySentences extends GeneralManager {
+public class ManageDictionarySentences extends GeneralManager implements ManagingDictionarySentences {
 
     private static ManageDictionarySentences instance;
     public static final String TABLE = "DICTIONARY_SENTENCES";
@@ -40,7 +42,7 @@ public class ManageDictionarySentences extends GeneralManager {
     }
 
 
-    public int insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
+    public Integer insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
         Transaction tx = null;
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existDictionarySentences(idLevel, sentencesENG, sentencesPL) == -1) {
@@ -62,7 +64,7 @@ public class ManageDictionarySentences extends GeneralManager {
         return idDictionary;
     }
 
-    public int existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
+    public Integer existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }

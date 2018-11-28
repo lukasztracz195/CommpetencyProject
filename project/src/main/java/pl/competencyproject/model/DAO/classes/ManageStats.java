@@ -1,48 +1,48 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
+import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.DAO.interfaces.ManagingStats;
 import pl.competencyproject.model.entities.Stat;
 
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ManageStat extends GeneralManager {
+public class ManageStats extends GeneralManager implements ManagingStats {
 
-    private static ManageStat instance;
+    private static ManageStats instance;
 
-    private ManageStat(boolean test) {
+    private ManageStats(boolean test) {
         super(test);
     }
     public static final String TABLE = "STATS";
-    public static ManageStat getInstance() {
+    public static ManageStats getInstance() {
         if (instance == null) {
-            synchronized (ManageStat.class) {
+            synchronized (ManageStats.class) {
                 if (instance == null) {
-                    instance = new ManageStat(false);
+                    instance = new ManageStats(false);
                 }
             }
         }
         return instance;
     }
 
-    public static ManageStat getTestInstance() {
+    public static ManageStats getTestInstance() {
         if (instance == null) {
-            synchronized (ManageStat.class) {
+            synchronized (ManageStats.class) {
                 if (instance == null) {
-                    instance = new ManageStat(true);
+                    instance = new ManageStats(true);
                 }
             }
         }
         return instance;
     }
 
-    public  int addStat(int IdLevel, double valueProgress) {
+    public  Integer addStat(int IdLevel, double valueProgress) {
         Transaction tx = null;
         Integer idStat = -1;
         if (SessionLogon.IdLoggedUser > 0) {
@@ -79,12 +79,26 @@ public class ManageStat extends GeneralManager {
     }
 
     /* UPDATE STAT */
-    private  void updateStat(int IdStat, int valueProgress) {
-        Stat stat = getStat(IdStat);
-        Date now = new Date();
-        long beetwenDays = beetwenDays(stat.getDateInput(), now);
+    public void updateStat(int IdStat, int valueProgress) {
 
-
+        Transaction tx = null;
+        try {
+            if (!session.isOpen()) {
+                session = sessionFactory.openSession();
+            }
+            tx = session.beginTransaction();
+            Stat stat = getStat(IdStat);
+            Date now = new Date();
+            long beetwenDays = beetwenDays(stat.getDateInput(), now);
+            double newValueProgres = (stat.getValueProgress()/valueProgress) +valueProgress;
+            stat.setDateInput(now);
+            stat.setValueProgress(newValueProgres);
+            session.update(stat);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        }
     }
 
     /*  DELETE STAT */
@@ -107,7 +121,7 @@ public class ManageStat extends GeneralManager {
         }
     }
 
-    public int existStat(int idStat) throws HibernateException {
+    public Integer existStat(int idStat) throws HibernateException {
 
         Stat stat = null;
         int id = -1;

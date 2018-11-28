@@ -1,6 +1,6 @@
 package pl.competencyproject.model.DAO;
 
-import pl.competencyproject.model.CSV.CSVReader;
+import pl.competencyproject.model.DAO.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
 
@@ -84,8 +84,8 @@ public class SessionLogon {
         manageUsers.closeSession();
     }
 
-    public void doSomethingbyLoggedUser(){
-        if(SessionLogon.IdLoggedUser != -1){
+    public void doSomethingbyLoggedUser() {
+        if (SessionLogon.IdLoggedUser != -1) {
         }
     }
 }

@@ -1,13 +1,10 @@
 package pl.competencyproject.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import pl.competencyproject.model.DAO.ManageUsers;
-import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.DAO.classes.ManageUsers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,17 +41,19 @@ public class ProfileController extends AbstractController implements Initializab
     public void back() {
         super.back(mainController, this);
     }
+
     @FXML
-    public void delete(){
-        ManageUsers manageUsers=new ManageUsers(false);
-        int id=manageUsers.existUser(super.email);
+    public void delete() {
+        ManageUsers manageUsers = ManageUsers.getInstance();
+        int id = manageUsers.existUser(super.email);
         manageUsers.deleteUser(id);
     }
+
     @FXML
-    public void save(){
-        if(profilNoweHaslo.equals(profilPotwierdzHaslo)) {
+    public void save() {
+        if (profilNoweHaslo.equals(profilPotwierdzHaslo)) {
             confirmPassword.setText("");
-            ManageUsers manageUsers = new ManageUsers(false);
+            ManageUsers manageUsers = ManageUsers.getInstance();
             int id = manageUsers.existUser(super.email);
             manageUsers.updatePasswordUser(id, profilPotwierdzHaslo.getText());
         } else confirmPassword.setText("Incorrect Confirm Password");
@@ -65,9 +64,10 @@ public class ProfileController extends AbstractController implements Initializab
         mainController.loadLogonScreen();
         sessionLogon.logOut();
     }
-    public void setEmailPassword(String email,String password){
+
+    public void setEmailPassword(String email, String password) {
         profilNazwaUzytkownika.setText(email);
         profilHaslo.setText(password);
-        super.email=email;
+        super.email = email;
     }
 }

@@ -1,13 +1,15 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.DAO.interfaces.ManagingDictionaryWords;
 import pl.competencyproject.model.entities.Dictionary_Words;
 
 import java.util.List;
 
-public class ManageDictionaryWords extends GeneralManager {
+public class ManageDictionaryWords extends GeneralManager implements ManagingDictionaryWords {
 
     private static ManageDictionaryWords instance;
     public static final String TABLE = "DICTIONARY_WORDS";

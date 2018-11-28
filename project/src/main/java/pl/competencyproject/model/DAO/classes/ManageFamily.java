@@ -1,13 +1,15 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.DAO.interfaces.ManagingFamily;
 import pl.competencyproject.model.entities.Family;
 
 import java.util.List;
 
-public class ManageFamily extends GeneralManager {
+public class ManageFamily extends GeneralManager implements ManagingFamily {
 
 
     private static ManageFamily instance;
@@ -38,7 +40,7 @@ public class ManageFamily extends GeneralManager {
         return instance;
     }
 
-    public int addFamily(int idLevel, String headFamily) {
+    public Integer addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
@@ -60,7 +62,7 @@ public class ManageFamily extends GeneralManager {
         return idDictionary;
     }
 
-    public int existFamily(int idLevel, String headFamily) {
+    public Integer existFamily(int idLevel, String headFamily) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }

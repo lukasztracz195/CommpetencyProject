@@ -3,6 +3,7 @@ package pl.competencyproject.model.DAO;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import pl.competencyproject.model.DAO.classes.ManageUsers;
 
 class ManageUsersTest {
 

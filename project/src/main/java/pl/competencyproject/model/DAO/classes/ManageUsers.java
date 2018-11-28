@@ -1,15 +1,16 @@
-package pl.competencyproject.model.DAO;
+package pl.competencyproject.model.DAO.classes;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import pl.competencyproject.model.DAO.interfaces.ManagingUsers;
 import pl.competencyproject.model.entities.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-public class ManageUsers extends GeneralManager {
+public class ManageUsers extends GeneralManager implements ManagingUsers {
 
     private static ManageUsers instance;
 
@@ -41,7 +42,7 @@ public class ManageUsers extends GeneralManager {
     }
 
     /* Method to CREATE an user in the database */
-    public int addUser(String email, String password) {
+    public Integer addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
 
