@@ -11,3 +11,5 @@ project/LockFile
 \.idea/workspace\.xml
 
 *.class
+
+project/testcompproject\.mv\.db
