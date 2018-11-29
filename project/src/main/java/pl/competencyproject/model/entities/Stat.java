@@ -18,7 +18,7 @@ public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer idStats;
+    private Integer idStat;
 
     private Integer idUser;
 
