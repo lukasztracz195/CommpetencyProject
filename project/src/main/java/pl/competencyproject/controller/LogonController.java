@@ -73,7 +73,7 @@ public class LogonController extends AbstractController implements Initializable
             emailFeedbackLabel.setText("User with this email not exist");
         }
 
-        if (!SessionLogon.logged) {
+        if (SessionLogon.logged) {
             logOutButton.setDisable(true);
             emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
             emailFeedbackLabel.setText("User with this email is logged just");

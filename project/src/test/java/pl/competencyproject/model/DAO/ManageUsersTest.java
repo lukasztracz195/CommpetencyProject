@@ -16,7 +16,8 @@ class ManageUsersTest {
     @Test
     public void addTest() {
         String password = "qwerty1";
-        int id = ManageUsers.getInstance().addUser(email, password);
+        int id = manageUsers.addUser(email, password);
+        System.out.println(manageUsers.getUser(id));
         Assertions.assertEquals(id, manageUsers.existUser(email));
     }
 
@@ -53,6 +54,7 @@ class ManageUsersTest {
     public void deleteTest() {
         manageUsers.deleteUser(manageUsers.existUser(emailChange));
         Assertions.assertEquals(-1, manageUsers.existUser(emailChange));
+        Assertions.assertNull(manageUsers.getUser(id));
     }
 
 
