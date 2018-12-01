@@ -8,7 +8,7 @@ public interface ManagingFamily {
 
     public Integer existFamily(int idLevel, String headFamily);
 
-    public Family getFamili(int idFamili);
+    public Family getFamily(int idFamili);
 
     public void deleteFamily(Integer idFamily);
 

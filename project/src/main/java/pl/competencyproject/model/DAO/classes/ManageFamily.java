@@ -14,6 +14,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
 
     private static ManageFamily instance;
     public static final String TABLE = "FAMILIES";
+
     private ManageFamily(boolean test) {
         super(test);
     }
@@ -43,7 +44,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     public Integer addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
-       // SessionLogon.IdLoggedUser = 1;  // BROBLEM Z SESSIONLOGON
+        // SessionLogon.IdLoggedUser = 1;  // BROBLEM Z SESSIONLOGON
         if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
             if (!session.isOpen()) {
                 session = sessionFactory.openSession();
@@ -80,7 +81,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         return -1;
     }
 
-    public Family getFamili(int idFamili) {
+    public Family getFamily(int idFamily) {
         Transaction tx = null;
         Family family = null;
         try {
@@ -88,7 +89,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            family = (Family) session.get(Family.class, idFamili);
+            family = (Family) session.get(Family.class, idFamily);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -100,17 +101,22 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     }
 
     public void deleteFamily(Integer idFamily) {
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Family family = (Family) session.get(Family.class, idFamily);
-            session.delete(family);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
+        if (getFamily(idFamily) != null) {
+            Transaction tx = null;
+            if (!session.isOpen()) {
+                session = sessionFactory.openSession();
+            }
+            try {
+                tx = session.beginTransaction();
+                Family family = session.get(Family.class, idFamily);
+                session.delete(family);
+                tx.commit();
+            } catch (HibernateException e) {
+                if (tx != null) tx.rollback();
+                e.printStackTrace();
+            } finally {
+                session.close();
+            }
         }
     }
 }
