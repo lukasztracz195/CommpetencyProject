@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.TeachingController">
     <children>
@@ -130,7 +131,10 @@
          <top>
             <FlowPane alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="523.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="523.0" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="24.0" />
+                     </font></Label>
                         <Button alignment="CENTER" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
                   <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                   <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />

@@ -115,9 +115,9 @@
          <top>
             <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" prefHeight="34.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="530.0" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="530.0" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />

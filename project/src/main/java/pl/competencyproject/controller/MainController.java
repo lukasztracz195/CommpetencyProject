@@ -20,7 +20,7 @@ public class MainController implements Initializable , Runnable{
     public static final String MainScreen = "/fxmls/MainScreen.fxml";
     public static final String Teaching = "/fxmls/Nauka.fxml";
     public static final String Dictionary = "/fxmls/Slownik.fxml";
-    public static final String Test = "/fxmls/test.fxml";
+    public static final String Test = "/fxmls/Test.fxml";
     public static final String Account = "/fxmls/Profil.fxml";
 
     @Override

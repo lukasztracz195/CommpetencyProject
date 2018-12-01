@@ -109,9 +109,9 @@
          <top>
             <FlowPane prefHeight="31.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
                <children>
-                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp">
+                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="24.0" />
                      </font></Label>
                         <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
