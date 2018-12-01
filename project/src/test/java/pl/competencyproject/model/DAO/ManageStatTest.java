@@ -1,5 +1,6 @@
 package pl.competencyproject.model.DAO;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -37,6 +38,11 @@ public class ManageStatTest {
         if (ML.existLevel(nameLevel, nameCategorie) == -1 || idLevel == -1) {
             idLevel = ML.addLevel(nameLevel, nameCategorie);
         }
+    }
+
+    @After
+    public void end() {
+        SessionLogon.IdLoggedUser = -1;
     }
 
     @Test

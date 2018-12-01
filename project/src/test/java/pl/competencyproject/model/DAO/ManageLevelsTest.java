@@ -1,5 +1,6 @@
 package pl.competencyproject.model.DAO;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -20,6 +21,12 @@ public class ManageLevelsTest {
     @Before
     public void init() {
         manageLevels = ManageLevels.getTestInstance();
+        SessionLogon.IdLoggedUser = 1;
+    }
+
+    @After
+    public void end() {
+        SessionLogon.IdLoggedUser = -1;
     }
 
     @Test
