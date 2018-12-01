@@ -62,6 +62,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         }
         return idDictionary;
     }
+
     public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
@@ -86,7 +87,8 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-    public Integer insertDictionaryWordswithoutLevel(int idFamily, int idWordENG, int idWordPL) {
+/*
+    public Integer insertDictionaryWordswithoutLevel(Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;
@@ -108,8 +110,8 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         }
         return idDictionary;
     }
-
-    public List<Dictionary_Words> getDictionaryByLevel(int idLevel) {
+*/
+    public List<Dictionary_Words> getDictionaryByLevel(Integer idLevel) {
 
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
@@ -121,7 +123,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return result;
     }
 
-    public List<Dictionary_Words> getDictionaryByFamilie(int idFamily) {
+    public List<Dictionary_Words> getDictionaryByFamilie(Integer idFamily) {
 
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
