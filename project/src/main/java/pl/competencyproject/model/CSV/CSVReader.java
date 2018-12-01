@@ -1,7 +1,6 @@
 package pl.competencyproject.model.CSV;
 
 import pl.competencyproject.model.DAO.classes.*;
-import pl.competencyproject.model.DAO.interfaces.ManagingWordsPL;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -58,8 +57,13 @@ public class CSVReader {
         fileOfCSV = new FileOfCSV(fileCSV);
     }
 
-    public Integer insertDictionarySentences() throws FileNotFoundException {
-        ManageDictionarySentences MDS = ManageDictionarySentences.getInstance();
+    public Integer insertDictionarySentences(boolean test) throws FileNotFoundException {
+        ManageDictionarySentences MDS = null;
+        if (!test) {
+            MDS = ManageDictionarySentences.getInstance();
+        } else {
+            MDS = ManageDictionarySentences.getTestInstance();
+        }
         int records = 0;
         String line = fileOfCSV.getRead().nextLine();
         if (checkHeaderWordsSentenses(line)) {
@@ -79,11 +83,22 @@ public class CSVReader {
         return records;
     }
 
-    public Integer insertDictionaryWordswithoutFamily() throws FileNotFoundException {
+    public Integer insertDictionaryWordswithoutFamily(boolean test) throws FileNotFoundException {
         int records = 0;
-        ManageWordsENG MWE = ManageWordsENG.getInstance();
-        ManageWordsPL MWP = ManageWordsPL.getInstance();
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
+        ManageWordsENG MWE = null;
+        ManageWordsPL MWP = null;
+        ManageDictionaryWords MDW = null;
+        if (!test) {
+            MWE = ManageWordsENG.getInstance();
+            MWP = ManageWordsPL.getInstance();
+            MDW = ManageDictionaryWords.getInstance();
+        } else {
+            MWE = ManageWordsENG.getTestInstance();
+            MWP = ManageWordsPL.getTestInstance();
+            MDW = ManageDictionaryWords.getTestInstance();
+        }
+
+
         String line = fileOfCSV.getRead().nextLine();
         if (checkHeaderWordsSentenses(line)) {
             String[] headerParts = line.split(";");
@@ -107,11 +122,24 @@ public class CSVReader {
     }
 
 
-    public Integer insertFamily() {
+    public Integer insertFamily(boolean test) {
+        ManageFamily MF = null;
+        ManageWordsENG MWE = null;
+        ManageWordsPL MWP = null;
+        ManageDictionaryWords MDW = null;
+        if (!test) {
+            MF = ManageFamily.getInstance();
+            MWE = ManageWordsENG.getInstance();
+            MWP = ManageWordsPL.getInstance();
+            MDW = ManageDictionaryWords.getInstance();
+        } else {
+            MF = ManageFamily.getTestInstance();
+            MWE = ManageWordsENG.getTestInstance();
+            MWP = ManageWordsPL.getTestInstance();
+            MDW = ManageDictionaryWords.getTestInstance();
+        }
         String line = fileOfCSV.getRead().nextLine();
-
         if (checkHeaderWordsSentenses(line)) {
-
             String[] headerParts = line.split(";");
             setIndexesPLENG(headerParts);
             List<String> listStringENG = new ArrayList<>();
@@ -125,29 +153,27 @@ public class CSVReader {
                 listWordENG.add(selectlongestWord(tokens[ENGindex]));
             }
 
-        String headFamily = findHeadFamily(listWordENG);
-        ManageFamily MF =ManageFamily.getInstance();
-       int idFamily =  MF.addFamily(choosedLevel,headFamily);
-        ManageWordsENG MWE = ManageWordsENG.getInstance();
-        ManageWordsPL MWP = ManageWordsPL.getInstance();
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
-        int IdWordENG;
-        int IdWordPL;
-        int howAdded =0;
-        for( int i = 0;i< listStringENG.size();i++){
-            String considered = listStringENG.get(i);
-            String translation = listStringPL.get(i);
-            if(isItFamily(headFamily,considered)){
-                IdWordENG = MWE.addWordENG(considered);
-                IdWordPL = MWP.addWordPL(translation);
-                if(IdWordENG == -1) IdWordENG = MWE.existWordENG(considered);
-                if(IdWordPL == -1) IdWordPL = MWP.existWordPL(translation);
-                if(MDW.existDictionaryWords(choosedLevel,idFamily,IdWordENG,IdWordPL) == -1){
-                    MDW.existDictionaryWords(choosedLevel,idFamily,IdWordENG,IdWordPL);
-                    howAdded++;
+            String headFamily = findHeadFamily(listWordENG);
+            int idFamily = MF.addFamily(choosedLevel, headFamily);
+            System.out.println(idFamily);
+            int IdWordENG;
+            int IdWordPL;
+            int howAdded = 0;
+            for (int i = 0; i < listStringENG.size(); i++) {
+                String considered = listStringENG.get(i);
+                String translation = listStringPL.get(i);
+                if (isItFamily(headFamily, considered)) {
+                    IdWordENG = MWE.addWordENG(considered);
+                    IdWordPL = MWP.addWordPL(translation);
+                    if (IdWordENG == -1) IdWordENG = MWE.existWordENG(considered);
+                    if (IdWordPL == -1) IdWordPL = MWP.existWordPL(translation);
+                    if (MDW.existDictionaryWords(choosedLevel, idFamily, IdWordENG, IdWordPL) == -1) {
+                      if(  MDW.insertDictionaryWords(choosedLevel, idFamily, IdWordENG, IdWordPL) != -1) {
+                          howAdded++;
+                      }
+                    }
                 }
             }
-        }
             return howAdded;
         }
         return 0;
@@ -202,11 +228,11 @@ public class CSVReader {
         return stringArrray[iterator];
     }
 
-    public boolean isItFamily(String head, String probablyMember){
-        String resultLCS = LCS(head,probablyMember);
-        Integer resultLevenstein = levenstein(resultLCS,head);
-        Integer difference = abs(head.length() - resultLevenstein);
-        if(difference <= 1) return true;
+    public boolean isItFamily(String head, String probablyMember) {
+        String resultLCS = LCS(head, probablyMember);
+        Integer resultLevenstein = levenstein(resultLCS, head);
+        Integer difference = abs(resultLevenstein);
+        if (difference <= 1) return true;
         return false;
     }
 
@@ -264,12 +290,12 @@ public class CSVReader {
         return d[m][n];
     }
 
-    public String findHeadFamily(List<String> list){
+    public String findHeadFamily(List<String> list) {
         int min = list.get(0).length();
         int interator = 0;
-        for(int i=1;i<list.size();i++){
+        for (int i = 1; i < list.size(); i++) {
             int tmpMin = list.get(i).length();
-            if(tmpMin < min){
+            if (tmpMin < min) {
                 min = tmpMin;
                 interator = i;
             }

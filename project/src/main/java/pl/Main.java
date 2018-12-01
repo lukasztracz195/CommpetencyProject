@@ -28,6 +28,7 @@ public class Main extends Application {
     @Override
     public void init() throws FileNotFoundException {
         SessionLogon.time = GeneralClock.getInstance();
+        SessionLogon.IdLoggedUser = -1;
     }
 
 

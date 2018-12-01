@@ -19,7 +19,9 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     private ManageStats(boolean test) {
         super(test);
     }
+
     public static final String TABLE = "STATS";
+
     public static ManageStats getInstance() {
         if (instance == null) {
             synchronized (ManageStats.class) {
@@ -42,7 +44,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         return instance;
     }
 
-    public  Integer addStat(int IdLevel, double valueProgress) {
+    public Integer addStat(int IdLevel, double valueProgress) {
         Transaction tx = null;
         Integer idStat = -1;
         if (SessionLogon.IdLoggedUser > 0) {
@@ -64,9 +66,9 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     }
 
     /* GET STAT */
-    public  Stat getStat(int IdStat) {
+    public Stat getStat(int IdStat) {
         Stat stat = null;
-        Transaction tx = null;
+        Transaction tx;
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
@@ -79,8 +81,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     }
 
     /* UPDATE STAT */
-//<<<<<<< Updated upstream:project/src/main/java/pl/competencyproject/model/DAO/classes/ManageStats.java
-    public void updateStat(int IdStat, int valueProgress) {
+    public void updateStat(int IdStat, double valueProgress) {
 
         Transaction tx = null;
         try {
@@ -88,10 +89,15 @@ public class ManageStats extends GeneralManager implements ManagingStats {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            Stat stat = getStat(IdStat);
+            Stat stat = session.get(Stat.class, IdStat);
             Date now = new Date();
             long beetwenDays = beetwenDays(stat.getDateInput(), now);
-            double newValueProgres = (stat.getValueProgress()/valueProgress) +valueProgress;
+            double newValueProgres;
+            if(beetwenDays != 0) {
+                 newValueProgres = (stat.getValueProgress() / beetwenDays) + valueProgress/2;
+            }else {
+                 newValueProgres = (stat.getValueProgress() / valueProgress) + (valueProgress*2);
+            }
             stat.setDateInput(now);
             stat.setValueProgress(newValueProgres);
             session.update(stat);
@@ -100,31 +106,21 @@ public class ManageStats extends GeneralManager implements ManagingStats {
             if (tx != null) tx.rollback();
             e.printStackTrace();
         }
+
     }
-//=======
-//
-//  //  private  void updateStat(int IdStat, int valueProgress) {
-//
-////    public static void updateStat(int IdStat, double valueProgress) {
-////
-////        Stat stat = getStat(IdStat);
-////        Date now = new Date();
-////        long beetwenDays = beetwenDays(stat.getDateInput(), now);
-////
-////
-////    }
-//>>>>>>> Stashed changes:project/src/main/java/pl/competencyproject/model/DAO/ManageStat.java
+
+
+
 
     /*  DELETE STAT */
-    public void deleteStat(int IdStat) {
+    public void deleteStat(int idStat) {
         Transaction tx = null;
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         try {
             tx = session.beginTransaction();
-
-            Stat stat = (Stat) session.get(Stat.class, IdStat);
+            Stat stat = (Stat) session.get(Stat.class, idStat);
             session.delete(stat);
             tx.commit();
         } catch (HibernateException e) {
@@ -142,7 +138,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE idStat = :idStat");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM STATS WHERE idStat = :idStat");
         query.addEntity(Stat.class);
         query.setParameter("idStat", idStat);
         List result = query.list();
@@ -156,7 +152,7 @@ public class ManageStats extends GeneralManager implements ManagingStats {
 
     }
 
-    private  long beetwenDays(Date d1, Date d2) {
+    private long beetwenDays(Date d1, Date d2) {
         long diffInMillies = Math.abs(d2.getTime() - d1.getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return diff;

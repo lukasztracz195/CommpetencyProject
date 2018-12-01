@@ -10,13 +10,13 @@ public interface ManagingDictionaryWords {
 
     public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL);
 
-    public Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL);
+    public Integer insertDictionaryWordswithoutLevel(int idFamily, int idWordENG, int idWordPL);
 
     public List<Dictionary_Words> getDictionaryByLevel(int idLevel);
 
-    public List<Dictionary_Words> getDictionaryByFamilie(int idFamilie);
+    public List<Dictionary_Words> getDictionaryByFamilie(int idFamily);
 
-    public Integer existDictionaryWords(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL);
+    public Integer existDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL);
 
     public Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL);
 }

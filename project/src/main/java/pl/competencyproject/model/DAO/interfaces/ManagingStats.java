@@ -9,7 +9,7 @@ public interface ManagingStats {
 
     public Stat getStat(int IdStat);
 
-    public void updateStat(int IdStat, int valueProgress);
+    public void updateStat(int IdStat, double valueProgress);
 
     public void deleteStat(int IdStat);
 

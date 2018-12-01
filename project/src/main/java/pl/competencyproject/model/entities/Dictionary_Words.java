@@ -26,9 +26,9 @@ public class Dictionary_Words {
     private Integer idWordPL;
 
 
-    public Dictionary_Words(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL) {
+    public Dictionary_Words(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
         this.idLevel = idLevel;
-        this.idFamily = idFamilie;
+        this.idFamily = idFamily;
         this.idWordENG = idWordENG;
         this.idWordPL = idWordPL;
     }

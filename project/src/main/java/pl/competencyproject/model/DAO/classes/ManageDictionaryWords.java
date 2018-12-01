@@ -86,7 +86,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-    public Integer insertDictionaryWordswithoutLevel(int idFamilie, int idWordENG, int idWordPL) {
+    public Integer insertDictionaryWordswithoutLevel(int idFamily, int idWordENG, int idWordPL) {
 
         Transaction tx = null;
         int idDictionary = -1;
@@ -96,7 +96,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(null, idFamilie, idWordENG, idWordPL);
+                Dictionary_Words dictionary = new Dictionary_Words(null, idFamily, idWordENG, idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
@@ -121,27 +121,27 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return result;
     }
 
-    public List<Dictionary_Words> getDictionaryByFamilie(int idFamilie) {
+    public List<Dictionary_Words> getDictionaryByFamilie(int idFamily) {
 
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily =  :idFamilie");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily =  :idFamily");
         query.addEntity(Dictionary_Words.class);
-        query.setParameter("idFamily", idFamilie);
+        query.setParameter("idFamily", idFamily);
         List result = query.list();
         return result;
     }
 
-    public Integer existDictionaryWords(Integer idLevel, Integer idFamilie, Integer idWordENG, Integer idWordPL) {
+    public Integer existDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily = :idFamilie AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
         query.addEntity(Dictionary_Words.class);
         query.setParameter("idLevel", idLevel);
-        query.setParameter("idFamily", idFamilie);
+        query.setParameter("idFamily", idFamily);
         query.setParameter("idWordENG", idWordENG);
         query.setParameter("idWordPL", idWordPL);
         List result = query.list();

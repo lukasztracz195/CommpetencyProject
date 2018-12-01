@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
     <children>
         <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -107,9 +107,12 @@
                 </GridPane>
             </center>
          <top>
-            <FlowPane prefHeight="31.0" prefWidth="794.0" style="-fx-background-color: #C0C0C0 Silver;" BorderPane.alignment="CENTER">
+            <FlowPane prefHeight="31.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
                <children>
-                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp" />
+                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                         <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
                         <Button fx:id="logOutButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textAlignment="CENTER" textFill="WHITE" />

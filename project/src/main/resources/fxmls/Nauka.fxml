@@ -6,33 +6,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.TeachingController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.TeachingController">
     <children>
         <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <ToolBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
-                    <items>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
-                  <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                  <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                    </items>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                    <cursor>
-                        <Cursor fx:constant="H_RESIZE" />
-                    </cursor>
-                </ToolBar>
-            </top>
             <center>
                 <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
                     <columnConstraints>
@@ -142,6 +127,16 @@
                     </children>
                 </GridPane>
             </center>
+         <top>
+            <FlowPane alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="523.0" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+                  <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+                  <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+               </children>
+            </FlowPane>
+         </top>
         </BorderPane>
     </children>
 </AnchorPane>
