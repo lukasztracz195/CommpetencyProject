@@ -58,7 +58,6 @@ public class LogonController extends AbstractController implements Initializable
         super.setClockDate(clockLabel, dateLabel);
 
         super.email=emailTextField.getText();
-        super.password=passwordTextField.getText();
     }
 
     private void login() {
