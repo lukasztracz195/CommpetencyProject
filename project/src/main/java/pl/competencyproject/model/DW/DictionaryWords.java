@@ -1,0 +1,93 @@
+package pl.competencyproject.model.DW;
+
+import pl.competencyproject.model.DAO.classes.ManageDictionaryWords;
+import pl.competencyproject.model.DAO.classes.ManageWordsENG;
+import pl.competencyproject.model.DAO.classes.ManageWordsPL;
+import pl.competencyproject.model.entities.Dictionary_Words;
+import pl.competencyproject.model.entities.Word_ENG;
+import pl.competencyproject.model.entities.Word_PL;
+
+import java.util.*;
+
+public class DictionaryWords
+{
+    List <Integer> SortedList = new ArrayList <Integer>();
+    Map<Word, List<String>> dictionary= new HashMap<Word, List<String>>();
+    int numerPositive=SortedList.size();
+
+    public void createDictionary()
+    {
+        Set<String> words = new HashSet<>();
+        Word_ENG word_ENG;
+        Word_ENG word_ENG_pom;
+        Word_PL word_PL;
+        Word_PL word_PL_pom;
+        Dictionary_Words obiekt_ENG;
+        Dictionary_Words obiekt_PL;
+        Dictionary_Words obiekt_ENG_pom;
+        Dictionary_Words obiekt_PL_pom;
+        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
+        ManageWordsENG MWE = ManageWordsENG.getInstance();
+        ManageWordsPL MWP = ManageWordsPL.getInstance();
+        List lista=new ArrayList();
+        lista=MDW.getDictionaryByLevel(1);
+        //dodawanie angielskich z tłumaczeniami
+        for(int i=0; i<lista.size(); i++)
+        {
+            Word [] slowo = new Word[lista.size()];
+            for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
+            List <String> translations = new ArrayList<String>();
+            obiekt_ENG= (Dictionary_Words) lista.get(i);
+            word_ENG= MWE.getWordENG(obiekt_ENG.getIdWordENG());
+            if(words.contains(word_ENG.getWordENG())==false)
+            {
+                slowo[i].id = dictionary.size();
+                slowo[i].word = word_ENG.getWordENG();
+                words.add(word_ENG.getWordENG());
+                SortedList.add(dictionary.size());
+                for (int j = 0; j < lista.size(); j++)
+                {
+                    obiekt_ENG_pom = (Dictionary_Words) lista.get(j);
+                    word_ENG_pom = MWE.getWordENG(obiekt_ENG_pom.getIdWordENG());
+                    if (word_ENG.getIdWordENG() == word_ENG_pom.getIdWordENG()) {
+                        word_PL = MWP.getWordPL(obiekt_ENG_pom.getIdWordPL());
+                        translations.add(word_PL.getWordPL());
+                    }
+                }
+                dictionary.put(slowo[i], translations);
+            }
+        }
+        //dodawanie polskich z tłumaczeniami
+        for(int i=0; i<lista.size(); i++)
+        {
+            Word [] slowo = new Word[lista.size()];
+            for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
+            List <String> translations = new ArrayList<String>();
+            obiekt_PL= (Dictionary_Words) lista.get(i);
+            word_PL= MWP.getWordPL(obiekt_PL.getIdWordPL());
+            if(words.contains(word_PL.getWordPL())==false)
+            {
+                slowo[i].id = dictionary.size();
+                slowo[i].word = word_PL.getWordPL();
+                words.add(word_PL.getWordPL());
+                SortedList.add(dictionary.size());
+                for (int j = 0; j < lista.size(); j++)
+                {
+                    obiekt_PL_pom = (Dictionary_Words) lista.get(j);
+                    word_PL_pom = MWP.getWordPL(obiekt_PL_pom.getIdWordPL());
+                    if (word_PL.getIdWordPL() == word_PL_pom.getIdWordPL()) {
+                        word_ENG = MWE.getWordENG(obiekt_PL_pom.getIdWordENG());
+                        translations.add(word_ENG.getWordENG());
+                    }
+                }
+                dictionary.put(slowo[i], translations);
+            }
+        }
+        /*for (Word entry : dictionary.keySet())
+        {
+            List value = dictionary.get(entry);
+            System.out.println(entry.id + " " + entry.word + "" + value + " ");
+        }
+        System.out.println(dictionary.size());*/
+    }
+}
