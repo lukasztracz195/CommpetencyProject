@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 import pl.competencyproject.model.CSV.CSVReader;
 import pl.competencyproject.model.CSV.FileOfCSV;
 import pl.competencyproject.model.CSV.LibraryCSV;
-import pl.competencyproject.model.DAO.classes.ManageDictionarySentences;
-import pl.competencyproject.model.DAO.classes.ManageDictionaryWords;
-import pl.competencyproject.model.DAO.classes.ManageLevels;
+import pl.competencyproject.model.DAO.classes.*;
 import pl.competencyproject.model.entities.Dictionary_Sentences;
 
 import java.io.FileNotFoundException;
@@ -108,6 +106,36 @@ public class ReaderCSVTest {
              } catch (FileNotFoundException e) {
              e.printStackTrace();
         }
+    }
+
+    @Test
+    public void insertDictionaryWordswithoutFamilyTest(){
+        String sentencePL="pies";
+        String sentenceENG = "dog";
+
+        ManageLevels ML = ManageLevels.getTestInstance();
+        ManageWordsENG MWE = ManageWordsENG.getTestInstance();
+        ManageWordsPL MWP = ManageWordsPL.getTestInstance();
+
+        int idLevel = ML.existLevel("B2", "Working life");
+        if(idLevel == -1){
+            ML.addLevel("B2", "Working life");
+        }
+        try {
+            csvReader.chooseCSV("DICTIONARY_WORDS_INSERT");
+            csvReader.chooseLevel("B2", "Working life");
+            int result = csvReader.insertDictionaryWordswithoutFamily(true);
+            Assertions.assertNotSame(0,result);
+            ManageDictionaryWords MDW = ManageDictionaryWords.getTestInstance();
+            idLevel = ML.existLevel("B2", "Working life");
+            int idWordENG = MWE.existWordENG(sentenceENG);
+            int idWordPL = MWP.existWordPL(sentencePL);
+            int exist = MDW.existDictionaryWordsWithoutFamilie(idLevel, idWordENG, idWordPL);
+            Assertions.assertNotSame(-1,exist);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
