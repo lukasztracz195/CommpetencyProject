@@ -15,23 +15,19 @@ public class DictionaryWords
     Map<Word, List<String>> dictionary= new HashMap<Word, List<String>>();
     int numerPositive=SortedList.size();
 
-    public void createDictionary()
+    public void addEnglish()
     {
         Set<String> words = new HashSet<>();
         Word_ENG word_ENG;
         Word_ENG word_ENG_pom;
         Word_PL word_PL;
-        Word_PL word_PL_pom;
         Dictionary_Words obiekt_ENG;
-        Dictionary_Words obiekt_PL;
         Dictionary_Words obiekt_ENG_pom;
-        Dictionary_Words obiekt_PL_pom;
         ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
         ManageWordsENG MWE = ManageWordsENG.getInstance();
         ManageWordsPL MWP = ManageWordsPL.getInstance();
         List lista=new ArrayList();
         lista=MDW.getDictionaryByLevel(1);
-        //dodawanie angielskich z tłumaczeniami
         for(int i=0; i<lista.size(); i++)
         {
             Word [] slowo = new Word[lista.size()];
@@ -57,7 +53,21 @@ public class DictionaryWords
                 dictionary.put(slowo[i], translations);
             }
         }
-        //dodawanie polskich z tłumaczeniami
+    }
+
+    public void addPolish()
+    {
+        Set<String> words = new HashSet<>();
+        Word_ENG word_ENG;
+        Word_PL word_PL;
+        Word_PL word_PL_pom;
+        Dictionary_Words obiekt_PL;
+        Dictionary_Words obiekt_PL_pom;
+        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
+        ManageWordsENG MWE = ManageWordsENG.getInstance();
+        ManageWordsPL MWP = ManageWordsPL.getInstance();
+        List lista=new ArrayList();
+        lista=MDW.getDictionaryByLevel(1);
         for(int i=0; i<lista.size(); i++)
         {
             Word [] slowo = new Word[lista.size()];
@@ -83,11 +93,47 @@ public class DictionaryWords
                 dictionary.put(slowo[i], translations);
             }
         }
+    }
+
+    public void addAll()
+    {
+        addEnglish();
+        addPolish();
         /*for (Word entry : dictionary.keySet())
         {
             List value = dictionary.get(entry);
             System.out.println(entry.id + " " + entry.word + "" + value + " ");
+        }*/
+    }
+
+    public void losuj()
+    {
+        Random rand = new Random();
+        int r;
+        int index;
+        String answer;
+        Word word=new Word();
+        for(int i=0; i<dictionary.size(); i++)
+        {
+            Iterator<Word> iter = dictionary.keySet().iterator();
+            index=rand.nextInt(SortedList.size());
+            r=SortedList.get(index);
+            while (iter.hasNext())
+            {
+                Word slowo = iter.next();
+                if (slowo.id==r)
+                {
+                    System.out.println("Podaj tłumaczenie: "+slowo.word);
+                    Scanner in = new Scanner(System.in);
+                    answer = in.nextLine();
+                    if(dictionary.get(slowo).contains(answer))
+                    {
+                        numerPositive++;
+                    }
+                    SortedList.remove(index);
+                }
+            }
         }
-        System.out.println(dictionary.size());*/
+        System.out.println(numerPositive+" poprawnych odpowiedzi");
     }
 }
