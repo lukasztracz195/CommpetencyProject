@@ -34,12 +34,6 @@ public class User {
         this.active = false;
     }
 
-    @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("id: "+this.idUser+" email: "+this.email+" password: "+this.password+" active: "+this.active);
-        return sb.toString();
-    }
 
 
 

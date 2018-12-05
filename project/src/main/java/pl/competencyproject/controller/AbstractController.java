@@ -17,7 +17,6 @@ public abstract class AbstractController {
     private GeneralClock clock;
     protected SessionLogon sessionLogon = SessionLogon.getInstance();
     protected String email;
-    protected String password;
 
     protected void back(MainController mainController, Object toGetClass) {
         FXMLLoader loader = MainController.createLoader(MainController.Menu, toGetClass);

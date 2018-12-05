@@ -21,7 +21,10 @@ public class Main extends Application {
 
     public static void main(String[] args) throws FileNotFoundException {
         //DictionaryWords DW = new DictionaryWords();
-        //DW.createDictionary();
+        //DW.addEnglish();
+        //DW.addPolish();
+        //DW.addAll();
+        //DW.losuj();
         Mutex mutex = new Mutex();
         boolean lockFile = mutex.lockInstance("LockFile");
         if (lockFile) {
