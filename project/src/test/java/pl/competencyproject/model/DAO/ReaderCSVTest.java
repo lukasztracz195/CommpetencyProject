@@ -4,8 +4,12 @@ import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.competencyproject.model.CSV.CSVReader;
+import pl.competencyproject.model.CSV.FileOfCSV;
+import pl.competencyproject.model.CSV.LibraryCSV;
+import pl.competencyproject.model.DAO.classes.ManageDictionarySentences;
 import pl.competencyproject.model.DAO.classes.ManageDictionaryWords;
 import pl.competencyproject.model.DAO.classes.ManageLevels;
+import pl.competencyproject.model.entities.Dictionary_Sentences;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -14,6 +18,9 @@ import java.util.List;
 public class ReaderCSVTest {
 
     private CSVReader csvReader = CSVReader.getInstance();
+    private static ManageDictionaryWords MDW;
+    private FileOfCSV fileOfCSV;
+    private LibraryCSV libraryCSV;
 
     @After
     public void end() {
@@ -78,4 +85,36 @@ public class ReaderCSVTest {
         String head = csvReader.findHeadFamily(list);
         Assertions.assertEquals("employ", head);
     }
+
+    @Test
+    public void insertDictionarySentencesTest() {
+        String sentencePL="Idź za głosem serca – ale rozum zabieraj ze sobą.";
+        String sentenceENG = "Follow your heart, but take your brain with you.";
+
+        ManageLevels ML = ManageLevels.getTestInstance();
+        int idLevel = ML.existLevel("B2", "Working life");
+        if(idLevel == -1){
+            ML.addLevel("B2", "Working life");
+        }
+        try {
+             csvReader.chooseCSV("DICTIONARY_SENTENCES_INSERT");
+             csvReader.chooseLevel("B2", "Working life");
+             int result = csvReader.insertDictionarySentences(true);
+             Assertions.assertNotSame(0,result);
+             System.out.println(result);
+             ManageDictionarySentences MDS = ManageDictionarySentences.getTestInstance();
+             idLevel = ML.existLevel("B2", "Working life");
+             System.out.println(idLevel);
+             int exist = MDS.existDictionarySentences(idLevel, sentenceENG, sentencePL);
+             Assertions.assertNotSame(-1,exist);
+             System.out.println(exist);
+             } catch (FileNotFoundException e) {
+             e.printStackTrace();
+        }
+
+
+    }
+
+
+
 }

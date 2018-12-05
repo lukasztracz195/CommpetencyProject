@@ -59,7 +59,7 @@ public class ManageDictionaryWordsTest {
     @After
     public void end() {
         SessionLogon.IdLoggedUser = -1;
-    }
+    } // wylogowanie usera
 
     @Test
     public void insertDictionaryWord() {
@@ -105,5 +105,6 @@ public class ManageDictionaryWordsTest {
         int exist =  MDW.existDictionaryWordsWithoutFamilie(idML,idMWE,idMWP);
         Assertions.assertEquals(notFamily,exist);
     }
+
 
 }

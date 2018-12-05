@@ -25,7 +25,7 @@ public class LibraryCSV {
         }
     }
 
-    private void setPathApplication() {
+    public void setPathApplication() {
         StringBuilder sb = new StringBuilder();
         sb.append(System.getProperty("user.dir"));
         sb.append("\\src\\main\\resources\\" + nameFolder+"\\");
