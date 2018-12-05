@@ -13,6 +13,8 @@ public class ManageWordsENGTest {
     private static String word = "explosion";
     private static int idWE;
 
+
+
     @Before
     public void init() {
         MWE = ManageWordsENG.getTestInstance();

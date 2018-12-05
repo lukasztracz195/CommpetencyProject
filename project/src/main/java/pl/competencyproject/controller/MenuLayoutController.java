@@ -37,7 +37,7 @@ public class MenuLayoutController extends AbstractController implements Initiali
         FXMLLoader loader = MainController.createLoader(MainController.Account, this);
         Pane pane = MainController.createPane(loader);
         ProfileController controller = loader.getController();
-        controller.setEmailPassword(super.email,super.password);
+        controller.setEmailPassword(super.email);
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }
@@ -106,7 +106,6 @@ public class MenuLayoutController extends AbstractController implements Initiali
     }*/
     public void setEmailPassword(String email,String password){
         super.email=email;
-        super.password=password;
 
         String[] welcome=email.split("@");
         String s="Witaj "+welcome[0].trim();
