@@ -101,18 +101,13 @@ public class ReaderCSVTest {
              csvReader.chooseLevel("B2", "Working life");
              int result = csvReader.insertDictionarySentences(true);
              Assertions.assertNotSame(0,result);
-             System.out.println(result);
              ManageDictionarySentences MDS = ManageDictionarySentences.getTestInstance();
              idLevel = ML.existLevel("B2", "Working life");
-             System.out.println(idLevel);
              int exist = MDS.existDictionarySentences(idLevel, sentenceENG, sentencePL);
              Assertions.assertNotSame(-1,exist);
-             System.out.println(exist);
              } catch (FileNotFoundException e) {
              e.printStackTrace();
         }
-
-
     }
 
 
