@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="project:src:main:resources:hibernate.cfg.xml/Hibernate" uuid="87f3f4b1-0168-4b0b-86a2-b36428cd471e">
-      <database-info product="MySQL" version="8.0.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" family="MYSQL" exact-version="8.0.12">
+      <database-info product="MySQL" version="8.0.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="8.0.12">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -11,7 +11,7 @@
       <user-name>januszteam</user-name>
     </data-source>
     <data-source name="project:src:main:java:.pl:project_competencies:connection:hibernate.cfg.xml/Hibernate" uuid="952e55f1-2081-43a0-adfc-a3720e9cdb01">
-      <database-info product="MySQL" version="8.0.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" family="MYSQL" exact-version="8.0.12">
+      <database-info product="MySQL" version="8.0.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="8.0.12">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -20,13 +20,12 @@
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
     <data-source name="hibernate.cfg.xml/Hibernate" uuid="85fce2a1-31f6-48bd-ab58-3f701c32f8a6">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>januszteam</user-name>
     </data-source>
     <data-source name="hibernate.cfg.xml/Hibernate" uuid="f1895f45-c637-410e-bf7f-3e53ecee5b4b">
-      <database-info product="MySQL" version="8.0.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" family="MYSQL" exact-version="8.0.13">
+      <database-info product="MySQL" version="8.0.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="8.0.13">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -36,7 +35,7 @@
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
     <data-source name="hiberante_test.cfg.xml/Hibernate" uuid="fcf36184-a8fd-4333-85a9-99c9b0d9311b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="H2" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" exact-version="0.0" />
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
   </component>

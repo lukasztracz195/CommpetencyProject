@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.DAO.classes.ManageUsers;
 
 import java.net.URL;
@@ -73,7 +74,7 @@ public class ProfileController extends AbstractController implements Initializab
                 //confirmPassword.setText("");
                 ManageUsers manageUsers = ManageUsers.getInstance();
                 int id = manageUsers.existUser(super.email);
-                manageUsers.updatePasswordUser(id, profilPotwierdzHaslo.getText());
+                manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
                 //System.out.println("Haslo zostalo zmienione");
             } //confirmPassword.setText("Incorrect Confirm Password");
         } else if(!profilNowyEmail.getText().trim().isEmpty()&&!profilNoweHaslo.getText().trim().isEmpty()){

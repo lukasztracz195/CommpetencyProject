@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" version="4">
+  <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="hiberante_test.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hiberante_test.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -53,6 +69,11 @@
     <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-core:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jaxb:txw2:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:2.21" level="project" />
+    <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.7.7" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.13" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-annotations:3.5.6-Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final" level="project" />
@@ -77,7 +98,7 @@
     <orderEntry type="module-library">
       <library name="Maven: javafx-packager:javafx-packager:1.8.0_20">
         <CLASSES>
-          <root url="jar://C:/Program Files/Java/jdk1.8.0_181/lib/ant-javafx.jar!/" />
+          <root url="jar://F:/PROGRAMY/Java 8/jdk/lib/ant-javafx.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

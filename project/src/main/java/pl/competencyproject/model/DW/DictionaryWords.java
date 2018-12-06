@@ -99,11 +99,11 @@ public class DictionaryWords
     {
         addEnglish();
         addPolish();
-        /*for (Word entry : dictionary.keySet())
+        for (Word entry : dictionary.keySet())
         {
             List value = dictionary.get(entry);
             System.out.println(entry.id + " " + entry.word + "" + value + " ");
-        }*/
+        }
     }
 
     public void losuj()
