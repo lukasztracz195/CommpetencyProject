@@ -40,7 +40,6 @@ public class MenuLayoutController extends AbstractController implements Initiali
         FXMLLoader loader = MainController.createLoader(MainController.Account, this);
         Pane pane = MainController.createPane(loader);
         ProfileController controller = loader.getController();
-        //controller.setEmailPassword(super.email);
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }
@@ -58,13 +57,13 @@ public class MenuLayoutController extends AbstractController implements Initiali
 
     @FXML
     public void slownik() {
-        /*
-        FXMLLoader loader = MainController.createLoader(MainController.Menu,this);
+
+        FXMLLoader loader = MainController.createLoader(MainController.Dictionary,this);
         Pane pane = MainController.createPane(loader);
-        AddClientController controller = loader.getController();
+        DictionaryController controller = loader.getController();
         controller.setMainController(mainController);
         mainController.setScreen(pane);
-        */
+
     }
 
     @FXML

@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 
 public class ProfileController extends AbstractController implements Initializable {
 
-    //private String Email;
     @FXML
     private Label profilNazwaUzytkownika;
     @FXML
@@ -113,10 +112,4 @@ public class ProfileController extends AbstractController implements Initializab
         mainController.loadLogonScreen();
         sessionLogon.logOut();
     }
-
-    /*public void setEmailPassword(String email) {
-        profilNazwaUzytkownika.setText(email);
-
-        super.email = email;
-    }*/
 }
