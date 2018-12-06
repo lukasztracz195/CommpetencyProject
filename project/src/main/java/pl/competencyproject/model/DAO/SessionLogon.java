@@ -15,6 +15,7 @@ public class SessionLogon {
     public static GeneralClock time;
     private ManageUsers manageUsers = ManageUsers.getInstance();
     private static SessionLogon instance;
+    public static String email;
 
     private SessionLogon() {
 

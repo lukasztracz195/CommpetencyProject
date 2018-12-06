@@ -79,7 +79,7 @@
                            </font>
                         </Button>
                         <Label fx:id="profilNazwaUzytkownika" layoutX="199.0" layoutY="11.0" prefHeight="25.0" prefWidth="180.0" />
-                        <TextField fx:id="confirmCode" layoutX="69.0" layoutY="298.0" prefHeight="54.0" prefWidth="534.0" promptText="Enter your code from email:">
+                        <TextField fx:id="confirmCode" layoutX="69.0" layoutY="298.0" prefHeight="54.0" prefWidth="534.0" promptText="Enter your code from email:" visible="false">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -96,12 +96,12 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Change your Email">
+                        <Button fx:id="buttonChangeEmail" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Change your Email">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="14.0" layoutY="128.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Change your Password">
+                        <Button fx:id="buttonChangePassword" layoutX="14.0" layoutY="128.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #ff9966; -fx-background-radius: 15;" text="Change your Password">
                            <font>
                               <Font size="14.0" />
                            </font>

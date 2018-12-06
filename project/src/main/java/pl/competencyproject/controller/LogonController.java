@@ -57,11 +57,11 @@ public class LogonController extends AbstractController implements Initializable
         toggleButton.setText("<<<<");
         super.setClockDate(clockLabel, dateLabel);
 
-        super.email=emailTextField.getText();
     }
 
     private void login() {
         sessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
+        SessionLogon.email=emailTextField.getText();
         clearAllFeedbackLabels();
         if (!SessionLogon.correctPassword) {
             passwordFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
@@ -95,11 +95,10 @@ public class LogonController extends AbstractController implements Initializable
     }
 
     private void loginMenu() {
-
         FXMLLoader loader = MainController.createLoader(MainController.Menu, this);
         Pane pane = MainController.createPane(loader);
         MenuLayoutController controller = loader.getController();
-        controller.setEmailPassword(emailTextField.getText(),passwordTextField.getText());
+        //controller.setEmailPassword(emailTextField.getText(),passwordTextField.getText());
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }

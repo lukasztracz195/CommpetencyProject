@@ -28,7 +28,10 @@ public class MenuLayoutController extends AbstractController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
-        //super.setWelcome(witaj);
+
+        String[] welcome=SessionLogon.email.split("@");
+        String s="Witaj "+welcome[0].trim();
+        witaj.setText(s);
     }
 
     @FXML
@@ -37,7 +40,6 @@ public class MenuLayoutController extends AbstractController implements Initiali
         FXMLLoader loader = MainController.createLoader(MainController.Account, this);
         Pane pane = MainController.createPane(loader);
         ProfileController controller = loader.getController();
-        controller.setEmailPassword(super.email);
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }
@@ -55,13 +57,13 @@ public class MenuLayoutController extends AbstractController implements Initiali
 
     @FXML
     public void slownik() {
-        /*
-        FXMLLoader loader = MainController.createLoader(MainController.Menu,this);
+
+        FXMLLoader loader = MainController.createLoader(MainController.Dictionary,this);
         Pane pane = MainController.createPane(loader);
-        AddClientController controller = loader.getController();
+        DictionaryController controller = loader.getController();
         controller.setMainController(mainController);
         mainController.setScreen(pane);
-        */
+
     }
 
     @FXML
@@ -104,11 +106,11 @@ public class MenuLayoutController extends AbstractController implements Initiali
         super.email=email1;
         super.password=password1;
     }*/
-    public void setEmailPassword(String email,String password){
+    /*public void setEmailPassword(String email,String password){
         super.email=email;
 
         String[] welcome=email.split("@");
         String s="Witaj "+welcome[0].trim();
         witaj.setText(s);
-    }
+    }*/
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.MenuLayoutController">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.MenuLayoutController">
     <children>
         <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -39,20 +39,20 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button mnemonicParsing="false" onAction="#slownik" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #cc9933;" text="Słownik" GridPane.columnIndex="2" />
+                                <Button mnemonicParsing="false" onAction="#slownik" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #cc9933; -fx-background-radius: 15;" text="Słownik" GridPane.columnIndex="2" />
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                                     <children>
                                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #cccc33;" text="Poziom" />
                                         <ComboBox prefWidth="110.0" style="-fx-background-color: #32CD32;" />
                                     </children>
                                 </VBox>
-                                <Button mnemonicParsing="false" onAction="#nauka" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #66ff33;" text="Nauka" GridPane.rowIndex="1" />
-                                <Button mnemonicParsing="false" onAction="#test" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #ff9999;" text="Test" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <Button mnemonicParsing="false" onAction="#statystyki" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #99ccff;" text="Statystyki" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                <Button mnemonicParsing="false" onAction="#profil" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #ADEAEA;" text="Profil" />
+                                <Button mnemonicParsing="false" onAction="#test" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #ff9999; -fx-background-radius: 15;" text="Test" GridPane.rowIndex="1" />
+                                <Button mnemonicParsing="false" onAction="#statystyki" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Statystyki" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Button mnemonicParsing="false" onAction="#profil" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #ADEAEA; -fx-background-radius: 15;" text="Profil" />
                             </children>
                         </GridPane>
                         <Label alignment="CENTER" prefHeight="30.0" prefWidth="644.0" style="-fx-background-color: #99ff99; -fx-background-radius: 15;" text="Twój poziom biegłości językowej na poziomie ___ stanowi x %" GridPane.columnIndex="1" />
+                          <Button disable="true" mnemonicParsing="false" onAction="#nauka" prefHeight="72.0" prefWidth="110.0" style="-fx-background-color: #66ff33;" text="Nauka" visible="false" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
             </center>
