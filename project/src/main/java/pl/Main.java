@@ -7,9 +7,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.DAO.SessionLogon;
-import pl.competencyproject.model.DAO.classes.ManageUsers;
-import pl.competencyproject.model.DAO.classes.ManageWordsENG;
-import pl.competencyproject.model.DW.DictionaryWords;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
 
@@ -20,7 +17,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static void main(String[] args) throws FileNotFoundException {
-        //DictionaryWords DW = new DictionaryWords();
+        //Teacher DW = new Teacher();
         //DW.addEnglish();
         //DW.addPolish();
         //DW.addAll();

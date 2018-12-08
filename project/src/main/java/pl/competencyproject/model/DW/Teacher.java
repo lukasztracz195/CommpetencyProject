@@ -9,7 +9,7 @@ import pl.competencyproject.model.entities.Word_PL;
 
 import java.util.*;
 
-public class DictionaryWords
+public class Teacher
 {
     List <Integer> SortedList = new ArrayList <Integer>();
     Map<Word, List<String>> dictionary= new HashMap<Word, List<String>>();
