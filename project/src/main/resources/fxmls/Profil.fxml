@@ -37,7 +37,7 @@
                                 <Cursor fx:constant="H_RESIZE" />
                             </cursor>
                         </BorderPane>
-                        <Button disable="false" mnemonicParsing="false" onAction="#save" prefHeight="12.0" prefWidth="674.0" style="-fx-background-color: #99ff99; -fx-background-radius: 15;" text="Save Changes" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Button disable="true" mnemonicParsing="false" onAction="#save" prefHeight="12.0" prefWidth="674.0" style="-fx-background-color: #99ff99; -fx-background-radius: 15;" text="Save Changes" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="14.0" />
                      </font></Button>

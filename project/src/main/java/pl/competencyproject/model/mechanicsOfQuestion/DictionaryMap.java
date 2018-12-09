@@ -48,7 +48,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     @Override
     public Integer getSizeOfFullMap() {
-        return null;
+        return sizeOfFullMap;
     }
 
     @Override

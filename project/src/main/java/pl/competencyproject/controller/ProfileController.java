@@ -36,13 +36,12 @@ public class ProfileController extends AbstractController implements Initializab
     private Button buttonChangePassword;
     @FXML
     private Label clockLabel;
-
     @FXML
     private Label dateLabel;
 
-    private boolean showEmail;
+    private boolean showEmail = false;
 
-    private boolean showPassword;
+    private boolean showPassword = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,44 +86,40 @@ public class ProfileController extends AbstractController implements Initializab
                     ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
                     manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
                 }
-            } //confirmPassword.setText("Incorrect Confirm Password");
-        } /*else if(!profilNowyEmail.getText().trim().isEmpty()&&!profilNoweHaslo.getText().trim().isEmpty()){
-            if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())&&profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                ManageUsers manageUsers = ManageUsers.getInstance();
+            }
+            labelConfirmPassword.setText("Incorrect Confirm Password");
+        } else if (!profilNowyEmail.getText().trim().isEmpty() && !profilNoweHaslo.getText().trim().isEmpty()) {
+            if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+                ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
                 manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
                 manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
             }
-        }*/
+        }
     }
 
     @FXML
     public void changeEmail() {
         if (!showEmail) {
-            profilNowyEmail.setVisible(true);
-            labelConfirmEmail.setVisible(true);
-            profilNowyEmail2.setVisible(true);
+            if (showPassword) {
+                hideChangePassword();
+                cleanChangePassword();
+                showPassword = false;
+            }
+            showChangeEmail();
             showEmail = true;
-            cleanChangePassword();
-            profilNoweHaslo.setVisible(false);
-            labelConfirmPassword.setVisible(false);
-            profilPotwierdzHaslo.setVisible(false);
-            showPassword = false;
         }
-        //buttonChangePassword.setDisable(true);
     }
 
     @FXML
     public void changePassword() {
         if (!showPassword) {
-            profilNoweHaslo.setVisible(true);
-            labelConfirmPassword.setVisible(true);
-            profilPotwierdzHaslo.setVisible(true);
+            if (showEmail) {
+                hideChangeEmail();
+                clearChangeEmail();
+                showEmail = false;
+            }
+            showChangePassword();
             showPassword = true;
-        clearChangeEmail();
-            profilNowyEmail.setVisible(false);
-            labelConfirmEmail.setVisible(false);
-            profilNowyEmail2.setVisible(false);
-            showEmail = false;
         }
     }
 
@@ -143,4 +138,30 @@ public class ProfileController extends AbstractController implements Initializab
         profilNowyEmail.clear();
         profilNowyEmail2.clear();
     }
+
+    private void showChangePassword() {
+        profilNoweHaslo.setVisible(true);
+        labelConfirmPassword.setVisible(true);
+        profilPotwierdzHaslo.setVisible(true);
+    }
+
+    private void showChangeEmail() {
+        profilNowyEmail.setVisible(true);
+        profilNowyEmail2.setVisible(true);
+        labelConfirmEmail.setVisible(true);
+    }
+
+    private void hideChangePassword() {
+        profilNoweHaslo.setVisible(false);
+        labelConfirmPassword.setVisible(false);
+        profilPotwierdzHaslo.setVisible(false);
+    }
+
+    private void hideChangeEmail() {
+        profilNowyEmail.setVisible(false);
+        profilNowyEmail2.setVisible(false);
+        labelConfirmEmail.setVisible(false);
+    }
+
+
 }
