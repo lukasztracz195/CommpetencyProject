@@ -9,18 +9,15 @@
         <property name="hibernate.connection.url">jdbc:h2:mem:testcompproject</property>
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
-        <property name="hibernate.connection.username">sa</property>
-        <property name="hibernate.connection.password"></property>
-        <property name="hibernate.default_schema">PUBLIC</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
 
         <!-- List of XML mapping files -->
         <mapping class="pl.competencyproject.model.entities.User"/>
         <mapping class="pl.competencyproject.model.entities.Stat"/>
-        <mapping class="pl.competencyproject.model.entities.Dictionary_Sentences"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Sentence"/>
         <mapping class="pl.competencyproject.model.entities.Level"/>
-        <mapping class="pl.competencyproject.model.entities.Dictionary_Words"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Word"/>
         <mapping class="pl.competencyproject.model.entities.Family"/>
         <mapping class="pl.competencyproject.model.entities.Word_ENG"/>
         <mapping class="pl.competencyproject.model.entities.Word_PL"/>

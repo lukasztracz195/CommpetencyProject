@@ -1,6 +1,6 @@
 package pl.competencyproject.model.DAO.interfaces;
 
-import pl.competencyproject.model.entities.Dictionary_Sentences;
+import pl.competencyproject.model.entities.Dictionary_Sentence;
 
 public interface ManagingDictionarySentences {
 
@@ -8,6 +8,6 @@ public interface ManagingDictionarySentences {
 
     public Integer existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL);
 
-    public Dictionary_Sentences getDictionary_Sentences(int idDictionary);
+    public Dictionary_Sentence getDictionary_Sentences(int idDictionary);
 
 }

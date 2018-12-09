@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.DAO.classes.*;
-import pl.competencyproject.model.entities.Dictionary_Words;
+import pl.competencyproject.model.entities.Dictionary_Word;
 
 import java.util.List;
 
@@ -80,7 +80,7 @@ public class ManageDictionaryWordsTest {
             added++;
             idMDW = MDW.insertDictionaryWords(idML, idMF, idMWE, idMWP);
         }
-        List<Dictionary_Words> list = MDW.getDictionaryByLevel(idML);
+        List<Dictionary_Word> list = MDW.getDictionaryByLevel(idML);
         int size = list.size();
         Assertions.assertEquals(added,size);
 
@@ -93,7 +93,7 @@ public class ManageDictionaryWordsTest {
             added++;
             idMDW = MDW.insertDictionaryWords(idML, idMF, idMWE, idMWP);
         }
-        List<Dictionary_Words> list = MDW.getDictionaryByFamilie(idMF);
+        List<Dictionary_Word> list = MDW.getDictionaryByFamilie(idMF);
         System.out.println(list);
         int size = list.size();
         Assertions.assertEquals(added,size);

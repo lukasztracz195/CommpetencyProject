@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Dictionary_Words {
+public class Dictionary_Word {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Dictionary_Words {
     private Integer idWordPL;
 
 
-    public Dictionary_Words(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
+    public Dictionary_Word(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
         this.idLevel = idLevel;
         this.idFamily = idFamily;
         this.idWordENG = idWordENG;

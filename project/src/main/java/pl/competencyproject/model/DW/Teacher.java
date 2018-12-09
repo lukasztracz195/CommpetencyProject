@@ -1,9 +1,9 @@
 package pl.competencyproject.model.DW;
-
+/*
 import pl.competencyproject.model.DAO.classes.ManageDictionaryWords;
 import pl.competencyproject.model.DAO.classes.ManageWordsENG;
 import pl.competencyproject.model.DAO.classes.ManageWordsPL;
-import pl.competencyproject.model.entities.Dictionary_Words;
+import pl.competencyproject.model.entities.Dictionary_Word;
 import pl.competencyproject.model.entities.Word_ENG;
 import pl.competencyproject.model.entities.Word_PL;
 
@@ -21,8 +21,8 @@ public class Teacher
         Word_ENG word_ENG;
         Word_ENG word_ENG_pom;
         Word_PL word_PL;
-        Dictionary_Words obiekt_ENG;
-        Dictionary_Words obiekt_ENG_pom;
+        Dictionary_Word obiekt_ENG;
+        Dictionary_Word obiekt_ENG_pom;
         ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
         ManageWordsENG MWE = ManageWordsENG.getInstance();
         ManageWordsPL MWP = ManageWordsPL.getInstance();
@@ -33,7 +33,7 @@ public class Teacher
             Word [] slowo = new Word[lista.size()];
             for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
             List <String> translations = new ArrayList<String>();
-            obiekt_ENG= (Dictionary_Words) lista.get(i);
+            obiekt_ENG= (Dictionary_Word) lista.get(i);
             word_ENG= MWE.getWordENG(obiekt_ENG.getIdWordENG());
             if(words.contains(word_ENG.getWordENG())==false)
             {
@@ -43,7 +43,7 @@ public class Teacher
                 SortedList.add(dictionary.size());
                 for (int j = 0; j < lista.size(); j++)
                 {
-                    obiekt_ENG_pom = (Dictionary_Words) lista.get(j);
+                    obiekt_ENG_pom = (Dictionary_Word) lista.get(j);
                     word_ENG_pom = MWE.getWordENG(obiekt_ENG_pom.getIdWordENG());
                     if (word_ENG.getIdWordENG() == word_ENG_pom.getIdWordENG()) {
                         word_PL = MWP.getWordPL(obiekt_ENG_pom.getIdWordPL());
@@ -61,8 +61,8 @@ public class Teacher
         Word_ENG word_ENG;
         Word_PL word_PL;
         Word_PL word_PL_pom;
-        Dictionary_Words obiekt_PL;
-        Dictionary_Words obiekt_PL_pom;
+        Dictionary_Word obiekt_PL;
+        Dictionary_Word obiekt_PL_pom;
         ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
         ManageWordsENG MWE = ManageWordsENG.getInstance();
         ManageWordsPL MWP = ManageWordsPL.getInstance();
@@ -73,7 +73,7 @@ public class Teacher
             Word [] slowo = new Word[lista.size()];
             for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
             List <String> translations = new ArrayList<String>();
-            obiekt_PL= (Dictionary_Words) lista.get(i);
+            obiekt_PL= (Dictionary_Word) lista.get(i);
             word_PL= MWP.getWordPL(obiekt_PL.getIdWordPL());
             if(words.contains(word_PL.getWordPL())==false)
             {
@@ -83,7 +83,7 @@ public class Teacher
                 SortedList.add(dictionary.size());
                 for (int j = 0; j < lista.size(); j++)
                 {
-                    obiekt_PL_pom = (Dictionary_Words) lista.get(j);
+                    obiekt_PL_pom = (Dictionary_Word) lista.get(j);
                     word_PL_pom = MWP.getWordPL(obiekt_PL_pom.getIdWordPL());
                     if (word_PL.getIdWordPL() == word_PL_pom.getIdWordPL()) {
                         word_ENG = MWE.getWordENG(obiekt_PL_pom.getIdWordENG());
@@ -137,3 +137,4 @@ public class Teacher
         System.out.println(numerPositive+" poprawnych odpowiedzi");
     }
 }
+*/

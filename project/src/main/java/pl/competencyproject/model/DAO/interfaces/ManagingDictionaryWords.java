@@ -1,8 +1,9 @@
 package pl.competencyproject.model.DAO.interfaces;
 
-import pl.competencyproject.model.entities.Dictionary_Words;
+import pl.competencyproject.model.entities.Dictionary_Word;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ManagingDictionaryWords {
 
@@ -12,9 +13,9 @@ public interface ManagingDictionaryWords {
 
     //public Integer insertDictionaryWordswithoutLevel(Integer idFamily, Integer idWordENG, Integer idWordPL);
 
-    public List<Dictionary_Words> getDictionaryByLevel(Integer idLevel);
+    public List<Dictionary_Word> getDictionaryByLevel(Integer idLevel);
 
-    public List<Dictionary_Words> getDictionaryByFamilie(Integer idFamily);
+    public List<Dictionary_Word> getDictionaryByFamilie(Integer idFamily);
 
     public Integer existDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL);
 

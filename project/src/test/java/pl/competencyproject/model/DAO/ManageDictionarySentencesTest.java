@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.DAO.classes.ManageDictionarySentences;
 import pl.competencyproject.model.DAO.classes.ManageLevels;
-import pl.competencyproject.model.entities.Dictionary_Sentences;
+import pl.competencyproject.model.entities.Dictionary_Sentence;
 
 public class ManageDictionarySentencesTest {
     private ManageDictionarySentences MDS;
@@ -37,7 +37,7 @@ public class ManageDictionarySentencesTest {
         int exist = MDS.existDictionarySentences(idLevel, sentenceENG, sentencePL);
         Assertions.assertEquals(exist, idDictionary);
 
-        Dictionary_Sentences dicSen = MDS.getDictionary_Sentences(exist);
+        Dictionary_Sentence dicSen = MDS.getDictionary_Sentences(exist);
         Assertions.assertNotNull(dicSen);
         Assertions.assertEquals("I am a human", dicSen.getSentencesENG());
         Assertions.assertEquals("Jestem czlowiekiem", dicSen.getSentencesPL());

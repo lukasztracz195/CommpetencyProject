@@ -39,5 +39,4 @@ public interface ITeacher {
 
 
 */
-Collections
 }

@@ -7,7 +7,6 @@ import pl.competencyproject.model.CSV.CSVReader;
 import pl.competencyproject.model.CSV.FileOfCSV;
 import pl.competencyproject.model.CSV.LibraryCSV;
 import pl.competencyproject.model.DAO.classes.*;
-import pl.competencyproject.model.entities.Dictionary_Sentences;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

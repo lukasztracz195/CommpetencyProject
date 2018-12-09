@@ -13,9 +13,9 @@
         <!-- List of XML mapping files -->
         <mapping class="pl.competencyproject.model.entities.User"/>
         <mapping class="pl.competencyproject.model.entities.Stat"/>
-        <mapping class="pl.competencyproject.model.entities.Dictionary_Sentences"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Sentence"/>
         <mapping class="pl.competencyproject.model.entities.Level"/>
-        <mapping class="pl.competencyproject.model.entities.Dictionary_Words"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Word"/>
         <mapping class="pl.competencyproject.model.entities.Family"/>
         <mapping class="pl.competencyproject.model.entities.Word_ENG"/>
         <mapping class="pl.competencyproject.model.entities.Word_PL"/>

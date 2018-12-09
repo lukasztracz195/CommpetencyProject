@@ -5,9 +5,12 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.DAO.SessionLogon;
 import pl.competencyproject.model.DAO.interfaces.ManagingDictionaryWords;
-import pl.competencyproject.model.entities.Dictionary_Words;
+import pl.competencyproject.model.entities.Dictionary_Word;
+import pl.competencyproject.model.entities.Family;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ManageDictionaryWords extends GeneralManager implements ManagingDictionaryWords {
 
@@ -49,7 +52,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel, idFamily, idWordENG, idWordPL);
+                Dictionary_Word dictionary = new Dictionary_Word(idLevel, idFamily, idWordENG, idWordPL);
                 System.out.println(dictionary.toString());
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
@@ -73,7 +76,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(idLevel, null, idWordENG, idWordPL);
+                Dictionary_Word dictionary = new Dictionary_Word(idLevel, null, idWordENG, idWordPL);
                 System.out.println(dictionary.toString());
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
@@ -98,7 +101,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             }
             try {
                 tx = session.beginTransaction();
-                Dictionary_Words dictionary = new Dictionary_Words(null, idFamily, idWordENG, idWordPL);
+                Dictionary_Word dictionary = new Dictionary_Word(null, idFamily, idWordENG, idWordPL);
                 idDictionary = (Integer) session.save(dictionary);
                 tx.commit();
             } catch (HibernateException e) {
@@ -111,27 +114,34 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 */
-    public List<Dictionary_Words> getDictionaryByLevel(Integer idLevel) {
+    public List<Dictionary_Word> getDictionaryByLevel(Integer idLevel) {
 
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel");
-        query.addEntity(Dictionary_Words.class);
+        query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         List result = query.list();
         return result;
     }
 
-    public List<Dictionary_Words> getDictionaryByFamilie(Integer idFamily) {
+    public List<Dictionary_Word> getDictionaryByFamilie(Integer idFamily) {
 
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily =  :idFamily");
-        query.addEntity(Dictionary_Words.class);
+        query.addEntity(Dictionary_Word.class);
         query.setParameter("idFamily", idFamily);
         List result = query.list();
+        /*
+        Map<Integer, Dictionary_Word> resultMap = new HashMap<>();
+        for(int i=0;i<result.size();i++){
+            Dictionary_Word value = result.get(i);
+            resultMap.put(i,value);
+        }
+        */
         return result;
     }
 
@@ -141,7 +151,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         }
         NativeQuery query = session.createSQLQuery(
                 "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
-        query.addEntity(Dictionary_Words.class);
+        query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idFamily", idFamily);
         query.setParameter("idWordENG", idWordENG);
@@ -149,7 +159,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         List result = query.list();
         if (!result.isEmpty()) {
             System.out.println("Nie pusta");
-            Dictionary_Words dic = (Dictionary_Words) result.get(0);
+            Dictionary_Word dic = (Dictionary_Word) result.get(0);
             return dic.getIdDictionaryWords();
         }
         return -1;
@@ -161,13 +171,13 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         }
         NativeQuery query = session.createSQLQuery(
                 "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily IS NULL AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
-        query.addEntity(Dictionary_Words.class);
+        query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idWordENG", idWordENG);
         query.setParameter("idWordPL", idWordPL);
         List result = query.list();
         if (!result.isEmpty()) {
-            Dictionary_Words dic = (Dictionary_Words) result.get(0);
+            Dictionary_Word dic = (Dictionary_Word) result.get(0);
             return dic.getIdDictionaryWords();
         }
         return -1;
