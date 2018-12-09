@@ -7,6 +7,7 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingStats;
 import pl.competencyproject.model.entities.Stat;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.Date;
 import java.util.List;
@@ -16,28 +17,17 @@ public class ManageStats extends GeneralManager implements ManagingStats {
 
     private static ManageStats instance;
 
-    private ManageStats(boolean test) {
-        super(test);
+    private ManageStats(TypeOfUsedDatabase type) {
+        super(type);
     }
 
     public static final String TABLE = "STATS";
 
-    public static ManageStats getInstance() {
+    public static ManageStats getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageStats.class) {
                 if (instance == null) {
-                    instance = new ManageStats(false);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static ManageStats getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageStats.class) {
-                if (instance == null) {
-                    instance = new ManageStats(true);
+                    instance = new ManageStats(type);
                 }
             }
         }
@@ -93,10 +83,10 @@ public class ManageStats extends GeneralManager implements ManagingStats {
             Date now = new Date();
             long beetwenDays = beetwenDays(stat.getDateInput(), now);
             double newValueProgres;
-            if(beetwenDays != 0) {
-                 newValueProgres = (stat.getValueProgress() / beetwenDays) + valueProgress/2;
-            }else {
-                 newValueProgres = (stat.getValueProgress() / valueProgress) + (valueProgress*2);
+            if (beetwenDays != 0) {
+                newValueProgres = (stat.getValueProgress() / beetwenDays) + valueProgress / 2;
+            } else {
+                newValueProgres = (stat.getValueProgress() / valueProgress) + (valueProgress * 2);
             }
             stat.setDateInput(now);
             stat.setValueProgress(newValueProgres);
@@ -108,8 +98,6 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         }
 
     }
-
-
 
 
     /*  DELETE STAT */

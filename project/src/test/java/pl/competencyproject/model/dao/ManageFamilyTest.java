@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.entities.Family;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 public class ManageFamilyTest {
 
@@ -21,8 +22,8 @@ public class ManageFamilyTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MF = ManageFamily.getTestInstance();
-        ML = ManageLevels.getTestInstance();
+        MF = ManageFamily.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         idLevel = ML.existLevel(nameLEvel, category);
         if (idLevel <= 0) {
             idLevel = ML.addLevel(nameLEvel, category);

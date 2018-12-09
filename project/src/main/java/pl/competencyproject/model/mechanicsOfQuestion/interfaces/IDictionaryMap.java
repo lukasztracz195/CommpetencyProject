@@ -1,5 +1,6 @@
 package pl.competencyproject.model.mechanicsOfQuestion.interfaces;
 
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 import pl.competencyproject.model.mechanicsOfQuestion.Word;
 import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
@@ -14,7 +15,7 @@ public interface IDictionaryMap {
 
     public Integer getSizeOfFullMap();
 
-    public void loadDictionary(Integer IdDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, boolean test);
+    public void loadDictionary(Integer IdDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB);
 
     public SortedMap<Word, List<String>> getRandTenMap();
 

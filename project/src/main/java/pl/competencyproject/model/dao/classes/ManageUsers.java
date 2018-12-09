@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.interfaces.ManagingUsers;
 import pl.competencyproject.model.entities.User;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,34 +15,22 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
 
     private static ManageUsers instance;
 
-    public ManageUsers(boolean test) {
-        super(test);
+    public ManageUsers(TypeOfUsedDatabase type) {
+        super(type);
     }
 
     public static final String TABLE = "USERS";
-    public static ManageUsers getInstance() {
+
+    public static ManageUsers getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageUsers.class) {
                 if (instance == null) {
-                    instance = new ManageUsers(false);
+                    instance = new ManageUsers(type);
                 }
             }
         }
         return instance;
     }
-
-    public static ManageUsers getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageUsers.class) {
-                if (instance == null) {
-                    instance = new ManageUsers(true);
-                }
-            }
-        }
-        return instance;
-    }
-
-
 
     /* Method to CREATE an user in the database */
     public Integer addUser(String email, String password) {
@@ -99,7 +88,8 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
-            User user = (User) session.get(User.class, UserID);user.setActive(active);
+            User user = (User) session.get(User.class, UserID);
+            user.setActive(active);
             session.update(user);
             tx.commit();
         } catch (HibernateException e) {

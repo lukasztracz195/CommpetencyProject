@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.interfaces.ManagingWordsENG;
 import pl.competencyproject.model.entities.Word_ENG;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -12,25 +13,16 @@ public class ManageWordsENG extends GeneralManager implements ManagingWordsENG {
 
     private static ManageWordsENG instance;
     public static final String TABLE = "WORDS_ENG";
-    private ManageWordsENG(boolean test) { super(test);
+
+    private ManageWordsENG(TypeOfUsedDatabase type) {
+        super(type);
     }
 
-    public static ManageWordsENG getInstance() {
+    public static ManageWordsENG getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {
                 if (instance == null) {
-                    instance = new ManageWordsENG(false);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static ManageWordsENG getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageWordsENG.class) {
-                if (instance == null) {
-                    instance = new ManageWordsENG(true);
+                    instance = new ManageWordsENG(type);
                 }
             }
         }

@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.interfaces.ManagingLevels;
 import pl.competencyproject.model.entities.Level;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,26 +14,16 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
 
     private static ManageLevels instance;
     public static final String TABLE = "LEVELS";
-    private ManageLevels(boolean test) {
-        super(test);
+
+    private ManageLevels(TypeOfUsedDatabase type) {
+        super(type);
     }
 
-    public static ManageLevels getInstance() {
+    public static ManageLevels getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageLevels.class) {
                 if (instance == null) {
-                    instance = new ManageLevels(false);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static ManageLevels getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageLevels.class) {
-                if (instance == null) {
-                    instance = new ManageLevels(true);
+                    instance = new ManageLevels(type);
                 }
             }
         }
@@ -124,7 +115,9 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS");
         query.addEntity(Level.class);
         List list = query.list();
-        if(list == null){ list = new LinkedList(); }
+        if (list == null) {
+            list = new LinkedList();
+        }
         return list;
     }
 

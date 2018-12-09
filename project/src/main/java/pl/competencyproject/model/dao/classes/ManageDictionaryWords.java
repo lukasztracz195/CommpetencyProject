@@ -6,6 +6,7 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords;
 import pl.competencyproject.model.entities.Dictionary_Word;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -14,31 +15,21 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
     private static ManageDictionaryWords instance;
     public static final String TABLE = "DICTIONARY_WORDS";
 
-    private ManageDictionaryWords(boolean test) {
-        super(test);
+    private ManageDictionaryWords(TypeOfUsedDatabase type) {
+        super(type);
     }
 
-    public static ManageDictionaryWords getInstance() {
+    public static ManageDictionaryWords getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageDictionaryWords.class) {
                 if (instance == null) {
-                    instance = new ManageDictionaryWords(false);
+                    instance = new ManageDictionaryWords(type);
                 }
             }
         }
         return instance;
     }
 
-    public static ManageDictionaryWords getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageDictionaryWords.class) {
-                if (instance == null) {
-                    instance = new ManageDictionaryWords(true);
-                }
-            }
-        }
-        return instance;
-    }
     public Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
@@ -87,30 +78,30 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-/*
-    public Integer insertDictionaryWordswithoutLevel(Integer idFamily, Integer idWordENG, Integer idWordPL) {
+    /*
+        public Integer insertDictionaryWordswithoutLevel(Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
-        Transaction tx = null;
-        int idDictionary = -1;
-        if (SessionLogon.IdLoggedUser > 0) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
+            Transaction tx = null;
+            int idDictionary = -1;
+            if (SessionLogon.IdLoggedUser > 0) {
+                if (!session.isOpen()) {
+                    session = sessionFactory.openSession();
+                }
+                try {
+                    tx = session.beginTransaction();
+                    Dictionary_Word dictionary = new Dictionary_Word(null, idFamily, idWordENG, idWordPL);
+                    idDictionary = (Integer) session.save(dictionary);
+                    tx.commit();
+                } catch (HibernateException e) {
+                    if (tx != null) tx.rollback();
+                    e.printStackTrace();
+                } finally {
+                    session.close();
+                }
             }
-            try {
-                tx = session.beginTransaction();
-                Dictionary_Word dictionary = new Dictionary_Word(null, idFamily, idWordENG, idWordPL);
-                idDictionary = (Integer) session.save(dictionary);
-                tx.commit();
-            } catch (HibernateException e) {
-                if (tx != null) tx.rollback();
-                e.printStackTrace();
-            } finally {
-                session.close();
-            }
+            return idDictionary;
         }
-        return idDictionary;
-    }
-*/
+    */
     public List<Dictionary_Word> getDictionaryByLevel(Integer idLevel) {
 
         if (!session.isOpen()) {

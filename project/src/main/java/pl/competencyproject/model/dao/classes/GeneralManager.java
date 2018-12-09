@@ -3,43 +3,22 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.competencyproject.model.connection.SessionFactoryConfig;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 public abstract class GeneralManager {
 
-    private  static GeneralManager instance;
-    protected  static SessionFactory sessionFactory;
+    private static GeneralManager instance;
+    protected static SessionFactory sessionFactory;
     protected static Session session;
 
-    protected GeneralManager(boolean test ){
-        if(!test){
-        sessionFactory = SessionFactoryConfig.getSessionFactory();}
-        else{ sessionFactory = SessionFactoryConfig.getTestSessionFactory(); }
+    protected GeneralManager(TypeOfUsedDatabase type) {
+        sessionFactory = SessionFactoryConfig.getSessionFactory(type);
         session = sessionFactory.openSession();
     }
-/*
-    public void  trancateTable(String table){
-        Transaction tx = null;
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
-        try {
-            tx = session.beginTransaction();
-            StringBuilder sb = new StringBuilder();
-            sb.append("TRUNCATE TABLE "+table+";");
-            System.out.println("USUWAM");
-            NativeQuery query = session.createSQLQuery(sb.toString());
-            query.executeUpdate();
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-*/
-    public void closeSession(){
-        if(session.isOpen()) session.close();
+
+    public void closeSession() {
+        if (session.isOpen()) session.close();
+
     }
 
 }

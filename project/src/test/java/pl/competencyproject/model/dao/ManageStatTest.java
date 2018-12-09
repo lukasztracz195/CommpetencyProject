@@ -8,6 +8,7 @@ import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.dao.classes.ManageStats;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.entities.Stat;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.Date;
 
@@ -28,9 +29,9 @@ public class ManageStatTest {
 
     @Before
     public void init() {
-        MS = ManageStats.getTestInstance();
-        MU = ManageUsers.getTestInstance();
-        ML = ManageLevels.getTestInstance();
+        MS = ManageStats.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MU = ManageUsers.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         if (MU.existUser(email) == -1 || idUser == -1) {
             idUser = MU.addUser(email, password);
             SessionLogon.IdLoggedUser = idUser;

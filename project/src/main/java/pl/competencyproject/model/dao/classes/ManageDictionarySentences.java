@@ -6,6 +6,7 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -14,33 +15,21 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
     private static ManageDictionarySentences instance;
     public static final String TABLE = "DICTIONARY_SENTENCES";
 
-    private ManageDictionarySentences(boolean test) {
-        super(test);
+    private ManageDictionarySentences(TypeOfUsedDatabase type) {
+        super(type);
     }
 
 
-    public static ManageDictionarySentences getInstance() {
+    public static ManageDictionarySentences getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageDictionarySentences.class) {
                 if (instance == null) {
-                    instance = new ManageDictionarySentences(false);
+                    instance = new ManageDictionarySentences(type);
                 }
             }
         }
         return instance;
     }
-
-    public static ManageDictionarySentences getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageDictionarySentences.class) {
-                if (instance == null) {
-                    instance = new ManageDictionarySentences(true);
-                }
-            }
-        }
-        return instance;
-    }
-
 
     public Integer insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
         Transaction tx = null;
@@ -101,7 +90,7 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return dicSentency;
     }
 
-    public List<Dictionary_Sentence> getListbyLevel(Integer idLevel){
+    public List<Dictionary_Sentence> getListbyLevel(Integer idLevel) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }

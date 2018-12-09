@@ -2,6 +2,7 @@ package pl.competencyproject.model.mechanicsOfQuestion;
 
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.entities.Level;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,9 +15,9 @@ public class LibraryLevels {
 
     private LibraryLevels(boolean test) {
         if (!test) {
-            ML = ManageLevels.getInstance();
+            ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         } else {
-            ML = ManageLevels.getTestInstance();
+            ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         }
         List<Level> listEntitlesLevels = ML.getAllLevels();
         mapLevels = new HashMap<>();

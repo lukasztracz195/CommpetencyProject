@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.dao.SessionLogon;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.messages.Email;
 
 import java.net.URL;
@@ -154,7 +155,7 @@ public class LogonController extends AbstractController implements Initializable
 
     private boolean checkEmail(String email) {
         clearAllFeedbackLabels();
-        if (ManageUsers.getInstance().existUser(email) == -1) {
+        if (ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase).existUser(email) == -1) {
             if (email.contains("@")) {
                 String afterMonkey = email.substring(email.indexOf("@"));
                 if (afterMonkey.contains(".")) {

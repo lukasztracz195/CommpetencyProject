@@ -4,12 +4,13 @@ package pl.competencyproject.model.dao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.competencyproject.model.dao.classes.ManageUsers;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 class ManageUsersTest {
 
     private String email = "testUser1@gmail.com";
     private String emailChange = "testUser2@gmail.com";
-    private ManageUsers manageUsers = ManageUsers.getTestInstance();
+    private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
 
     int id = -1;
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.*;
 import pl.competencyproject.model.entities.Dictionary_Word;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -30,11 +31,11 @@ public class ManageDictionaryWordsTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MDW = ManageDictionaryWords.getTestInstance();
-        ML = ManageLevels.getTestInstance();
-        MF = ManageFamily.getTestInstance();
-        MWP = ManageWordsPL.getTestInstance();
-        MWE = ManageWordsENG.getTestInstance();
+        MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MF = ManageFamily.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         idML = ML.existLevel(nameLevel, nameCategory);
         if (idML == -1) {
             idML = ML.addLevel(nameLevel, nameCategory);

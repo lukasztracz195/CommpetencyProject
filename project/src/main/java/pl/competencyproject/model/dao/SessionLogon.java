@@ -3,6 +3,7 @@ package pl.competencyproject.model.dao;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public class SessionLogon {
     public static boolean logged = false;
     public static Integer genereatedCode;
     public static GeneralClock time;
-    private ManageUsers manageUsers = ManageUsers.getInstance();
+    private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
     private static SessionLogon instance;
     public static String email;
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageWordsPL;
 import pl.competencyproject.model.entities.Word_PL;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 public class ManageWordsPLTest {
 
@@ -15,7 +16,7 @@ public class ManageWordsPLTest {
 
     @Before
     public void init() {
-        MWP = ManageWordsPL.getTestInstance();
+        MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         SessionLogon.IdLoggedUser = 1;
     }
 

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageDictionarySentences;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 public class ManageDictionarySentencesTest {
     private ManageDictionarySentences MDS;
@@ -19,8 +20,8 @@ public class ManageDictionarySentencesTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MDS = ManageDictionarySentences.getTestInstance();
-        ML = ManageLevels.getTestInstance();
+        MDS = ManageDictionarySentences.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         if (ML.existLevel("B2", "TestLevel") == -1) {
             idLevel = ML.addLevel("B2", "TestLevel");
         }

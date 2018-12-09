@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.entities.Level;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ManageLevelsTest {
 
     @Before
     public void init() {
-        manageLevels = ManageLevels.getTestInstance();
+        manageLevels = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         SessionLogon.IdLoggedUser = 1;
     }
 

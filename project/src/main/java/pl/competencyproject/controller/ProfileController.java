@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.classes.ManageUsers;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.messages.Email;
 
 import java.net.URL;
@@ -64,7 +65,7 @@ public class ProfileController extends AbstractController implements Initializab
         confirmation.setHeaderText("Potwierdzenie");
         Optional<ButtonType> action = confirmation.showAndWait();
         if (action.get() == ButtonType.OK) {
-            ManageUsers manageUsers = ManageUsers.getInstance();
+            ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
             manageUsers.deleteUser(SessionLogon.IdLoggedUser);
         }
     }
@@ -73,7 +74,7 @@ public class ProfileController extends AbstractController implements Initializab
     public void save() {
         if (!profilNowyEmail.getText().trim().isEmpty()) {
             if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                ManageUsers manageUsers = ManageUsers.getInstance();
+                ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
                 manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
             }
         } else if (!profilNoweHaslo.getText().trim().isEmpty()) {
@@ -83,7 +84,7 @@ public class ProfileController extends AbstractController implements Initializab
                 confirmCode.setVisible(true);
                 SessionLogon sessionLogon = SessionLogon.getInstance();
                 if (sessionLogon.checkCode(confirmCode.getText())) {
-                    ManageUsers manageUsers = ManageUsers.getInstance();
+                    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
                     manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
                 }
             } //confirmPassword.setText("Incorrect Confirm Password");

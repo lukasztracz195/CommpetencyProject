@@ -2,6 +2,7 @@ package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.Getter;
 import pl.competencyproject.model.dao.classes.*;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
 import pl.competencyproject.model.entities.Dictionary_Word;
@@ -51,11 +52,11 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     @Override
-    public void loadDictionary(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, boolean test) {
+    public void loadDictionary(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         if (type == TypeDictionaryDownloaded.DictionaryOfWords) {
-            initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, test);
+            initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, typeDB);
         } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
-            initDictionaryOfSentencys(idDictionary, typeLanguage, test);
+            initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
         }
             numberMaxOfSessions = calculateTheNumberOfCombinations();
 
@@ -107,20 +108,15 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
 
-    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, boolean test) {
+    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionaryWords MDW;
         ManageWordsENG MWE;
         ManageWordsPL MWP;
-        if (!test) {
-            MDW = ManageDictionaryWords.getInstance();
-            MWE = ManageWordsENG.getInstance();
-            MWP = ManageWordsPL.getInstance();
-        } else {
 
-            MDW = ManageDictionaryWords.getTestInstance();
-            MWE = ManageWordsENG.getTestInstance();
-            MWP = ManageWordsPL.getTestInstance();
-        }
+            MDW = ManageDictionaryWords.getInstance(typeDB);
+            MWE = ManageWordsENG.getInstance(typeDB);
+            MWP = ManageWordsPL.getInstance(typeDB);
+
         lightReset();
         if (type == TypeDictionaryDownloaded.DictionaryOfWords) {
             dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
@@ -158,13 +154,10 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
 
-    private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, boolean test) {
+    private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
-        if (!test) {
-            MDS = ManageDictionarySentences.getInstance();
-        } else {
-            MDS = ManageDictionarySentences.getTestInstance();
-        }
+            MDS = ManageDictionarySentences.getInstance(typeDB);
+
 
         lightReset();
         dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);

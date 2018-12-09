@@ -1,6 +1,7 @@
 package pl.competencyproject.model.csv;
 
 import lombok.Getter;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,8 +21,8 @@ public class FileOfCSV {
             read = new Scanner(file,"UTF-8");
     }
 
-    public FileOfCSV(String nameFile, boolean test) throws FileNotFoundException {
-        LibraryCSV library = new LibraryCSV(test);
+    public FileOfCSV(String nameFile, TypeOfUsedDatabase type) throws FileNotFoundException {
+        LibraryCSV library = new LibraryCSV(type);
         if(library.existFileCSVinFolder(nameFile)){
             createNameFile(nameFile);
             createFullPathFile(library,nameFile);

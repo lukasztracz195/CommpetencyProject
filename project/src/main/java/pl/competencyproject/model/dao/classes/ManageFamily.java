@@ -6,6 +6,7 @@ import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingFamily;
 import pl.competencyproject.model.entities.Family;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.List;
 
@@ -15,26 +16,15 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     private static ManageFamily instance;
     public static final String TABLE = "FAMILIES";
 
-    private ManageFamily(boolean test) {
-        super(test);
+    private ManageFamily(TypeOfUsedDatabase type) {
+        super(type);
     }
 
-    public static ManageFamily getInstance() {
+    public static ManageFamily getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageFamily.class) {
                 if (instance == null) {
-                    instance = new ManageFamily(false);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static ManageFamily getTestInstance() {
-        if (instance == null) {
-            synchronized (ManageFamily.class) {
-                if (instance == null) {
-                    instance = new ManageFamily(true);
+                    instance = new ManageFamily(type);
                 }
             }
         }

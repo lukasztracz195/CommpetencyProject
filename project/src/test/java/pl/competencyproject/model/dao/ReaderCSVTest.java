@@ -7,6 +7,7 @@ import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.csv.FileOfCSV;
 import pl.competencyproject.model.csv.LibraryCSV;
 import pl.competencyproject.model.dao.classes.*;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ import java.util.List;
 
 public class ReaderCSVTest {
 
-    private CSVReader csvReader = CSVReader.getInstance();
+    private TypeOfUsedDatabase typeDB = TypeOfUsedDatabase.OfflineTestDataBase;
+    private CSVReader csvReader = CSVReader.getInstance(typeDB);
     private static ManageDictionaryWords MDW;
     private FileOfCSV fileOfCSV;
     private LibraryCSV libraryCSV;
@@ -27,14 +29,14 @@ public class ReaderCSVTest {
     @Test
     public void addFamily() throws FileNotFoundException {
         SessionLogon.IdLoggedUser = 1;
-        ManageLevels ML = ManageLevels.getTestInstance();
-        ManageDictionaryWords MDW = ManageDictionaryWords.getTestInstance();
+        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         ML.addLevel("B2", "Working life");
         int id = ML.existLevel("B2", "Working life");
         Assertions.assertEquals(1, id);
-        csvReader.chooseCSV("FAMILY",true);
+        csvReader.chooseCSV("FAMILY",typeDB);
         csvReader.chooseLevel("B2", "Working life");
-        int insertet = csvReader.insertFamily(true);
+        int insertet = csvReader.insertFamily();
         int insertet2 = MDW.getDictionaryByFamilie(1).size();
         Assertions.assertEquals(6, insertet2);
     }
@@ -88,17 +90,17 @@ public class ReaderCSVTest {
         String sentencePL="Idź za głosem serca – ale rozum zabieraj ze sobą.";
         String sentenceENG = "Follow your heart, but take your brain with you.";
 
-        ManageLevels ML = ManageLevels.getTestInstance();
+        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         int idLevel = ML.existLevel("B2", "Working life");
         if(idLevel == -1){
             ML.addLevel("B2", "Working life");
         }
         try {
-             csvReader.chooseCSV("DICTIONARY_SENTENCES_INSERT",true);
+             csvReader.chooseCSV("DICTIONARY_SENTENCES_INSERT",typeDB);
              csvReader.chooseLevel("B2", "Working life");
-             int result = csvReader.insertDictionarySentences(true);
+             int result = csvReader.insertDictionarySentences();
              Assertions.assertNotSame(0,result);
-             ManageDictionarySentences MDS = ManageDictionarySentences.getTestInstance();
+             ManageDictionarySentences MDS = ManageDictionarySentences.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
              idLevel = ML.existLevel("B2", "Working life");
              int exist = MDS.existDictionarySentences(idLevel, sentenceENG, sentencePL);
              Assertions.assertNotSame(-1,exist);
@@ -112,20 +114,20 @@ public class ReaderCSVTest {
         String sentencePL="pies";
         String sentenceENG = "dog";
 
-        ManageLevels ML = ManageLevels.getTestInstance();
-        ManageWordsENG MWE = ManageWordsENG.getTestInstance();
-        ManageWordsPL MWP = ManageWordsPL.getTestInstance();
+        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageWordsENG MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageWordsPL MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
 
         int idLevel = ML.existLevel("B2", "Working life");
         if(idLevel == -1){
             ML.addLevel("B2", "Working life");
         }
         try {
-            csvReader.chooseCSV("DICTIONARY_WORDS_INSERT",true);
+            csvReader.chooseCSV("DICTIONARY_WORDS_INSERT",typeDB);
             csvReader.chooseLevel("B2", "Working life");
-            int result = csvReader.insertDictionaryWordswithoutFamily(true);
+            int result = csvReader.insertDictionaryWordswithoutFamily();
             Assertions.assertNotSame(0,result);
-            ManageDictionaryWords MDW = ManageDictionaryWords.getTestInstance();
+            ManageDictionaryWords MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
             idLevel = ML.existLevel("B2", "Working life");
             int idWordENG = MWE.existWordENG(sentenceENG);
             int idWordPL = MWP.existWordPL(sentencePL);

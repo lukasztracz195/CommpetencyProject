@@ -1,5 +1,7 @@
 package pl.competencyproject.model.csv;
 
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,8 +12,8 @@ public class LibraryCSV {
     private File director;
     private final String nameFolder = "csv";
 
-    LibraryCSV(boolean test) {
-        setPathApplication(test);
+    LibraryCSV(TypeOfUsedDatabase type) {
+        setPathApplication(type);
         director = new File(fullFolderPath);
         if (!director.isDirectory()) {
             // exception
@@ -25,10 +27,10 @@ public class LibraryCSV {
         }
     }
 
-    public void setPathApplication(boolean test) {
+    public void setPathApplication(TypeOfUsedDatabase type ) {
         StringBuilder sb = new StringBuilder();
         sb.append(System.getProperty("user.dir"));
-        if(!test) {
+        if(type == TypeOfUsedDatabase.OnlineOrginalDatabase) {
             sb.append("\\src\\main\\resources\\" + nameFolder + "\\");
         }else{
             sb.append("\\src\\test\\resources\\" + nameFolder + "\\");
