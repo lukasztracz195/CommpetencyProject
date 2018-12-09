@@ -39,6 +39,10 @@ public class ProfileController extends AbstractController implements Initializab
     @FXML
     private Label dateLabel;
 
+    private boolean showEmail;
+
+    private boolean showPassword;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
@@ -54,12 +58,12 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void delete() {
-        Alert confirmation=new Alert(Alert.AlertType.CONFIRMATION);
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
         confirmation.setTitle("Usuwanie konta");
         confirmation.setContentText("Czy napewno chcesz usunąć konto?");
         confirmation.setHeaderText("Potwierdzenie");
-        Optional<ButtonType> action=confirmation.showAndWait();
-        if(action.get() == ButtonType.OK) {
+        Optional<ButtonType> action = confirmation.showAndWait();
+        if (action.get() == ButtonType.OK) {
             ManageUsers manageUsers = ManageUsers.getInstance();
             manageUsers.deleteUser(SessionLogon.IdLoggedUser);
         }
@@ -67,18 +71,18 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void save() {
-        if(!profilNowyEmail.getText().trim().isEmpty()){
-            if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())){
+        if (!profilNowyEmail.getText().trim().isEmpty()) {
+            if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
                 ManageUsers manageUsers = ManageUsers.getInstance();
-                manageUsers.updateEmail(SessionLogon.IdLoggedUser,profilNowyEmail.getText());
+                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
             }
-        } else if(!profilNoweHaslo.getText().trim().isEmpty()){
+        } else if (!profilNoweHaslo.getText().trim().isEmpty()) {
             if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
                 //confirmPassword.setText("");
                 Email.mailChangePassword(profilNowyEmail.getText());
                 confirmCode.setVisible(true);
-                SessionLogon sessionLogon=SessionLogon.getInstance();
-                if(sessionLogon.checkCode(confirmCode.getText())) {
+                SessionLogon sessionLogon = SessionLogon.getInstance();
+                if (sessionLogon.checkCode(confirmCode.getText())) {
                     ManageUsers manageUsers = ManageUsers.getInstance();
                     manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
                 }
@@ -91,25 +95,51 @@ public class ProfileController extends AbstractController implements Initializab
             }
         }*/
     }
-    @FXML
-    public void changeEmail(){
-        profilNowyEmail.setVisible(true);
-        labelConfirmEmail.setVisible(true);
-        profilNowyEmail2.setVisible(true);
 
-        buttonChangePassword.setDisable(true);
-    }
     @FXML
-    public void changePassword(){
-        profilNoweHaslo.setVisible(true);
-        labelConfirmPassword.setVisible(true);
-        profilPotwierdzHaslo.setVisible(true);
-
-        buttonChangeEmail.setDisable(true);
+    public void changeEmail() {
+        if (!showEmail) {
+            profilNowyEmail.setVisible(true);
+            labelConfirmEmail.setVisible(true);
+            profilNowyEmail2.setVisible(true);
+            showEmail = true;
+            cleanChangePassword();
+            profilNoweHaslo.setVisible(false);
+            labelConfirmPassword.setVisible(false);
+            profilPotwierdzHaslo.setVisible(false);
+            showPassword = false;
+        }
+        //buttonChangePassword.setDisable(true);
     }
+
+    @FXML
+    public void changePassword() {
+        if (!showPassword) {
+            profilNoweHaslo.setVisible(true);
+            labelConfirmPassword.setVisible(true);
+            profilPotwierdzHaslo.setVisible(true);
+            showPassword = true;
+        clearChangeEmail();
+            profilNowyEmail.setVisible(false);
+            labelConfirmEmail.setVisible(false);
+            profilNowyEmail2.setVisible(false);
+            showEmail = false;
+        }
+    }
+
     @FXML
     public void logout() {
         mainController.loadLogonScreen();
         sessionLogon.logOut();
+    }
+
+    private void cleanChangePassword() {
+        profilNoweHaslo.clear();
+        profilPotwierdzHaslo.clear();
+    }
+
+    private void clearChangeEmail() {
+        profilNowyEmail.clear();
+        profilNowyEmail2.clear();
     }
 }
