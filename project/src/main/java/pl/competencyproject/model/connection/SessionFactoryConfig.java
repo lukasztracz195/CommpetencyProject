@@ -17,7 +17,7 @@ public class SessionFactoryConfig {
     }
 
     public synchronized static SessionFactory getSessionFactory() {
-        String configFileName = "hibernate.cfg.xml";
+        String configFileName = "hibernate_online_original.cfg.xml";
         SessionFactory session = sessionFactories.get(configFileName);
 
         if (session == null || session.isClosed()) {
@@ -29,7 +29,7 @@ public class SessionFactoryConfig {
     }
 
     public synchronized static SessionFactory getTestSessionFactory() {
-        String testConfigFileName = "hiberante_test.cfg.xml";
+        String testConfigFileName = "hiberante_offline_test.cfg.xml";
         SessionFactory session = sessionFactories.get(testConfigFileName);
 
         if (session == null || session.isClosed()) {

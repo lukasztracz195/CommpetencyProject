@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/compproject</property>
+        <property name="hibernate.connection.username">testerjanuszteam</property>
+        <property name="hibernate.connection.password">aezakmi195</property>
+
+        <!-- List of XML mapping files -->
+        <mapping class="pl.competencyproject.model.entities.User"/>
+        <mapping class="pl.competencyproject.model.entities.Stat"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Sentence"/>
+        <mapping class="pl.competencyproject.model.entities.Level"/>
+        <mapping class="pl.competencyproject.model.entities.Dictionary_Word"/>
+        <mapping class="pl.competencyproject.model.entities.Family"/>
+        <mapping class="pl.competencyproject.model.entities.Word_ENG"/>
+        <mapping class="pl.competencyproject.model.entities.Word_PL"/>
+    </session-factory>
+
+</hibernate-configuration>
