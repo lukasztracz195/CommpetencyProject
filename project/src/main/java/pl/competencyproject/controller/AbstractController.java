@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Time.GeneralClock;
 
 public abstract class AbstractController {

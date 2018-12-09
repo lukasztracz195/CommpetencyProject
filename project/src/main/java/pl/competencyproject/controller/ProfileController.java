@@ -3,8 +3,8 @@ package pl.competencyproject.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import pl.competencyproject.model.DAO.SessionLogon;
-import pl.competencyproject.model.DAO.classes.ManageUsers;
+import pl.competencyproject.model.dao.SessionLogon;
+import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.messages.Email;
 
 import java.net.URL;

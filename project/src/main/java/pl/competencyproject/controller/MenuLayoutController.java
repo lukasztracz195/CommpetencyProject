@@ -1,13 +1,11 @@
 package pl.competencyproject.controller;
 
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import pl.competencyproject.model.DAO.SessionLogon;
-import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.dao.SessionLogon;
 
 import java.net.URL;
 import java.util.ResourceBundle;

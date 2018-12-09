@@ -6,8 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import pl.competencyproject.model.DAO.classes.ManageUsers;
-import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.dao.classes.ManageUsers;
+import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.messages.Email;
 
 import java.net.URL;

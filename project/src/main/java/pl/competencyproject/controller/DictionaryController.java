@@ -26,7 +26,7 @@ public class DictionaryController extends AbstractController implements Initiali
     public void addDictionary(){
         FileChooser fileChooser=new FileChooser();
         fileChooser.setInitialDirectory(new File("C:\\Users"));
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV Files","*.csv"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("csv Files","*.csv"));
 
         List<File> selectedFiles=fileChooser.showOpenMultipleDialog(null);
         if(selectedFiles!=null){

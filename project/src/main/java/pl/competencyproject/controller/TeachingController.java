@@ -3,7 +3,6 @@ package pl.competencyproject.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import pl.competencyproject.model.DAO.SessionLogon;
 
 import java.net.URL;
 import java.util.ResourceBundle;

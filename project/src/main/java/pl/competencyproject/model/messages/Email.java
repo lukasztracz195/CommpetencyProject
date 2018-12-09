@@ -1,6 +1,6 @@
 package pl.competencyproject.model.messages;
 
-import pl.competencyproject.model.DAO.SessionLogon;
+import pl.competencyproject.model.dao.SessionLogon;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
