@@ -14,24 +14,25 @@ import java.util.Date;
 
 public class ManageStatTest {
 
-    private static Double valProgress = 75.4;
-    private static Double valProgress1 = 22.1;
-    private static ManageStats MS;
-    private static ManageUsers MU;
-    private static ManageLevels ML;
-    private static String nameLevel = "B2";
-    private static String nameCategorie = "Working life";
-    private static String email = "testUser3@gmail.com";
-    private static String password = "qwerty3";
-    private static int idStat;
-    private static int idUser;
-    private static int idLevel;
+    private  static Double valProgress = 75.4;
+    private  static Double valProgress1 = 22.1;
+    private  static ManageStats MS;
+    private  static ManageUsers MU;
+    private  static ManageLevels ML;
+    private  static String nameLevel = "B2";
+    private  static String nameCategorie = "Working life";
+    private  static String email = "testUser3@gmail.com";
+    private  static String password = "qwerty3";
+    private  static int idStat;
+    private  static int idUser;
+    private  static int idLevel;
+    private  static TypeOfUsedDatabase type = TypeOfUsedDatabase.OfflineTestDataBase;
 
     @Before
     public void init() {
-        MS = ManageStats.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        MU = ManageUsers.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MS = ManageStats.getInstance(type);
+        MU = ManageUsers.getInstance(type);
+        ML = ManageLevels.getInstance(type);
         if (MU.existUser(email) == -1 || idUser == -1) {
             idUser = MU.addUser(email, password);
             SessionLogon.IdLoggedUser = idUser;
@@ -51,11 +52,12 @@ public class ManageStatTest {
         idStat = MS.addStat(idLevel, valProgress);
         int exist = MS.existStat(idStat);
         Assertions.assertEquals(idStat, exist);
+        Stat stat = MS.getStat(idStat);
+        System.out.println(stat.toString());
     }
 
     @Test
     public void getTest() {
-        idStat = SessionLogon.IdLoggedUser;
         Stat stat = MS.getStat(idStat);
         Assertions.assertNotNull(stat);
         int idU = stat.getIdUser();

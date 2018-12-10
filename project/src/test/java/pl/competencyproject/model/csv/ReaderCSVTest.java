@@ -1,4 +1,4 @@
-package pl.competencyproject.model.dao;
+package pl.competencyproject.model.csv;
 
 import org.junit.After;
 import org.junit.jupiter.api.Assertions;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.csv.FileOfCSV;
 import pl.competencyproject.model.csv.LibraryCSV;
+import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.classes.*;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 

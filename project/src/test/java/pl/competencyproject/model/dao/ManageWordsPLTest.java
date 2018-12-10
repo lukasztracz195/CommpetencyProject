@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageWordsPL;
+import pl.competencyproject.model.entities.Stat;
 import pl.competencyproject.model.entities.Word_PL;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 

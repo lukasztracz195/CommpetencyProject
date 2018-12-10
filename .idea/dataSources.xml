@@ -83,5 +83,24 @@ D:/STUDIA/SEM_5/CommpetencyProject/project/src/main/resources/hiberante_test.cfg
       <jdbc-driver>org.h2.Driver</jdbc-driver>
       <jdbc-url>jdbc:h2:.//testcompproject</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="hibernate_online_original.cfg.xml/Hibernate" uuid="64089b7f-8f45-4baa-824a-5abb139118d9">
+      <imported>true</imported>
+      <configured-by-url>true</configured-by-url>
+      <remarks>Hibernate
+
+D:/STUDIA/SEM_5/CommpetencyProject/project/src/main/resources/hibernate_online_original.cfg.xml</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://db4free.net:3306/compproject</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="hiberante_offline_test.cfg.xml/Hibernate" uuid="3595db87-db54-4e9b-bfd0-ee530c947021">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/STUDIA/SEM_5/CommpetencyProject/project/src/main/resources/hiberante_offline_test.cfg.xml</remarks>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:testcompproject</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -38,5 +38,13 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" exact-version="0.0" />
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
+    <data-source name="hibernate_online_original.cfg.xml/Hibernate" uuid="64089b7f-8f45-4baa-824a-5abb139118d9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>januszteam</user-name>
+    </data-source>
+    <data-source name="hiberante_offline_test.cfg.xml/Hibernate" uuid="3595db87-db54-4e9b-bfd0-ee530c947021">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>
