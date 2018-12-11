@@ -20,10 +20,10 @@ public class ManageStatTest {
     private  static ManageUsers MU;
     private  static ManageLevels ML;
     private  static String nameLevel = "B2";
-    private  static String nameCategorie = "Working life";
+    private  static String nameCategorie = "Working";
     private  static String email = "testUser3@gmail.com";
     private  static String password = "qwerty3";
-    private  static int idStat;
+    private  static int idStat ;
     private  static int idUser;
     private  static int idLevel;
     private  static TypeOfUsedDatabase type = TypeOfUsedDatabase.OfflineTestDataBase;
@@ -49,11 +49,15 @@ public class ManageStatTest {
 
     @Test
     public void addTest() {
-        idStat = MS.addStat(idLevel, valProgress);
+        idStat = MS.existStat(1);
+        if(idStat == -1) {
+            idStat = MS.addStat(idLevel, valProgress);
+        }
         int exist = MS.existStat(idStat);
+        System.out.println(idStat+" "+exist);
         Assertions.assertEquals(idStat, exist);
         Stat stat = MS.getStat(idStat);
-        System.out.println(stat.toString());
+        Assertions.assertNotNull(stat);
     }
 
     @Test

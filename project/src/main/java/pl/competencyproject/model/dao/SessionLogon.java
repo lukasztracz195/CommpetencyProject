@@ -34,18 +34,20 @@ public class SessionLogon {
     }
 
     public void logIn(String email, String password) {
-        User tmpUser = manageUsers.getUser(email);
-        if (tmpUser != null) {
-            IdLoggedUser = tmpUser.getIdUser();
-            if (manageUsers.encryptSHA1(password).equals(tmpUser.getPassword())) {
-                correctPassword = true;
-                if (!tmpUser.isActive()) {
-                    manageUsers.updateActiveUser(IdLoggedUser, true);
-                    logged = true;
+        if (manageUsers.existUser(email) != -1) {
+            User tmpUser = manageUsers.getUser(email);
+            if (tmpUser != null) {
+                IdLoggedUser = tmpUser.getIdUser();
+                if (manageUsers.encryptSHA1(password).equals(tmpUser.getPassword())) {
+                    correctPassword = true;
+                    if (!tmpUser.isActive()) {
+                        manageUsers.updateActiveUser(IdLoggedUser, true);
+                        logged = true;
+                    }
                 }
             }
+            doSomethingbyLoggedUser();
         }
-        doSomethingbyLoggedUser();
     }
 
     public void logOut() {

@@ -13,8 +13,8 @@ public class SessionFactoryConfig {
 
     private static Map<String, SessionFactory> sessionFactories = new HashMap<>();
     private static final String databaseOriginalOnline = "hibernate_online_original.cfg.xml";
-    private static final String databaseTestOnline = "hiberante_online_test.cfg.xml";
-    private static final String databaseTestOffline = "hiberante_offline_test.cfg.xml";
+    private static final String databaseTestOnline = "hibernate_online_test.cfg.xml";
+    private static final String databaseTestOffline = "hibernate_offline_test.cfg.xml";
     private SessionFactoryConfig() {
 
     }

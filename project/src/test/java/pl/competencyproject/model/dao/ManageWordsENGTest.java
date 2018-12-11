@@ -13,12 +13,12 @@ public class ManageWordsENGTest {
     private static ManageWordsENG MWE;
     private static String word = "explosion";
     private static int idWE;
-
+    private static TypeOfUsedDatabase type = TypeOfUsedDatabase.OfflineTestDataBase;
 
 
     @Before
     public void init() {
-        MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWE = ManageWordsENG.getInstance(type);
         SessionLogon.IdLoggedUser = 1;
     }
 
@@ -29,18 +29,12 @@ public class ManageWordsENGTest {
 
     @Test
     public void addTest() {
-        idWE = MWE.addWordENG(word);
-        int result = MWE.existWordENG(word);
+         idWE = MWE.existWordENG(word);
+        if( idWE == -1) {
+            idWE = MWE.addWordENG(word);
+        }
+         int result = MWE.existWordENG(word);
         Assertions.assertEquals(idWE, result);
-    }
-
-    @Test
-    public void deleteTest() {
-        idWE = MWE.existWordENG(word);
-        if (idWE == -1) idWE = MWE.addWordENG(word);
-        MWE.deleteWordENG(idWE);
-        int result = MWE.existWordENG(word);
-        Assertions.assertEquals(-1, result);
     }
 
     @Test

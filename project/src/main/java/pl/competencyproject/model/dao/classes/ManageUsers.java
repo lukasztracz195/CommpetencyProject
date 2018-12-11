@@ -103,6 +103,9 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     /* Method to DELETE an user from the records */
     public void deleteUser(Integer UserID) {
         Transaction tx = null;
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
         try {
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
