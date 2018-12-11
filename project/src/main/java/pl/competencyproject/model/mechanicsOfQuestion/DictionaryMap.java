@@ -12,6 +12,7 @@ import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 
 import java.util.*;
+
 @Getter
 public class DictionaryMap implements IDictionaryMap {
 
@@ -23,15 +24,16 @@ public class DictionaryMap implements IDictionaryMap {
     private Map<Integer, Word> keysAllMap;
     private Set<Integer> collectionOfuniqueness;
 
-    private Integer numberMaxOfSessions;
+    private int numberMaxOfSessions;
 
-    private Integer sizeOfFullMap = 0;
+    private int sizeOfFullMap;
 
-    private Integer currentSession = 0;
+    private int currentSession;
 
     private DictionaryMap() {
         collectionOfuniqueness = new HashSet<>();
-
+        currentSession = 0;
+        sizeOfFullMap = 0;
     }
 
     public static DictionaryMap getInstance() {
@@ -57,30 +59,30 @@ public class DictionaryMap implements IDictionaryMap {
         } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
             initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
         }
-            numberMaxOfSessions = calculateTheNumberOfCombinations();
+        numberMaxOfSessions = calculateTheNumberOfCombinations();
 
     }
 
-    @Override
     public SortedMap<Word, List<String>> getRandTenMap() {
-        System.out.println("getRandTenMap");
+
         SortedMap<Word, List<String>> partMap = new TreeMap<>();
-        if(currentSession <= numberMaxOfSessions) {
+        if (currentSession < numberMaxOfSessions) {
 
             Integer id;
-            Integer size = 10;
-            if (sizeOfFullMap < 10) {
-                size = sizeOfFullMap;
+            int size = 10;
+            System.out.println(dictionary);
+            if (dictionary.size() < 10) {
+                size = dictionary.size();
             }
             for (int i = 0; i < size; i++) {
-                System.out.println("getRandTenMap1");
+
                 id = findUniqueID();
-                System.out.println("getRandTenMap2");
                 Word insertedKey = keysAllMap.get(id);
                 List<String> value = dictionary.get(insertedKey);
                 partMap.put(insertedKey, value);
             }
         }
+        currentSession++;
         return partMap;
     }
 
@@ -90,18 +92,17 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     public Integer calculateTheNumberOfCombinations() {
-        if(sizeOfFullMap > 10) {
+        if (sizeOfFullMap > 10) {
             return sizeOfFullMap % 10;
-        }else return 1;
+        } else return 1;
     }
 
     public Integer findUniqueID() {
-        System.out.println("findUniqueID");
         Random random = new Random();
         Integer selected = -1;
         boolean existInSet = false;
         do {
-            selected = random.nextInt(sizeOfFullMap);
+            selected = random.nextInt(sizeOfFullMap );
             existInSet = collectionOfuniqueness.contains(selected);
         } while (existInSet);
         collectionOfuniqueness.add(selected);
@@ -115,17 +116,15 @@ public class DictionaryMap implements IDictionaryMap {
         ManageWordsPL MWP;
 
 
-            MDW = ManageDictionaryWords.getInstance(typeDB);
-            MWE = ManageWordsENG.getInstance(typeDB);
-            MWP = ManageWordsPL.getInstance(typeDB);
-
-        lightReset();
+        MDW = ManageDictionaryWords.getInstance(typeDB);
+        MWE = ManageWordsENG.getInstance(typeDB);
+        MWP = ManageWordsPL.getInstance(typeDB);
         if (type == TypeDictionaryDownloaded.DictionaryOfWords) {
             dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
         } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
             dictionaryWordsFromBase = MDW.getDictionaryByFamilie(idDictionary);
         }
-        this.dictionary = new HashMap<>();
+        dictionary = new HashMap<>();
         keysAllMap = new HashMap<>();
         System.out.println(dictionaryWordsFromBase.size());
         for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
@@ -138,12 +137,10 @@ public class DictionaryMap implements IDictionaryMap {
             if (typeLanguage == TypeOfDictionaryLanguage.ENGtoPL) {
                 key = new Word(i, tmpWordENG.getWordENG());
                 value = tmpWordPL.getWordPL();
-            }else if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
+            } else if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
                 key = new Word(i, tmpWordPL.getWordPL());
                 value = tmpWordENG.getWordENG();
             }
-            System.out.println(key);
-            System.out.println(dictionary);
             if (!dictionary.containsKey(key)) {
                 listValues = new ArrayList<>();
                 listValues.add(value);
@@ -161,11 +158,8 @@ public class DictionaryMap implements IDictionaryMap {
 
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
-            MDS = ManageDictionarySentences.getInstance(typeDB);
-        this.dictionary = new HashMap<>();
-
-        lightReset();
-        this.dictionary = new HashMap<>();
+        MDS = ManageDictionarySentences.getInstance(typeDB);
+        dictionary = new HashMap<>();
         keysAllMap = new HashMap<>();
         dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);
         for (int i = 0; i < dictionarySentencysFromBase.size(); i++) {
@@ -187,20 +181,5 @@ public class DictionaryMap implements IDictionaryMap {
             dictionary.put(word, listS);
             sizeOfFullMap++;
         }
-    }
-
-    public void lightReset() {
-        sizeOfFullMap = 0;
-        numberMaxOfSessions = 0;
-        dictionary = null;
-        keysAllMap = null;
-       // Runtime r = Runtime.getRuntime();
-       // r.freeMemory();
-    }
-
-    public void hardReset() {
-        dictionaryWordsFromBase = null;
-        dictionarySentencysFromBase = null;
-       // lightReset();
     }
 }

@@ -2,13 +2,16 @@ package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
-@Getter
+
 @EqualsAndHashCode(of = {"id"})
+@Getter
+@ToString
 public class Word implements Comparable<Word> {
-    String word;
-    Integer id;
-    Integer numberOfTries;
+    private String word;
+    private Integer id;
+    private Integer numberOfTries;
 
     public Word(Integer id, String word) {
         this.id = id;

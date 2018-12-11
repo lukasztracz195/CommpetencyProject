@@ -7,8 +7,12 @@ import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+import pl.competencyproject.model.mechanicsOfQuestion.Word;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.SortedMap;
 
 public class SessionLogon {
 
@@ -91,13 +95,20 @@ public class SessionLogon {
         manageUsers.reset();
     }
 
-    public void closeSession(){
+    public void closeSession() {
         manageUsers.closeSession();
     }
 
     public void doSomethingbyLoggedUser() {
         if (SessionLogon.IdLoggedUser != -1) {
-          
+            DictionaryMap map = DictionaryMap.getInstance();
+            map.loadDictionary(1, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL, TypeOfUsedDatabase.OnlineOrginalDatabase);
+            SortedMap<Word, List<String>> dictionary = map.getRandTenMap();
+            for (Map.Entry<Word, List<String>> entry : dictionary.entrySet()) {
+                Word key = entry.getKey();
+                List<String> value = entry.getValue();
+                System.out.println(key.toString() + ": " + value.toString());
+            }
         }
     }
 }

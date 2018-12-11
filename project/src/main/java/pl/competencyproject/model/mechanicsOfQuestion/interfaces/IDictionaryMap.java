@@ -23,9 +23,6 @@ public interface IDictionaryMap {
 
     public Integer findUniqueID();
 
-    public void lightReset();
-
-    public void hardReset();
 
     /*
 

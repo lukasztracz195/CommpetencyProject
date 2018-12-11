@@ -43,8 +43,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
