@@ -11,8 +11,6 @@ import java.util.SortedMap;
 
 public interface IDictionaryMap {
 
-    public static DictionaryMap getInstance();
-
     public Integer getSizeOfFullMap();
 
     public void loadDictionary(Integer IdDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB);
