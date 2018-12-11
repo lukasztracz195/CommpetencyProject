@@ -10,15 +10,22 @@ public abstract class GeneralManager {
     private static GeneralManager instance;
     protected static SessionFactory sessionFactory;
     protected static Session session;
+    private TypeOfUsedDatabase type;
 
     protected GeneralManager(TypeOfUsedDatabase type) {
+        this.type = type;
         sessionFactory = SessionFactoryConfig.getSessionFactory(type);
         session = sessionFactory.openSession();
     }
 
-    public void closeSession() {
-        if (session.isOpen()) session.close();
+    protected void reset() {
+        if (session.isOpen()) SessionFactoryConfig.close();
+        sessionFactory = SessionFactoryConfig.getSessionFactory(type);
+        session = sessionFactory.openSession();
+    }
 
+    protected void closeSession(){
+        SessionFactoryConfig.close();
     }
 
 }

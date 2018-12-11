@@ -47,7 +47,7 @@
       <auth-required>false</auth-required>
     </data-source>
     <data-source name="hibernate_online_test.cfg.xml/Hibernate" uuid="1c986d56-aa43-44d1-a648-c14794353290">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <user-name>testerjanuszteam</user-name>
     </data-source>
     <data-source name="hibernate_offline_test.cfg.xml/Hibernate" uuid="ebbb37c7-8801-45d7-a3d2-d5b93d19978d">

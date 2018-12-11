@@ -15,6 +15,7 @@ public class SessionFactoryConfig {
     private static final String databaseOriginalOnline = "hibernate_online_original.cfg.xml";
     private static final String databaseTestOnline = "hibernate_online_test.cfg.xml";
     private static final String databaseTestOffline = "hibernate_offline_test.cfg.xml";
+    private static  String used;
     private SessionFactoryConfig() {
 
     }
@@ -40,8 +41,15 @@ public class SessionFactoryConfig {
             return databaseTestOffline;
     }
     private static SessionFactory configure(String configFileName) {
-
+        used = configFileName;
         return new Configuration().configure(configFileName).buildSessionFactory();
+    }
+
+    public static void close(){
+        SessionFactory session = sessionFactories.get(used);
+        if(session.isOpen()){
+            session.close();
+        }
     }
 
 }

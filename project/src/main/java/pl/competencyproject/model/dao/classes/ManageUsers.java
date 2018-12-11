@@ -235,4 +235,11 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return sb.toString();
     }
 
+    public void reset() {
+        super.reset();
+    }
+
+    public void closeSession(){
+        super.closeSession();
+    }
 }

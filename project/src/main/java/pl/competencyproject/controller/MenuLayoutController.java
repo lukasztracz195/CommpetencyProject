@@ -26,10 +26,11 @@ public class MenuLayoutController extends AbstractController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
-
-        String[] welcome=SessionLogon.email.split("@");
-        String s="Witaj "+welcome[0].trim();
-        witaj.setText(s);
+        if(SessionLogon.email != null) {
+            String[] welcome = SessionLogon.email.split("@");
+            String s = "Witaj " + welcome[0].trim();
+            witaj.setText(s);
+        }
     }
 
     @FXML

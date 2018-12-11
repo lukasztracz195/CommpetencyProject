@@ -51,12 +51,12 @@ public class SessionLogon {
     }
 
     public void logOut() {
-        if (IdLoggedUser > 0) {
+        if (manageUsers.getUser(IdLoggedUser) != null) {
             manageUsers.updateActiveUser(IdLoggedUser, false);
-            logged = false;
-            correctPassword = false;
-            IdLoggedUser = -1;
         }
+        logged = false;
+        correctPassword = false;
+        IdLoggedUser = -1;
     }
 
     public void sign(String email, String password) {
@@ -84,7 +84,11 @@ public class SessionLogon {
         return time;
     }
 
-    public void closeSession() {
+    public void resetSession() {
+        manageUsers.reset();
+    }
+
+    public void closeSession(){
         manageUsers.closeSession();
     }
 

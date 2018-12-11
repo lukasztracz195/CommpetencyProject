@@ -66,8 +66,8 @@ public class ProfileController extends AbstractController implements Initializab
         if (action.get() == ButtonType.OK) {
             ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
             manageUsers.deleteUser(SessionLogon.IdLoggedUser);
-            SessionLogon.IdLoggedUser = -1;
-            mainController.loadLogonScreen();
+            manageUsers.reset();
+            logout();
         }
     }
 
