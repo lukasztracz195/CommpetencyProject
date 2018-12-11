@@ -25,13 +25,13 @@ public class DictionaryMap implements IDictionaryMap {
 
     private Integer numberMaxOfSessions;
 
-    private Integer sizeOfFullMap;
+    private Integer sizeOfFullMap = 0;
 
     private Integer currentSession = 0;
 
     private DictionaryMap() {
-        dictionary = new HashMap<>();
         collectionOfuniqueness = new HashSet<>();
+
     }
 
     public static DictionaryMap getInstance() {
@@ -63,18 +63,19 @@ public class DictionaryMap implements IDictionaryMap {
 
     @Override
     public SortedMap<Word, List<String>> getRandTenMap() {
+        System.out.println("getRandTenMap");
         SortedMap<Word, List<String>> partMap = new TreeMap<>();
-        if(currentSession <=numberMaxOfSessions.intValue() ) {
+        if(currentSession <= numberMaxOfSessions) {
 
             Integer id;
-            Integer size;
-            if (sizeOfFullMap > 10) {
-                size = 10;
-            } else {
+            Integer size = 10;
+            if (sizeOfFullMap < 10) {
                 size = sizeOfFullMap;
             }
             for (int i = 0; i < size; i++) {
+                System.out.println("getRandTenMap1");
                 id = findUniqueID();
+                System.out.println("getRandTenMap2");
                 Word insertedKey = keysAllMap.get(id);
                 List<String> value = dictionary.get(insertedKey);
                 partMap.put(insertedKey, value);
@@ -95,13 +96,14 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     public Integer findUniqueID() {
+        System.out.println("findUniqueID");
         Random random = new Random();
         Integer selected = -1;
         boolean existInSet = false;
         do {
             selected = random.nextInt(sizeOfFullMap);
             existInSet = collectionOfuniqueness.contains(selected);
-        } while (!existInSet);
+        } while (existInSet);
         collectionOfuniqueness.add(selected);
         return selected;
     }
@@ -111,6 +113,7 @@ public class DictionaryMap implements IDictionaryMap {
         ManageDictionaryWords MDW;
         ManageWordsENG MWE;
         ManageWordsPL MWP;
+
 
             MDW = ManageDictionaryWords.getInstance(typeDB);
             MWE = ManageWordsENG.getInstance(typeDB);
@@ -122,6 +125,9 @@ public class DictionaryMap implements IDictionaryMap {
         } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
             dictionaryWordsFromBase = MDW.getDictionaryByFamilie(idDictionary);
         }
+        this.dictionary = new HashMap<>();
+        keysAllMap = new HashMap<>();
+        System.out.println(dictionaryWordsFromBase.size());
         for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
             Dictionary_Word tmpEntite = dictionaryWordsFromBase.get(i);
             Word_ENG tmpWordENG = MWE.getWordENG(tmpEntite.getIdWordENG());
@@ -132,12 +138,12 @@ public class DictionaryMap implements IDictionaryMap {
             if (typeLanguage == TypeOfDictionaryLanguage.ENGtoPL) {
                 key = new Word(i, tmpWordENG.getWordENG());
                 value = tmpWordPL.getWordPL();
-            }
-            if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
+            }else if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
                 key = new Word(i, tmpWordPL.getWordPL());
                 value = tmpWordENG.getWordENG();
             }
-
+            System.out.println(key);
+            System.out.println(dictionary);
             if (!dictionary.containsKey(key)) {
                 listValues = new ArrayList<>();
                 listValues.add(value);
@@ -156,9 +162,11 @@ public class DictionaryMap implements IDictionaryMap {
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
             MDS = ManageDictionarySentences.getInstance(typeDB);
-
+        this.dictionary = new HashMap<>();
 
         lightReset();
+        this.dictionary = new HashMap<>();
+        keysAllMap = new HashMap<>();
         dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);
         for (int i = 0; i < dictionarySentencysFromBase.size(); i++) {
             Dictionary_Sentence tmpEntite = dictionarySentencysFromBase.get(i);
@@ -186,13 +194,13 @@ public class DictionaryMap implements IDictionaryMap {
         numberMaxOfSessions = 0;
         dictionary = null;
         keysAllMap = null;
-        Runtime r = Runtime.getRuntime();
-        r.freeMemory();
+       // Runtime r = Runtime.getRuntime();
+       // r.freeMemory();
     }
 
     public void hardReset() {
         dictionaryWordsFromBase = null;
         dictionarySentencysFromBase = null;
-        lightReset();
+       // lightReset();
     }
 }

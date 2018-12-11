@@ -38,6 +38,8 @@ public class ProfileController extends AbstractController implements Initializab
     private Label clockLabel;
     @FXML
     private Label dateLabel;
+    @FXML
+    private Button accepAppChangesButton;
 
     private boolean showEmail = false;
 
@@ -46,6 +48,8 @@ public class ProfileController extends AbstractController implements Initializab
     private boolean showNewPasswordValue = false;
 
     private boolean showConfirmPasswordValue = false;
+
+    private boolean appovesCode = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,28 +81,28 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void save() {
-        if (!profilNowyEmail.getText().trim().isEmpty()) {
-            if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-            }
-        } else if (!profilNoweHaslo.getText().trim().isEmpty()) {
-            if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
-                //confirmPassword.setText("");
-                Email.mailChangePassword(profilNowyEmail.getText());
-                confirmCode.setVisible(true);
-                SessionLogon sessionLogon = SessionLogon.getInstance();
-                if (sessionLogon.checkCode(confirmCode.getText())) {
+        if(!appovesCode) {
+            if (!profilNowyEmail.getText().trim().isEmpty()) {
+                if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
                     ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+                    manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+                }
+            } else if (!profilNoweHaslo.getText().trim().isEmpty()) {
+                if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
+                    //confirmPassword.setText("");
+                    Email.mailChangePassword(profilNowyEmail.getText());
+                    accepAppChangesButton.setText("Approve code");
+                    confirmCode.setVisible(true);
+
+                } else {
+                    labelConfirmPassword.setText("Incorrect Confirm Password");
+                }
+            } else if (!profilNowyEmail.getText().trim().isEmpty() && !profilNoweHaslo.getText().trim().isEmpty()) {
+                if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+                    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+                    manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
                     manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
                 }
-            }
-            labelConfirmPassword.setText("Incorrect Confirm Password");
-        } else if (!profilNowyEmail.getText().trim().isEmpty() && !profilNoweHaslo.getText().trim().isEmpty()) {
-            if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-                manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
             }
         }
     }
@@ -169,7 +173,16 @@ public class ProfileController extends AbstractController implements Initializab
         labelConfirmEmail.setVisible(false);
     }
 
+    private void approvesCode() {
+        SessionLogon sessionLogon = SessionLogon.getInstance();
+        if (sessionLogon.checkCode(confirmCode.getText())) {
+            ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+            manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
+        } else {
+            confirmCode.clear();
 
+        }
+    }
 
 
 }

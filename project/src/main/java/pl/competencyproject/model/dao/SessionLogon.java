@@ -3,7 +3,10 @@ package pl.competencyproject.model.dao;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
+import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 
 import java.util.Random;
 
@@ -94,6 +97,7 @@ public class SessionLogon {
 
     public void doSomethingbyLoggedUser() {
         if (SessionLogon.IdLoggedUser != -1) {
+          
         }
     }
 }
