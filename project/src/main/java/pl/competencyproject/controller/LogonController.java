@@ -124,7 +124,6 @@ public class LogonController extends AbstractController implements Initializable
                     loginMenu();
                 } else {
                     codeTextField.clear();
-                    clearFieldsEmailAndPassword();
                     clearAllFeedbackLabels();
                     emailFeedbackLabel.setText("Your code is wrong");
                 }
@@ -143,6 +142,8 @@ public class LogonController extends AbstractController implements Initializable
             emailTextField.clear();
             passwordTextField.clear();
             toggleButton.setText(">>>>");
+            if(codeLabel.isVisible()) codeLabel.setVisible(false);
+            if(codeTextField.isVisible()) codeTextField.setVisible(false);
         } else {
             statusLogin = true;
             emailTextField.clear();

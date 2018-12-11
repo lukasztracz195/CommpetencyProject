@@ -11,7 +11,7 @@ import java.util.SortedMap;
 
 public interface IDictionaryMap {
 
-    public DictionaryMap getInstance();
+    public static DictionaryMap getInstance();
 
     public Integer getSizeOfFullMap();
 

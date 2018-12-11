@@ -34,8 +34,7 @@ public class DictionaryMap implements IDictionaryMap {
         collectionOfuniqueness = new HashSet<>();
     }
 
-    @Override
-    public DictionaryMap getInstance() {
+    public static DictionaryMap getInstance() {
         if (instance == null) {
             synchronized (DictionaryMap.class) {
                 if (instance == null) {

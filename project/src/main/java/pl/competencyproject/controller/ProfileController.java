@@ -23,11 +23,11 @@ public class ProfileController extends AbstractController implements Initializab
     @FXML
     private TextField profilNowyEmail2;
     @FXML
-    private TextField profilNoweHaslo;
+    private PasswordField profilNoweHaslo;
     @FXML
     private Label labelConfirmPassword;
     @FXML
-    private TextField profilPotwierdzHaslo;
+    private PasswordField profilPotwierdzHaslo;
     @FXML
     private TextField confirmCode;
     @FXML
@@ -42,6 +42,10 @@ public class ProfileController extends AbstractController implements Initializab
     private boolean showEmail = false;
 
     private boolean showPassword = false;
+
+    private boolean showNewPasswordValue = false;
+
+    private boolean showConfirmPasswordValue = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -164,6 +168,8 @@ public class ProfileController extends AbstractController implements Initializab
         profilNowyEmail2.setVisible(false);
         labelConfirmEmail.setVisible(false);
     }
+
+
 
 
 }
