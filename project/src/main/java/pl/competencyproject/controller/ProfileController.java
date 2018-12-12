@@ -49,7 +49,10 @@ public class ProfileController extends AbstractController implements Initializab
 
     private boolean showConfirmPasswordValue = false;
 
-    private boolean appovesCode = false;
+    private boolean saveIsActive = false;
+
+    private static SessionLogon session = SessionLogon.getInstance();
+    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -72,7 +75,6 @@ public class ProfileController extends AbstractController implements Initializab
         confirmation.setHeaderText("Potwierdzenie");
         Optional<ButtonType> action = confirmation.showAndWait();
         if (action.get() == ButtonType.OK) {
-            ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
             manageUsers.deleteUser(SessionLogon.IdLoggedUser);
             manageUsers.reset();
             logout();
@@ -81,30 +83,14 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void save() {
-        if(!appovesCode) {
-            if (!profilNowyEmail.getText().trim().isEmpty()) {
-                if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-                    manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-                }
-            } else if (!profilNoweHaslo.getText().trim().isEmpty()) {
-                if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
-                    //confirmPassword.setText("");
-                    Email.mailChangePassword(profilNowyEmail.getText());
-                    accepAppChangesButton.setText("Approve code");
-                    confirmCode.setVisible(true);
-
-                } else {
-                    labelConfirmPassword.setText("Incorrect Confirm Password");
-                }
-            } else if (!profilNowyEmail.getText().trim().isEmpty() && !profilNoweHaslo.getText().trim().isEmpty()) {
-                if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-                    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-                    manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-                    manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
-                }
-            }
+        if (!emailIsEmpty()) {
+            updateEmailOnly();
+        } else if (!passwordIsEmpty()) {
+            updatePasswordOnly();
+        } else if (!emailIsEmpty() && !passwordIsEmpty()) {
+            updateEmailAndPassword();
         }
+
     }
 
     @FXML
@@ -137,6 +123,65 @@ public class ProfileController extends AbstractController implements Initializab
     public void logout() {
         mainController.loadLogonScreen();
         sessionLogon.logOut();
+    }
+
+//    private void updateEmailOnly() {
+//        if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+//            Email.mailChangePassword(profilNazwaUzytkownika.getText());
+//            confirmCode.setVisible(true);
+//            if (sessionLogon.checkCode(confirmCode.getText())) {
+//                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+//            }
+//        }
+//        labelConfirmEmail.setText("Incorrect Confirm Email");
+//    }
+
+    private void updateEmailOnly() {
+        if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+            Email.mailChangePassword(profilNazwaUzytkownika.getText());
+            confirmCode.setVisible(true);
+            if (sessionLogon.checkCode(confirmCode.getText())) {
+                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+            }
+        }
+        labelConfirmEmail.setText("Incorrect Confirm Email");
+    }
+
+    private void updatePasswordOnly() {
+       if(saveIsActive == true)
+       {
+           if (sessionLogon.checkCode(confirmCode.getText())) {
+               manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
+           }
+           confirmCode.setVisible(false);
+           hideChangePassword();
+           saveIsActive = false;
+
+       }else if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
+            Email.mailChangePassword(profilNazwaUzytkownika.getText());
+             confirmCode.setVisible(true);
+             saveIsActive = true;
+        }else labelConfirmPassword.setText("Incorrect Confirm Password");
+        manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    }
+
+    private void updateEmailAndPassword() {
+        if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+            manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+            manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
+        }
+    }
+
+    private boolean emailIsEmpty() {
+        if (profilNowyEmail.getText().trim().isEmpty()) {
+            return true;
+        } else return false;
+    }
+
+    private boolean passwordIsEmpty() {
+        if (profilNoweHaslo.getText().trim().isEmpty()) {
+            return true;
+        } else return false;
     }
 
     private void cleanChangePassword() {

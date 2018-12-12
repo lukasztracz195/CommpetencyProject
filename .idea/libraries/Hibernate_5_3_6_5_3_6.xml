@@ -14,6 +14,7 @@
       <root url="jar://$PROJECT_DIR$/lib/byte-buddy-1.8.17.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hibernate-core-5.3.6.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.mail.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
