@@ -125,26 +125,27 @@ public class ProfileController extends AbstractController implements Initializab
         sessionLogon.logOut();
     }
 
-//    private void updateEmailOnly() {
-//        if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-//            Email.mailChangePassword(profilNazwaUzytkownika.getText());
-//            confirmCode.setVisible(true);
-//            if (sessionLogon.checkCode(confirmCode.getText())) {
-//                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-//            }
-//        }
-//        labelConfirmEmail.setText("Incorrect Confirm Email");
-//    }
-
     private void updateEmailOnly() {
-        if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-            Email.mailChangePassword(profilNazwaUzytkownika.getText());
-            confirmCode.setVisible(true);
+        if(saveIsActive == true)
+        {
             if (sessionLogon.checkCode(confirmCode.getText())) {
                 manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
             }
-        }
-        labelConfirmEmail.setText("Incorrect Confirm Email");
+            confirmCode.setVisible(false);
+            hideChangeEmail();
+            saveIsActive = false;
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Update Email");
+            confirmation.setContentText("Email successfully changed");
+            Optional<ButtonType> action = confirmation.showAndWait();
+            if (action.get() == ButtonType.OK) { }
+        }else if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
+            Email.mailChangeMail(profilNazwaUzytkownika.getText());
+            confirmCode.setVisible(true);
+            saveIsActive = true;
+        }else labelConfirmEmail.setText("Incorrect Confirm Email");
+
+
     }
 
     private void updatePasswordOnly() {
@@ -156,13 +157,17 @@ public class ProfileController extends AbstractController implements Initializab
            confirmCode.setVisible(false);
            hideChangePassword();
            saveIsActive = false;
+           Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+           confirmation.setTitle("Update Password");
+           confirmation.setContentText("Password successfully changed");
+           Optional<ButtonType> action = confirmation.showAndWait();
+           if (action.get() == ButtonType.OK) {logout(); }
 
        }else if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
             Email.mailChangePassword(profilNazwaUzytkownika.getText());
              confirmCode.setVisible(true);
              saveIsActive = true;
         }else labelConfirmPassword.setText("Incorrect Confirm Password");
-        manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
     }
 
     private void updateEmailAndPassword() {

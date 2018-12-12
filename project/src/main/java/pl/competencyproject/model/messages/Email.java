@@ -40,6 +40,17 @@ public class Email {
         }
     }
 
+    public static void mailChangeMail(String to) {
+        try {
+            String subject = "Kod potwierdzający zmianę emaila";
+            String messageText = "Twój kod to: " + String.valueOf(session.generateCode());
+            createMail(to,subject,messageText);
+            System.out.println("message send successfully");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     private static Properties setProperties() {
         Properties props = System.getProperties();
         props.put("mail.smtp.starttls.enable", "true");
