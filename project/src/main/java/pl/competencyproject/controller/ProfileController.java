@@ -128,17 +128,19 @@ public class ProfileController extends AbstractController implements Initializab
     private void updateEmailOnly() {
         if(saveIsActive == true)
         {
-            if (sessionLogon.checkCode(confirmCode.getText())) {
-                manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Aktualizacja Email");
+            confirmation.setContentText("Czy napewno chcesz zmiemić Email?");
+            confirmation.setHeaderText("Potwierdzenie");
+            Optional<ButtonType> action = confirmation.showAndWait();
+            if (action.get() == ButtonType.OK) {
+                if (sessionLogon.checkCode(confirmCode.getText())) {
+                    manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+                }
             }
             confirmCode.setVisible(false);
             hideChangeEmail();
             saveIsActive = false;
-            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-            confirmation.setTitle("Update Email");
-            confirmation.setContentText("Email successfully changed");
-            Optional<ButtonType> action = confirmation.showAndWait();
-            if (action.get() == ButtonType.OK) { }
         }else if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
             Email.mailChangeMail(profilNazwaUzytkownika.getText());
             confirmCode.setVisible(true);
@@ -151,17 +153,18 @@ public class ProfileController extends AbstractController implements Initializab
     private void updatePasswordOnly() {
        if(saveIsActive == true)
        {
-           if (sessionLogon.checkCode(confirmCode.getText())) {
+           Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+           confirmation.setTitle("Aktualizacja hasła");
+           confirmation.setContentText("Czy napewno chcesz zmiemić hasło?");
+           confirmation.setHeaderText("Potwierdzenie");
+           Optional<ButtonType> action = confirmation.showAndWait();
+           if (action.get() == ButtonType.OK) {
+               if (sessionLogon.checkCode(confirmCode.getText())) {
                manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
-           }
+           }logout(); }
            confirmCode.setVisible(false);
            hideChangePassword();
            saveIsActive = false;
-           Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-           confirmation.setTitle("Update Password");
-           confirmation.setContentText("Password successfully changed");
-           Optional<ButtonType> action = confirmation.showAndWait();
-           if (action.get() == ButtonType.OK) {logout(); }
 
        }else if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
             Email.mailChangePassword(profilNazwaUzytkownika.getText());
