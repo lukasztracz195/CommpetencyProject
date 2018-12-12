@@ -8,11 +8,9 @@ import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 import pl.competencyproject.model.mechanicsOfQuestion.Word;
+import pl.competencyproject.model.messages.Email;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.SortedMap;
+import java.util.*;
 
 public class SessionLogon {
 
@@ -24,6 +22,8 @@ public class SessionLogon {
     private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
     private static SessionLogon instance;
     public static String email;
+
+
 
     private SessionLogon() {
 
@@ -72,15 +72,30 @@ public class SessionLogon {
 
     }
 
+    public boolean checkCode(String text) {
+        int code = Integer.valueOf(text);
+        if (code == genereatedCode) {
+            return true;
+        }
+        return false;
+    }
+
     public int generateCode() {
-        Random random = new Random();
-        int code = random.nextInt(8999) + 1000;
-        genereatedCode = code;
+       Random random = new Random(System.currentTimeMillis());
+       int code = random.nextInt(8999) + 1000;
+       //random = null;
         return code;
     }
 
-    public boolean checkCode(String text) {
-        int code = Integer.valueOf(text);
+    public boolean checkCodeForEmailUpdate(String oldEmail,String newEmail) {
+        int code1 = Integer.valueOf(oldEmail);
+        int code2 = Integer.valueOf(newEmail);
+        String concat = Integer.toString(code1) + Integer.toString(code2);
+        int code = Integer.parseInt(concat);
+        int code3 = Integer.valueOf(Email.oldCode);
+        int code4 = Integer.valueOf(Email.newCode);
+        String concat1 = Integer.toString(code3) + Integer.toString(code4);
+        genereatedCode = Integer.parseInt(concat1);
         if (code == genereatedCode) {
             return true;
         }

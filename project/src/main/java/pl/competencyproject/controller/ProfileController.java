@@ -54,6 +54,7 @@ public class ProfileController extends AbstractController implements Initializab
     private static SessionLogon session = SessionLogon.getInstance();
     ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
@@ -83,6 +84,14 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void save() {
+        if(!saveIsActive){
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setTitle("Aktualizacja konta");
+        confirmation.setContentText("Najpierw haslo z starego meila i do niego doklejasz z nowego ");
+        confirmation.setHeaderText("Wazne info!");
+        Optional<ButtonType> action = confirmation.showAndWait();
+        }
+//        if (action.get() == ButtonType.OK) {}
         if (!emailIsEmpty()) {
             updateEmailOnly();
         } else if (!passwordIsEmpty()) {
@@ -134,7 +143,7 @@ public class ProfileController extends AbstractController implements Initializab
             confirmation.setHeaderText("Potwierdzenie");
             Optional<ButtonType> action = confirmation.showAndWait();
             if (action.get() == ButtonType.OK) {
-                if (sessionLogon.checkCode(confirmCode.getText())) {
+                if (sessionLogon.checkCodeForEmailUpdate(Email.oldCode,Email.newCode)) {
                     manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
                 }
             }
@@ -142,7 +151,7 @@ public class ProfileController extends AbstractController implements Initializab
             hideChangeEmail();
             saveIsActive = false;
         }else if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-            Email.mailChangeMail(profilNazwaUzytkownika.getText());
+            Email.mailChangeMail(profilNazwaUzytkownika.getText(),profilNowyEmail.getText());
             confirmCode.setVisible(true);
             saveIsActive = true;
         }else labelConfirmEmail.setText("Incorrect Confirm Email");
@@ -161,7 +170,8 @@ public class ProfileController extends AbstractController implements Initializab
            if (action.get() == ButtonType.OK) {
                if (sessionLogon.checkCode(confirmCode.getText())) {
                manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
-           }logout(); }
+                }
+           }
            confirmCode.setVisible(false);
            hideChangePassword();
            saveIsActive = false;

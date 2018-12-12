@@ -17,6 +17,8 @@ public class Email {
     private static final boolean sessionDebug = false;
     private static final String pass = "pr0jektk0mpetencyjny";
     private static SessionLogon session = SessionLogon.getInstance();
+    public static String newCode = null;
+    public static String oldCode = null;
 
     public static void mailRegestration(String to) {
         try {
@@ -40,12 +42,17 @@ public class Email {
         }
     }
 
-    public static void mailChangeMail(String to) {
+    public static void mailChangeMail(String toNew,String toOld) {
         try {
             String subject = "Kod potwierdzający zmianę emaila";
-            String messageText = "Twój kod to: " + String.valueOf(session.generateCode());
-            createMail(to,subject,messageText);
-            System.out.println("message send successfully");
+            newCode = String.valueOf(session.generateCode());
+            String messageText = "Twój kod to: " + newCode;
+            createMail(toNew,subject,messageText);
+            System.out.println("message to newEmail send successfully");
+            oldCode = String.valueOf(session.generateCode());
+            String messageText1 = "Twój kod to: " + oldCode;
+            createMail(toOld,subject,messageText1);
+            System.out.println("message to oldEmail send successfully");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
