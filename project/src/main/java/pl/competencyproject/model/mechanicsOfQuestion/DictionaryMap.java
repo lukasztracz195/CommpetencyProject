@@ -20,7 +20,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     private List<Dictionary_Word> dictionaryWordsFromBase;
     private List<Dictionary_Sentence> dictionarySentencysFromBase;
-    private Map<Word, List<String>> dictionary;
+    private Map<String, List<String>> dictionary;
     private Map<Integer, Word> keysAllMap;
     private Set<Integer> collectionOfuniqueness;
 
@@ -70,7 +70,6 @@ public class DictionaryMap implements IDictionaryMap {
 
             Integer id;
             int size = 10;
-            System.out.println(dictionary);
             if (dictionary.size() < 10) {
                 size = dictionary.size();
             }
@@ -78,7 +77,7 @@ public class DictionaryMap implements IDictionaryMap {
 
                 id = findUniqueID();
                 Word insertedKey = keysAllMap.get(id);
-                List<String> value = dictionary.get(insertedKey);
+                List<String> value = dictionary.get(insertedKey.getWord());
                 partMap.put(insertedKey, value);
             }
         }
@@ -102,7 +101,7 @@ public class DictionaryMap implements IDictionaryMap {
         Integer selected = -1;
         boolean existInSet = false;
         do {
-            selected = random.nextInt(sizeOfFullMap );
+            selected = random.nextInt(dictionary.size() );
             existInSet = collectionOfuniqueness.contains(selected);
         } while (existInSet);
         collectionOfuniqueness.add(selected);
@@ -135,22 +134,22 @@ public class DictionaryMap implements IDictionaryMap {
             Word key = null;
             String value = null;
             if (typeLanguage == TypeOfDictionaryLanguage.ENGtoPL) {
-                key = new Word(i, tmpWordENG.getWordENG());
+                key = new Word(tmpWordENG.getWordENG());
                 value = tmpWordPL.getWordPL();
             } else if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
-                key = new Word(i, tmpWordPL.getWordPL());
+                key = new Word(tmpWordPL.getWordPL());
                 value = tmpWordENG.getWordENG();
             }
-            if (!dictionary.containsKey(key)) {
+            if (!dictionary.containsKey(key.getWord())) {
                 listValues = new ArrayList<>();
                 listValues.add(value);
-                keysAllMap.put(i, key);
-                dictionary.put(key, listValues);
+                keysAllMap.put(keysAllMap.size(), key);
+                dictionary.put(key.getWord(), listValues);
                 sizeOfFullMap++;
             } else {
-                listValues = dictionary.get(key);
+                listValues = dictionary.get(key.getWord());
                 listValues.add(value);
-                dictionary.replace(key, listValues);
+                dictionary.replace(key.getWord(), listValues);
             }
         }
     }
@@ -169,16 +168,16 @@ public class DictionaryMap implements IDictionaryMap {
             String value = "";
             Word word = null;
             if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
-                word = new Word(i, wordPL);
+                word = new Word(wordPL);
                 value = wordENG;
             } else if (typeLanguage == TypeOfDictionaryLanguage.ENGtoPL) {
-                word = new Word(i, wordENG);
+                word = new Word(wordENG);
                 value = wordPL;
             }
             List<String> listS = new ArrayList<>();
             listS.add(value);
-            keysAllMap.put(i, word);
-            dictionary.put(word, listS);
+            keysAllMap.put(keysAllMap.size(), word);
+            dictionary.put(word.getWord(), listS);
             sizeOfFullMap++;
         }
     }

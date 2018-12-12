@@ -102,8 +102,23 @@ public class SessionLogon {
     public void doSomethingbyLoggedUser() {
         if (SessionLogon.IdLoggedUser != -1) {
             DictionaryMap map = DictionaryMap.getInstance();
-            map.loadDictionary(1, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL, TypeOfUsedDatabase.OnlineOrginalDatabase);
-            SortedMap<Word, List<String>> dictionary = map.getRandTenMap();
+            map.loadDictionary(1, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
+            System.out.println("Keys");
+            Map<Integer, Word> keys = map.getKeysAllMap();
+            for (Map.Entry<Integer, Word> entry : keys.entrySet()) {
+                Integer key = entry.getKey();
+                Word value = entry.getValue();
+                System.out.println(key.toString() + ": " + value.toString());
+            }
+            System.out.println("Values");
+            Map<String, List<String>> values = map.getDictionary();
+            for (Map.Entry<String, List<String>> entry : values.entrySet()) {
+                String key = entry.getKey();
+                List<String> value = entry.getValue();
+                System.out.println(key.toString() + ": " + value.toString());
+            }
+            System.out.println("Dictionary");
+            Map<Word, List<String>> dictionary = map.getRandTenMap();
             for (Map.Entry<Word, List<String>> entry : dictionary.entrySet()) {
                 Word key = entry.getKey();
                 List<String> value = entry.getValue();
