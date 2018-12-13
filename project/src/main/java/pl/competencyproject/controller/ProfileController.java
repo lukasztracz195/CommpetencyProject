@@ -84,21 +84,21 @@ public class ProfileController extends AbstractController implements Initializab
 
     @FXML
     public void save() {
-        if(!saveIsActive){
-        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmation.setTitle("Aktualizacja konta");
-        confirmation.setContentText("Najpierw haslo z starego meila i do niego doklejasz z nowego ");
-        confirmation.setHeaderText("Wazne info!");
-        Optional<ButtonType> action = confirmation.showAndWait();
-        }
+//        if(!saveIsActive){
+//        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+//        confirmation.setTitle("Aktualizacja konta");
+//        confirmation.setContentText("Najpierw haslo z starego meila i do niego doklejasz z nowego ");
+//        confirmation.setHeaderText("Wazne info!");
+//        Optional<ButtonType> action = confirmation.showAndWait();
+//        }
 //        if (action.get() == ButtonType.OK) {}
         if (!emailIsEmpty()) {
             updateEmailOnly();
         } else if (!passwordIsEmpty()) {
             updatePasswordOnly();
-        } else if (!emailIsEmpty() && !passwordIsEmpty()) {
-            updateEmailAndPassword();
         }
+
+        System.out.println("logilofi");
 
     }
 
@@ -145,6 +145,8 @@ public class ProfileController extends AbstractController implements Initializab
             if (action.get() == ButtonType.OK) {
                 if (sessionLogon.checkCodeForEmailUpdate(Email.oldCode,Email.newCode)) {
                     manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
+                    profilNazwaUzytkownika.setText("");
+                    profilNazwaUzytkownika.setText(profilNowyEmail.getText());
                 }
             }
             confirmCode.setVisible(false);
@@ -183,15 +185,8 @@ public class ProfileController extends AbstractController implements Initializab
         }else labelConfirmPassword.setText("Incorrect Confirm Password");
     }
 
-    private void updateEmailAndPassword() {
-        if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText()) && profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-            manageUsers.updateEmail(SessionLogon.IdLoggedUser, profilNowyEmail.getText());
-            manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
-        }
-    }
-
     private boolean emailIsEmpty() {
-        if (profilNowyEmail.getText().trim().isEmpty()) {
+        if (profilNowyEmail.getText().trim().isEmpty() && profilNowyEmail2.getText().isEmpty()) {
             return true;
         } else return false;
     }
@@ -226,14 +221,20 @@ public class ProfileController extends AbstractController implements Initializab
 
     private void hideChangePassword() {
         profilNoweHaslo.setVisible(false);
+        profilNoweHaslo.clear();
         labelConfirmPassword.setVisible(false);
         profilPotwierdzHaslo.setVisible(false);
+        profilPotwierdzHaslo.clear();
+        confirmCode.setText("");
     }
 
     private void hideChangeEmail() {
         profilNowyEmail.setVisible(false);
         profilNowyEmail2.setVisible(false);
+        profilNowyEmail.clear();
+        profilNowyEmail2.clear();
         labelConfirmEmail.setVisible(false);
+        confirmCode.setText("");
     }
 
     private void approvesCode() {

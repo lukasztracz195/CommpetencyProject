@@ -83,7 +83,7 @@ public class SessionLogon {
     public int generateCode() {
        Random random = new Random(System.currentTimeMillis());
        int code = random.nextInt(8999) + 1000;
-       //random = null;
+       genereatedCode = code;
         return code;
     }
 
