@@ -137,7 +137,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT nameLevel FROM LEVELS");
+        NativeQuery query = session.createSQLQuery("SELECT DISTINCT nameLevel FROM LEVELS");
         List result = query.list();
         if (result == null) {
             result = new LinkedList<>();

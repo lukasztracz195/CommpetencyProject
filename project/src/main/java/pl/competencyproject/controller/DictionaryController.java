@@ -89,7 +89,7 @@ public class DictionaryController extends AbstractController implements Initiali
         typesDictionary[1] = DictionaryOfFamilys.toString();
         typesDictionary[2] = DictionaryOfSentences.toString();
         typeOfDictionaryChoiceBox.getItems().addAll(typesDictionary);
-        nameOfLevelChoiceBox.getItems().add("B2");
+        nameOfLevelChoiceBox.getItems().addAll(ML.getNamesLevels());
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }
     private void enableChoiceBoxes(){
