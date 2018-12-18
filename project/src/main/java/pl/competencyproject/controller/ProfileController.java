@@ -13,6 +13,8 @@ import javax.mail.internet.InternetAddress;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProfileController extends AbstractController implements Initializable {
 
@@ -52,6 +54,8 @@ public class ProfileController extends AbstractController implements Initializab
     private boolean showConfirmPasswordValue = false;
 
     private boolean saveIsActive = false;
+
+    private Email emailValidator;
 
     private static SessionLogon session = SessionLogon.getInstance();
     ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
@@ -141,13 +145,18 @@ public class ProfileController extends AbstractController implements Initializab
             hideChangeEmail();
             saveIsActive = false;
         }else if (profilNowyEmail.getText().equals(profilNowyEmail2.getText())) {
-            if(isValidEmailAddress(profilNowyEmail.getText())==false){System.out.println("HUJJJNIAAA");}
-            labelConfirmEmail.setStyle("-fx-background-color: #ff9966; -fx-background-radius: 15;");
-            labelConfirmEmail.setText("Confirm email");
-            Email.mailChangeMail(profilNazwaUzytkownika.getText(),profilNowyEmail.getText());
-            confirmCode.setVisible(true);
-            infoMassage();
-            saveIsActive = true;
+            if(!checkEmail(profilNowyEmail.getText())) {
+                labelConfirmEmail.setStyle("-fx-background-radius: 15; -fx-background-color: red;");
+                labelConfirmEmail.setText("Validation failed");
+            }
+            else{
+                labelConfirmEmail.setStyle("-fx-background-color: #ff9966; -fx-background-radius: 15;");
+                labelConfirmEmail.setText("Confirm email");
+                Email.mailChangeMail(profilNazwaUzytkownika.getText(), profilNowyEmail.getText());
+                confirmCode.setVisible(true);
+                infoMassage();
+                saveIsActive = true;
+            }
         }else {
             labelConfirmEmail.setStyle("-fx-background-radius: 15; -fx-background-color: red;");
             labelConfirmEmail.setText("Incorrect Confirm Email");
@@ -219,23 +228,13 @@ public class ProfileController extends AbstractController implements Initializab
         } else return false;
     }
 
-    private boolean checkEmail() {
-        if (profilNowyEmail.getText().trim().contains("@") && profilNowyEmail2.getText().contains("@")) {
-            if(profilNowyEmail.getText().trim().contains(".") && profilNowyEmail2.getText().contains("."))
-                return true;
-        }  return false;
+    private boolean checkEmail(String email) {
+        emailValidator = new Email();
+        boolean valid = emailValidator.validateEmail(email);
+        System.out.println("Email -> "+email+" is valid? -> "+valid);
+        return valid;
     }
 
-    private boolean isValidEmailAddress(String email) {
-        boolean result = true;
-        try {
-            InternetAddress emailAddr = new InternetAddress(email);
-            emailAddr.validate();
-        } catch (AddressException ex) {
-            result = false;
-        }
-        return result;
-    }
 
     private boolean passwordIsEmpty() {
         if (profilNoweHaslo.getText().trim().isEmpty()) {

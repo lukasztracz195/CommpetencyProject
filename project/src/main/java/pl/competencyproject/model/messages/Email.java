@@ -10,6 +10,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Email {
     private static final String host = "smtp.gmail.com";
@@ -19,6 +21,10 @@ public class Email {
     private static SessionLogon session = SessionLogon.getInstance();
     public static String newCode = null;
     public static String oldCode = null;
+
+    private static Pattern pattern;
+    private Matcher matcher;
+    private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
 
     public static void mailRegestration(String to) {
         try {
@@ -102,6 +108,15 @@ public class Email {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public Email() {
+           pattern = Pattern.compile(EMAIL_REGEX, Pattern.CASE_INSENSITIVE);
+    }
+
+    public boolean validateEmail(String email) {
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     private static void createMail(String to, String subject, String messageText){
