@@ -9,10 +9,6 @@ import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
-import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
-import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

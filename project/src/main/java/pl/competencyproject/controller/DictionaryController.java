@@ -9,6 +9,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import pl.competencyproject.model.csv.CSVReader;
+import pl.competencyproject.model.dao.classes.ManageLevels;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
@@ -16,6 +18,8 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
 
 public class DictionaryController extends AbstractController implements Initializable {
 
@@ -31,6 +35,8 @@ public class DictionaryController extends AbstractController implements Initiali
     private Label clockLabel;
     @FXML
     private Label dateLabel;
+
+    private ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,11 +84,13 @@ public class DictionaryController extends AbstractController implements Initiali
     }
 
     private void setChoiceBoxFields(){
-        typeOfDictionaryChoiceBox.getItems().add("B2");
-
-        nameOfLevelChoiceBox.getItems().addAll("1","2","3");
-
-        nameOfCategoryChoiceBox.getItems().addAll("Category1","Category2","Category3");
+        String[] typesDictionary = new String[3];
+        typesDictionary[0] = DictionaryOfWords.toString();
+        typesDictionary[1] = DictionaryOfFamilys.toString();
+        typesDictionary[2] = DictionaryOfSentences.toString();
+        typeOfDictionaryChoiceBox.getItems().addAll(typesDictionary);
+        nameOfLevelChoiceBox.getItems().add("B2");
+        nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }
     private void enableChoiceBoxes(){
         typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfLevelChoiceBox.setDisable(false));

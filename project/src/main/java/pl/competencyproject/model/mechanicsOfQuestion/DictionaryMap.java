@@ -2,13 +2,13 @@ package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.Getter;
 import pl.competencyproject.model.dao.classes.*;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
 import pl.competencyproject.model.entities.Dictionary_Word;
 import pl.competencyproject.model.entities.Word_ENG;
 import pl.competencyproject.model.entities.Word_PL;
-import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 
 import java.util.*;
@@ -53,10 +53,10 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     @Override
-    public void loadDictionary(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
-        if (type == TypeDictionaryDownloaded.DictionaryOfWords) {
+    public void loadDictionary(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
+        if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, typeDB);
-        } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
+        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
             initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
         }
         numberMaxOfSessions = calculateTheNumberOfCombinations();
@@ -109,7 +109,7 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
 
-    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
+    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionaryWords MDW;
         ManageWordsENG MWE;
         ManageWordsPL MWP;
@@ -118,9 +118,9 @@ public class DictionaryMap implements IDictionaryMap {
         MDW = ManageDictionaryWords.getInstance(typeDB);
         MWE = ManageWordsENG.getInstance(typeDB);
         MWP = ManageWordsPL.getInstance(typeDB);
-        if (type == TypeDictionaryDownloaded.DictionaryOfWords) {
+        if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
-        } else if (type == TypeDictionaryDownloaded.DictionaryOfFamilys) {
+        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
             dictionaryWordsFromBase = MDW.getDictionaryByFamilie(idDictionary);
         }
         dictionary = new HashMap<>();

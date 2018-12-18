@@ -1,6 +1,6 @@
 package pl.competencyproject.model.enums;
 
-public enum TypeDictionaryDownloaded {
+public enum TypeOfDictionaryDownloaded {
     DictionaryOfSentences,
     DictionaryOfWords,
     DictionaryOfFamilys

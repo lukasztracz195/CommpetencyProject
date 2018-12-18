@@ -3,11 +3,7 @@ package pl.competencyproject.model.dao;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
-import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.Word;
 import pl.competencyproject.model.messages.Email;
 
 import java.util.*;
@@ -118,7 +114,7 @@ public class SessionLogon {
         if (SessionLogon.IdLoggedUser != -1) {
             /*
             DictionaryMap map = DictionaryMap.getInstance();
-            map.loadDictionary(1, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
+            map.loadDictionary(1, TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
             System.out.println("Keys");
             Map<Integer, Word> keys = map.getKeysAllMap();
             for (Map.Entry<Integer, Word> entry : keys.entrySet()) {
