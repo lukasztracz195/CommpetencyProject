@@ -34,7 +34,8 @@ public class Email {
     public static void mailChangePassword(String to) {
         try {
             String subject = "Kod potwierdzający zmianę hasła";
-            String messageText = "Twój kod to: " + String.valueOf(session.generateCode());
+            newCode = String.valueOf(session.generateCode());
+            String messageText = "Twój kod to: " + newCode;
             createMail(to,subject,messageText);
             System.out.println("message send successfully");
         } catch (Exception ex) {
