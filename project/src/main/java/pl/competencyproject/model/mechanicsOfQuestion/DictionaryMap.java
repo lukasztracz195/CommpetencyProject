@@ -181,4 +181,18 @@ public class DictionaryMap implements IDictionaryMap {
             sizeOfFullMap++;
         }
     }
+
+    public void lightReset(){
+        this.currentSession = 0;
+        this.collectionOfuniqueness =  new HashSet<>();
+    }
+
+    public void hardReset(){
+        lightReset();
+        this.dictionary = null;
+        this.keysAllMap = null;
+        this.dictionarySentencysFromBase = null;
+        this.dictionaryWordsFromBase = null;
+        this.sizeOfFullMap = 0;
+    }
 }
