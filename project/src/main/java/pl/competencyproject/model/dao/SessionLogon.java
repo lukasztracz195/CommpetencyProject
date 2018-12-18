@@ -116,6 +116,7 @@ public class SessionLogon {
 
     public void doSomethingbyLoggedUser() {
         if (SessionLogon.IdLoggedUser != -1) {
+            /*
             DictionaryMap map = DictionaryMap.getInstance();
             map.loadDictionary(1, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
             System.out.println("Keys");
@@ -139,6 +140,8 @@ public class SessionLogon {
                 List<String> value = entry.getValue();
                 System.out.println(key.toString() + ": " + value.toString());
             }
+            */
         }
+
     }
 }
