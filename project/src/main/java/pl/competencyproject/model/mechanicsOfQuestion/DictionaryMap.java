@@ -59,14 +59,14 @@ public class DictionaryMap implements IDictionaryMap {
         } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
             initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
         }
-        numberMaxOfSessions = calculateTheNumberOfCombinations();
+        numberMaxOfSessions = 3*calculateTheNumberOfCombinations();
 
     }
 
     public SortedMap<Word, List<String>> getRandTenMap() {
 
         SortedMap<Word, List<String>> partMap = new TreeMap<>();
-        if (currentSession < numberMaxOfSessions) {
+        //if (currentSession < numberMaxOfSessions) {
 
             Integer id;
             int size = 10;
@@ -80,8 +80,8 @@ public class DictionaryMap implements IDictionaryMap {
                 List<String> value = dictionary.get(insertedKey.getWord());
                 partMap.put(insertedKey, value);
             }
-        }
-        currentSession++;
+        //}
+        //currentSession++;
         return partMap;
     }
 
@@ -92,7 +92,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     public Integer calculateTheNumberOfCombinations() {
         if (sizeOfFullMap > 10) {
-            return sizeOfFullMap % 10;
+            return sizeOfFullMap / 10;
         } else return 1;
     }
 

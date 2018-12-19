@@ -1,140 +1,79 @@
 package pl.competencyproject.model.mechanicsOfQuestion;
-/*
-import pl.competencyproject.model.DAO.classes.ManageDictionaryWords;
-import pl.competencyproject.model.DAO.classes.ManageWordsENG;
-import pl.competencyproject.model.DAO.classes.ManageWordsPL;
-import pl.competencyproject.model.entities.Dictionary_Word;
-import pl.competencyproject.model.entities.Word_ENG;
-import pl.competencyproject.model.entities.Word_PL;
+
+import pl.competencyproject.model.dao.SessionLogon;
+import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
+import pl.competencyproject.model.dao.classes.ManageWordsENG;
+import pl.competencyproject.model.dao.classes.ManageWordsPL;
+import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.*;
 
-public class Teacher
-{
-    List <Integer> SortedList = new ArrayList <Integer>();
-    Map<Word, List<String>> dictionary= new HashMap<Word, List<String>>();
-    int numerPositive=SortedList.size();
+public class Teacher {
+    SortedMap<Word, List<String>> currentMapQuestion;
+    Map<Word, LinkedList<String>> mapAllWords;
 
-    public void addEnglish()
+    public void funkcja()
     {
-        Set<String> words = new HashSet<>();
-        Word_ENG word_ENG;
-        Word_ENG word_ENG_pom;
-        Word_PL word_PL;
-        Dictionary_Word obiekt_ENG;
-        Dictionary_Word obiekt_ENG_pom;
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
-        ManageWordsENG MWE = ManageWordsENG.getInstance();
-        ManageWordsPL MWP = ManageWordsPL.getInstance();
-        List lista=new ArrayList();
-        lista=MDW.getDictionaryByLevel(1);
-        for(int i=0; i<lista.size(); i++)
+        int licznik=0;
+        DictionaryMap map = DictionaryMap.getInstance();
+        while(true)
         {
-            Word [] slowo = new Word[lista.size()];
-            for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
-            List <String> translations = new ArrayList<String>();
-            obiekt_ENG= (Dictionary_Word) lista.get(i);
-            word_ENG= MWE.getWordENG(obiekt_ENG.getIdWordENG());
-            if(words.contains(word_ENG.getWordENG())==false)
+            System.out.println("Wybierz poziom");
+            Scanner in = new Scanner(System.in);
+            Integer level = in.nextInt();
+            map.loadDictionary(level, TypeDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
+            if(level!=null)
             {
-                slowo[i].id = dictionary.size();
-                slowo[i].word = word_ENG.getWordENG();
-                words.add(word_ENG.getWordENG());
-                SortedList.add(dictionary.size());
-                for (int j = 0; j < lista.size(); j++)
-                {
-                    obiekt_ENG_pom = (Dictionary_Word) lista.get(j);
-                    word_ENG_pom = MWE.getWordENG(obiekt_ENG_pom.getIdWordENG());
-                    if (word_ENG.getIdWordENG() == word_ENG_pom.getIdWordENG()) {
-                        word_PL = MWP.getWordPL(obiekt_ENG_pom.getIdWordPL());
-                        translations.add(word_PL.getWordPL());
+                currentMapQuestion = map.getRandTenMap();
+                licznik++;
+                System.out.println(licznik);
+            }
+            System.out.println(currentMapQuestion.size());
+            for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
+                Word key = entry.getKey();
+                List<String> value = entry.getValue();
+                System.out.println(key.toString() + ": " + value.toString());
+            }
+            int rightAnswer = 0;
+            int wrongAnswer = 0;
+            for (int i = 0; i < currentMapQuestion.size(); i++) {
+                Word key = null;
+                String question = "";
+                int max = 0;
+                for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
+                    key = entry.getKey();
+                    if (key.getNumberOfTries() > max) {
+                        max = key.getNumberOfTries();
+                    }
+                    if (key.getNumberOfTries() == max) {
+                        question = key.getWord();
                     }
                 }
-                dictionary.put(slowo[i], translations);
-            }
-        }
-    }
-
-    public void addPolish()
-    {
-        Set<String> words = new HashSet<>();
-        Word_ENG word_ENG;
-        Word_PL word_PL;
-        Word_PL word_PL_pom;
-        Dictionary_Word obiekt_PL;
-        Dictionary_Word obiekt_PL_pom;
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance();
-        ManageWordsENG MWE = ManageWordsENG.getInstance();
-        ManageWordsPL MWP = ManageWordsPL.getInstance();
-        List lista=new ArrayList();
-        lista=MDW.getDictionaryByLevel(1);
-        for(int i=0; i<lista.size(); i++)
-        {
-            Word [] slowo = new Word[lista.size()];
-            for(int k=0;k<slowo.length;k++) slowo[k]=new Word();
-            List <String> translations = new ArrayList<String>();
-            obiekt_PL= (Dictionary_Word) lista.get(i);
-            word_PL= MWP.getWordPL(obiekt_PL.getIdWordPL());
-            if(words.contains(word_PL.getWordPL())==false)
-            {
-                slowo[i].id = dictionary.size();
-                slowo[i].word = word_PL.getWordPL();
-                words.add(word_PL.getWordPL());
-                SortedList.add(dictionary.size());
-                for (int j = 0; j < lista.size(); j++)
-                {
-                    obiekt_PL_pom = (Dictionary_Word) lista.get(j);
-                    word_PL_pom = MWP.getWordPL(obiekt_PL_pom.getIdWordPL());
-                    if (word_PL.getIdWordPL() == word_PL_pom.getIdWordPL()) {
-                        word_ENG = MWE.getWordENG(obiekt_PL_pom.getIdWordENG());
-                        translations.add(word_ENG.getWordENG());
+                System.out.println("Podaj tłumaczenie: " + question);
+                String answer = in.nextLine();
+                for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
+                    List<String> value = entry.getValue();
+                    if (value.contains(answer)) {
+                        rightAnswer++;
+                        key = entry.getKey();
+                        key.decreasNumberOfAttempts();
+                        System.out.println(key.getNumberOfTries());
                     }
                 }
-                dictionary.put(slowo[i], translations);
+                System.out.println(rightAnswer + " " + wrongAnswer);
+            }
+            for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
+                Word key = entry.getKey();
+                List<String> value = entry.getValue();
+                System.out.println(key.toString() + ": " + value.toString());
             }
         }
-    }
+        /*System.out.println("Chcesz kontynuować naukę tego poziomu? ");
+        Scanner in = new Scanner(System.in);
+        String answer = in.nextLine();
+        if(answer=="tak")*/
 
-    public void addAll()
-    {
-        addEnglish();
-        addPolish();
-        for (Word entry : dictionary.keySet())
-        {
-            List value = dictionary.get(entry);
-            System.out.println(entry.id + " " + entry.word + "" + value + " ");
-        }
-    }
-
-    public void losuj()
-    {
-        Random rand = new Random();
-        int r;
-        int index;
-        String answer;
-        Word word=new Word();
-        for(int i=0; i<dictionary.size(); i++)
-        {
-            Iterator<Word> iter = dictionary.keySet().iterator();
-            index=rand.nextInt(SortedList.size());
-            r=SortedList.get(index);
-            while (iter.hasNext())
-            {
-                Word slowo = iter.next();
-                if (slowo.id==r)
-                {
-                    System.out.println("Podaj tłumaczenie: "+slowo.word);
-                    Scanner in = new Scanner(System.in);
-                    answer = in.nextLine();
-                    if(dictionary.get(slowo).contains(answer))
-                    {
-                        numerPositive++;
-                    }
-                    SortedList.remove(index);
-                }
-            }
-        }
-        System.out.println(numerPositive+" poprawnych odpowiedzi");
     }
 }
-*/

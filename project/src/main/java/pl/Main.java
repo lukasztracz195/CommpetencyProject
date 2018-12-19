@@ -9,6 +9,15 @@ import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+<<<<<<< Updated upstream
+=======
+import pl.competencyproject.model.dao.classes.ManageWordsENG;
+import pl.competencyproject.model.enums.TypeDictionaryDownloaded;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
+>>>>>>> Stashed changes
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,7 +26,8 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static void main(String[] args) throws FileNotFoundException {
-        //Teacher DW = new Teacher();
+        Teacher teacher = new Teacher();
+        teacher.funkcja();
         //DW.addEnglish();
         //DW.addPolish();
         //DW.addAll();

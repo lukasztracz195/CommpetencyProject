@@ -2,11 +2,6 @@ package pl.competencyproject.model.mechanicsOfQuestion.interfaces;
 
 public interface ITeacher {
     /*
-
-    ZANIM PRZECZYTASZ TO CO JEST NIŻEJ TO:
-
-        NIE MYLI SIĘ TYLKO TEN KTÓRY NIC NIE ROBI!
-
     To powina zawierać klasa Teacher
     classa Word musi posiadać licznik odpytań domyślnie jest to 3 jak słowo pojawi się dla użytkownika w pytniu licznik spada o 1
     jak licznik osiągnie 0 to dane słowo wypada z  currentMapQuestion
