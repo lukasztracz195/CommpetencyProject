@@ -3,6 +3,7 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords;
 import pl.competencyproject.model.entities.Dictionary_Word;
@@ -78,30 +79,6 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-    /*
-        public Integer insertDictionaryWordswithoutLevel(Integer idFamily, Integer idWordENG, Integer idWordPL) {
-
-            Transaction tx = null;
-            int idDictionary = -1;
-            if (SessionLogon.IdLoggedUser > 0) {
-                if (!session.isOpen()) {
-                    session = sessionFactory.openSession();
-                }
-                try {
-                    tx = session.beginTransaction();
-                    Dictionary_Word dictionary = new Dictionary_Word(null, idFamily, idWordENG, idWordPL);
-                    idDictionary = (Integer) session.save(dictionary);
-                    tx.commit();
-                } catch (HibernateException e) {
-                    if (tx != null) tx.rollback();
-                    e.printStackTrace();
-                } finally {
-                    session.close();
-                }
-            }
-            return idDictionary;
-        }
-    */
     public List<Dictionary_Word> getDictionaryByLevel(Integer idLevel) {
 
         if (!session.isOpen()) {
@@ -123,13 +100,6 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idFamily", idFamily);
         List result = query.list();
-        /*
-        Map<Integer, Dictionary_Word> resultMap = new HashMap<>();
-        for(int i=0;i<result.size();i++){
-            Dictionary_Word value = result.get(i);
-            resultMap.put(i,value);
-        }
-        */
         return result;
     }
 
@@ -138,7 +108,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE  idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idFamily", idFamily);
@@ -153,21 +123,31 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return -1;
     }
 
-    public Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
+    public Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWENG, Integer idWPL) {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel AND idFamily IS NULL AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE idLevel = :ID_LEVEL AND idFamily IS NULL AND idWordENG = :ID_WENG AND idWordPL = :ID_WPL");
+        query.setParameter("ID_WENG", idWENG);
+        query.setParameter("ID_WPL", idWPL);
+        query.setParameter("ID_LEVEL", idLevel);
         query.addEntity(Dictionary_Word.class);
-        query.setParameter("idLevel", idLevel);
-        query.setParameter("idWordENG", idWordENG);
-        query.setParameter("idWordPL", idWordPL);
         List result = query.list();
         if (!result.isEmpty()) {
             Dictionary_Word dic = (Dictionary_Word) result.get(0);
             return dic.getIdDictionaryWords();
         }
         return -1;
+    }
+
+    public void setFamilyinExistedDictionaryWord(Integer idDictionaryWord, Integer idFamily) {
+        if (!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        NativeQuery query = session.createSQLQuery("UPDATE DICTIONARY_WORDS SET idFamily = :ID_Family WHERE idDictionaryWords = :ID_Dictionary");
+        query.setParameter("ID_Family", idFamily);
+        query.setParameter("ID_Dictionary", idDictionaryWord);
+        int result = query.executeUpdate();
     }
 }

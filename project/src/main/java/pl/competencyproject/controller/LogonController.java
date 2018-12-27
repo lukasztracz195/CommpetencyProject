@@ -11,6 +11,7 @@ import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.messages.Email;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,7 +61,7 @@ public class LogonController extends AbstractController implements Initializable
 
     }
 
-    private void login() {
+    private void login()   {
         sessionLogon.logIn(emailTextField.getText(), passwordTextField.getText());
         SessionLogon.email=emailTextField.getText();
         clearAllFeedbackLabels();
@@ -105,7 +106,7 @@ public class LogonController extends AbstractController implements Initializable
     }
 
     @FXML
-    public void controlLogSignCheckButton() {
+    public void controlLogSignCheckButton()   {
         if (statusLogin) {
             login();
             if (SessionLogon.logged) {

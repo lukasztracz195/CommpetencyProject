@@ -11,23 +11,29 @@ import java.util.List;
 import static java.lang.Math.abs;
 
 public class CSVReader {
-    private LibraryCSV library;
-    private String choosedCSV;
-    private Integer choosedLevel;
-    private String StringENG;
-    private String StringPL;
-    private int PLindex;
-    private int ENGindex;
-    private FileOfCSV fileOfCSV;
     public static CSVReader instance;
-    private TypeOfUsedDatabase type;
 
+    private static LibraryCSV library;
+    private static String choosedCSV;
+    private static Integer choosedLevel;
+    private static String StringENG;
+    private static String StringPL;
+    private static int PLindex;
+    private static int ENGindex;
+    private static FileOfCSV fileOfCSV;
+    private static TypeOfUsedDatabase type;
+    private List<String> listOfLines;
+
+    private static ManageFamily MF = null;
+    private static ManageWordsENG MWE = null;
+    private static ManageWordsPL MWP = null;
+    private static ManageDictionaryWords MDW = null;
     private CSVReader(TypeOfUsedDatabase type) {
         library = new LibraryCSV(type);
+        this.type = type;
     }
 
     public static CSVReader getInstance(TypeOfUsedDatabase type) {
-
         if (instance == null) {
             synchronized (ManageFamily.class) {
                 if (instance == null) {
@@ -39,30 +45,30 @@ public class CSVReader {
     }
 
     public void chooseLevel(String nameLevel, String nameOfCategory) {
-        ManageLevels ml = ManageLevels.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        ManageLevels ml = ManageLevels.getInstance(type);
         int id = ml.existLevel(nameLevel, nameOfCategory);
         if (id != -1) {
             choosedLevel = id;
+        } else {
+            System.out.println("NIE MA TAKIEGO LEVELU");
         }
     }
 
-    public void chooseCSV(String CSVname, TypeOfUsedDatabase type) throws FileNotFoundException//throws IOException
-    {
+    public void chooseCSV(String CSVname) {
         if (library.existFileCSVinFolder(CSVname)) {
             choosedCSV = CSVname;
         }
         fileOfCSV = new FileOfCSV(choosedCSV, type);
     }
 
-    public void chooseCSV(File fileCSV) throws FileNotFoundException//throws IOException
-    {
+    public void chooseCSV(File fileCSV) {
         fileOfCSV = new FileOfCSV(fileCSV);
     }
 
-    public Integer insertDictionarySentences() throws FileNotFoundException {
+    public Integer insertDictionarySentences() {
         ManageDictionarySentences MDS = null;
 
-            MDS = ManageDictionarySentences.getInstance(type);
+        MDS = ManageDictionarySentences.getInstance(type);
 
         int records = 0;
         String line = fileOfCSV.getRead().nextLine();
@@ -74,7 +80,8 @@ public class CSVReader {
                 String[] tokens = line.split(";");
                 StringPL = tokens[PLindex];
                 StringENG = tokens[ENGindex];
-                if (MDS.existDictionarySentences(choosedLevel, StringENG, StringPL) == -1) {
+                int check = MDS.existDictionarySentences(choosedLevel, StringENG, StringPL);
+                if (check == -1) {
                     records++;
                     MDS.insertDictionarySentece(choosedLevel, StringENG, StringPL);
                 }
@@ -83,44 +90,45 @@ public class CSVReader {
         return records;
     }
 
-    public Integer insertDictionaryWordswithoutFamily() throws FileNotFoundException {
+    private void readLinesFromFile() {
+        listOfLines = null;
+        listOfLines = new ArrayList<>();
+        while (fileOfCSV.getRead().hasNextLine()) {
+            String line = fileOfCSV.getRead().nextLine();
+            if (line.contains(";")) {
+                listOfLines.add(line);
+            }
+        }
+    }
+
+    public Integer insertDictionaryWordswithoutFamily() {
         int records = 0;
-        ManageWordsENG MWE = null;
-        ManageWordsPL MWP = null;
-        ManageDictionaryWords MDW = null;
-        MWE = ManageWordsENG.getInstance(type);
-        MWP = ManageWordsPL.getInstance(type);
-        MDW = ManageDictionaryWords.getInstance(type);
-
-
-        String line = fileOfCSV.getRead().nextLine();
-        if (checkHeaderWordsSentenses(line)) {
-            String[] headerParts = line.split(";");
+        readLinesFromFile();
+         MWE = ManageWordsENG.getInstance(type);
+         MWP = ManageWordsPL.getInstance(type);
+         MDW = ManageDictionaryWords.getInstance(type);
+        String header = listOfLines.get(0);
+        if (checkHeaderWordsSentenses(header)) {
+            String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
-
-            while (fileOfCSV.getRead().hasNextLine()) {
-                line = fileOfCSV.getRead().nextLine();
-                String[] tokens = line.split(";");
+            for (int i = 1; i < listOfLines.size(); i++) {
+                String[] tokens = listOfLines.get(i).split(";");
                 StringPL = tokens[PLindex];
                 StringENG = tokens[ENGindex];
                 Integer IdWordENG = checkReturnOrAddWordENG(MWE, StringENG);
                 Integer IdWordPL = checkReturnOrAddWordPL(MWP, StringPL);
-                System.out.println("exist = " + MDW.existDictionaryWordsWithoutFamilie(choosedLevel, IdWordENG, IdWordPL));
-                if (MDW.existDictionaryWordsWithoutFamilie(choosedLevel, IdWordENG, IdWordPL) == -1) {
-                    records++;
+                int check = MDW.existDictionaryWordsWithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                if (check == -1) {
                     MDW.insertDictionaryWordswithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                    records++;
                 }
             }
-        }
+        } else System.out.println("Nagłówek się nie zgadza");
         return records;
     }
 
 
     public Integer insertFamily() {
-        ManageFamily MF = null;
-        ManageWordsENG MWE = null;
-        ManageWordsPL MWP = null;
-        ManageDictionaryWords MDW = null;
         MF = ManageFamily.getInstance(type);
         MWE = ManageWordsENG.getInstance(type);
         MWP = ManageWordsPL.getInstance(type);
@@ -156,7 +164,11 @@ public class CSVReader {
                     if (IdWordENG == -1) IdWordENG = MWE.existWordENG(considered);
                     if (IdWordPL == -1) IdWordPL = MWP.existWordPL(translation);
                     if (MDW.existDictionaryWords(choosedLevel, idFamily, IdWordENG, IdWordPL) == -1) {
-                        if (MDW.insertDictionaryWords(choosedLevel, idFamily, IdWordENG, IdWordPL) != -1) {
+                        int exist = MDW.existDictionaryWordsWithoutFamilie(choosedLevel, IdWordENG, IdWordPL);
+                        if (exist != -1) {
+                            MDW.setFamilyinExistedDictionaryWord(exist, idFamily);
+                        } else {
+                            MDW.insertDictionaryWords(choosedLevel, idFamily, IdWordENG, IdWordPL);
                             howAdded++;
                         }
                     }

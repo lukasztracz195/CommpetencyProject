@@ -1,11 +1,19 @@
 package pl.competencyproject.model.dao;
 
+import pl.competencyproject.model.csv.CSVReader;
+import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
+import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+import pl.competencyproject.model.mechanicsOfQuestion.Word;
 import pl.competencyproject.model.messages.Email;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class SessionLogon {
@@ -18,7 +26,6 @@ public class SessionLogon {
     private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
     private static SessionLogon instance;
     public static String email;
-
 
 
     private SessionLogon() {
@@ -46,10 +53,12 @@ public class SessionLogon {
                     if (!tmpUser.isActive()) {
                         manageUsers.updateActiveUser(IdLoggedUser, true);
                         logged = true;
+                        doSomethingbyLoggedUser();
                     }
                 }
             }
-            doSomethingbyLoggedUser();
+
+
         }
     }
 
@@ -77,13 +86,13 @@ public class SessionLogon {
     }
 
     public int generateCode() {
-       Random random = new Random(System.currentTimeMillis());
-       int code = random.nextInt(8999) + 1000;
-       genereatedCode = code;
+        Random random = new Random(System.currentTimeMillis());
+        int code = random.nextInt(8999) + 1000;
+        genereatedCode = code;
         return code;
     }
 
-    public boolean checkCodeForEmailUpdate(String oldEmail,String newEmail) {
+    public boolean checkCodeForEmailUpdate(String oldEmail, String newEmail) {
         int code1 = Integer.valueOf(oldEmail);
         int code2 = Integer.valueOf(newEmail);
         String concat = Integer.toString(code1) + Integer.toString(code2);
@@ -111,10 +120,16 @@ public class SessionLogon {
     }
 
     public void doSomethingbyLoggedUser() {
-        if (SessionLogon.IdLoggedUser != -1) {
-            /*
+    /*
+            CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+            csvReader.chooseLevel("B2", "Working life");
+            csvReader.chooseCSV("FAMILY");
+            int inserted = csvReader.insertFamily();
+            System.out.println("Do bazy dodano " + inserted + " nowych słów");
+
+
             DictionaryMap map = DictionaryMap.getInstance();
-            map.loadDictionary(1, TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
+            map.loadDictionary(18, TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL, TypeOfUsedDatabase.OnlineOrginalDatabase);
             System.out.println("Keys");
             Map<Integer, Word> keys = map.getKeysAllMap();
             for (Map.Entry<Integer, Word> entry : keys.entrySet()) {
@@ -137,7 +152,5 @@ public class SessionLogon {
                 System.out.println(key.toString() + ": " + value.toString());
             }
             */
-        }
-
     }
 }
