@@ -84,7 +84,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel =  :idLevel");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         List result = query.list();
@@ -96,7 +96,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily =  :idFamily");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily = :idFamily");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idFamily", idFamily);
         List result = query.list();
@@ -108,7 +108,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery(
-                "SELECT * FROM DICTIONARY_WORDS WHERE  idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL + :idWordPL");
+                "SELECT * FROM DICTIONARY_WORDS WHERE  idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL = :idWordPL");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
         query.setParameter("idFamily", idFamily);
