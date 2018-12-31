@@ -262,7 +262,7 @@ public class CSVReader {
         return word1.substring(ind - maxi, ind);
     }
 
-    public int levenstein(String source, String destiny) {
+    public static Integer levenstein(String source, String destiny) {
         int i, j, m, n, cost;
         int d[][];
         m = source.length();

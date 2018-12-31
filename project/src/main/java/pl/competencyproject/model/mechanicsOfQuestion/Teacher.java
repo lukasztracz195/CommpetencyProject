@@ -1,76 +1,157 @@
-/*
+
 package pl.competencyproject.model.mechanicsOfQuestion;
 
+import lombok.Getter;
+import pl.competencyproject.model.csv.CSVReader;
+import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.*;
 
+@Getter
 public class Teacher {
-    SortedMap<Word, List<String>> currentMapQuestion;
-    Map<Word, LinkedList<String>> mapAllWords;
+    public static Teacher instance;
 
-    public void funkcja()
-    {
-        int licznik=0;
-        DictionaryMap map = DictionaryMap.getInstance();
-        while(true)
-        {
-            System.out.println("Wybierz poziom");
-            Scanner in = new Scanner(System.in);
-            Integer level = in.nextInt();
-            map.loadDictionary(level, TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.PLtoENG, TypeOfUsedDatabase.OnlineOrginalDatabase);
-            if(level!=null)
-            {
-                currentMapQuestion = map.getRandTenMap();
-                licznik++;
-                System.out.println(licznik);
-            }
-            System.out.println(currentMapQuestion.size());
-            for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
-                Word key = entry.getKey();
-                List<String> value = entry.getValue();
-                System.out.println(key.toString() + ": " + value.toString());
-            }
-            int rightAnswer = 0;
-            int wrongAnswer = 0;
-            for (int i = 0; i < currentMapQuestion.size(); i++) {
-                Word key = null;
-                String question = "";
-                int max = 0;
-                for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
-                    key = entry.getKey();
-                    if (key.getNumberOfTries() > max) {
-                        max = key.getNumberOfTries();
-                    }
-                    if (key.getNumberOfTries() == max) {
-                        question = key.getWord();
-                    }
+    private SortedMap<Word, List<String>> currentMapQuestion;
+    private DictionaryMap factoryDictionary;
+    private TypeOfUsedDatabase type;
+    private String currentQuestion;
+    private Word key;
+    private List<String> currentAnswer;
+    private Integer currentRound = 0;
+    private Integer trades = 0;
+    private Integer numberOfGoodAnswers = 0;
+    private Integer numberOfBadAnswers = 0;
+    private Double valueProgress = (double) 0;
+    private int numberMaxOfSessions;
+
+    private Teacher(TypeOfUsedDatabase type) {
+        this.type = type;
+    }
+
+
+    public static Teacher getInstance(TypeOfUsedDatabase type) {
+        if (instance == null) {
+            synchronized (Teacher.class) {
+                if (instance == null) {
+                    instance = new Teacher(type);
                 }
-                System.out.println("Podaj tłumaczenie: " + question);
-                String answer = in.nextLine();
-                for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
-                    List<String> value = entry.getValue();
-                    if (value.contains(answer)) {
-                        rightAnswer++;
-                        key = entry.getKey();
-                        key.decreasNumberOfAttempts();
-                        System.out.println(key.getNumberOfTries());
-                    }
-                }
-                System.out.println(rightAnswer + " " + wrongAnswer);
-            }
-            for (Map.Entry<Word, List<String>> entry : currentMapQuestion.entrySet()) {
-                Word key = entry.getKey();
-                List<String> value = entry.getValue();
-                System.out.println(key.toString() + ": " + value.toString());
             }
         }
-        /*System.out.println("Chcesz kontynuować naukę tego poziomu? ");
-        Scanner in = new Scanner(System.in);
-        String answer = in.nextLine();
-        if(answer=="tak")
+        return instance;
+    }
+
+    public void initDictionary(String nameLevel, String nameCategorie, TypeOfDictionaryDownloaded typeDictionary, TypeOfDictionaryLanguage typeLanguage) {
+        factoryDictionary = DictionaryMap.getInstance();
+        int check = getIdOfLevel(nameLevel, nameCategorie);
+        if (check != -1) {
+            factoryDictionary.loadDictionary(check, typeDictionary, typeLanguage, type);
+            currentMapQuestion = factoryDictionary.getRandTenMap();
+            numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
+            changeQuestion();
+        } else {
+            System.out.println("Nie istnieje taki level");
+        }
+    }
+
+    private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
+        ManageLevels ML = ManageLevels.getInstance(type);
+        int result = ML.existLevel(nameLevel, nameCategorie);
+        return result;
+    }
+
+    public boolean checkAnswer(String answer) {
+        if (!currentMapQuestion.isEmpty()) {
+            List<Integer> diffrentsAnswers = new ArrayList<>();
+            trades++;
+            //0 == good  1 == bad
+            int size = currentAnswer.size();
+            System.out.println("Value: " + currentAnswer.toString());
+            for (String s : currentAnswer) {
+                diffrentsAnswers.add(CSVReader.levenstein(answer, s));
+            }
+            // System.out.println("Size dictionary: " + getCurrentMapQuestion().size());
+            Collections.sort(diffrentsAnswers);
+            int checked = diffrentsAnswers.get(0);
+            if (checked <= 1) {
+                goodAnswer();
+                return true;
+
+            } else {
+                badAnswer();
+                return false;
+            }
+        }
+        return false;
+    }
+
+
+    private void goodAnswer() {
+        //System.out.println("Good");
+        currentMapQuestion.remove(key, currentAnswer);
+        changeQuestion();
+        numberOfGoodAnswers++;
+    }
+
+    private void badAnswer() {
+        //  System.out.println("Bad");
+        Word oldKey = new Word(key);
+        List<String> tmpValue = new ArrayList<>(currentAnswer);
+        getCurrentMapQuestion().remove(key, tmpValue);
+        oldKey.decreasNumberOfAttempts();
+        getCurrentMapQuestion().put(oldKey, tmpValue);
+        if (oldKey.getNumberOfTries() == 0) {
+            getCurrentMapQuestion().remove(oldKey, tmpValue);
+        }
+        changeQuestion();
+        numberOfBadAnswers++;
+    }
+
+    private void changeQuestion() {
+        if (!currentMapQuestion.isEmpty()) {
+            key = currentMapQuestion.lastKey();
+            currentQuestion = key.toString();
+            currentAnswer = currentMapQuestion.get(key);
+            if (currentAnswer == null) {
+                //   System.out.println("currentAnswer == null");
+            }
+        }
+    }
+
+    public void initNextRoundOfQuestions() {
+            if (numberMaxOfSessions >= currentRound) {
+                getValueProgress();
+                currentMapQuestion = factoryDictionary.getRandTenMap();
+                currentRound++;
+            }
+    }
+
+    public Double getValueProgress() {
+        int fullSizeOfDDictionary = factoryDictionary.getSizeOfFullMap();
+        double valuePart1 = (10.0 * currentRound) / fullSizeOfDDictionary;
+        double valuePart2 = ((numberOfGoodAnswers * 1.5) - numberOfBadAnswers) / trades;
+        valueProgress += valuePart1 + valuePart2;
+        return valueProgress;
+    }
+
+    public String randGoodOrBadAnswer() {
+        Random random = new Random();
+        // 0 = bad     1 = good
+        int choice = random.nextInt(100);
+        String result = null;
+        if (choice <= 60) {
+            result = "abcdfghijkl";
+        } else {
+            int choice2 = random.nextInt(currentAnswer.size());
+            System.out.println("Los: " + choice2 + " size: " + currentAnswer.size());
+            result = currentAnswer.get(choice2);
+        }
+
+        return result;
+    }
+
+
 }
-}
-*/
+

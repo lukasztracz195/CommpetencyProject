@@ -56,7 +56,7 @@ public class DictionaryMap implements IDictionaryMap {
     public void loadDictionary(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, typeDB);
-        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
+        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfSentences) {
             initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
         }
         numberMaxOfSessions = 3*calculateTheNumberOfCombinations();
@@ -92,7 +92,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     public Integer calculateTheNumberOfCombinations() {
         if (sizeOfFullMap > 10) {
-            return sizeOfFullMap / 10;
+            return ((sizeOfFullMap / 10));
         } else return 1;
     }
 
@@ -125,7 +125,6 @@ public class DictionaryMap implements IDictionaryMap {
         }
         dictionary = new HashMap<>();
         keysAllMap = new HashMap<>();
-        System.out.println(dictionaryWordsFromBase.size());
         for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
             Dictionary_Word tmpEntite = dictionaryWordsFromBase.get(i);
             Word_ENG tmpWordENG = MWE.getWordENG(tmpEntite.getIdWordENG());
