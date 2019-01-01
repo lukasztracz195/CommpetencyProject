@@ -9,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import pl.competencyproject.model.csv.CSVReader;
+import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
@@ -36,19 +37,23 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     private Label dateLabel;
 
-    private ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    @FXML
+    private Label feedbackLabel;
 
+    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
-        setChoiceBoxFields();
+        setChoiceBoxOfTypesOfDictionary();
         enableChoiceBoxes();
     }
 
     @FXML
     public void addDictionary() throws FileNotFoundException {
         CSVReader csvReader=CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().toString(),nameOfCategoryChoiceBox.getSelectionModel().toString());
+        System.out.println(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString()+" "+nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
+        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(),nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
 
         FileChooser fileChooser=new FileChooser();
         fileChooser.setInitialDirectory(new File("C:\\Users"));
@@ -60,7 +65,9 @@ public class DictionaryController extends AbstractController implements Initiali
                 selectedFiles.get(i).getAbsolutePath();
                 csvReader.chooseCSV(selectedFiles.get(i));
             }
-
+            int howMatch = csvReader.insertDictionaryWordswithoutFamily();
+            feedbackLabel.setVisible(true);
+            feedbackLabel.setText("Do bazy dodano "+howMatch+" nowych wpisów");
         }
     }
     @FXML
@@ -71,6 +78,7 @@ public class DictionaryController extends AbstractController implements Initiali
         nameOfCategoryChoiceBox.setValue(null);
         nameOfCategoryChoiceBox.setDisable(true);
         addNewDictionaryButton.setDisable(true);
+        feedbackLabel.setVisible(false);
     }
     @FXML
     public void back() {
@@ -83,18 +91,21 @@ public class DictionaryController extends AbstractController implements Initiali
         sessionLogon.logOut();
     }
 
-    private void setChoiceBoxFields(){
-        String[] typesDictionary = new String[3];
-        typesDictionary[0] = DictionaryOfWords.toString();
-        typesDictionary[1] = DictionaryOfFamilys.toString();
-        typesDictionary[2] = DictionaryOfSentences.toString();
-        typeOfDictionaryChoiceBox.getItems().addAll(typesDictionary);
-        nameOfLevelChoiceBox.getItems().addAll(ML.getNamesLevels());
+    private void setChoiceBoxOfTypesOfDictionary(){
+
+        typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords.toString());
+        nameOfLevelChoiceBox.getItems().add("B2");
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }
+
+
     private void enableChoiceBoxes(){
+
+
         typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfLevelChoiceBox.setDisable(false));
         nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfCategoryChoiceBox.setDisable(false));
         nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->addNewDictionaryButton.setDisable(false));
+
+
     }
 }

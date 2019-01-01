@@ -30,7 +30,7 @@ public class ReaderCSVTest {
     @Test
     public void addFamily() throws FileNotFoundException {
         SessionLogon.IdLoggedUser = 1;
-        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         ManageDictionaryWords MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         ML.addLevel("B2", "Working life");
         int id = ML.existLevel("B2", "Working life");
@@ -91,7 +91,7 @@ public class ReaderCSVTest {
         String sentencePL="Idź za głosem serca – ale rozum zabieraj ze sobą.";
         String sentenceENG = "Follow your heart, but take your brain with you.";
 
-        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         int idLevel = ML.existLevel("B2", "Working life");
         if(idLevel == -1){
             ML.addLevel("B2", "Working life");
@@ -111,7 +111,7 @@ public class ReaderCSVTest {
         String sentencePL="pies";
         String sentenceENG = "dog";
 
-        ManageLevels ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         ManageWordsENG MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         ManageWordsPL MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
 

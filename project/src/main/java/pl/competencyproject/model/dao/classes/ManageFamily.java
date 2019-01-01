@@ -16,19 +16,14 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     private static ManageFamily instance;
     public static final String TABLE = "FAMILIES";
 
-    private ManageFamily(TypeOfUsedDatabase type) {
+    public ManageFamily(TypeOfUsedDatabase type) {
         super(type);
     }
 
-    public static ManageFamily getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageFamily.class) {
-                if (instance == null) {
-                    instance = new ManageFamily(type);
-                }
-            }
-        }
-        return instance;
+
+
+    public static void delete(){
+        instance = null;
     }
 
     public Integer addFamily(int idLevel, String headFamily) {

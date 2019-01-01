@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import pl.competencyproject.model.dao.classes.ManageUsers;
@@ -201,5 +202,12 @@ public class LogonController extends AbstractController implements Initializable
         emailFeedbackLabel.setTextFill(new Color(1, 0, 0, 1));
         emailFeedbackLabel.setText("");
         passwordFeedbackLabel.setText("");
+    }
+
+    @FXML
+    private void checkPressEnter(KeyEvent e) {
+        if (e.getCode().toString().equals("ENTER")) {
+            controlLogSignCheckButton();
+        }
     }
 }

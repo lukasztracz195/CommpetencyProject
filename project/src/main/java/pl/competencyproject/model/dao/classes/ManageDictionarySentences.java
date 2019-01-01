@@ -31,6 +31,10 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return instance;
     }
 
+    public static void delete(){
+        instance = null;
+    }
+
     public Integer insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
         Transaction tx = null;
         int idDictionary = -1;

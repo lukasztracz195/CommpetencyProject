@@ -1,20 +1,11 @@
 package pl.competencyproject.model.dao;
 
-import pl.competencyproject.model.csv.CSVReader;
-import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
-import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.Time.GeneralClock;
 import pl.competencyproject.model.entities.User;
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
-import pl.competencyproject.model.mechanicsOfQuestion.Word;
 import pl.competencyproject.model.messages.Email;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class SessionLogon {
@@ -122,78 +113,5 @@ public class SessionLogon {
 
     public void doSomethingbyLoggedUser() {
 
-        //DZIAŁAJĄCY BOT DO ODPYTYWANIA WERSJA ROBOCZA
-/*
-
-
-        Teacher teacher = Teacher.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-        System.out.println("Start download");
-        teacher.initDictionary("B2", "Structure of the University", TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL);
-        System.out.println("koniec zaciągania z bazy dictionarySize = " + teacher.getCurrentMapQuestion().size());
-
-        for (Map.Entry<Word, List<String>> entry : teacher.getCurrentMapQuestion().entrySet()) {
-            Word key1 = entry.getKey();
-            List<String> value1 = entry.getValue();
-            System.out.println(key1.toString() + ": " + value1.toString());
-        }
-        for(int i =1 ;i<=teacher.getNumberMaxOfSessions();i++) {
-            System.out.println("Sesja nr. "+i+" z "+teacher.getNumberMaxOfSessions()+" "+"wszystkich kluczy jest "+teacher.getFactoryDictionary().getSizeOfFullMap());
-            while (!teacher.getCurrentMapQuestion().isEmpty()) {
-                System.out.println("\nQuestion: " + teacher.getCurrentQuestion());
-                String answer = teacher.randGoodOrBadAnswer();
-                teacher.checkAnswer(answer);
-                System.out.println("Ansswer: " + answer + "\n");
-               /* if(!teacher.getCurrentMapQuestion().isEmpty()) {
-                    System.out.println("Dictionary");
-                    Map<Word, List<String>> dictionary = teacher.getCurrentMapQuestion();
-                    for (Map.Entry<Word, List<String>> entry : dictionary.entrySet()) {
-                        Word key = entry.getKey();
-                        List<String> value = entry.getValue();
-                        System.out.println(key.toString() + ": " + value.toString());
-                    }
-                }
-
-            }
-            teacher.initNextRoundOfQuestions();
-        }
-        System.out.println("Good Answers: "+teacher.getNumberOfGoodAnswers());
-        System.out.println("Wrong Answers: "+teacher.getNumberOfBadAnswers());
-        System.out.println("ValueProgress: "+teacher.getValueProgress());
-        System.out.println("Dictionary");
-
-*/
-    // TESTOWANIE DODAWANIA DO BAZY I ZNIEJ POBIERANIA
-/*
-            CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-            csvReader.chooseLevel("B2", "Working life");
-            csvReader.chooseCSV("FAMILY");
-            int inserted = csvReader.insertFamily();
-            System.out.println("Do bazy dodano " + inserted + " nowych słów");
-
-
-            DictionaryMap map = teacher.getFactoryDictionary();
-          //  map.loadDictionary(18, TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL, TypeOfUsedDatabase.OnlineOrginalDatabase);
-            System.out.println("Keys");
-            Map<Integer, Word> keys = map.getKeysAllMap();
-            for (Map.Entry<Integer, Word> entry : keys.entrySet()) {
-                Integer key = entry.getKey();
-                Word value = entry.getValue();
-                System.out.println(key.toString() + ": " + value.toString());
-            }
-            System.out.println("Values");
-            Map<String, List<String>> values = map.getDictionary();
-            for (Map.Entry<String, List<String>> entry : values.entrySet()) {
-                String key = entry.getKey();
-                List<String> value = entry.getValue();
-                System.out.println(key.toString() + ": " + value.toString());
-            }
-            System.out.println("Dictionary");
-            Map<Word, List<String>> dictionary = map.getRandTenMap();
-            for (Map.Entry<Word, List<String>> entry : dictionary.entrySet()) {
-                Word key = entry.getKey();
-                List<String> value = entry.getValue();
-                System.out.println(key.toString() + ": " + value.toString());
-            }
-            */
     }
 }

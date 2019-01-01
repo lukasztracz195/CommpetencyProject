@@ -29,6 +29,10 @@ public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
         return instance;
     }
 
+    public static void delete() {
+        instance = null;
+    }
+
     public Integer addWordPL(String strPL) {
         Transaction tx = null;
         int idWordPL = -1;

@@ -34,6 +34,9 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         return instance;
     }
 
+    public static void delete(){
+        instance = null;
+    }
     public Integer addStat(int IdLevel, double valueProgress) {
         Transaction tx = null;
         Integer idStat = -1;

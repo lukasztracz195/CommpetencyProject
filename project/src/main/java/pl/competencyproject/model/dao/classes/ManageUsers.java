@@ -32,13 +32,16 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return instance;
     }
 
+    public synchronized static void delete(){
+        instance = null;
+    }
     /* Method to CREATE an user in the database */
-    public Integer addUser(String email, String password) {
+    public synchronized Integer addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
 
         if (this.existUser(email) == -1) {
-            if (!session.isOpen()) {
+            while(!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             try {
@@ -64,7 +67,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         Transaction tx = null;
 
         try {
-            if (!session.isOpen()) {
+            while(!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
@@ -84,7 +87,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         Transaction tx = null;
 
         try {
-            if (!session.isOpen()) {
+            while(!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
@@ -103,7 +106,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     /* Method to DELETE an user from the records */
     public void deleteUser(Integer UserID) {
         Transaction tx = null;
-        if (!session.isOpen()) {
+        while(!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         try {
@@ -119,11 +122,11 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         }
     }
 
-    public int existUser(String email) throws HibernateException {
+    public synchronized int existUser(String email) throws HibernateException {
 
         User user = null;
         int id = -1;
-        if (!session.isOpen()) {
+        while(!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
@@ -143,7 +146,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     public void updateEmail(Integer UserID, String email) {
         Transaction tx = null;
         try {
-            if (!session.isOpen()) {
+            while(!session.isOpen()) {
                 session = sessionFactory.openSession();
             }
             tx = session.beginTransaction();
@@ -160,7 +163,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     public User getUser(String email) {
 
         User user = null;
-        if (!session.isOpen()) {
+        while(!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");

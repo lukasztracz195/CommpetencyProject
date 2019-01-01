@@ -22,8 +22,8 @@ public class ManageFamilyTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MF = ManageFamily.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MF = new ManageFamily(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         idLevel = ML.existLevel(nameLEvel, category);
         if (idLevel <= 0) {
             idLevel = ML.addLevel(nameLEvel, category);

@@ -32,8 +32,8 @@ public class ManageDictionaryWordsTest {
     public void init() {
         SessionLogon.IdLoggedUser = 1;
         MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        MF = ManageFamily.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
+        MF = new ManageFamily(TypeOfUsedDatabase.OfflineTestDataBase);
         MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
         idML = ML.existLevel(nameLevel, nameCategory);

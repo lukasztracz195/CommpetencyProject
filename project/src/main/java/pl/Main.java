@@ -17,13 +17,7 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    public static void main(String[] args) throws FileNotFoundException {
-       // Teacher teacher = new Teacher();
-       // teacher.funkcja();
-        //DW.addEnglish();
-        //DW.addPolish();
-        //DW.addAll();
-        //DW.losuj();
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
         Mutex mutex = new Mutex();
         boolean lockFile = mutex.lockInstance("LockFile");
         if (lockFile) {
@@ -40,7 +34,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");

@@ -1,0 +1,107 @@
+Start download
+koniec zaciągania z bazy dictionarySize = 10
+Word(word=postdoctoral, numberOfTries=3): [podoktorancki, habilitacyjny]
+Word(word=issue of, numberOfTries=3): [kwestia]
+Word(word=engineering, numberOfTries=3): [inżynieria]
+Word(word=engineer, numberOfTries=3): [inżynier]
+Word(word=accomplish, numberOfTries=3): [osiągnąć, wykonać, zakończyć pomyślnie, wypełnić]
+Word(word=Master of Science, numberOfTries=3): [magister nauk ścisłych, magister inżynier]
+Word(word=Master of Arts, numberOfTries=3): [magister nauk humanistycznych]
+Word(word=Lodz University of Technology, numberOfTries=3): [Politechnika Łódzka]
+Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=3): [WTIMS]
+Word(word=Faculty of Organization and Management, numberOfTries=3): [Wydział Organizacji i Zarządzania]
+Sesja nr. 1 z 8
+
+Question: Word(word=Faculty of Organization and Management, numberOfTries=3)
+Ansswer: Wydział Organizacji i Zarządzania
+
+
+Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=Lodz University of Technology, numberOfTries=3)
+Ansswer: Politechnika Łódzka
+
+
+Question: Word(word=Master of Arts, numberOfTries=3)
+Ansswer: magister nauk humanistycznych
+
+
+Question: Word(word=Master of Science, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=accomplish, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=engineer, numberOfTries=3)
+Ansswer: inżynier
+
+
+Question: Word(word=engineering, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=issue of, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=postdoctoral, numberOfTries=3)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=2)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=1)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=Master of Science, numberOfTries=2)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=Master of Science, numberOfTries=1)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=accomplish, numberOfTries=2)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=accomplish, numberOfTries=1)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=engineering, numberOfTries=2)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=engineering, numberOfTries=1)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=issue of, numberOfTries=2)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=issue of, numberOfTries=1)
+Ansswer: abcdfghijkl
+
+
+Question: Word(word=postdoctoral, numberOfTries=2)
+Ansswer: podoktorancki
+
+Sesja nr. 2 z 8
+Sesja nr. 3 z 8
+Sesja nr. 4 z 8
+Sesja nr. 5 z 8
+Sesja nr. 6 z 8
+Sesja nr. 7 z 8
+Sesja nr. 8 z 8
+Good Answers: 5
+Wrong Answers: 16
+ValueProgress: 0.0

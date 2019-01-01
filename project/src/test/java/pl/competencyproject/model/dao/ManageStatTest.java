@@ -32,7 +32,7 @@ public class ManageStatTest {
     public void init() {
         MS = ManageStats.getInstance(type);
         MU = ManageUsers.getInstance(type);
-        ML = ManageLevels.getInstance(type);
+        ML = new ManageLevels(type);
         if (MU.existUser(email) == -1 || idUser == -1) {
             idUser = MU.addUser(email, password);
             SessionLogon.IdLoggedUser = idUser;

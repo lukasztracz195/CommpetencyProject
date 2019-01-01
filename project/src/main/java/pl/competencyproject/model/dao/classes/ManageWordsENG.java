@@ -18,6 +18,10 @@ public class ManageWordsENG extends GeneralManager implements ManagingWordsENG {
         super(type);
     }
 
+    public static void delete(){
+        instance = null;
+    }
+
     public static ManageWordsENG getInstance(TypeOfUsedDatabase type) {
         if (instance == null) {
             synchronized (ManageWordsENG.class) {

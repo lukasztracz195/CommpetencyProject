@@ -15,9 +15,9 @@ public class LibraryLevels {
 
     private LibraryLevels(boolean test) {
         if (!test) {
-            ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+            ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
         } else {
-            ML = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+            ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         }
         List<Level> listEntitlesLevels = ML.getAllLevels();
         mapLevels = new HashMap<>();

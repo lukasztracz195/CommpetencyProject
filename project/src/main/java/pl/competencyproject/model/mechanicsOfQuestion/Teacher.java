@@ -27,20 +27,8 @@ public class Teacher {
     private Double valueProgress = (double) 0;
     private int numberMaxOfSessions;
 
-    private Teacher(TypeOfUsedDatabase type) {
+    public Teacher(TypeOfUsedDatabase type) {
         this.type = type;
-    }
-
-
-    public static Teacher getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (Teacher.class) {
-                if (instance == null) {
-                    instance = new Teacher(type);
-                }
-            }
-        }
-        return instance;
     }
 
     public void initDictionary(String nameLevel, String nameCategorie, TypeOfDictionaryDownloaded typeDictionary, TypeOfDictionaryLanguage typeLanguage) {
@@ -57,7 +45,7 @@ public class Teacher {
     }
 
     private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
-        ManageLevels ML = ManageLevels.getInstance(type);
+        ManageLevels ML = new  ManageLevels(type);
         int result = ML.existLevel(nameLevel, nameCategorie);
         return result;
     }
@@ -89,14 +77,14 @@ public class Teacher {
 
 
     private void goodAnswer() {
-        //System.out.println("Good");
+        System.out.println("Good");
         currentMapQuestion.remove(key, currentAnswer);
         changeQuestion();
         numberOfGoodAnswers++;
     }
 
     private void badAnswer() {
-        //  System.out.println("Bad");
+          System.out.println("Bad");
         Word oldKey = new Word(key);
         List<String> tmpValue = new ArrayList<>(currentAnswer);
         getCurrentMapQuestion().remove(key, tmpValue);
@@ -121,7 +109,9 @@ public class Teacher {
     }
 
     public void initNextRoundOfQuestions() {
-            if (numberMaxOfSessions >= currentRound) {
+        System.out.println("Size Collect: "+getFactoryDictionary().getCollectionOfuniqueness().size());
+        System.out.println("FullSize: "+getFactoryDictionary().getSizeOfFullMap());
+            if (getFactoryDictionary().getCollectionOfuniqueness().size() < getFactoryDictionary().getSizeOfFullMap()) {
                 getValueProgress();
                 currentMapQuestion = factoryDictionary.getRandTenMap();
                 currentRound++;
@@ -132,7 +122,7 @@ public class Teacher {
         int fullSizeOfDDictionary = factoryDictionary.getSizeOfFullMap();
         double valuePart1 = (10.0 * currentRound) / fullSizeOfDDictionary;
         double valuePart2 = ((numberOfGoodAnswers * 1.5) - numberOfBadAnswers) / trades;
-        valueProgress += valuePart1 + valuePart2;
+        valueProgress += valuePart1 * valuePart2;
         return valueProgress;
     }
 

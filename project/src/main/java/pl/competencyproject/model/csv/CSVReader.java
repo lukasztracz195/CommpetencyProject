@@ -45,7 +45,7 @@ public class CSVReader {
     }
 
     public void chooseLevel(String nameLevel, String nameOfCategory) {
-        ManageLevels ml = ManageLevels.getInstance(type);
+        ManageLevels ml = new ManageLevels(type);
         int id = ml.existLevel(nameLevel, nameOfCategory);
         if (id != -1) {
             choosedLevel = id;
@@ -129,7 +129,7 @@ public class CSVReader {
 
 
     public Integer insertFamily() {
-        MF = ManageFamily.getInstance(type);
+        MF = new ManageFamily(type);
         MWE = ManageWordsENG.getInstance(type);
         MWP = ManageWordsPL.getInstance(type);
         MDW = ManageDictionaryWords.getInstance(type);

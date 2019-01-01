@@ -31,6 +31,10 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return instance;
     }
 
+    public static void delete(){
+        instance = null;
+    }
+
     public Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;

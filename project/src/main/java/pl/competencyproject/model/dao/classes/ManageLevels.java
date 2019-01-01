@@ -15,22 +15,13 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
     private static ManageLevels instance;
     public static final String TABLE = "LEVELS";
 
-    private ManageLevels(TypeOfUsedDatabase type) {
+    public ManageLevels(TypeOfUsedDatabase type) {
         super(type);
     }
 
-    public static ManageLevels getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageLevels.class) {
-                if (instance == null) {
-                    instance = new ManageLevels(type);
-                }
-            }
-        }
-        return instance;
-    }
 
-    public Integer addLevel(String nameLevel, String nameCategorie) {
+
+    public synchronized Integer addLevel(String nameLevel, String nameCategorie) {
         Transaction tx = null;
         int idLevel = -1;
         if (this.existLevel(nameLevel, nameCategorie) == -1) {
@@ -52,8 +43,12 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return idLevel;
     }
 
+    public synchronized static void delete(){
+        instance = null;
+    }
+
     /* Method to DELETE a level from the records */
-    public void deleteLevel(int idLevel) {
+    public  void deleteLevel(int idLevel) {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -69,7 +64,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
     }
 
     /* Method to check if level does EXIST*/
-    public Integer existLevel(String nameLevel, String nameCategorie) throws HibernateException {
+    public synchronized Integer existLevel(String nameLevel, String nameCategorie) throws HibernateException {
 
         Level level = null;
         Level level2 = null;
@@ -89,7 +84,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return id;
     }
 
-    public Level getLevel(int idLevel) {
+    public synchronized Level getLevel(int idLevel) {
         Transaction tx = null;
         Level level = null;
         try {
@@ -108,7 +103,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return level;
     }
 
-    public List<Level> getAllLevels() {
+    public synchronized List<Level> getAllLevels() {
         if (!session.isOpen()) {
             session = sessionFactory.openSession();
         }
@@ -121,8 +116,8 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return list;
     }
 
-    public List<String> getCategories(String nameLevel) {
-        if (!session.isOpen()) {
+    public synchronized  List<String> getCategories(String nameLevel) {
+        while(sessionFactory.isClosed()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT nameCategorie FROM LEVELS");
@@ -133,8 +128,8 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return result;
     }
 
-    public List<String> getNamesLevels() {
-        if (!session.isOpen()) {
+    public synchronized List<String> getNamesLevels() {
+        while(!session.isOpen()) {
             session = sessionFactory.openSession();
         }
         NativeQuery query = session.createSQLQuery("SELECT DISTINCT nameLevel FROM LEVELS");

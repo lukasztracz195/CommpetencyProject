@@ -2,6 +2,7 @@ package pl.competencyproject.model.dao;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageLevels;
@@ -19,9 +20,9 @@ public class ManageLevelsTest {
     private String password = "qwerty3";
     private int IdLevel = 0;
 
-    @Before
+    @BeforeClass
     public void init() {
-        manageLevels = ManageLevels.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        manageLevels = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         SessionLogon.IdLoggedUser = 1;
     }
 
