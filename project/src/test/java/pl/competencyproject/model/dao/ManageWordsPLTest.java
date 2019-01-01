@@ -17,7 +17,7 @@ public class ManageWordsPLTest {
 
     @Before
     public void init() {
-        MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWP = new ManageWordsPL(TypeOfUsedDatabase.OfflineTestDataBase);
         SessionLogon.IdLoggedUser = 1;
     }
 

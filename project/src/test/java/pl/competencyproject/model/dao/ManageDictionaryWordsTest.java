@@ -31,11 +31,11 @@ public class ManageDictionaryWordsTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MDW = new ManageDictionaryWords(TypeOfUsedDatabase.OfflineTestDataBase);
         ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         MF = new ManageFamily(TypeOfUsedDatabase.OfflineTestDataBase);
-        MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWP = new ManageWordsPL(TypeOfUsedDatabase.OfflineTestDataBase);
+        MWE = new ManageWordsENG(TypeOfUsedDatabase.OfflineTestDataBase);
         idML = ML.existLevel(nameLevel, nameCategory);
         if (idML == -1) {
             idML = ML.addLevel(nameLevel, nameCategory);

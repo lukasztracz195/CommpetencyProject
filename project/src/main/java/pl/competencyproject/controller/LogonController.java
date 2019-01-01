@@ -10,9 +10,8 @@ import javafx.scene.paint.Color;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
 import pl.competencyproject.model.messages.Email;
-
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,11 +42,15 @@ public class LogonController extends AbstractController implements Initializable
 
     private boolean statusLogin = true;
     private boolean approvesCode = false;
+    private ManageUsers MU;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        Thread bot = new Thread(new ThreadBot());
+        bot.start();
+        MU= new ManageUsers(TypeOfUsedDatabase.OnlineOrginalDatabase);
         if (!SessionLogon.logged) {
             logOutButton.setDisable(true);
         }
@@ -158,7 +161,7 @@ public class LogonController extends AbstractController implements Initializable
 
     private boolean checkEmail(String email) {
         clearAllFeedbackLabels();
-        if (ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase).existUser(email) == -1) {
+        if (MU.existUser(email) == -1) {
             if (email.contains("@")) {
                 String afterMonkey = email.substring(email.indexOf("@"));
                 if (afterMonkey.contains(".")) {
@@ -189,7 +192,7 @@ public class LogonController extends AbstractController implements Initializable
         if (!SessionLogon.logged) {
             logOutButton.setDisable(true);
         }
-        sessionLogon.closeSession();
+        //sessionLogon.closeSession();
 
     }
 

@@ -13,36 +13,20 @@ import java.util.List;
 
 public class ManageDictionaryWords extends GeneralManager implements ManagingDictionaryWords {
 
-    private static ManageDictionaryWords instance;
     public static final String TABLE = "DICTIONARY_WORDS";
 
-    private ManageDictionaryWords(TypeOfUsedDatabase type) {
+    public ManageDictionaryWords(TypeOfUsedDatabase type) {
         super(type);
     }
 
-    public static ManageDictionaryWords getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageDictionaryWords.class) {
-                if (instance == null) {
-                    instance = new ManageDictionaryWords(type);
-                }
-            }
-        }
-        return instance;
-    }
 
-    public static void delete(){
-        instance = null;
-    }
 
-    public Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
+    public synchronized Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
         Integer idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Dictionary_Word dictionary = new Dictionary_Word(idLevel, idFamily, idWordENG, idWordPL);
@@ -59,14 +43,12 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-    public Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
+    public synchronized Integer insertDictionaryWordswithoutFamilie(Integer idLevel, Integer idWordENG, Integer idWordPL) {
 
         Transaction tx = null;
         Integer idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Dictionary_Word dictionary = new Dictionary_Word(idLevel, null, idWordENG, idWordPL);
@@ -83,11 +65,9 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return idDictionary;
     }
 
-    public List<Dictionary_Word> getDictionaryByLevel(Integer idLevel) {
+    public synchronized List<Dictionary_Word> getDictionaryByLevel(Integer idLevel) {
 
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idLevel", idLevel);
@@ -95,11 +75,9 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return result;
     }
 
-    public List<Dictionary_Word> getDictionaryByFamilie(Integer idFamily) {
+    public synchronized List<Dictionary_Word> getDictionaryByFamilie(Integer idFamily) {
 
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_WORDS WHERE idFamily = :idFamily");
         query.addEntity(Dictionary_Word.class);
         query.setParameter("idFamily", idFamily);
@@ -107,10 +85,8 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return result;
     }
 
-    public Integer existDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized Integer existDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
+        reset();
         NativeQuery query = session.createSQLQuery(
                 "SELECT * FROM DICTIONARY_WORDS WHERE  idLevel =  :idLevel AND idFamily = :idFamily AND idWordENG = :idWordENG AND idWordPL = :idWordPL");
         query.addEntity(Dictionary_Word.class);
@@ -127,10 +103,8 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return -1;
     }
 
-    public Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWENG, Integer idWPL) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized Integer existDictionaryWordsWithoutFamilie(Integer idLevel, Integer idWENG, Integer idWPL) {
+        reset();
         NativeQuery query = session.createSQLQuery(
                 "SELECT * FROM DICTIONARY_WORDS WHERE idLevel = :ID_LEVEL AND idFamily IS NULL AND idWordENG = :ID_WENG AND idWordPL = :ID_WPL");
         query.setParameter("ID_WENG", idWENG);
@@ -145,10 +119,8 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return -1;
     }
 
-    public void setFamilyinExistedDictionaryWord(Integer idDictionaryWord, Integer idFamily) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized void setFamilyinExistedDictionaryWord(Integer idDictionaryWord, Integer idFamily) {
+        reset();
         NativeQuery query = session.createSQLQuery("UPDATE DICTIONARY_WORDS SET idFamily = :ID_Family WHERE idDictionaryWords = :ID_Dictionary");
         query.setParameter("ID_Family", idFamily);
         query.setParameter("ID_Dictionary", idDictionaryWord);

@@ -7,11 +7,12 @@ import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.interfaces.ITeacher;
 
 import java.util.*;
 
 @Getter
-public class Teacher {
+public class Teacher implements ITeacher {
     public static Teacher instance;
 
     private SortedMap<Word, List<String>> currentMapQuestion;
@@ -38,19 +39,19 @@ public class Teacher {
             factoryDictionary.loadDictionary(check, typeDictionary, typeLanguage, type);
             currentMapQuestion = factoryDictionary.getRandTenMap();
             numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
-            changeQuestion();
+            changeQuestion(0);
         } else {
             System.out.println("Nie istnieje taki level");
         }
     }
 
     private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
-        ManageLevels ML = new  ManageLevels(type);
+        ManageLevels ML = new ManageLevels(type);
         int result = ML.existLevel(nameLevel, nameCategorie);
         return result;
     }
 
-    public boolean checkAnswer(String answer) {
+    public boolean checkAnswer(String answer, int delayInMilisecundes) {
         if (!currentMapQuestion.isEmpty()) {
             List<Integer> diffrentsAnswers = new ArrayList<>();
             trades++;
@@ -60,15 +61,14 @@ public class Teacher {
             for (String s : currentAnswer) {
                 diffrentsAnswers.add(CSVReader.levenstein(answer, s));
             }
-            // System.out.println("Size dictionary: " + getCurrentMapQuestion().size());
             Collections.sort(diffrentsAnswers);
             int checked = diffrentsAnswers.get(0);
             if (checked <= 1) {
-                goodAnswer();
+                goodAnswer(delayInMilisecundes);
                 return true;
 
             } else {
-                badAnswer();
+                badAnswer(delayInMilisecundes);
                 return false;
             }
         }
@@ -76,15 +76,13 @@ public class Teacher {
     }
 
 
-    private void goodAnswer() {
-        System.out.println("Good");
+    private void goodAnswer(int delayInMilisecundes) {
         currentMapQuestion.remove(key, currentAnswer);
-        changeQuestion();
+        changeQuestion(delayInMilisecundes);
         numberOfGoodAnswers++;
     }
 
-    private void badAnswer() {
-          System.out.println("Bad");
+    private void badAnswer(int delayInMilisecundes) {
         Word oldKey = new Word(key);
         List<String> tmpValue = new ArrayList<>(currentAnswer);
         getCurrentMapQuestion().remove(key, tmpValue);
@@ -93,29 +91,32 @@ public class Teacher {
         if (oldKey.getNumberOfTries() == 0) {
             getCurrentMapQuestion().remove(oldKey, tmpValue);
         }
-        changeQuestion();
+        changeQuestion(delayInMilisecundes);
         numberOfBadAnswers++;
     }
 
-    private void changeQuestion() {
-        if (!currentMapQuestion.isEmpty()) {
-            key = currentMapQuestion.lastKey();
-            currentQuestion = key.toString();
-            currentAnswer = currentMapQuestion.get(key);
-            if (currentAnswer == null) {
-                //   System.out.println("currentAnswer == null");
+    private void changeQuestion(int delayInMilisecundes) {
+        try {
+
+            if (delayInMilisecundes > 0) {
+                Thread.sleep(delayInMilisecundes);
             }
+            if (!currentMapQuestion.isEmpty()) {
+                key = currentMapQuestion.lastKey();
+                currentQuestion = key.toString();
+                currentAnswer = currentMapQuestion.get(key);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     public void initNextRoundOfQuestions() {
-        System.out.println("Size Collect: "+getFactoryDictionary().getCollectionOfuniqueness().size());
-        System.out.println("FullSize: "+getFactoryDictionary().getSizeOfFullMap());
-            if (getFactoryDictionary().getCollectionOfuniqueness().size() < getFactoryDictionary().getSizeOfFullMap()) {
-                getValueProgress();
-                currentMapQuestion = factoryDictionary.getRandTenMap();
-                currentRound++;
-            }
+        if (getFactoryDictionary().getCollectionOfuniqueness().size() < getFactoryDictionary().getSizeOfFullMap()) {
+            getValueProgress();
+            currentMapQuestion = factoryDictionary.getRandTenMap();
+            currentRound++;
+        }
     }
 
     public Double getValueProgress() {
@@ -131,11 +132,10 @@ public class Teacher {
         // 0 = bad     1 = good
         int choice = random.nextInt(100);
         String result = null;
-        if (choice <= 60) {
+        if (choice <= 50) {
             result = "abcdfghijkl";
         } else {
             int choice2 = random.nextInt(currentAnswer.size());
-            System.out.println("Los: " + choice2 + " size: " + currentAnswer.size());
             result = currentAnswer.get(choice2);
         }
 

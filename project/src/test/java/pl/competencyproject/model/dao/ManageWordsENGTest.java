@@ -18,7 +18,7 @@ public class ManageWordsENGTest {
 
     @Before
     public void init() {
-        MWE = ManageWordsENG.getInstance(type);
+        MWE = new ManageWordsENG(type);
         SessionLogon.IdLoggedUser = 1;
     }
 

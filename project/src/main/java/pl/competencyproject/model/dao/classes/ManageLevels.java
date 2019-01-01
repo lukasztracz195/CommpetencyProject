@@ -12,7 +12,6 @@ import java.util.List;
 
 public class ManageLevels extends GeneralManager implements ManagingLevels {
 
-    private static ManageLevels instance;
     public static final String TABLE = "LEVELS";
 
     public ManageLevels(TypeOfUsedDatabase type) {
@@ -25,10 +24,8 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         Transaction tx = null;
         int idLevel = -1;
         if (this.existLevel(nameLevel, nameCategorie) == -1) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
             try {
+                reset();
                 tx = session.beginTransaction();
                 Level level = new Level(nameLevel, nameCategorie);
                 idLevel = (Integer) session.save(level);
@@ -43,14 +40,11 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return idLevel;
     }
 
-    public synchronized static void delete(){
-        instance = null;
-    }
-
     /* Method to DELETE a level from the records */
     public  void deleteLevel(int idLevel) {
         Transaction tx = null;
         try {
+            reset();
             tx = session.beginTransaction();
             Level level = (Level) session.get(Level.class, idLevel);
             session.delete(level);
@@ -69,9 +63,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         Level level = null;
         Level level2 = null;
         int id = -1;
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE nameLevel = :nameLevel AND nameCategorie = :nameCategorie");
         query.addEntity(Level.class);
         query.setParameter("nameLevel", nameLevel);
@@ -88,9 +80,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         Transaction tx = null;
         Level level = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             level = (Level) session.get(Level.class, idLevel);
             tx.commit();
@@ -103,10 +93,9 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
         return level;
     }
 
+
     public synchronized List<Level> getAllLevels() {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS");
         query.addEntity(Level.class);
         List list = query.list();
@@ -117,9 +106,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
     }
 
     public synchronized  List<String> getCategories(String nameLevel) {
-        while(sessionFactory.isClosed()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT nameCategorie FROM LEVELS");
         List result = query.list();
         if (result == null) {
@@ -129,9 +116,7 @@ public class ManageLevels extends GeneralManager implements ManagingLevels {
     }
 
     public synchronized List<String> getNamesLevels() {
-        while(!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT DISTINCT nameLevel FROM LEVELS");
         List result = query.list();
         if (result == null) {

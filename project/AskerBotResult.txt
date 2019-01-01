@@ -1,107 +1,743 @@
 Start download
 koniec zaciągania z bazy dictionarySize = 10
-Word(word=postdoctoral, numberOfTries=3): [podoktorancki, habilitacyjny]
-Word(word=issue of, numberOfTries=3): [kwestia]
-Word(word=engineering, numberOfTries=3): [inżynieria]
-Word(word=engineer, numberOfTries=3): [inżynier]
-Word(word=accomplish, numberOfTries=3): [osiągnąć, wykonać, zakończyć pomyślnie, wypełnić]
-Word(word=Master of Science, numberOfTries=3): [magister nauk ścisłych, magister inżynier]
-Word(word=Master of Arts, numberOfTries=3): [magister nauk humanistycznych]
-Word(word=Lodz University of Technology, numberOfTries=3): [Politechnika Łódzka]
-Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=3): [WTIMS]
-Word(word=Faculty of Organization and Management, numberOfTries=3): [Wydział Organizacji i Zarządzania]
 Sesja nr. 1 z 8
 
+Question: Word(word=Dean, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Dean's Office, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
 Question: Word(word=Faculty of Organization and Management, numberOfTries=3)
-Ansswer: Wydział Organizacji i Zarządzania
+Good
+Answer: Wydział Organizacji i Zarządzania
 
 
-Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=3)
-Ansswer: abcdfghijkl
+Question: Word(word=achievement, numberOfTries=3)
+Good
+Answer: osiągnięcie
 
 
-Question: Word(word=Lodz University of Technology, numberOfTries=3)
-Ansswer: Politechnika Łódzka
+Question: Word(word=adapt, numberOfTries=3)
+Good
+Answer: przystosować
 
 
-Question: Word(word=Master of Arts, numberOfTries=3)
-Ansswer: magister nauk humanistycznych
-
-
-Question: Word(word=Master of Science, numberOfTries=3)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=accomplish, numberOfTries=3)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=engineer, numberOfTries=3)
-Ansswer: inżynier
+Question: Word(word=degree, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
 
 
 Question: Word(word=engineering, numberOfTries=3)
-Ansswer: abcdfghijkl
+Good
+Answer: inżynieria
 
 
-Question: Word(word=issue of, numberOfTries=3)
-Ansswer: abcdfghijkl
+Question: Word(word=exchange, numberOfTries=3)
+Good
+Answer: wymiana
+
+
+Question: Word(word=make contribution to something, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
 
 
 Question: Word(word=postdoctoral, numberOfTries=3)
-Ansswer: abcdfghijkl
+Wrong
+Answer: abcdfghijkl
 
 
-Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=2)
-Ansswer: abcdfghijkl
+Question: Word(word=Dean, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
 
 
-Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=1)
-Ansswer: abcdfghijkl
+Question: Word(word=Dean, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
 
 
-Question: Word(word=Master of Science, numberOfTries=2)
-Ansswer: abcdfghijkl
+Question: Word(word=Dean's Office, numberOfTries=2)
+Good
+Answer: Dziekanat
 
 
-Question: Word(word=Master of Science, numberOfTries=1)
-Ansswer: abcdfghijkl
+Question: Word(word=degree, numberOfTries=2)
+Good
+Answer: stopień naukowy
 
 
-Question: Word(word=accomplish, numberOfTries=2)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=accomplish, numberOfTries=1)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=engineering, numberOfTries=2)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=engineering, numberOfTries=1)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=issue of, numberOfTries=2)
-Ansswer: abcdfghijkl
-
-
-Question: Word(word=issue of, numberOfTries=1)
-Ansswer: abcdfghijkl
+Question: Word(word=make contribution to something, numberOfTries=2)
+Good
+Answer: wnieść wkład w coś
 
 
 Question: Word(word=postdoctoral, numberOfTries=2)
-Ansswer: podoktorancki
+Wrong
+Answer: abcdfghijkl
 
-Sesja nr. 2 z 8
-Sesja nr. 3 z 8
-Sesja nr. 4 z 8
-Sesja nr. 5 z 8
-Sesja nr. 6 z 8
-Sesja nr. 7 z 8
-Sesja nr. 8 z 8
-Good Answers: 5
-Wrong Answers: 16
+
+Question: Word(word=postdoctoral, numberOfTries=1)
+Good
+Answer: podoktorancki
+
+
+POINTS AFTER SESSION NR.1
+Good Answers: 9
+Wrong Answers: 8
 ValueProgress: 0.0
+Sesja nr. 2 z 8
+
+Question: Word(word=postdoctoral, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Chemistry, numberOfTries=3)
+Good
+Answer: Wydział Chemiczny
+
+
+Question: Word(word=Faculty of Material Technologies and Textilies Design, numberOfTries=3)
+Good
+Answer: Wydział Technologi Materiałowych i Wzornictwa Tekstyliów
+
+
+Question: Word(word=Faculty of Mechanical Engineering, numberOfTries=3)
+Good
+Answer: Wydział Mechaniczny
+
+
+Question: Word(word=Faculty of Process and Environmental Engineering, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Lodz University of Technology, numberOfTries=3)
+Good
+Answer: Politechnika Łódzka
+
+
+Question: Word(word=equipped with, numberOfTries=3)
+Good
+Answer: wyposarzony w
+
+
+Question: Word(word=inventiveness, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=oriented at, numberOfTries=3)
+Good
+Answer: zorientowany na
+
+
+Question: Word(word=sufficient, numberOfTries=3)
+Good
+Answer: wystarczający
+
+
+Question: Word(word=various, numberOfTries=3)
+Good
+Answer: różny
+
+
+Question: Word(word=Faculty of Process and Environmental Engineering, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Process and Environmental Engineering, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=inventiveness, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=inventiveness, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+POINTS AFTER SESSION NR.2
+Good Answers: 17
+Wrong Answers: 15
+ValueProgress: 0.04317434210526316
+Sesja nr. 3 z 8
+
+Question: Word(word=inventiveness, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Bachelor of Arts, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=department, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=economical, numberOfTries=3)
+Good
+Answer: ekonomiczny
+
+
+Question: Word(word=enterprise management, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=field, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=fulfill, numberOfTries=3)
+Good
+Answer: spełniać
+
+
+Question: Word(word=get acquainted with, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=pride oneself on, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=research, numberOfTries=3)
+Good
+Answer: badania naukowe
+
+
+Question: Word(word=revitalization, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Bachelor of Arts, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Bachelor of Arts, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=department, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=department, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=enterprise management, numberOfTries=2)
+Good
+Answer: zarządzanie przedsiębiorstwem
+
+
+Question: Word(word=field, numberOfTries=2)
+Good
+Answer: dziedzina
+
+
+Question: Word(word=get acquainted with, numberOfTries=2)
+Good
+Answer: być zaznajomionym z
+
+
+Question: Word(word=pride oneself on, numberOfTries=2)
+Good
+Answer: chlubić się
+
+
+Question: Word(word=revitalization, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=revitalization, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+POINTS AFTER SESSION NR.3
+Good Answers: 24
+Wrong Answers: 29
+ValueProgress: 0.12110538728897716
+Sesja nr. 4 z 8
+
+Question: Word(word=revitalization, numberOfTries=1)
+Good
+Answer: ożywienie
+
+
+Question: Word(word=Bachelor of Science, numberOfTries=3)
+Good
+Answer: licencjat w dziedzinie nauk ścisłych
+
+
+Question: Word(word=curriculum, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=design, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=effective, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=enterprise, numberOfTries=3)
+Good
+Answer: przedsięwzięcie
+
+
+Question: Word(word=entirely, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=entitle somebody to do something, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=gain, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=knowladge of, numberOfTries=3)
+Good
+Answer: wiedza o
+
+
+Question: Word(word=particulary, numberOfTries=3)
+Good
+Answer: w szczególności
+
+
+Question: Word(word=curriculum, numberOfTries=2)
+Good
+Answer: program nauczania
+
+
+Question: Word(word=design, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=design, numberOfTries=1)
+Good
+Answer: wzór
+
+
+Question: Word(word=effective, numberOfTries=2)
+Good
+Answer: efektywny
+
+
+Question: Word(word=entirely, numberOfTries=2)
+Good
+Answer: wyłącznie
+
+
+Question: Word(word=entitle somebody to do something, numberOfTries=2)
+Good
+Answer: upowaznić kogoś do zrobienia czegoś
+
+
+Question: Word(word=gain, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=gain, numberOfTries=1)
+Good
+Answer: nabrać
+
+
+POINTS AFTER SESSION NR.4
+Good Answers: 35
+Wrong Answers: 37
+ValueProgress: 0.24084016054286658
+Sesja nr. 5 z 8
+
+Question: Word(word=gain, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Technical Physic, Computer Science and Applied Mathematics, numberOfTries=3)
+Good
+Answer: WTIMS
+
+
+Question: Word(word=apparatus, numberOfTries=3)
+Good
+Answer: aparat
+
+
+Question: Word(word=associate professor, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=efficiently, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=improve, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=indispensable, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=integrate into something, numberOfTries=3)
+Good
+Answer: wcielić coś
+
+
+Question: Word(word=outstanding, numberOfTries=3)
+Good
+Answer: wybitny
+
+
+Question: Word(word=prevention, numberOfTries=3)
+Good
+Answer: zapobieganie
+
+
+Question: Word(word=profound, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=associate professor, numberOfTries=2)
+Good
+Answer: profesor nadzwyczajny
+
+
+Question: Word(word=efficiently, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=efficiently, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=improve, numberOfTries=2)
+Good
+Answer: poprawić
+
+
+Question: Word(word=indispensable, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=indispensable, numberOfTries=1)
+Good
+Answer: niezbędny
+
+
+Question: Word(word=profound, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=profound, numberOfTries=1)
+Good
+Answer: głęboki
+
+
+POINTS AFTER SESSION NR.5
+Good Answers: 44
+Wrong Answers: 47
+ValueProgress: 0.43570834060841507
+Sesja nr. 6 z 8
+
+Question: Word(word=profound, numberOfTries=1)
+Good
+Answer: głęboki
+
+
+Question: Word(word=Faculty of Electrical,Electronic,Computer and Control Engineering, numberOfTries=3)
+Good
+Answer: WEEIA
+
+
+Question: Word(word=International Faculty of Engineering, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=application, numberOfTries=3)
+Good
+Answer: zastosowanie
+
+
+Question: Word(word=appropiate, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=award, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=contribution to somethink, numberOfTries=3)
+Good
+Answer: brać udział w czymś
+
+
+Question: Word(word=engineer, numberOfTries=3)
+Good
+Answer: inżynier
+
+
+Question: Word(word=interdisciplinary, numberOfTries=3)
+Good
+Answer: interdyscyplinarny
+
+
+Question: Word(word=professional background, numberOfTries=3)
+Good
+Answer: przygotowanie
+
+
+Question: Word(word=take pride in something, numberOfTries=3)
+Good
+Answer: być dumnym z czegoś
+
+
+Question: Word(word=International Faculty of Engineering, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=International Faculty of Engineering, numberOfTries=1)
+Good
+Answer: Centrum Kształcenia Międzynarodowego
+
+
+Question: Word(word=appropiate, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=appropiate, numberOfTries=1)
+Good
+Answer: odpowiedni
+
+
+Question: Word(word=award, numberOfTries=2)
+Good
+Answer: przyznawać
+
+
+POINTS AFTER SESSION NR.6
+Good Answers: 55
+Wrong Answers: 52
+ValueProgress: 0.7331291932432372
+Sesja nr. 7 z 8
+
+Question: Word(word=award, numberOfTries=2)
+Good
+Answer: przyznawać
+
+
+Question: Word(word=Faculty of Civil Engineering, Architecture and Evironmental Engineering, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Master of Arts, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=academic, numberOfTries=3)
+Good
+Answer: pracowni naukowo dydaktyczny
+
+
+Question: Word(word=accomplish, numberOfTries=3)
+Good
+Answer: wypełnić
+
+
+Question: Word(word=brokerages houses, numberOfTries=3)
+Good
+Answer: pośrednictwo nieruchomości
+
+
+Question: Word(word=carry out research, numberOfTries=3)
+Good
+Answer: przeprowadzić badania
+
+
+Question: Word(word=currently, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=dozen, numberOfTries=3)
+Good
+Answer: tuzin
+
+
+Question: Word(word=evaluation, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=specialize in, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Civil Engineering, Architecture and Evironmental Engineering, numberOfTries=2)
+Good
+Answer: Wydział Budownictwa i Architektury i Inżynieri Środowiska
+
+
+Question: Word(word=Master of Arts, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Master of Arts, numberOfTries=1)
+Good
+Answer: magister nauk humanistycznych
+
+
+Question: Word(word=currently, numberOfTries=2)
+Good
+Answer: obecnie
+
+
+Question: Word(word=evaluation, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=evaluation, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=specialize in, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=specialize in, numberOfTries=1)
+Good
+Answer: specjalizować się w
+
+
+POINTS AFTER SESSION NR.7
+Good Answers: 65
+Wrong Answers: 61
+ValueProgress: 1.149356677842586
+Sesja nr. 8 z 8
+
+Question: Word(word=specialize in, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Faculty of Biotechnology and Food Sciences, numberOfTries=3)
+Good
+Answer: Wydział Biotechnologi i Nauk o Żywności
+
+
+Question: Word(word=Institute of Papermaking and Printing, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Master of Science, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Rector, numberOfTries=3)
+Good
+Answer: Rektor
+
+
+Question: Word(word=graduate, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=issue of, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Institute of Papermaking and Printing, numberOfTries=2)
+Good
+Answer: Instytut Papiernictwa i Poligrafi
+
+
+Question: Word(word=Master of Science, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Master of Science, numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=graduate, numberOfTries=2)
+Good
+Answer: absolwent
+
+
+Question: Word(word=issue of, numberOfTries=2)
+Good
+Answer: kwestia
+
+
+POINTS AFTER SESSION NR.8
+Good Answers: 70
+Wrong Answers: 68
+ValueProgress: 1.6250023136712883
+Total Good Answers: 70
+Total Wrong Answers: 68
+Total ValueProgress: 1.871951207645354

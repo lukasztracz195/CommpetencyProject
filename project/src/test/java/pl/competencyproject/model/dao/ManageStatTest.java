@@ -2,6 +2,7 @@ package pl.competencyproject.model.dao;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.dao.classes.ManageLevels;
@@ -28,10 +29,10 @@ public class ManageStatTest {
     private  static int idLevel;
     private  static TypeOfUsedDatabase type = TypeOfUsedDatabase.OfflineTestDataBase;
 
-    @Before
+    @BeforeClass
     public void init() {
-        MS = ManageStats.getInstance(type);
-        MU = ManageUsers.getInstance(type);
+        MS = new ManageStats(type);
+        MU = new ManageUsers(type);
         ML = new ManageLevels(type);
         if (MU.existUser(email) == -1 || idUser == -1) {
             idUser = MU.addUser(email, password);

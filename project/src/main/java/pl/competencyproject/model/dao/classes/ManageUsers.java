@@ -3,6 +3,7 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import pl.competencyproject.model.dao.interfaces.ManagingUsers;
 import pl.competencyproject.model.entities.User;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
@@ -13,39 +14,19 @@ import java.util.List;
 
 public class ManageUsers extends GeneralManager implements ManagingUsers {
 
-    private static ManageUsers instance;
-
     public ManageUsers(TypeOfUsedDatabase type) {
         super(type);
     }
-
     public static final String TABLE = "USERS";
 
-    public static ManageUsers getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageUsers.class) {
-                if (instance == null) {
-                    instance = new ManageUsers(type);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public synchronized static void delete(){
-        instance = null;
-    }
     /* Method to CREATE an user in the database */
     public synchronized Integer addUser(String email, String password) {
         Transaction tx = null;
         Integer idUser = -1;
 
         if (this.existUser(email) == -1) {
-            while(!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
             try {
-
+                reset();
                 tx = session.beginTransaction();
                 String passwordEncrypted = encryptSHA1(password);
                 User user = new User(email, passwordEncrypted, false);
@@ -63,13 +44,10 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
 
 
     /* Method to UPDATE password for an user */
-    public void updatePasswordUser(Integer UserID, String password) {
+    public synchronized void updatePasswordUser(Integer UserID, String password) {
         Transaction tx = null;
-
         try {
-            while(!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
             String passwordEncrypted = encryptSHA1(password);
@@ -83,13 +61,11 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     }
 
     /* Method to UPDATE active status for an user */
-    public void updateActiveUser(Integer UserID, boolean active) {
+    public synchronized void updateActiveUser(Integer UserID, boolean active) {
         Transaction tx = null;
 
         try {
-            while(!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             User user = (User) session.get(User.class, UserID);
             user.setActive(active);
@@ -104,12 +80,10 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
     }
 
     /* Method to DELETE an user from the records */
-    public void deleteUser(Integer UserID) {
+    public synchronized void deleteUser(Integer UserID) {
         Transaction tx = null;
-        while(!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
         try {
+            reset();
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
             session.delete(user);
@@ -126,16 +100,7 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
 
         User user = null;
         int id = -1;
-        while(!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
-        NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
-        query.addEntity(User.class);
-        query.setParameter("email", email);
-        List result = query.list();
-        if (result.size() != 0) {
-            user = (User) result.get(0);
-        }
+        user = createQueryForGetUser(user, email);
         if (user != null) {
             id = user.getIdUser();
         }
@@ -143,12 +108,10 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
 
     }
 
-    public void updateEmail(Integer UserID, String email) {
+    public synchronized void updateEmail(Integer UserID, String email) {
         Transaction tx = null;
         try {
-            while(!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             User user = session.get(User.class, UserID);
             user.setEmail(email);
@@ -160,12 +123,15 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         }
     }
 
-    public User getUser(String email) {
+    public synchronized User getUser(String email) {
 
         User user = null;
-        while(!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        user = createQueryForGetUser(user, email);
+        return user;
+    }
+
+    private synchronized User createQueryForGetUser(User user, String email) {
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM USERS WHERE email =  :email");
         query.addEntity(User.class);
         query.setParameter("email", email);
@@ -176,13 +142,11 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return user;
     }
 
-    public User getUser(int IdUser) {
+    public synchronized User getUser(int IdUser) {
         Transaction tx = null;
         User user = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             user = (User) session.get(User.class, IdUser);
             tx.commit();
@@ -195,33 +159,33 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return user;
     }
 
-    public String getPassword(int IdUser) {
+    public synchronized String getPassword(int IdUser) {
         User user = getUser(IdUser);
         return user.getPassword();
     }
 
 
-    public boolean checkUserPassword(int IdUser, String password) {
+    public synchronized boolean checkUserPassword(int IdUser, String password) {
 
         User user = getUser(IdUser);
         String passwordUser = encryptSHA1(password);
         return user.getPassword().equals(passwordUser);
     }
 
-    public boolean checkUserEmail(int IdUser, String email) {
+    public synchronized boolean checkUserEmail(int IdUser, String email) {
         User user = getUser(IdUser);
         return user.getEmail().equals(email);
     }
 
 
-    public boolean checkLogedUser(int IdUser) {
+    public synchronized boolean checkLogedUser(int IdUser) {
 
         User user = getUser(IdUser);
         if (user.isActive()) return true;
         return false;
     }
 
-    public String encryptSHA1(String password) {
+    public synchronized String encryptSHA1(String password) {
         MessageDigest mDigest = null;
         StringBuffer sb = new StringBuffer();
         try {
@@ -238,11 +202,6 @@ public class ManageUsers extends GeneralManager implements ManagingUsers {
         return sb.toString();
     }
 
-    public void reset() {
-        super.reset();
-    }
 
-    public void closeSession(){
-        super.closeSession();
-    }
+
 }

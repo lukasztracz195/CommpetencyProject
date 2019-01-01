@@ -10,7 +10,7 @@ class ManageUsersTest {
 
     private String email = "testUser1@gmail.com";
     private String emailChange = "testUser2@gmail.com";
-    private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+    private ManageUsers manageUsers = new ManageUsers(TypeOfUsedDatabase.OfflineTestDataBase);
 
     int id = -1;
 

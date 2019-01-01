@@ -31,7 +31,7 @@ public class ReaderCSVTest {
     public void addFamily() throws FileNotFoundException {
         SessionLogon.IdLoggedUser = 1;
         ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageDictionaryWords MDW = new ManageDictionaryWords(TypeOfUsedDatabase.OfflineTestDataBase);
         ML.addLevel("B2", "Working life");
         int id = ML.existLevel("B2", "Working life");
         Assertions.assertEquals(1, id);
@@ -100,7 +100,7 @@ public class ReaderCSVTest {
         csvReader.chooseLevel("B2", "Working life");
         int result = csvReader.insertDictionarySentences();
         Assertions.assertNotSame(0,result);
-        ManageDictionarySentences MDS = ManageDictionarySentences.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageDictionarySentences MDS = new ManageDictionarySentences(TypeOfUsedDatabase.OfflineTestDataBase);
         idLevel = ML.existLevel("B2", "Working life");
         int exist = MDS.existDictionarySentences(idLevel, sentenceENG, sentencePL);
         Assertions.assertNotSame(-1,exist);
@@ -112,8 +112,8 @@ public class ReaderCSVTest {
         String sentenceENG = "dog";
 
         ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
-        ManageWordsENG MWE = ManageWordsENG.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
-        ManageWordsPL MWP = ManageWordsPL.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageWordsENG MWE = new ManageWordsENG(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageWordsPL MWP = new ManageWordsPL(TypeOfUsedDatabase.OfflineTestDataBase);
 
         int idLevel = ML.existLevel("B2", "Working life");
         if(idLevel == -1){
@@ -123,7 +123,7 @@ public class ReaderCSVTest {
         csvReader.chooseLevel("B2", "Working life");
         int result = csvReader.insertDictionaryWordswithoutFamily();
         Assertions.assertNotSame(0,result);
-        ManageDictionaryWords MDW = ManageDictionaryWords.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        ManageDictionaryWords MDW = new ManageDictionaryWords(TypeOfUsedDatabase.OfflineTestDataBase);
         idLevel = ML.existLevel("B2", "Working life");
         int idWordENG = MWE.existWordENG(sentenceENG);
         int idWordPL = MWP.existWordPL(sentencePL);

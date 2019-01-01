@@ -48,11 +48,6 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     @Override
-    public Integer getSizeOfFullMap() {
-        return sizeOfFullMap;
-    }
-
-    @Override
     public void loadDictionary(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, typeDB);
@@ -86,11 +81,6 @@ public class DictionaryMap implements IDictionaryMap {
         return partMap;
     }
 
-    @Override
-    public Integer getNumberMaxOfSessions() {
-        return numberMaxOfSessions;
-    }
-
     public Integer calculateTheNumberOfCombinations() {
         if (sizeOfFullMap > 10) {
             int result = ((sizeOfFullMap / 10));
@@ -120,9 +110,9 @@ public class DictionaryMap implements IDictionaryMap {
         ManageWordsPL MWP;
 
 
-        MDW = ManageDictionaryWords.getInstance(typeDB);
-        MWE = ManageWordsENG.getInstance(typeDB);
-        MWP = ManageWordsPL.getInstance(typeDB);
+        MDW = new ManageDictionaryWords(typeDB);
+        MWE = new ManageWordsENG(typeDB);
+        MWP = new ManageWordsPL(typeDB);
         if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
         } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
@@ -161,7 +151,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
-        MDS = ManageDictionarySentences.getInstance(typeDB);
+        MDS = new ManageDictionarySentences(typeDB);
         dictionary = new HashMap<>();
         keysAllMap = new HashMap<>();
         dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);

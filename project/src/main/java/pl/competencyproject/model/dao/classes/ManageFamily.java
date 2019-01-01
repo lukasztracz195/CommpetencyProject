@@ -13,27 +13,17 @@ import java.util.List;
 public class ManageFamily extends GeneralManager implements ManagingFamily {
 
 
-    private static ManageFamily instance;
     public static final String TABLE = "FAMILIES";
 
-    public ManageFamily(TypeOfUsedDatabase type) {
+    public  ManageFamily(TypeOfUsedDatabase type) {
         super(type);
     }
 
-
-
-    public static void delete(){
-        instance = null;
-    }
-
-    public Integer addFamily(int idLevel, String headFamily) {
+    public synchronized Integer addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
-        // SessionLogon.IdLoggedUser = 1;  // BROBLEM Z SESSIONLOGON
         if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Family dictionary = new Family(idLevel, headFamily);
@@ -49,10 +39,8 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         return idDictionary;
     }
 
-    public Integer existFamily(int idLevel, String headFamily) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized Integer existFamily(int idLevel, String headFamily) {
+        reset();
         Family family = null;
         NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel AND headFamily = :headFamily");
         query.addEntity(Family.class);
@@ -66,13 +54,11 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         return -1;
     }
 
-    public Family getFamily(int idFamily) {
+    public synchronized Family getFamily(int idFamily) {
         Transaction tx = null;
         Family family = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             family = (Family) session.get(Family.class, idFamily);
             tx.commit();
@@ -85,12 +71,10 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         return family;
     }
 
-    public void deleteFamily(Integer idFamily) {
+    public synchronized void deleteFamily(Integer idFamily) {
         if (getFamily(idFamily) != null) {
             Transaction tx = null;
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Family family = session.get(Family.class, idFamily);

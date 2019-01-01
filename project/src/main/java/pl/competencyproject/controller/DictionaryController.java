@@ -11,7 +11,6 @@ import javafx.stage.FileChooser;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
@@ -56,7 +55,7 @@ public class DictionaryController extends AbstractController implements Initiali
         csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(),nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
 
         FileChooser fileChooser=new FileChooser();
-        fileChooser.setInitialDirectory(new File("C:\\Users"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("csv Files","*.csv"));
 
         List<File> selectedFiles=fileChooser.showOpenMultipleDialog(null);
@@ -65,6 +64,7 @@ public class DictionaryController extends AbstractController implements Initiali
                 selectedFiles.get(i).getAbsolutePath();
                 csvReader.chooseCSV(selectedFiles.get(i));
             }
+            // TO DO Poniżasz linijka ma się wykonać w nowym wątku i ma ten wątek informować o ilości dodanych wpisów co pewien czas
             int howMatch = csvReader.insertDictionaryWordswithoutFamily();
             feedbackLabel.setVisible(true);
             feedbackLabel.setText("Do bazy dodano "+howMatch+" nowych wpisów");

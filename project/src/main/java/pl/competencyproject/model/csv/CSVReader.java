@@ -68,7 +68,7 @@ public class CSVReader {
     public Integer insertDictionarySentences() {
         ManageDictionarySentences MDS = null;
 
-        MDS = ManageDictionarySentences.getInstance(type);
+        MDS = new ManageDictionarySentences(type);
 
         int records = 0;
         String line = fileOfCSV.getRead().nextLine();
@@ -104,9 +104,9 @@ public class CSVReader {
     public Integer insertDictionaryWordswithoutFamily() {
         int records = 0;
         readLinesFromFile();
-         MWE = ManageWordsENG.getInstance(type);
-         MWP = ManageWordsPL.getInstance(type);
-         MDW = ManageDictionaryWords.getInstance(type);
+         MWE = new ManageWordsENG(type);
+         MWP = new ManageWordsPL(type);
+         MDW = new ManageDictionaryWords(type);
         String header = listOfLines.get(0);
         if (checkHeaderWordsSentenses(header)) {
             String[] headerParts = header.split(";");
@@ -130,9 +130,9 @@ public class CSVReader {
 
     public Integer insertFamily() {
         MF = new ManageFamily(type);
-        MWE = ManageWordsENG.getInstance(type);
-        MWP = ManageWordsPL.getInstance(type);
-        MDW = ManageDictionaryWords.getInstance(type);
+        MWE = new ManageWordsENG(type);
+        MWP = new ManageWordsPL(type);
+        MDW = new ManageDictionaryWords(type);
 
         String line = fileOfCSV.getRead().nextLine();
         if (checkHeaderWordsSentenses(line)) {

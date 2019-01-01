@@ -20,7 +20,7 @@ public class ManageDictionarySentencesTest {
     @Before
     public void init() {
         SessionLogon.IdLoggedUser = 1;
-        MDS = ManageDictionarySentences.getInstance(TypeOfUsedDatabase.OfflineTestDataBase);
+        MDS = new ManageDictionarySentences(TypeOfUsedDatabase.OfflineTestDataBase);
         ML = new ManageLevels(TypeOfUsedDatabase.OfflineTestDataBase);
         if (ML.existLevel("B2", "TestLevel") == -1) {
             idLevel = ML.addLevel("B2", "TestLevel");

@@ -15,33 +15,18 @@ import java.util.concurrent.TimeUnit;
 
 public class ManageStats extends GeneralManager implements ManagingStats {
 
-    private static ManageStats instance;
 
-    private ManageStats(TypeOfUsedDatabase type) {
+    public ManageStats(TypeOfUsedDatabase type) {
         super(type);
     }
 
     public static final String TABLE = "STATS";
 
-    public static ManageStats getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageStats.class) {
-                if (instance == null) {
-                    instance = new ManageStats(type);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static void delete(){
-        instance = null;
-    }
-    public Integer addStat(int IdLevel, double valueProgress) {
+    public synchronized Integer addStat(int IdLevel, double valueProgress) {
         Transaction tx = null;
         Integer idStat = -1;
         if (SessionLogon.IdLoggedUser > 0) {
-            Session session = sessionFactory.openSession();
+           reset();
             try {
                 tx = session.beginTransaction();
                 Stat stat = new Stat(SessionLogon.IdLoggedUser, IdLevel, valueProgress);
@@ -59,12 +44,10 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     }
 
     /* GET STAT */
-    public Stat getStat(int IdStat) {
+    public synchronized Stat getStat(int IdStat) {
         Stat stat = null;
         Transaction tx;
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         if (IdStat > 0) {
             tx = session.beginTransaction();
             stat = session.get(Stat.class, IdStat);
@@ -74,13 +57,11 @@ public class ManageStats extends GeneralManager implements ManagingStats {
     }
 
     /* UPDATE STAT */
-    public void updateStat(int IdStat, double valueProgress) {
+    public synchronized void updateStat(int IdStat, double valueProgress) {
 
         Transaction tx = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             Stat stat = session.get(Stat.class, IdStat);
             Date now = new Date();
@@ -104,11 +85,9 @@ public class ManageStats extends GeneralManager implements ManagingStats {
 
 
     /*  DELETE STAT */
-    public void deleteStat(int idStat) {
+    public synchronized void deleteStat(int idStat) {
         Transaction tx = null;
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         try {
             tx = session.beginTransaction();
             Stat stat = (Stat) session.get(Stat.class, idStat);
@@ -122,13 +101,11 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         }
     }
 
-    public Integer existStat(int idStat) throws HibernateException {
+    public synchronized Integer existStat(int idStat) throws HibernateException {
 
         Stat stat = null;
         int id = -1;
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM STATS WHERE idStat = :idStat");
         query.addEntity(Stat.class);
         query.setParameter("idStat", idStat);

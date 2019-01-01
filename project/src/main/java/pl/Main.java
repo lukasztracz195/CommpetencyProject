@@ -9,6 +9,7 @@ import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
 //import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
 
 import java.io.FileNotFoundException;
@@ -47,7 +48,6 @@ public class Main extends Application {
     @Override
     public void stop() {
         SessionLogon.getInstance().logOut();
-        SessionLogon.getInstance().closeSession();
     }
 
 }

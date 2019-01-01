@@ -11,36 +11,19 @@ import java.util.List;
 
 public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
 
-    private static ManageWordsPL instance;
+
     public static final String TABLE = "WORDS_PL";
 
-    private ManageWordsPL(TypeOfUsedDatabase type) {
+    public ManageWordsPL(TypeOfUsedDatabase type) {
         super(type);
     }
 
-    public static ManageWordsPL getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageWordsPL.class) {
-                if (instance == null) {
-                    instance = new ManageWordsPL(type);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static void delete() {
-        instance = null;
-    }
-
-    public Integer addWordPL(String strPL) {
+    public synchronized Integer addWordPL(String strPL) {
         Transaction tx = null;
         int idWordPL = -1;
 
         if (this.existWordPL(strPL) == -1) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Word_PL wordPL = new Word_PL(strPL);
@@ -56,10 +39,8 @@ public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
         return idWordPL;
     }
 
-    public Integer existWordPL(String strPL) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized Integer existWordPL(String strPL) {
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM WORDS_PL WHERE wordPL =  :wordPL");
         query.addEntity(Word_PL.class);
         query.setParameter("wordPL", strPL);
@@ -71,9 +52,10 @@ public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
         return -1;
     }
 
-    public void deleteWordPL(Integer idWordPL) {
+    public synchronized void deleteWordPL(Integer idWordPL) {
         Transaction tx = null;
         try {
+            reset();
             tx = session.beginTransaction();
             Word_PL user = (Word_PL) session.get(Word_PL.class, idWordPL);
             session.delete(user);
@@ -86,13 +68,11 @@ public class ManageWordsPL extends GeneralManager implements ManagingWordsPL {
         }
     }
 
-    public Word_PL getWordPL(int idWordPL) {
+    public synchronized Word_PL getWordPL(int idWordPL) {
         Transaction tx = null;
         Word_PL word = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             word = (Word_PL) session.get(Word_PL.class, idWordPL);
             tx.commit();

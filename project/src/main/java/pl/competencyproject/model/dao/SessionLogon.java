@@ -15,7 +15,7 @@ public class SessionLogon {
     public static boolean logged = false;
     public static Integer genereatedCode;
     public static GeneralClock time;
-    private ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageUsers manageUsers = new ManageUsers(TypeOfUsedDatabase.OnlineOrginalDatabase);
     private static SessionLogon instance;
     public static String email;
 
@@ -101,14 +101,6 @@ public class SessionLogon {
 
     public GeneralClock getClockDate() {
         return time;
-    }
-
-    public void resetSession() {
-        manageUsers.reset();
-    }
-
-    public void closeSession() {
-        manageUsers.closeSession();
     }
 
     public void doSomethingbyLoggedUser() {

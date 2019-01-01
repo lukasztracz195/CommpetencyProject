@@ -58,7 +58,7 @@ public class ProfileController extends AbstractController implements Initializab
     private Email emailValidator;
 
     private static SessionLogon session = SessionLogon.getInstance();
-    ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    ManageUsers manageUsers = new ManageUsers(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
 
     @Override
@@ -83,7 +83,7 @@ public class ProfileController extends AbstractController implements Initializab
         Optional<ButtonType> action = confirmation.showAndWait();
         if (action.get() == ButtonType.OK) {
             manageUsers.deleteUser(SessionLogon.IdLoggedUser);
-            manageUsers.reset();
+           //manageUsers.reset();
             logout();
         }
     }
@@ -178,7 +178,7 @@ public class ProfileController extends AbstractController implements Initializab
             hideChangePassword();
             saveIsActive = false;
         } else if (profilNoweHaslo.getText().equals(profilPotwierdzHaslo.getText())) {
-            labelConfirmPassword.setStyle("style=-fx-background-color: #ff9966; -fx-background-radius: 15; ");
+            labelConfirmPassword.setStyle("-fx-background-color: #ff9966; -fx-background-radius: 15; ");
             labelConfirmPassword.setText("Confirm Password");
             Email.mailChangePassword(profilNazwaUzytkownika.getText());
             confirmCode.setVisible(true);
@@ -293,7 +293,7 @@ public class ProfileController extends AbstractController implements Initializab
     private void approvesCode() {
         SessionLogon sessionLogon = SessionLogon.getInstance();
         if (sessionLogon.checkCode(confirmCode.getText())) {
-            ManageUsers manageUsers = ManageUsers.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+            ManageUsers manageUsers = new ManageUsers(TypeOfUsedDatabase.OnlineOrginalDatabase);
             manageUsers.updatePasswordUser(SessionLogon.IdLoggedUser, profilPotwierdzHaslo.getText());
         } else {
             confirmCode.clear();

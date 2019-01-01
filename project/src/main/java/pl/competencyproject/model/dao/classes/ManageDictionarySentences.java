@@ -12,36 +12,18 @@ import java.util.List;
 
 public class ManageDictionarySentences extends GeneralManager implements ManagingDictionarySentences {
 
-    private static ManageDictionarySentences instance;
     public static final String TABLE = "DICTIONARY_SENTENCES";
 
-    private ManageDictionarySentences(TypeOfUsedDatabase type) {
+    public ManageDictionarySentences(TypeOfUsedDatabase type) {
         super(type);
     }
 
 
-    public static ManageDictionarySentences getInstance(TypeOfUsedDatabase type) {
-        if (instance == null) {
-            synchronized (ManageDictionarySentences.class) {
-                if (instance == null) {
-                    instance = new ManageDictionarySentences(type);
-                }
-            }
-        }
-        return instance;
-    }
-
-    public static void delete(){
-        instance = null;
-    }
-
-    public Integer insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
+    public synchronized Integer insertDictionarySentece(int idLevel, String sentencesENG, String sentencesPL) {
         Transaction tx = null;
         int idDictionary = -1;
         if (SessionLogon.IdLoggedUser > 0 && existDictionarySentences(idLevel, sentencesENG, sentencesPL) == -1) {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             try {
                 tx = session.beginTransaction();
                 Dictionary_Sentence dictionary = new Dictionary_Sentence(idLevel, sentencesENG, sentencesPL);
@@ -57,10 +39,8 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return idDictionary;
     }
 
-    public Integer existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized Integer existDictionarySentences(int idLevel, String sentencesENG, String sentencesPL) {
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel AND sentencesENG = :sentencesENG AND sentencesPL = " +
                 ":sentencesPL");
         query.addEntity(Dictionary_Sentence.class);
@@ -75,13 +55,11 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return -1;
     }
 
-    public Dictionary_Sentence getDictionary_Sentences(int idDictionary) {
+    public synchronized Dictionary_Sentence getDictionary_Sentences(int idDictionary) {
         Transaction tx = null;
         Dictionary_Sentence dicSentency = null;
         try {
-            if (!session.isOpen()) {
-                session = sessionFactory.openSession();
-            }
+            reset();
             tx = session.beginTransaction();
             dicSentency = session.get(Dictionary_Sentence.class, idDictionary);
             tx.commit();
@@ -94,10 +72,8 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return dicSentency;
     }
 
-    public List<Dictionary_Sentence> getListbyLevel(Integer idLevel) {
-        if (!session.isOpen()) {
-            session = sessionFactory.openSession();
-        }
+    public synchronized List<Dictionary_Sentence> getListbyLevel(Integer idLevel) {
+        reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel =  :idLevel");
         query.addEntity(Dictionary_Sentence.class);
         query.setParameter("idLevel", idLevel);

@@ -10,31 +10,14 @@ import java.util.SortedMap;
 
 public interface IDictionaryMap {
 
-    public Integer getSizeOfFullMap();
+    public int getSizeOfFullMap();
 
     public void loadDictionary(Integer IdDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB);
 
     public SortedMap<Word, List<String>> getRandTenMap();
 
-    public Integer getNumberMaxOfSessions();
-
     public Integer calculateTheNumberOfCombinations();
 
     public Integer findUniqueID();
-
-
-    /*
-
-    Ok instrukcja jak to testować
-    Najpier ttworzysz plik csv w resources taki dość długi
-    następnie dodajesz go do Bazy Danych
-    na daną nazwę poziomu
-    potem pobierasz id tego rekordu
-    Następnie tworzysz obiekt DictionaryMap przez getInstance()
-    Następnie używamy metody initDictiionary()
-    Po czym tworzą się struktury danych do odpytywania
-    należy sprawdzić czy tyle ile miałeś rekordów w csv ( każde eng przpisane do inNEGO PL sie zgadza z tą w pamięci
-    itd.
-     */
 
 }

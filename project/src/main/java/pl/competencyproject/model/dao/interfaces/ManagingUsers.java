@@ -17,7 +17,7 @@ public interface ManagingUsers  {
 
     public void updateEmail(Integer UserID, String email);
 
-    public User getUser(String email);
+   // public User getUser(String email);
 
     public User getUser(int IdUser);
 

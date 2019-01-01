@@ -4,15 +4,13 @@ import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
 public class ThreadBot implements Runnable {
 
     private PrintWriter save;
+
     public ThreadBot() {
         try {
             save = new PrintWriter("AskerBotResult.txt");
@@ -27,29 +25,33 @@ public class ThreadBot implements Runnable {
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         SessionLogon.IdLoggedUser = 1;
         Teacher teacher = new Teacher(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        System.out.println("Start download");
         save.println("Start download");
         teacher.initDictionary("B2", "Structure of the University", TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL);
         SessionLogon.IdLoggedUser = -1;
+        System.out.println("koniec zaciągania z bazy dictionarySize = " + teacher.getCurrentMapQuestion().size());
         save.println("koniec zaciągania z bazy dictionarySize = " + teacher.getCurrentMapQuestion().size());
-
-        for (Map.Entry<Word, List<String>> entry : teacher.getCurrentMapQuestion().entrySet()) {
-            Word key1 = entry.getKey();
-            List<String> value1 = entry.getValue();
-            save.println(key1.toString() + ": " + value1.toString());
-        }
         for (int i = 1; i <= teacher.getNumberMaxOfSessions(); i++) {
             save.println("Sesja nr. " + i + " z " + teacher.getNumberMaxOfSessions());
             while (!teacher.getCurrentMapQuestion().isEmpty()) {
-                save.println("\nQuestion: " + teacher.getCurrentQuestion());
+                save.println("");
+                save.println("Question: " + teacher.getCurrentQuestion());
                 String answer = teacher.randGoodOrBadAnswer();
-                teacher.checkAnswer(answer);
+                boolean check = teacher.checkAnswer(answer, 0);
+                if (check) save.println("Good");
+                else save.println("Wrong");
                 save.println("Answer: " + answer + "\n");
             }
+            save.println("");
+            save.println("POINTS AFTER SESSION NR."+i);
+            save.println("Good Answers: " + teacher.getNumberOfGoodAnswers());
+            save.println("Wrong Answers: " + teacher.getNumberOfBadAnswers());
+            save.println("ValueProgress: " + teacher.getValueProgress());
             teacher.initNextRoundOfQuestions();
         }
-        save.println("Good Answers: " + teacher.getNumberOfGoodAnswers());
-        save.println("Wrong Answers: " + teacher.getNumberOfBadAnswers());
-        save.println("ValueProgress: " + teacher.getValueProgress());
+        save.println("Total Good Answers: " + teacher.getNumberOfGoodAnswers());
+        save.println("Total Wrong Answers: " + teacher.getNumberOfBadAnswers());
+        save.println("Total ValueProgress: " + teacher.getValueProgress());
         save.close();
     }
 }
