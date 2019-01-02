@@ -45,13 +45,13 @@ public class ThreadBot implements Runnable {
             save.println("");
             save.println("POINTS AFTER SESSION NR."+i);
             save.println("Good Answers: " + teacher.getNumberOfGoodAnswers());
-            save.println("Wrong Answers: " + teacher.getNumberOfBadAnswers());
+            save.println("Wrong Answers: " + teacher.getNumberOfWrongAnswers());
             save.println("ValueProgress: " + teacher.getValueProgress());
             teacher.initNextRoundOfQuestions();
         }
-        save.println("Total Good Answers: " + teacher.getNumberOfGoodAnswers());
-        save.println("Total Wrong Answers: " + teacher.getNumberOfBadAnswers());
-        save.println("Total ValueProgress: " + teacher.getValueProgress());
+        save.println("Total Good Answers: " + teacher.getTotalNumberOfGoodAnswers());
+        save.println("Total Wrong Answers: " + teacher.getTotalNumberOfWrongAnswers());
+        save.println("Total ValueProgress: " + teacher.getTotalValueProgress());
         save.close();
     }
 }

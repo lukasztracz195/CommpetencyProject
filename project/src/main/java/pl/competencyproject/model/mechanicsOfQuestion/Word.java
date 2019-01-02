@@ -23,18 +23,6 @@ public class Word implements Comparable<Word> {
 
     @Override
     public int compareTo(Word o) {
-        /*
-        if (this.equals(o)){
-          //  System.out.println("compareTo równe");
-            return 0;
-        }
-        else if (this.numberOfTries < o.getNumberOfTries()) {
-          //  System.out.println("compareTo mniejsze");
-            return -1;
-        } else
-          //  System.out.println("compareTo większe");
-        return 1;
-*/
         String sThis = ((char) (this.getNumberOfTries() + 65)) + ' ' + this.getWord();
         String sOther = ((char) (o.getNumberOfTries() + 65)) + ' ' + o.getWord();
         return (sThis.compareTo(sOther)) * (-1);
