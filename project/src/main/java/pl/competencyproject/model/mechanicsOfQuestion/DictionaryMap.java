@@ -1,37 +1,50 @@
 package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.Getter;
+import lombok.Setter;
 import pl.competencyproject.model.dao.classes.*;
+import pl.competencyproject.model.entities.*;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap;
-import pl.competencyproject.model.entities.Dictionary_Sentence;
-import pl.competencyproject.model.entities.Dictionary_Word;
-import pl.competencyproject.model.entities.Word_ENG;
-import pl.competencyproject.model.entities.Word_PL;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 
 import java.util.*;
 
 @Getter
+@Setter
 public class DictionaryMap implements IDictionaryMap {
 
     private static DictionaryMap instance;
 
     private List<Dictionary_Word> dictionaryWordsFromBase;
     private List<Dictionary_Sentence> dictionarySentencysFromBase;
+
     private Map<String, List<String>> dictionary;
     private Map<Integer, Word> keysAllMap;
     private Set<Integer> collectionOfuniqueness;
 
+    private String nameOfLevel;
+    private String nameOfCategory;
+    private String headOfFamily;
+
+    private TypeOfDictionaryDownloaded typeDictionary;
+    private TypeOfDictionaryLanguage typeLangToLang;
+    private TypeOfUsedDatabase typeDB;
+
     private int numberMaxOfSessions;
-
     private int sizeOfFullMap;
-
+    private int numberOfRecordsToDownload;
     private int currentSession;
+
+    private Integer idLevel = -1;
+    private Integer idFamily = -1;
+
 
     private DictionaryMap() {
         collectionOfuniqueness = new HashSet<>();
+        dictionary = new HashMap<>();
+        keysAllMap = new HashMap<>();
         currentSession = 0;
         sizeOfFullMap = 0;
     }
@@ -48,16 +61,6 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     @Override
-    public void loadDictionary(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
-        if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
-            initDictionaryofWordsOrDictionarysFamilys(idDictionary, type, typeLanguage, typeDB);
-        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfSentences) {
-            initDictionaryOfSentencys(idDictionary, typeLanguage, typeDB);
-        }
-        numberMaxOfSessions = 3*calculateTheNumberOfCombinations();
-
-    }
-
     public SortedMap<Word, List<String>> getRandTenMap() {
 
         SortedMap<Word, List<String>> partMap = new TreeMap<>();
@@ -65,8 +68,8 @@ public class DictionaryMap implements IDictionaryMap {
 
             Integer id;
             int size = 10;
-            int difference = sizeOfFullMap-collectionOfuniqueness.size();
-            if (difference< 10) {
+            int difference = sizeOfFullMap - collectionOfuniqueness.size();
+            if (difference < 10) {
                 size = difference;
             }
             for (int i = 0; i < size; i++) {
@@ -81,45 +84,127 @@ public class DictionaryMap implements IDictionaryMap {
         return partMap;
     }
 
+    @Override
     public Integer calculateTheNumberOfCombinations() {
         if (sizeOfFullMap > 10) {
             int result = ((sizeOfFullMap / 10));
-            if(sizeOfFullMap % 10 != 0){
+            if (sizeOfFullMap % 10 != 0) {
                 result++;
             }
             return result;
         } else return 1;
     }
 
-    public Integer findUniqueID() {
+    @Override
+    public void setDictionaryOfSentences(String nameOfLevel, String nameOfCategory) {
+        resetCordsToDB();
+        this.nameOfLevel = nameOfLevel;
+        this.nameOfCategory = nameOfCategory;
+        this.typeDictionary = TypeOfDictionaryDownloaded.DictionaryOfSentences;
+        prepareIDs();
+    }
+
+    @Override
+    public void setDictionaryOfWords(String nameOfLevel, String nameOfCategory) {
+        resetCordsToDB();
+        this.nameOfLevel = nameOfLevel;
+        this.nameOfCategory = nameOfCategory;
+        this.typeDictionary = TypeOfDictionaryDownloaded.DictionaryOfWords;
+        prepareIDs();
+    }
+
+    @Override
+    public void setDictionaryOfFamily(String headOfFamily) {
+        resetCordsToDB();
+        this.headOfFamily = headOfFamily;
+        this.typeDictionary = TypeOfDictionaryDownloaded.DictionaryOfFamilys;
+        prepareIDs();
+    }
+
+
+    public void initDownloadDate() {
+        if (typeLangToLang != null) {
+            if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfWords)) {
+                initDictionaryofWordsOrDictionarysFamilys(idLevel, typeDictionary, typeLangToLang, typeDB);
+            }
+            if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfFamilys)) {
+                initDictionaryofWordsOrDictionarysFamilys(idFamily, typeDictionary, typeLangToLang, typeDB);
+            }
+            if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfSentences)) {
+                initDictionaryOfSentencys(idLevel, typeLangToLang, typeDB);
+            }
+        }
+    }
+
+
+    public void lightReset() {
+        this.currentSession = 0;
+        this.collectionOfuniqueness.clear();
+    }
+
+    public void hardReset() {
+        lightReset();
+        this.dictionary.clear();
+        this.keysAllMap.clear();
+        this.dictionarySentencysFromBase.clear();
+        this.dictionaryWordsFromBase.clear();
+        this.sizeOfFullMap = 0;
+    }
+
+    private void setNumberOfRecordsToDownload() {
+        if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfWords)) {
+            ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
+            numberOfRecordsToDownload = MDW.countDictionaryMap(idLevel);
+        } else if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfSentences)) {
+            ManageDictionarySentences MDS = new ManageDictionarySentences(typeDB);
+            numberOfRecordsToDownload = MDS.countSentencys(idLevel);
+        }
+    }
+
+    private void resetCordsToDB(){
+        nameOfLevel = null;
+        nameOfCategory = null;
+        headOfFamily = null;
+        typeLangToLang = null;
+    }
+
+    private void prepareIDs() {
+        ManageLevels ML = new ManageLevels(typeDB);
+        idLevel = ML.existLevel(nameOfLevel, nameOfCategory);
+        setNumberOfRecordsToDownload();
+        if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfFamilys)) {
+            ManageFamily MF = new ManageFamily(typeDB);
+            idFamily = MF.existFamily(headOfFamily);
+            Family F = MF.getFamily(idFamily);
+            idLevel = F.getIdLevel();
+            numberOfRecordsToDownload = MF.countFamilys(idFamily);
+        }
+
+    }
+
+    private Integer findUniqueID() {
         Random random = new Random();
         Integer selected = -1;
         boolean existInSet = false;
         do {
-            selected = random.nextInt(dictionary.size() );
+            selected = random.nextInt(dictionary.size());
             existInSet = collectionOfuniqueness.contains(selected);
         } while (existInSet);
         collectionOfuniqueness.add(selected);
         return selected;
     }
 
-
     private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
-        ManageDictionaryWords MDW;
-        ManageWordsENG MWE;
-        ManageWordsPL MWP;
+        ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
+        ManageWordsENG MWE = new ManageWordsENG(typeDB);
+        ManageWordsPL MWP = new ManageWordsPL(typeDB);
 
-
-        MDW = new ManageDictionaryWords(typeDB);
-        MWE = new ManageWordsENG(typeDB);
-        MWP = new ManageWordsPL(typeDB);
         if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
             dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
         } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
             dictionaryWordsFromBase = MDW.getDictionaryByFamilie(idDictionary);
         }
-        dictionary = new HashMap<>();
-        keysAllMap = new HashMap<>();
+
         for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
             Dictionary_Word tmpEntite = dictionaryWordsFromBase.get(i);
             Word_ENG tmpWordENG = MWE.getWordENG(tmpEntite.getIdWordENG());
@@ -146,14 +231,13 @@ public class DictionaryMap implements IDictionaryMap {
                 dictionary.replace(key.getWord(), listValues);
             }
         }
+        numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
     }
 
 
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
         MDS = new ManageDictionarySentences(typeDB);
-        dictionary = new HashMap<>();
-        keysAllMap = new HashMap<>();
         dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);
         for (int i = 0; i < dictionarySentencysFromBase.size(); i++) {
             Dictionary_Sentence tmpEntite = dictionarySentencysFromBase.get(i);
@@ -174,19 +258,7 @@ public class DictionaryMap implements IDictionaryMap {
             dictionary.put(word.getWord(), listS);
             sizeOfFullMap++;
         }
-    }
-
-    public void lightReset(){
-        this.currentSession = 0;
-        this.collectionOfuniqueness =  new HashSet<>();
-    }
-
-    public void hardReset(){
-        lightReset();
-        this.dictionary = null;
-        this.keysAllMap = null;
-        this.dictionarySentencysFromBase = null;
-        this.dictionaryWordsFromBase = null;
-        this.sizeOfFullMap = 0;
+        numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
     }
 }
+

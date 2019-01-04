@@ -2,6 +2,7 @@
 package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.Getter;
+import lombok.Setter;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
@@ -17,7 +18,6 @@ public class Teacher implements ITeacher {
 
     private SortedMap<Word, List<String>> currentMapQuestion;
     private DictionaryMap factoryDictionary;
-    private TypeOfUsedDatabase type;
     private String currentQuestion;
     private Word key;
     private List<String> currentAnswer;
@@ -31,16 +31,16 @@ public class Teacher implements ITeacher {
     private double valueProgress = 0;
     private int numberMaxOfSessions;
 
-    public Teacher(TypeOfUsedDatabase type) {
-        this.type = type;
-    }
+    public Teacher() {
 
+    }
+/*
     public void initDictionary(String nameLevel, String nameCategorie, TypeOfDictionaryDownloaded typeDictionary, TypeOfDictionaryLanguage typeLanguage) {
         factoryDictionary = DictionaryMap.getInstance();
         int check = getIdOfLevel(nameLevel, nameCategorie);
         if (check != -1) {
             resetProgress();
-            factoryDictionary.loadDictionary(check, typeDictionary, typeLanguage, type);
+            factoryDictionary.setDictionary(check, typeDictionary, typeLanguage, type);
             currentMapQuestion = factoryDictionary.getRandTenMap();
             numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
             changeQuestion(0);
@@ -48,13 +48,21 @@ public class Teacher implements ITeacher {
             System.out.println("Nie istnieje taki level");
         }
     }
+*/
 
+    public void setDictionary(DictionaryMap dictionary){
+        factoryDictionary = dictionary;
+        currentMapQuestion = factoryDictionary.getRandTenMap();
+        numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
+        changeQuestion(0);
+    }
+    /*
     private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
         ManageLevels ML = new ManageLevels(type);
         int result = ML.existLevel(nameLevel, nameCategorie);
         return result;
     }
-
+*/
     public boolean checkAnswer(String answer, int delayInMilisecundes) {
         if (!currentMapQuestion.isEmpty()) {
             List<Integer> diffrentsAnswers = new ArrayList<>();

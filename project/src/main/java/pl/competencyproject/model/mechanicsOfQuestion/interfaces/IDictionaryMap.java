@@ -1,6 +1,7 @@
 package pl.competencyproject.model.mechanicsOfQuestion.interfaces;
 
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 import pl.competencyproject.model.mechanicsOfQuestion.Word;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
@@ -12,12 +13,16 @@ public interface IDictionaryMap {
 
     public int getSizeOfFullMap();
 
-    public void loadDictionary(Integer IdDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB);
-
     public SortedMap<Word, List<String>> getRandTenMap();
 
     public Integer calculateTheNumberOfCombinations();
 
-    public Integer findUniqueID();
+    public void setDictionaryOfSentences(String nameOfLevel, String nameOfCategory);
+
+    public void setDictionaryOfWords(String nameOfLevel, String nameOfCategory);
+
+    public void setDictionaryOfFamily( String headOfFamily);
+
+
 
 }

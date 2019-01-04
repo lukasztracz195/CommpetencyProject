@@ -22,7 +22,7 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
     public synchronized Integer addFamily(int idLevel, String headFamily) {
         Transaction tx = null;
         int idDictionary = -1;
-        if (SessionLogon.IdLoggedUser > 0 && existFamily(idLevel, headFamily) == -1) {
+        if (SessionLogon.IdLoggedUser > 0 && existFamily(headFamily) == -1) {
             reset();
             try {
                 tx = session.beginTransaction();
@@ -39,12 +39,11 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         return idDictionary;
     }
 
-    public synchronized Integer existFamily(int idLevel, String headFamily) {
+    public synchronized Integer existFamily( String headFamily) {
         reset();
         Family family = null;
-        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel AND headFamily = :headFamily");
+        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE headFamily = :headFamily");
         query.addEntity(Family.class);
-        query.setParameter("idLevel", idLevel);
         query.setParameter("headFamily", headFamily);
         List result = query.list();
         if (result.size() != 0) {
@@ -87,5 +86,12 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
                 session.close();
             }
         }
+    }
+
+    public synchronized Integer countFamilys(int idFamily){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT idFamilie FROM FAMILIES WHERE idFamily = :idFamily");
+        query.setParameter("idFamily", idFamily);
+        return query.getMaxResults();
     }
 }

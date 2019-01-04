@@ -126,4 +126,11 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         query.setParameter("ID_Dictionary", idDictionaryWord);
         int result = query.executeUpdate();
     }
+
+    public synchronized Integer countDictionaryMap(int idLevel){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT idDictionaryWords FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
+        query.setParameter("idLevel", idLevel);
+        return query.getMaxResults();
+    }
 }

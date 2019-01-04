@@ -6,9 +6,9 @@ public interface ManagingFamily {
 
     public Integer addFamily(int idLevel, String headFamily);
 
-    public Integer existFamily(int idLevel, String headFamily);
+    public Integer existFamily( String headFamily);
 
-    public Family getFamily(int idFamili);
+    public Family getFamily(int idFamily);
 
     public void deleteFamily(Integer idFamily);
 

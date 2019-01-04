@@ -13,7 +13,7 @@ public class ThreadBot implements Runnable {
 
     public ThreadBot() {
         try {
-            save = new PrintWriter("AskerBotResult.txt");
+            save = new PrintWriter("AskerBotResultFamily.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -24,10 +24,16 @@ public class ThreadBot implements Runnable {
     public void run() {
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         SessionLogon.IdLoggedUser = 1;
-        Teacher teacher = new Teacher(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        Teacher teacher = new Teacher();
+        DictionaryMap DM = DictionaryMap.getInstance();
+        //Kolejność ustawiania DM ma znaczenie !!!!!!!!
+        DM.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        DM.setDictionaryOfFamily("employ");
+        DM.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG);
+        DM.initDownloadDate();
+        teacher.setDictionary(DM);
         System.out.println("Start download");
         save.println("Start download");
-        teacher.initDictionary("B2", "Structure of the University", TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL);
         SessionLogon.IdLoggedUser = -1;
         System.out.println("koniec zaciągania z bazy dictionarySize = " + teacher.getCurrentMapQuestion().size());
         save.println("koniec zaciągania z bazy dictionarySize = " + teacher.getCurrentMapQuestion().size());

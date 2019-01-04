@@ -80,4 +80,11 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         List result = query.list();
         return result;
     }
+
+    public synchronized Integer countSentencys(int idLevel){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT idDictionary FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel");
+        query.setParameter("idLevel", idLevel);
+        return query.getMaxResults();
+    }
 }

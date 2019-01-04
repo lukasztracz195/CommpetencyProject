@@ -40,7 +40,7 @@ public class ManageDictionaryWordsTest {
         if (idML == -1) {
             idML = ML.addLevel(nameLevel, nameCategory);
         }
-        idMF = MF.existFamily(idML, wordENG);
+        idMF = MF.existFamily(wordENG);
         if (idMF == -1) {
             idMF = MF.addFamily(idML, wordENG);
         }

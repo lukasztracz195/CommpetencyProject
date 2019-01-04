@@ -38,13 +38,13 @@ public class ManageFamilyTest {
     @Test
     public void insertFamiy() {
         idFamily = MF.addFamily(idLevel, head);
-        int exist = MF.existFamily(idLevel, head);
+        int exist = MF.existFamily(head);
         Assertions.assertEquals(idFamily, exist);
     }
 
     @Test
     public void getFamily() {
-        idFamily = MF.existFamily(idLevel, head);
+        idFamily = MF.existFamily(head);
         if (idFamily == -1) {
             idFamily = MF.addFamily(idLevel, head);
         }
@@ -58,14 +58,14 @@ public class ManageFamilyTest {
 
     @Test
     public void deleteFamily() {
-        idFamily = MF.existFamily(idLevel, head);
-        if (MF.existFamily(idLevel, head) == -1) {
+        idFamily = MF.existFamily( head);
+        if (MF.existFamily(head) == -1) {
             idFamily = MF.addFamily(idLevel, head);
         } else {
 
         }
         MF.deleteFamily(idFamily);
-        int notExist = MF.existFamily(idLevel, head);
+        int notExist = MF.existFamily( head);
         Assertions.assertEquals(-1, notExist);
     }
 }

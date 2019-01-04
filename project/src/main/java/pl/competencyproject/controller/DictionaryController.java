@@ -101,7 +101,6 @@ public class DictionaryController extends AbstractController implements Initiali
 
     private void enableChoiceBoxes(){
 
-
         typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfLevelChoiceBox.setDisable(false));
         nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfCategoryChoiceBox.setDisable(false));
         nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->addNewDictionaryButton.setDisable(false));

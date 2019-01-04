@@ -1,0 +1,26 @@
+Start download
+koniec zaciągania z bazy dictionarySize = 1
+Sesja nr. 1 z 1
+
+Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=1)
+Wrong
+Answer: abcdfghijkl
+
+
+POINTS AFTER SESSION NR.1
+Good Answers: 0
+Wrong Answers: 3
+ValueProgress: 4.0
+Total Good Answers: 0
+Total Wrong Answers: 3
+Total ValueProgress: 5.0
