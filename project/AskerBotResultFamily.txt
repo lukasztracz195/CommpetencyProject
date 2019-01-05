@@ -1,26 +1,61 @@
 Start download
-koniec zaciągania z bazy dictionarySize = 1
+koniec zaciągania z bazy dictionarySize = 6
 Sesja nr. 1 z 1
 
-Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=3)
+Question: Word(word=bezrobocie, numberOfTries=3)
 Wrong
 Answer: abcdfghijkl
 
 
-Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=2)
+Question: Word(word=nadający się do zatrudnienia, numberOfTries=3)
 Wrong
 Answer: abcdfghijkl
 
 
-Question: Word(word=Idź za głosem serca – ale rozum zabieraj ze sobą., numberOfTries=1)
+Question: Word(word=pracodawca, numberOfTries=3)
+Good
+Answer: employer
+
+
+Question: Word(word=pracwonik, numberOfTries=3)
+Good
+Answer: employee
+
+
+Question: Word(word=zatrudnienie, numberOfTries=3)
+Good
+Answer: employment
+
+
+Question: Word(word=zatrudnić, numberOfTries=3)
+Good
+Answer: to employ
+
+
+Question: Word(word=bezrobocie, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=bezrobocie, numberOfTries=1)
+Good
+Answer: unemployment
+
+
+Question: Word(word=nadający się do zatrudnienia, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=nadający się do zatrudnienia, numberOfTries=1)
 Wrong
 Answer: abcdfghijkl
 
 
 POINTS AFTER SESSION NR.1
-Good Answers: 0
-Wrong Answers: 3
-ValueProgress: 4.0
-Total Good Answers: 0
-Total Wrong Answers: 3
-Total ValueProgress: 5.0
+Good Answers: 5
+Wrong Answers: 5
+ValueProgress: 1.0
+Total Good Answers: 5
+Total Wrong Answers: 5
+Total ValueProgress: 2.0

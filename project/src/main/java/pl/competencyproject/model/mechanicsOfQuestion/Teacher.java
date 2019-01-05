@@ -34,21 +34,6 @@ public class Teacher implements ITeacher {
     public Teacher() {
 
     }
-/*
-    public void initDictionary(String nameLevel, String nameCategorie, TypeOfDictionaryDownloaded typeDictionary, TypeOfDictionaryLanguage typeLanguage) {
-        factoryDictionary = DictionaryMap.getInstance();
-        int check = getIdOfLevel(nameLevel, nameCategorie);
-        if (check != -1) {
-            resetProgress();
-            factoryDictionary.setDictionary(check, typeDictionary, typeLanguage, type);
-            currentMapQuestion = factoryDictionary.getRandTenMap();
-            numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
-            changeQuestion(0);
-        } else {
-            System.out.println("Nie istnieje taki level");
-        }
-    }
-*/
 
     public void setDictionary(DictionaryMap dictionary){
         factoryDictionary = dictionary;

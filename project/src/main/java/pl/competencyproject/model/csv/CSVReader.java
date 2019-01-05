@@ -1,6 +1,8 @@
 package pl.competencyproject.model.csv;
 
+import lombok.ToString;
 import pl.competencyproject.model.dao.classes.*;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
@@ -9,25 +11,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.abs;
-
+@ToString
 public class CSVReader {
     public static CSVReader instance;
-
-    private static LibraryCSV library;
-    private static String choosedCSV;
-    private static Integer choosedLevel;
-    private static String StringENG;
-    private static String StringPL;
-    private static int PLindex;
-    private static int ENGindex;
-    private static FileOfCSV fileOfCSV;
-    private static TypeOfUsedDatabase type;
+    private TypeOfUsedDatabase type;
+    private TypeOfDictionaryDownloaded typeDictionary;
+    private LibraryCSV library;
+    private FileOfCSV fileOfCSV;
+    private Integer choosedLevel;
     private List<String> listOfLines;
+    private boolean transferCommplete =false;
+
+    private String choosedCSV;
+    private String StringENG;
+    private String StringPL;
+
+    private int PLindex;
+    private int ENGindex;
+    private int numberOfLines = 0;
+    private int valueProgress = 0;
 
     private static ManageFamily MF = null;
     private static ManageWordsENG MWE = null;
     private static ManageWordsPL MWP = null;
     private static ManageDictionaryWords MDW = null;
+
+    public synchronized boolean getTransferCommplete(){return transferCommplete;}
+
     private CSVReader(TypeOfUsedDatabase type) {
         library = new LibraryCSV(type);
         this.type = type;
@@ -44,39 +54,66 @@ public class CSVReader {
         return instance;
     }
 
-    public void chooseLevel(String nameLevel, String nameOfCategory) {
+    public boolean chooseLevel(String nameLevel, String nameOfCategory) {
         ManageLevels ml = new ManageLevels(type);
         int id = ml.existLevel(nameLevel, nameOfCategory);
         if (id != -1) {
             choosedLevel = id;
+            return true;
         } else {
             System.out.println("NIE MA TAKIEGO LEVELU");
+            return false;
         }
     }
 
-    public void chooseCSV(String CSVname) {
+    public boolean chooseCSV(String CSVname) {
         if (library.existFileCSVinFolder(CSVname)) {
             choosedCSV = CSVname;
+            fileOfCSV = new FileOfCSV(choosedCSV, type);
+            readLinesFromFile();
+            return true;
         }
-        fileOfCSV = new FileOfCSV(choosedCSV, type);
+        return false;
+
+
     }
 
     public void chooseCSV(File fileCSV) {
         fileOfCSV = new FileOfCSV(fileCSV);
+        readLinesFromFile();
     }
 
-    public Integer insertDictionarySentences() {
+    public void setTypeDictionary(TypeOfDictionaryDownloaded type) {
+        typeDictionary = type;
+    }
+
+    public int initSentToDB() {
+        int result = 0;
+        if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfWords)) {
+            result = insertDictionaryWordswithoutFamily();
+        } else if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfFamilys)) {
+            result = insertFamily();
+        } else if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfSentences)) {
+            result = insertDictionarySentences();
+        }
+        transferCommplete = true;
+        return result;
+    }
+
+    private int insertDictionarySentences() {
         ManageDictionarySentences MDS = null;
 
         MDS = new ManageDictionarySentences(type);
 
         int records = 0;
-        String line = fileOfCSV.getRead().nextLine();
-        if (checkHeaderWordsSentenses(line)) {
-            String[] headerParts = line.split(";");
+        String header = listOfLines.get(0);
+        if (checkHeaderWordsSentenses(header)) {
+            String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
-            while (fileOfCSV.getRead().hasNextLine()) {
-                line = fileOfCSV.getRead().nextLine();
+            String line = null;
+            for (int i = 1; i < listOfLines.size(); i++) {
+                valueProgress++;
+                line = listOfLines.get(i);
                 String[] tokens = line.split(";");
                 StringPL = tokens[PLindex];
                 StringENG = tokens[ENGindex];
@@ -99,19 +136,20 @@ public class CSVReader {
                 listOfLines.add(line);
             }
         }
+        numberOfLines = listOfLines.size();
     }
 
-    public Integer insertDictionaryWordswithoutFamily() {
+    private int insertDictionaryWordswithoutFamily() {
         int records = 0;
-        readLinesFromFile();
-         MWE = new ManageWordsENG(type);
-         MWP = new ManageWordsPL(type);
-         MDW = new ManageDictionaryWords(type);
+        MWE = new ManageWordsENG(type);
+        MWP = new ManageWordsPL(type);
+        MDW = new ManageDictionaryWords(type);
         String header = listOfLines.get(0);
         if (checkHeaderWordsSentenses(header)) {
             String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
             for (int i = 1; i < listOfLines.size(); i++) {
+                valueProgress++;
                 String[] tokens = listOfLines.get(i).split(";");
                 StringPL = tokens[PLindex];
                 StringENG = tokens[ENGindex];
@@ -127,22 +165,22 @@ public class CSVReader {
         return records;
     }
 
-
-    public Integer insertFamily() {
+    private int insertFamily() {
         MF = new ManageFamily(type);
         MWE = new ManageWordsENG(type);
         MWP = new ManageWordsPL(type);
         MDW = new ManageDictionaryWords(type);
 
-        String line = fileOfCSV.getRead().nextLine();
-        if (checkHeaderWordsSentenses(line)) {
-            String[] headerParts = line.split(";");
+        String header = listOfLines.get(0);
+        if (checkHeaderWordsSentenses(header)) {
+            String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
             List<String> listStringENG = new ArrayList<>();
             List<String> listWordENG = new ArrayList<>();
             List<String> listStringPL = new ArrayList<>();
-            while (fileOfCSV.getRead().hasNextLine()) {
-                line = fileOfCSV.getRead().nextLine();
+            String line = null;
+            for (int i = 1; i < listOfLines.size(); i++) {
+                line = listOfLines.get(i);
                 String[] tokens = line.split(";");
                 listStringPL.add(tokens[PLindex]);
                 listStringENG.add(tokens[ENGindex]);
@@ -156,6 +194,7 @@ public class CSVReader {
             int IdWordPL;
             int howAdded = 0;
             for (int i = 0; i < listStringENG.size(); i++) {
+                valueProgress++;
                 String considered = listStringENG.get(i);
                 String translation = listStringPL.get(i);
                 if (isItFamily(headFamily, considered)) {
@@ -179,39 +218,12 @@ public class CSVReader {
         return 0;
     }
 
-
-    private boolean checkHeaderWordsSentenses(String header) {
-        if (header.equals("WordPL;WordENG") || header.equals("WordENG;WordPL")) {
-            return true;
-        }
-        return false;
+    public synchronized int getNumberOfLinesToSendTODB() {
+        return numberOfLines;
     }
 
-    private void setIndexesPLENG(String[] line) {
-
-        if (line[0].equals("WordPL")) {
-            PLindex = 0;
-            ENGindex = 1;
-        } else {
-            PLindex = 1;
-            ENGindex = 0;
-        }
-    }
-
-    private Integer checkReturnOrAddWordPL(ManageWordsPL manager, String wordPL) {
-        int addedId = manager.existWordPL(wordPL);
-        if (addedId == -1) {
-            addedId = manager.addWordPL(wordPL);
-        }
-        return addedId;
-    }
-
-    private Integer checkReturnOrAddWordENG(ManageWordsENG manager, String wordENG) {
-        int addedId = manager.existWordENG(wordENG);
-        if (addedId == -1) {
-            addedId = manager.addWordENG(wordENG);
-        }
-        return addedId;
+    public synchronized int getValueProgress() {
+        return valueProgress;
     }
 
     public String selectlongestWord(String WordWithSpace) {
@@ -301,6 +313,44 @@ public class CSVReader {
             }
         }
         return list.get(interator);
+    }
+
+    public void destroy() {
+        CSVReader.instance = null;
+    }
+
+    private boolean checkHeaderWordsSentenses(String header) {
+        if (header.equals("WordPL;WordENG") || header.equals("WordENG;WordPL")) {
+            return true;
+        }
+        return false;
+    }
+
+    private void setIndexesPLENG(String[] line) {
+
+        if (line[0].equals("WordPL")) {
+            PLindex = 0;
+            ENGindex = 1;
+        } else {
+            PLindex = 1;
+            ENGindex = 0;
+        }
+    }
+
+    private Integer checkReturnOrAddWordPL(ManageWordsPL manager, String wordPL) {
+        int addedId = manager.existWordPL(wordPL);
+        if (addedId == -1) {
+            addedId = manager.addWordPL(wordPL);
+        }
+        return addedId;
+    }
+
+    private Integer checkReturnOrAddWordENG(ManageWordsENG manager, String wordENG) {
+        int addedId = manager.existWordENG(wordENG);
+        if (addedId == -1) {
+            addedId = manager.addWordENG(wordENG);
+        }
+        return addedId;
     }
 
 }

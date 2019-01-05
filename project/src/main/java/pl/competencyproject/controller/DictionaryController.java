@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
+import pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
@@ -18,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
 
@@ -35,12 +39,19 @@ public class DictionaryController extends AbstractController implements Initiali
     private Label clockLabel;
     @FXML
     private Label dateLabel;
+    @FXML
+    private ProgressBar progressBar;
+    @FXML
+    private Label returnLabel;
+
+    private boolean finisheSent = false;
 
     @FXML
     private Label feedbackLabel;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineTestDatabase);
+    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineTestDatabase);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.setClockDate(clockLabel, dateLabel);
@@ -50,28 +61,47 @@ public class DictionaryController extends AbstractController implements Initiali
 
     @FXML
     public void addDictionary() throws FileNotFoundException {
-        CSVReader csvReader=CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
-        System.out.println(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString()+" "+nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
-        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(),nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
+        returnLabel.setVisible(true);
+        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineTestDatabase);
+        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
 
-        FileChooser fileChooser=new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("csv Files","*.csv"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("csv Files", "*.csv"));
 
-        List<File> selectedFiles=fileChooser.showOpenMultipleDialog(null);
-        if(selectedFiles!=null){
-            for(int i=0;i<selectedFiles.size();i++) {
+        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+        if (selectedFiles != null) {
+            for (int i = 0; i < selectedFiles.size(); i++) {
                 selectedFiles.get(i).getAbsolutePath();
                 csvReader.chooseCSV(selectedFiles.get(i));
             }
-            // TO DO Poniżasz linijka ma się wykonać w nowym wątku i ma ten wątek informować o ilości dodanych wpisów co pewien czas
-            int howMatch = csvReader.insertDictionaryWordswithoutFamily();
+            csvReader.setTypeDictionary(DictionaryOfWords);
+            int howMatch = csvReader.getNumberOfLinesToSendTODB();
             feedbackLabel.setVisible(true);
-            feedbackLabel.setText("Do bazy dodano "+howMatch+" nowych wpisów");
+            progressBar.setVisible(true);
+            progressBar.setProgress(0);
+            feedbackLabel.setText("Adding to Database file with "+howMatch+" lines");
+            Thread t = new Thread(new ThradForCSVReader(TypeOfUsedDatabase.OnlineTestDatabase));
+            t.start();
+            addNewDictionaryButton.setDisable(true);
+            Timer timer = new Timer("Timer");
+            TimerTask task = new TimerTask() {
+                public void run() {
+                        progressBar.setProgress(csvReader.getValueProgress() / (double) howMatch);
+                    if(csvReader.getTransferCommplete()) {
+                        progressBar.setVisible(false);
+                        timer.cancel();
+                    }
+                }
+            };
+            timer.schedule(task,0,1000);
+            disableChoiceBoxes();
+
         }
     }
+
     @FXML
-    public void clearChoice(){
+    public void clearChoice() {
         typeOfDictionaryChoiceBox.setValue(null);
         nameOfLevelChoiceBox.setValue(null);
         nameOfLevelChoiceBox.setDisable(true);
@@ -80,6 +110,7 @@ public class DictionaryController extends AbstractController implements Initiali
         addNewDictionaryButton.setDisable(true);
         feedbackLabel.setVisible(false);
     }
+
     @FXML
     public void back() {
         super.back(mainController, this);
@@ -91,19 +122,25 @@ public class DictionaryController extends AbstractController implements Initiali
         sessionLogon.logOut();
     }
 
-    private void setChoiceBoxOfTypesOfDictionary(){
+    private void setChoiceBoxOfTypesOfDictionary() {
 
         typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords.toString());
         nameOfLevelChoiceBox.getItems().add("B2");
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }
 
+    private void disableChoiceBoxes(){
+        typeOfDictionaryChoiceBox.setDisable(true);
+        nameOfLevelChoiceBox.setDisable(true);
+        nameOfCategoryChoiceBox.setDisable(true);
+    }
 
-    private void enableChoiceBoxes(){
 
-        typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfLevelChoiceBox.setDisable(false));
-        nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->nameOfCategoryChoiceBox.setDisable(false));
-        nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->addNewDictionaryButton.setDisable(false));
+    private void enableChoiceBoxes() {
+
+        typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfLevelChoiceBox.setDisable(false));
+        nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfCategoryChoiceBox.setDisable(false));
+        nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> addNewDictionaryButton.setDisable(false));
 
 
     }
