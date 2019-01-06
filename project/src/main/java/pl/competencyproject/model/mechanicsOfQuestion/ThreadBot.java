@@ -13,7 +13,7 @@ public class ThreadBot implements Runnable {
 
     public ThreadBot() {
         try {
-            save = new PrintWriter("AskerBotResultFamily.txt");
+            save = new PrintWriter("AskerBotResult.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -28,9 +28,11 @@ public class ThreadBot implements Runnable {
         DictionaryMap DM = DictionaryMap.getInstance();
         //Kolejność ustawiania DM ma znaczenie !!!!!!!!
         DM.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
-        DM.setDictionaryOfFamily("employ");
+        DM.setDictionaryOfWords("B2","Structure of the University");
         DM.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG);
         DM.initDownloadDate();
+        //Tu masz jak potem korzystac z zaciągnaia danych kolejność jest bardzo istotna
+        //*************************
         teacher.setDictionary(DM);
         System.out.println("Start download");
         save.println("Start download");

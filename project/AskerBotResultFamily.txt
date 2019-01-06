@@ -3,8 +3,8 @@ koniec zaciągania z bazy dictionarySize = 6
 Sesja nr. 1 z 1
 
 Question: Word(word=bezrobocie, numberOfTries=3)
-Wrong
-Answer: abcdfghijkl
+Good
+Answer: unemployment
 
 
 Question: Word(word=nadający się do zatrudnienia, numberOfTries=3)
@@ -13,49 +13,59 @@ Answer: abcdfghijkl
 
 
 Question: Word(word=pracodawca, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=pracwonik, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=zatrudnienie, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=zatrudnić, numberOfTries=3)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=nadający się do zatrudnienia, numberOfTries=2)
+Good
+Answer: employable
+
+
+Question: Word(word=pracodawca, numberOfTries=2)
 Good
 Answer: employer
 
 
-Question: Word(word=pracwonik, numberOfTries=3)
+Question: Word(word=pracwonik, numberOfTries=2)
 Good
 Answer: employee
 
 
-Question: Word(word=zatrudnienie, numberOfTries=3)
+Question: Word(word=zatrudnienie, numberOfTries=2)
+Wrong
+Answer: abcdfghijkl
+
+
+Question: Word(word=zatrudnienie, numberOfTries=1)
 Good
 Answer: employment
 
 
-Question: Word(word=zatrudnić, numberOfTries=3)
+Question: Word(word=zatrudnić, numberOfTries=2)
 Good
 Answer: to employ
 
 
-Question: Word(word=bezrobocie, numberOfTries=2)
-Wrong
-Answer: abcdfghijkl
-
-
-Question: Word(word=bezrobocie, numberOfTries=1)
-Good
-Answer: unemployment
-
-
-Question: Word(word=nadający się do zatrudnienia, numberOfTries=2)
-Wrong
-Answer: abcdfghijkl
-
-
-Question: Word(word=nadający się do zatrudnienia, numberOfTries=1)
-Wrong
-Answer: abcdfghijkl
-
-
 POINTS AFTER SESSION NR.1
-Good Answers: 5
-Wrong Answers: 5
+Good Answers: 6
+Wrong Answers: 6
 ValueProgress: 1.0
-Total Good Answers: 5
-Total Wrong Answers: 5
+Total Good Answers: 6
+Total Wrong Answers: 6
 Total ValueProgress: 2.0

@@ -22,6 +22,7 @@ public class MainController implements Initializable , Runnable{
     public static final String Dictionary = "/fxmls/Slownik.fxml";
     public static final String Test = "/fxmls/Test.fxml";
     public static final String Account = "/fxmls/Profil.fxml";
+    public static final String Exam = "/fxmls/Exam.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -49,8 +49,8 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     private Label feedbackLabel;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineTestDatabase);
+    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineTestDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,7 +62,7 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     public void addDictionary() throws FileNotFoundException {
         returnLabel.setVisible(true);
-        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineTestDatabase);
         csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
 
         FileChooser fileChooser = new FileChooser();
@@ -81,7 +81,7 @@ public class DictionaryController extends AbstractController implements Initiali
             progressBar.setVisible(true);
             progressBar.setProgress(0);
             feedbackLabel.setText("Adding to Database file with "+howMatch+" lines");
-            Thread t = new Thread(new ThradForCSVReader(TypeOfUsedDatabase.OnlineOrginalDatabase));
+            Thread t = new Thread(new ThradForCSVReader(TypeOfUsedDatabase.OnlineTestDatabase));
             t.start();
             addNewDictionaryButton.setDisable(true);
             Timer timer = new Timer("Timer");
