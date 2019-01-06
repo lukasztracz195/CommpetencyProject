@@ -50,5 +50,10 @@
       </Label>
       <ChoiceBox fx:id="headsOfFamilyChoiceBox" disable="true" layoutX="529.0" layoutY="161.0" prefWidth="150.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="529.0" layoutY="128.0" prefHeight="34.0" prefWidth="150.0" text="Heads of family" textAlignment="CENTER" />
+      <Button fx:id="loadDictionaryButton" disable="true" layoutX="43.0" layoutY="214.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

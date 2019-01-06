@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,8 @@ public class TestController extends AbstractController implements Initializable 
     private ChoiceBox headsOfFamilyChoiceBox;
     @FXML
     private Button startExamButton;
+    @FXML
+    private Button loadDictionaryButton;
     @FXML
     private Label clockLabel;
     @FXML
@@ -52,6 +55,13 @@ public class TestController extends AbstractController implements Initializable 
     }
 
     @FXML
+    public void loadDictionaries(){
+        DictionaryMap dictionaryMap=DictionaryMap.getInstance();
+        
+        dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue().toString(),nameOfCategoryChoiceBox.getValue().toString());
+        dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
+    }
+    @FXML
     public void startingExam(){
         FXMLLoader loader = MainController.createLoader(MainController.Exam, this);
         Pane pane = MainController.createPane(loader);
@@ -71,6 +81,7 @@ public class TestController extends AbstractController implements Initializable 
         headsOfFamilyChoiceBox.setValue(null);
         headsOfFamilyChoiceBox.setDisable(true);
         startExamButton.setDisable(true);
+        loadDictionaryButton.setDisable(true);
         feedbackLabel.setVisible(false);
     }
     private void setChoiceBoxOfTypesOfDictionary() {
@@ -94,6 +105,7 @@ public class TestController extends AbstractController implements Initializable 
         nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfCategoryChoiceBox.setDisable(false));
         nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(false));
         headsOfFamilyChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldvalue,newvalue)->startExamButton.setDisable(false));
+        headsOfFamilyChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldvalue,newvalue)->loadDictionaryButton.setDisable(false));
     }
     @FXML
     public void back() {
