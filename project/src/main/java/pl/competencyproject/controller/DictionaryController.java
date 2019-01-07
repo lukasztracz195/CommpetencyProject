@@ -13,6 +13,7 @@ import pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
@@ -28,7 +29,7 @@ import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
 public class DictionaryController extends AbstractController implements Initializable {
 
     @FXML
-    private ChoiceBox typeOfDictionaryChoiceBox;
+    private ChoiceBox<TypeOfDictionaryDownloaded> typeOfDictionaryChoiceBox;
     @FXML
     private ChoiceBox nameOfLevelChoiceBox;
     @FXML
@@ -49,8 +50,8 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     private Label feedbackLabel;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineTestDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineTestDatabase);
+    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,7 +63,7 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     public void addDictionary() throws FileNotFoundException {
         returnLabel.setVisible(true);
-        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineTestDatabase);
+        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineOrginalDatabase);
         csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
 
         FileChooser fileChooser = new FileChooser();
@@ -81,7 +82,7 @@ public class DictionaryController extends AbstractController implements Initiali
             progressBar.setVisible(true);
             progressBar.setProgress(0);
             feedbackLabel.setText("Adding to Database file with "+howMatch+" lines");
-            Thread t = new Thread(new ThradForCSVReader(TypeOfUsedDatabase.OnlineTestDatabase));
+            Thread t = new Thread(new ThradForCSVReader(TypeOfUsedDatabase.OnlineOrginalDatabase));
             t.start();
             addNewDictionaryButton.setDisable(true);
             Timer timer = new Timer("Timer");
@@ -102,10 +103,10 @@ public class DictionaryController extends AbstractController implements Initiali
 
     @FXML
     public void clearChoice() {
-        typeOfDictionaryChoiceBox.setValue(null);
-        nameOfLevelChoiceBox.setValue(null);
+        typeOfDictionaryChoiceBox.setValue(NONE);
+        nameOfLevelChoiceBox.setValue(NONE);
         nameOfLevelChoiceBox.setDisable(true);
-        nameOfCategoryChoiceBox.setValue(null);
+        nameOfCategoryChoiceBox.setValue(NONE);
         nameOfCategoryChoiceBox.setDisable(true);
         addNewDictionaryButton.setDisable(true);
         feedbackLabel.setVisible(false);
@@ -124,7 +125,7 @@ public class DictionaryController extends AbstractController implements Initiali
 
     private void setChoiceBoxOfTypesOfDictionary() {
 
-        typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords.toString());
+        typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords);
         nameOfLevelChoiceBox.getItems().add("B2");
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }

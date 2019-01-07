@@ -44,8 +44,8 @@ public class TestController extends AbstractController implements Initializable 
     @FXML
     private Label feedbackLabel;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineTestDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineTestDatabase);
+    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pl</OriginalElement>
+  <nodes>
+    <node x="511.6798255998524" y="4148.0">pl.competencyproject.model.dao.ManageStatTest</node>
+    <node x="6013.6440437936635" y="4335.5">pl.competencyproject.model.enums.TypeOfDictionaryLanguage</node>
+    <node x="430.65540540540496" y="1165.0">pl.competencyproject.model.dao.classes.ManageUsers</node>
+    <node x="271.15540540540496" y="658.0">pl.competencyproject.model.dao.interfaces.ManagingUsers</node>
+    <node x="8728.601561620228" y="0.0">pl.competencyproject.model.mechanicsOfQuestionTests.DictionaryMapTest</node>
+    <node x="4161.128490505708" y="2763.0">pl.competencyproject.model.dao.classes.ManageLevels</node>
+    <node x="3006.829248081466" y="1264.0">pl.competencyproject.model.entities.Level</node>
+    <node x="6644.799149801368" y="2796.5">pl.competencyproject.model.dao.classes.ManageWordsPL</node>
+    <node x="3065.627600234116" y="4269.0">pl.competencyproject.model.dao.ManageWordsENGTest</node>
+    <node x="1164.0029970595128" y="5668.0">pl.competencyproject.controller.ExamController</node>
+    <node x="2333.6451821474006" y="4225.0">pl.competencyproject.model.dao.ManageFamilyTest</node>
+    <node x="433.9543859484015" y="6476.0">pl.competencyproject.controller.TeachingController</node>
+    <node x="748.9785080557258" y="8550.0">pl.competencyproject.controller.MainController</node>
+    <node x="6542.462083187083" y="6487.0">pl.competencyproject.model.mechanicsOfQuestion.interfaces.ITeacher</node>
+    <node x="5867.799149801368" y="2774.5">pl.competencyproject.model.csv.FileOfCSV</node>
+    <node x="4065.8368238390417" y="723.0">pl.competencyproject.model.dao.classes.GeneralManager</node>
+    <node x="1939.189108170624" y="1252.5">pl.competencyproject.model.Time.GeneralClock</node>
+    <node x="1515.0320081395353" y="1692.0">pl.competencyproject.model.dao.SessionLogon</node>
+    <node x="3264.2510172260177" y="6278.0">pl.competencyproject.controller.TestController</node>
+    <node x="1031.655405405405" y="2390.0">pl.competencyproject.controller.ProfileController</node>
+    <node x="2169.189108170624" y="1264.0">pl.competencyproject.model.entities.Family</node>
+    <node x="5557.228975078975" y="5569.0">pl.competencyproject.model.csv.ReaderCSVTest</node>
+    <node x="2516.341885948402" y="2785.5">pl.competencyproject.model.dao.classes.ManageFamily</node>
+    <node x="3684.829248081466" y="4257.0">pl.competencyproject.model.mechanicsOfQuestion.LibraryLevels</node>
+    <node x="5557.19104169326" y="1802.0">pl.competencyproject.model.csv.LibraryCSV</node>
+    <node x="5164.834927292454" y="3916.0">pl.competencyproject.model.csv.CSVReader</node>
+    <node x="806.2043859484015" y="7039.0">pl.competencyproject.controller.MenuLayoutController</node>
+    <node x="3307.627600234116" y="1847.0">pl.competencyproject.model.mechanicsOfQuestion.interfaces.ILibraryLevels</node>
+    <node x="810.1451747223923" y="7910.0">pl.competencyproject.controller.LogonController</node>
+    <node x="69.75" y="1253.0">pl.competencyproject.model.entities.Stat</node>
+    <node x="5068.562308412309" y="1275.0">pl.competencyproject.model.entities.Word_ENG</node>
+    <node x="7025.439403691622" y="1847.5">pl.competencyproject.model.dao.interfaces.ManagingWordsPL</node>
+    <node x="4994.746597248815" y="5689.5">pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader</node>
+    <node x="586.3882277425255" y="347.0">pl.competencyproject.model.entities.User</node>
+    <node x="889.430405405405" y="8971.0">pl.Main</node>
+    <node x="7391.88764210861" y="4258.0">pl.competencyproject.model.dao.ManageDictionarySentencesTest</node>
+    <node x="6166.087083187083" y="5348.0">pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap</node>
+    <node x="7307.977337077338" y="7699.5">pl.competencyproject.model.mechanicsOfQuestion.ThreadBot</node>
+    <node x="349.3144963144964" y="1781.0">pl.competencyproject.model.dao.ManageUsersTest</node>
+    <node x="7859.182506789534" y="1253.0">pl.competencyproject.model.entities.Dictionary_Sentence</node>
+    <node x="6502.153045905265" y="1242.0">pl.competencyproject.model.entities.Dictionary_Word</node>
+    <node x="8168.457867613954" y="4291.0">pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap</node>
+    <node x="4834.452459927461" y="1847.5">pl.competencyproject.model.dao.interfaces.ManagingWordsENG</node>
+    <node x="4843.834927292454" y="4126.0">pl.competencyproject.model.dao.ManageDictionaryWordsTest</node>
+    <node x="7405.789837077338" y="6884.0">pl.competencyproject.model.mechanicsOfQuestion.Teacher</node>
+    <node x="43.25" y="1836.5">pl.competencyproject.model.dao.interfaces.ManagingStats</node>
+    <node x="738.655405405405" y="2774.5">pl.competencyproject.model.dao.classes.ManageStats</node>
+    <node x="6119.334864087083" y="1825.5">pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords</node>
+    <node x="508.9785080557258" y="8705.0">pl.competencyproject.model.Mutex</node>
+    <node x="6176.799149801368" y="2752.5">pl.competencyproject.model.dao.classes.ManageDictionaryWords</node>
+    <node x="7135.739403691621" y="1275.0">pl.competencyproject.model.entities.Word_PL</node>
+    <node x="4465.667682063053" y="2819.5">pl.competencyproject.model.enums.TypeOfDictionaryDownloaded</node>
+    <node x="8389.951786845453" y="2741.5">pl.competencyproject.model.mechanicsOfQuestion.Word</node>
+    <node x="2823.627600234116" y="4203.0">pl.competencyproject.model.dao.ManageLevelsTest</node>
+    <node x="4095.7886362701524" y="0.0">pl.competencyproject.model.enums.TypeOfUsedDatabase</node>
+    <node x="1432.7982625482623" y="1121.0">pl.competencyproject.model.messages.Email</node>
+    <node x="4166.253490505708" y="325.0">pl.competencyproject.model.dao.SessionFactoryConfig</node>
+    <node x="7727.432506789534" y="1858.5">pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences</node>
+    <node x="662.034063611281" y="7656.0">pl.competencyproject.controller.AbstractController</node>
+    <node x="6785.11733161955" y="4269.0">pl.competencyproject.model.dao.ManageWordsPLTest</node>
+    <node x="2502.127600234116" y="1847.5">pl.competencyproject.model.dao.interfaces.ManagingFamily</node>
+    <node x="4739.452459927461" y="2796.5">pl.competencyproject.model.dao.classes.ManageWordsENG</node>
+    <node x="7294.439403691622" y="2785.5">pl.competencyproject.model.dao.classes.ManageDictionarySentences</node>
+    <node x="3566.627600234116" y="1814.0">pl.competencyproject.model.dao.interfaces.ManagingLevels</node>
+    <node x="4117.437206037206" y="6311.0">pl.competencyproject.controller.DictionaryController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-23.15384615384619" y="-246.0" />
+      <point x="4971.181081138608" y="3656.0" />
+      <point x="4728.952459927461" y="3656.0" />
+      <point x="4728.952459927461" y="275.0" />
+      <point x="4186.099447080964" y="275.0" />
+      <point x="8.810810810810835" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageUsers" target="pl.competencyproject.model.entities.User">
+      <point x="-23.91666666666697" y="-191.5" />
+      <point x="550.238738738738" y="1101.0" />
+      <point x="568.655405405405" y="1101.0" />
+      <point x="568.655405405405" y="628.0" />
+      <point x="681.6382277425255" y="628.0" />
+      <point x="-31.75" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.entities.Family">
+      <point x="-333.9310344827586" y="-390.0" />
+      <point x="6235.656048704325" y="4938.0" />
+      <point x="2813.127600234116" y="4938.0" />
+      <point x="2813.127600234116" y="1612.0" />
+      <point x="2371.689108170624" y="1612.0" />
+      <point x="90.0" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageFamilyTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-72.85714285714312" y="-147.0" />
+      <point x="2345.7880392902575" y="3786.0" />
+      <point x="1403.405405405405" y="3786.0" />
+      <point x="1403.405405405405" y="1081.0" />
+      <point x="1639.7340733590736" y="1081.0" />
+      <point x="1639.7340733590736" y="205.0" />
+      <point x="4128.829176810694" y="205.0" />
+      <point x="-48.45945945945914" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageLevelsTest" target="pl.competencyproject.model.entities.Level">
+      <point x="0.0" y="-169.0" />
+      <point x="2934.627600234116" y="2320.0" />
+      <point x="3297.127600234116" y="2320.0" />
+      <point x="3297.127600234116" y="1672.0" />
+      <point x="3024.4125814148" y="1672.0" />
+      <point x="-87.91666666666606" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="-361.7586206896549" y="-390.0" />
+      <point x="6207.828462497429" y="4948.0" />
+      <point x="2724.841885948402" y="4948.0" />
+      <point x="2724.841885948402" y="3786.0" />
+      <point x="2672.688039794556" y="3786.0" />
+      <point x="20.846153846154266" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.model.enums.TypeOfDictionaryDownloaded">
+      <point x="88.75" y="-268.0" />
+      <point x="3495.0010172260177" y="6198.0" />
+      <point x="4511.649270044297" y="6198.0" />
+      <point x="4511.649270044297" y="3876.0" />
+      <point x="4478.730182063053" y="3876.0" />
+      <point x="-91.4375" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingUsers" target="pl.competencyproject.model.entities.User">
+      <point x="0.0" y="-146.5" />
+      <point x="414.65540540540496" y="618.0" />
+      <point x="618.1382277425255" y="618.0" />
+      <point x="-95.25" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.Teacher" target="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap">
+      <point x="-21.125" y="-291.0" />
+      <point x="7553.664837077338" y="6834.0" />
+      <point x="6808.962083187083" y="6834.0" />
+      <point x="6808.962083187083" y="6258.0" />
+      <point x="6872.212083187083" y="6258.0" />
+      <point x="302.625" y="390.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsPLTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-75.60000000000036" y="-103.0" />
+      <point x="6804.01733161955" y="3476.0" />
+      <point x="1841.2641081706238" y="3476.0" />
+      <point x="1841.2641081706238" y="2260.0" />
+      <point x="1773.8820081395347" y="2260.0" />
+      <point x="91.84999999999945" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.classes.ManageDictionaryWords">
+      <point x="69.46153846153857" y="-246.0" />
+      <point x="5063.796465753992" y="3656.0" />
+      <point x="6201.02137202359" y="3656.0" />
+      <point x="-193.77777777777783" y="125.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot" target="pl.competencyproject.model.enums.TypeOfDictionaryLanguage">
+      <point x="-37.75" y="-48.5" />
+      <point x="7345.727337077338" y="7576.0" />
+      <point x="4939.5073329823335" y="7576.0" />
+      <point x="4939.5073329823335" y="6248.0" />
+      <point x="5546.728975078975" y="6248.0" />
+      <point x="5546.728975078975" y="5068.0" />
+      <point x="6045.6440437936635" y="5068.0" />
+      <point x="-64.0" y="36.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="0.0" y="-136.0" />
+      <point x="935.2043859484015" y="5308.0" />
+      <point x="1392.405405405405" y="5308.0" />
+      <point x="1392.405405405405" y="2300.0" />
+      <point x="1623.5820081395354" y="2300.0" />
+      <point x="-58.44999999999982" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="-123.56521739130449" y="-456.0" />
+      <point x="5244.269709901149" y="3536.0" />
+      <point x="4398.673945051163" y="3536.0" />
+      <point x="103.54545454545496" y="115.0" />
+    </edge>
+    <edge source="pl.Main" target="pl.competencyproject.model.Time.GeneralClock">
+      <point x="67.20000000000073" y="-58.5" />
+      <point x="1040.6304054054058" y="8951.0" />
+      <point x="2292.2221052243235" y="8951.0" />
+      <point x="2292.2221052243235" y="1662.0" />
+      <point x="2122.064108170624" y="1662.0" />
+      <point x="78.375" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingFamily" target="pl.competencyproject.model.entities.Family">
+      <point x="0.0" y="-58.5" />
+      <point x="2613.127600234116" y="1632.0" />
+      <point x="2281.689108170624" y="1632.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageStats" target="pl.competencyproject.model.entities.Stat">
+      <point x="-74.57142857142935" y="-103.5" />
+      <point x="794.5839768339756" y="2330.0" />
+      <point x="271.75" y="2330.0" />
+      <point x="271.75" y="1672.0" />
+      <point x="179.75" y="1672.0" />
+      <point x="22.0" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.FileOfCSV" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="96.33333333333348" y="-103.5" />
+      <point x="6108.632483134701" y="2360.0" />
+      <point x="6093.240568890188" y="2360.0" />
+      <point x="6093.240568890188" y="225.0" />
+      <point x="4208.12647410799" y="225.0" />
+      <point x="30.83783783783747" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingWordsENG" target="pl.competencyproject.model.entities.Word_ENG">
+      <point x="0.0" y="-58.5" />
+      <point x="4947.952459927461" y="1672.0" />
+      <point x="5171.062308412309" y="1672.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.classes.ManageWordsPL">
+      <point x="138.92307692307713" y="-246.0" />
+      <point x="5133.258004215531" y="3706.0" />
+      <point x="6683.390058892277" y="3706.0" />
+      <point x="-102.90909090909099" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-62.916666666666515" y="-48.5" />
+      <point x="7320.560670410671" y="7586.0" />
+      <point x="1723.689108170624" y="7586.0" />
+      <point x="1723.689108170624" y="2320.0" />
+      <point x="1673.682008139535" y="2320.0" />
+      <point x="-8.350000000000364" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageFamily" target="pl.competencyproject.model.entities.Family">
+      <point x="0.0" y="-92.5" />
+      <point x="2651.841885948402" y="2300.0" />
+      <point x="2734.627600234116" y="2300.0" />
+      <point x="2734.627600234116" y="1622.0" />
+      <point x="2326.689108170624" y="1622.0" />
+      <point x="45.0" y="92.5" />
+    </edge>
+    <edge source="pl.Main" target="pl.competencyproject.controller.MainController">
+      <point x="0.0" y="-58.5" />
+      <point x="973.430405405405" y="8931.0" />
+      <point x="891.9785080557258" y="8931.0" />
+      <point x="0.0" y="180.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionarySentences" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="0.0" y="-92.5" />
+      <point x="7465.939403691622" y="195.0" />
+      <point x="4221.342690324207" y="195.0" />
+      <point x="44.05405405405418" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="28.777777777777374" y="-290.0" />
+      <point x="968.4229525001697" y="7860.0" />
+      <point x="1089.0168859484015" y="7860.0" />
+      <point x="1089.0168859484015" y="5318.0" />
+      <point x="1564.3049657539536" y="5318.0" />
+      <point x="1564.3049657539536" y="2310.0" />
+      <point x="1640.2820081395353" y="2310.0" />
+      <point x="-41.75" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageFamilyTest" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="0.0" y="-147.0" />
+      <point x="2418.6451821474006" y="3776.0" />
+      <point x="2526.764962871479" y="3776.0" />
+      <point x="-125.07692307692287" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="52.0" y="-224.0" />
+      <point x="667.6798255998524" y="3786.0" />
+      <point x="1010.155405405405" y="3786.0" />
+      <point x="1010.155405405405" y="2250.0" />
+      <point x="1540.0820081395354" y="2250.0" />
+      <point x="-141.94999999999982" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="133.0526315789475" y="-169.0" />
+      <point x="5848.2816066579235" y="5238.0" />
+      <point x="7810.091558272428" y="5238.0" />
+      <point x="7810.091558272428" y="2370.0" />
+      <point x="8368.451786845453" y="2370.0" />
+      <point x="8368.451786845453" y="165.0" />
+      <point x="4234.558906540422" y="165.0" />
+      <point x="57.270270270269975" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageLevelsTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-44.399999999999636" y="-169.0" />
+      <point x="2890.2276002341164" y="3746.0" />
+      <point x="1928.689108170624" y="3746.0" />
+      <point x="1928.689108170624" y="225.0" />
+      <point x="4137.639987621504" y="225.0" />
+      <point x="-39.648648648648305" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.AbstractController" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-43.125" y="-92.0" />
+      <point x="756.909063611281" y="7516.0" />
+      <point x="795.7043859484015" y="7516.0" />
+      <point x="795.7043859484015" y="5298.0" />
+      <point x="1317.155405405405" y="5298.0" />
+      <point x="1317.155405405405" y="2290.0" />
+      <point x="1606.8820081395356" y="2290.0" />
+      <point x="-75.14999999999964" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageFamilyTest" target="pl.competencyproject.model.entities.Family">
+      <point x="-24.285714285714675" y="-147.0" />
+      <point x="2394.359467861686" y="3766.0" />
+      <point x="2333.329248081466" y="3766.0" />
+      <point x="2333.329248081466" y="2320.0" />
+      <point x="2415.689108170624" y="2320.0" />
+      <point x="2415.689108170624" y="1652.0" />
+      <point x="2191.689108170624" y="1652.0" />
+      <point x="-90.0" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.Teacher" target="pl.competencyproject.model.mechanicsOfQuestion.Word">
+      <point x="63.375" y="-291.0" />
+      <point x="7638.164837077338" y="6844.0" />
+      <point x="8602.983492744337" y="6844.0" />
+      <point x="8602.983492744337" y="3896.0" />
+      <point x="8560.451786845453" y="3896.0" />
+      <point x="46.5" y="136.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsENG" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="-73.25" y="-81.5" />
+      <point x="4812.702459927461" y="2270.0" />
+      <point x="4345.628490505708" y="2270.0" />
+      <point x="4345.628490505708" y="1031.0" />
+      <point x="4232.086823839041" y="1031.0" />
+      <point x="26.25" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.GeneralManager" target="pl.competencyproject.model.dao.SessionFactoryConfig">
+      <point x="93.33333333333303" y="-81.5" />
+      <point x="4299.170157172375" y="638.0" />
+      <point x="4349.253490505708" y="638.0" />
+      <point x="0.0" y="136.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsPL" target="pl.competencyproject.model.dao.interfaces.ManagingWordsPL">
+      <point x="23.583333333333485" y="-81.5" />
+      <point x="6809.882483134701" y="2350.0" />
+      <point x="7132.939403691622" y="2350.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsENGTest" target="pl.competencyproject.model.entities.Word_ENG">
+      <point x="17.5" y="-103.0" />
+      <point x="3188.127600234116" y="3786.0" />
+      <point x="3768.329248081466" y="3786.0" />
+      <point x="3768.329248081466" y="2370.0" />
+      <point x="4186.003436710964" y="2370.0" />
+      <point x="4186.003436710964" y="1652.0" />
+      <point x="5089.062308412309" y="1652.0" />
+      <point x="-82.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.csv.CSVReader">
+      <point x="200.44444444444434" y="-235.0" />
+      <point x="4543.381650481651" y="6238.0" />
+      <point x="5305.246597248815" y="6238.0" />
+      <point x="5305.246597248815" y="5318.0" />
+      <point x="5334.001593959121" y="5318.0" />
+      <point x="-33.833333333333485" y="456.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="-200.44444444444434" y="-235.0" />
+      <point x="4142.492761592763" y="6168.0" />
+      <point x="2634.5510049249942" y="6168.0" />
+      <point x="2634.5510049249942" y="3786.0" />
+      <point x="2610.149578256094" y="3786.0" />
+      <point x="-41.69230769230762" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.Teacher" target="pl.competencyproject.model.csv.CSVReader">
+      <point x="-147.875" y="-291.0" />
+      <point x="7426.914837077338" y="6864.0" />
+      <point x="5334.024375026593" y="6864.0" />
+      <point x="5334.024375026593" y="5328.0" />
+      <point x="5401.668260625787" y="5328.0" />
+      <point x="33.833333333333485" y="456.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageFamily" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="38.714285714285325" y="-92.5" />
+      <point x="2690.556171662687" y="2310.0" />
+      <point x="2996.329248081466" y="2310.0" />
+      <point x="2996.329248081466" y="255.0" />
+      <point x="4150.85620383772" y="255.0" />
+      <point x="-26.432432432432506" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ProfileController" target="pl.competencyproject.model.messages.Email">
+      <point x="58.66666666666697" y="-488.0" />
+      <point x="1222.322072072072" y="2230.0" />
+      <point x="1504.5320081395353" y="2230.0" />
+      <point x="1504.5320081395353" y="1672.0" />
+      <point x="1559.2268339768339" y="1672.0" />
+      <point x="-50.57142857142844" y="235.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageFamily" target="pl.competencyproject.model.dao.interfaces.ManagingFamily">
+      <point x="-38.714285714285325" y="-92.5" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="-306.10344827586187" y="-390.0" />
+      <point x="6263.483634911222" y="4928.0" />
+      <point x="4375.937206037206" y="4928.0" />
+      <point x="4375.937206037206" y="3856.0" />
+      <point x="4337.764854142072" y="3856.0" />
+      <point x="42.63636363636397" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsENG" target="pl.competencyproject.model.entities.Word_ENG">
+      <point x="-24.416666666666742" y="-81.5" />
+      <point x="4861.535793260794" y="2370.0" />
+      <point x="4823.952459927461" y="2370.0" />
+      <point x="4823.952459927461" y="1662.0" />
+      <point x="5130.062308412309" y="1662.0" />
+      <point x="-41.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.csv.FileOfCSV">
+      <point x="70.60869565217399" y="-456.0" />
+      <point x="5438.443622944628" y="3636.0" />
+      <point x="6012.299149801368" y="3636.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageUsers" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="119.58333333333394" y="-191.5" />
+      <point x="693.7387387387389" y="1101.0" />
+      <point x="4092.0868238390417" y="1101.0" />
+      <point x="-113.75" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionaryWords" target="pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords">
+      <point x="0.0" y="-125.5" />
+      <point x="6394.799149801368" y="2200.0" />
+      <point x="6337.334864087083" y="2200.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageStats" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="111.85714285714312" y="-103.5" />
+      <point x="981.0125482625481" y="2340.0" />
+      <point x="4153.003436710964" y="2340.0" />
+      <point x="4153.003436710964" y="1091.0" />
+      <point x="4127.086823839041" y="1091.0" />
+      <point x="-78.75" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-100.22222222222172" y="-235.0" />
+      <point x="4242.714983814985" y="6148.0" />
+      <point x="3286.127600234116" y="6148.0" />
+      <point x="3286.127600234116" y="265.0" />
+      <point x="4155.261609243125" y="265.0" />
+      <point x="-22.027027027026634" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.classes.ManageDictionaryWords">
+      <point x="33.26315789473665" y="-169.0" />
+      <point x="5748.492132973712" y="5088.0" />
+      <point x="6561.938038690257" y="5088.0" />
+      <point x="6561.938038690257" y="3676.0" />
+      <point x="6443.243594245812" y="3676.0" />
+      <point x="48.44444444444434" y="125.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageWordsPL">
+      <point x="27.827586206896285" y="-390.0" />
+      <point x="6597.41466939398" y="5158.0" />
+      <point x="6763.61733161955" y="5158.0" />
+      <point x="6763.61733161955" y="3766.0" />
+      <point x="6837.753695255913" y="3766.0" />
+      <point x="51.454545454545496" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionLogon" target="pl.competencyproject.model.messages.Email">
+      <point x="-74.22222222222263" y="-214.0" />
+      <point x="1607.8097859173126" y="1672.0" />
+      <point x="1609.7982625482623" y="1672.0" />
+      <point x="0.0" y="235.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionaryWords" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="186.85714285714266" y="-125.5" />
+      <point x="6581.65629265851" y="2330.0" />
+      <point x="7010.533998286217" y="2330.0" />
+      <point x="7010.533998286217" y="215.0" />
+      <point x="4212.531879513395" y="215.0" />
+      <point x="35.24324324324334" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.LibraryLevels" target="pl.competencyproject.model.entities.Level">
+      <point x="-94.5" y="-115.0" />
+      <point x="3716.329248081466" y="3776.0" />
+      <point x="3556.127600234116" y="3776.0" />
+      <point x="3556.127600234116" y="1652.0" />
+      <point x="3094.7459147481322" y="1652.0" />
+      <point x="-17.58333333333394" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.csv.FileOfCSV">
+      <point x="0.0" y="-169.0" />
+      <point x="5715.228975078975" y="4968.0" />
+      <point x="5642.247806080333" y="4968.0" />
+      <point x="5642.247806080333" y="3646.0" />
+      <point x="6108.632483134701" y="3646.0" />
+      <point x="96.33333333333348" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.controller.AbstractController">
+      <point x="-35.5" y="268.0" />
+      <point x="3370.7510172260177" y="6854.0" />
+      <point x="3430.7510172260177" y="6854.0" />
+      <point x="3430.7510172260177" y="7606.0" />
+      <point x="877.659063611281" y="7606.0" />
+      <point x="77.625" y="-92.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.csv.CSVReader">
+      <point x="-33.26315789473665" y="-169.0" />
+      <point x="5681.965817184238" y="4988.0" />
+      <point x="5537.001593959121" y="4988.0" />
+      <point x="169.16666666666652" y="456.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.enums.TypeOfDictionaryDownloaded">
+      <point x="-105.91304347826099" y="-456.0" />
+      <point x="5261.921883814193" y="3526.0" />
+      <point x="4635.480182063053" y="3526.0" />
+      <point x="65.3125" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap">
+      <point x="306.10344827586187" y="-390.0" />
+      <point x="6875.690531462946" y="5298.0" />
+      <point x="8324.457867613954" y="5298.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionLogon" target="pl.competencyproject.model.entities.User">
+      <point x="37.11111111111131" y="-214.0" />
+      <point x="1719.1431192506466" y="1642.0" />
+      <point x="1797.2982625482623" y="1642.0" />
+      <point x="1797.2982625482623" y="1031.0" />
+      <point x="1162.0899292149288" y="1031.0" />
+      <point x="1162.0899292149288" y="638.0" />
+      <point x="808.6382277425246" y="638.0" />
+      <point x="95.24999999999909" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-93.60000000000036" y="-224.0" />
+      <point x="522.079825599852" y="3896.0" />
+      <point x="0.0" y="3896.0" />
+      <point x="0.0" y="135.0" />
+      <point x="4097.991338972855" y="135.0" />
+      <point x="-79.29729729729752" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.csv.LibraryCSV">
+      <point x="17.652173913043498" y="-456.0" />
+      <point x="5385.487101205497" y="3596.0" />
+      <point x="5711.775212792306" y="3596.0" />
+      <point x="5711.775212792306" y="2360.0" />
+      <point x="5635.49104169326" y="2360.0" />
+      <point x="-52.19999999999982" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageDictionarySentences">
+      <point x="176.52173913043498" y="-456.0" />
+      <point x="5544.356666422889" y="3816.0" />
+      <point x="7315.876903691622" y="3816.0" />
+      <point x="-150.0625" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap">
+      <point x="124.25" y="-268.0" />
+      <point x="3530.5010172260177" y="6258.0" />
+      <point x="6266.962083187083" y="6258.0" />
+      <point x="-302.625" y="390.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="93.60000000000036" y="-224.0" />
+      <point x="709.2798255998528" y="3806.0" />
+      <point x="4179.401217778435" y="3806.0" />
+      <point x="-115.72727272727298" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.LibraryLevels" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="31.5" y="-115.0" />
+      <point x="3842.329248081466" y="3856.0" />
+      <point x="4240.310308687526" y="3856.0" />
+      <point x="-54.81818181818198" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.mechanicsOfQuestion.Word">
+      <point x="333.9310344827586" y="-390.0" />
+      <point x="6903.5181176698425" y="5308.0" />
+      <point x="8490.957867613954" y="5308.0" />
+      <point x="8490.957867613954" y="3896.0" />
+      <point x="8498.451786845453" y="3896.0" />
+      <point x="-15.5" y="136.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionarySentencesTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="-70.57142857142844" y="-114.0" />
+      <point x="7444.816213537182" y="3456.0" />
+      <point x="4423.037581414799" y="3456.0" />
+      <point x="127.90909090909099" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingStats" target="pl.competencyproject.model.entities.Stat">
+      <point x="0.0" y="-69.5" />
+      <point x="152.25" y="1672.0" />
+      <point x="135.75" y="1672.0" />
+      <point x="-22.0" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageDictionaryWords">
+      <point x="-27.82758620689674" y="-390.0" />
+      <point x="6541.759496980187" y="5118.0" />
+      <point x="6594.938038690257" y="5118.0" />
+      <point x="6594.938038690257" y="3646.0" />
+      <point x="6588.576927579146" y="3646.0" />
+      <point x="193.77777777777783" y="125.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot" target="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap">
+      <point x="-12.583333333333485" y="-48.5" />
+      <point x="7370.894003744004" y="7566.0" />
+      <point x="6531.962083187083" y="7566.0" />
+      <point x="6531.962083187083" y="6258.0" />
+      <point x="6468.712083187083" y="6258.0" />
+      <point x="-100.875" y="390.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MainController" target="pl.competencyproject.controller.LogonController">
+      <point x="23.83333333333303" y="-180.5" />
+      <point x="915.8118413890588" y="8530.0" />
+      <point x="874.8951747223923" y="8530.0" />
+      <point x="-64.75" y="290.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ProfileController" target="pl.competencyproject.model.dao.classes.ManageUsers">
+      <point x="-117.33333333333303" y="-488.0" />
+      <point x="1046.322072072072" y="2230.0" />
+      <point x="623.3144963144964" y="2230.0" />
+      <point x="623.3144963144964" y="1622.0" />
+      <point x="600.246314496314" y="1622.0" />
+      <point x="26.09090909090901" y="191.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="361.75862068965534" y="-390.0" />
+      <point x="6931.345703876739" y="5318.0" />
+      <point x="8648.451786845453" y="5318.0" />
+      <point x="8648.451786845453" y="145.0" />
+      <point x="4243.369717351234" y="145.0" />
+      <point x="66.08108108108081" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ProfileController" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="117.33333333333303" y="-488.0" />
+      <point x="1280.988738738738" y="2270.0" />
+      <point x="1573.482008139535" y="2270.0" />
+      <point x="-108.55000000000018" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.classes.ManageDictionarySentences">
+      <point x="116.42105263157873" y="-169.0" />
+      <point x="5831.650027710554" y="5208.0" />
+      <point x="7660.38764210861" y="5208.0" />
+      <point x="7660.38764210861" y="3406.0" />
+      <point x="7530.251903691622" y="3406.0" />
+      <point x="64.3125" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionarySentences" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-147.0" y="-92.5" />
+      <point x="7318.939403691622" y="2160.0" />
+      <point x="1840.682008139535" y="2160.0" />
+      <point x="158.64999999999964" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageLevels" target="pl.competencyproject.model.dao.interfaces.ManagingLevels">
+      <point x="-111.66666666666697" y="-115.0" />
+      <point x="4183.461823839041" y="2330.0" />
+      <point x="3691.127600234116" y="2330.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.controller.MainController">
+      <point x="106.5" y="268.0" />
+      <point x="3512.7510172260177" y="6854.0" />
+      <point x="3452.7510172260177" y="6854.0" />
+      <point x="3452.7510172260177" y="8530.0" />
+      <point x="1011.1451747223928" y="8530.0" />
+      <point x="119.16666666666697" y="-180.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsENG" target="pl.competencyproject.model.dao.interfaces.ManagingWordsENG">
+      <point x="24.416666666666742" y="-81.5" />
+      <point x="4910.369126594127" y="2370.0" />
+      <point x="4947.952459927461" y="2370.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="-194.17391304347848" y="-456.0" />
+      <point x="5173.661014248975" y="3576.0" />
+      <point x="2735.226501333017" y="3576.0" />
+      <point x="83.38461538461524" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="0.0" y="-235.0" />
+      <point x="4342.937206037206" y="6188.0" />
+      <point x="4303.583035960253" y="6188.0" />
+      <point x="4303.583035960253" y="3876.0" />
+      <point x="4301.219399596617" y="3876.0" />
+      <point x="6.090909090909008" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsPLTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="75.60000000000036" y="-103.0" />
+      <point x="6955.21733161955" y="3836.0" />
+      <point x="7647.939403691622" y="3836.0" />
+      <point x="7647.939403691622" y="185.0" />
+      <point x="4225.748095729612" y="185.0" />
+      <point x="48.45945945945914" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.model.messages.Email">
+      <point x="57.55555555555566" y="-290.0" />
+      <point x="997.200730277948" y="7870.0" />
+      <point x="1906.689108170624" y="7870.0" />
+      <point x="1906.689108170624" y="1632.0" />
+      <point x="1761.5125482625476" y="1632.0" />
+      <point x="151.71428571428532" y="235.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionLogon" target="pl.competencyproject.model.Time.GeneralClock">
+      <point x="148.44444444444434" y="-214.0" />
+      <point x="1830.4764525839796" y="1672.0" />
+      <point x="2017.564108170624" y="1672.0" />
+      <point x="-26.125" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ProfileController" target="pl.competencyproject.controller.AbstractController">
+      <point x="-88.0" y="488.0" />
+      <point x="1075.655405405405" y="3786.0" />
+      <point x="1124.3882277425255" y="3786.0" />
+      <point x="1124.3882277425255" y="5258.0" />
+      <point x="423.4543859484015" y="5258.0" />
+      <point x="423.4543859484015" y="7516.0" />
+      <point x="670.659063611281" y="7516.0" />
+      <point x="-129.375" y="-92.0" />
+    </edge>
+    <edge source="pl.Main" target="pl.competencyproject.model.Mutex">
+      <point x="-33.600000000000364" y="-58.5" />
+      <point x="939.8304054054047" y="8941.0" />
+      <point x="673.9785080557258" y="8941.0" />
+      <point x="55.0" y="25.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-138.92307692307713" y="-246.0" />
+      <point x="4855.411850369377" y="3706.0" />
+      <point x="1830.2641081706238" y="3706.0" />
+      <point x="1830.2641081706238" y="2270.0" />
+      <point x="1757.182008139535" y="2270.0" />
+      <point x="75.14999999999964" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.AbstractController">
+      <point x="51.600000000000364" y="136.0" />
+      <point x="986.8043859484019" y="7556.0" />
+      <point x="808.659063611281" y="7556.0" />
+      <point x="8.625" y="-92.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageFamilyTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="48.57142857142844" y="-147.0" />
+      <point x="2467.216610718829" y="3816.0" />
+      <point x="4191.583035960253" y="3816.0" />
+      <point x="-103.54545454545496" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.Teacher" target="pl.competencyproject.model.mechanicsOfQuestion.interfaces.ITeacher">
+      <point x="-105.625" y="-291.0" />
+      <point x="7469.164837077338" y="6854.0" />
+      <point x="6664.962083187083" y="6854.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsPLTest" target="pl.competencyproject.model.entities.Word_PL">
+      <point x="37.80000000000018" y="-103.0" />
+      <point x="6917.41733161955" y="3806.0" />
+      <point x="7272.939403691622" y="3806.0" />
+      <point x="39.19999999999982" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader" target="pl.competencyproject.model.csv.CSVReader">
+      <point x="100.0" y="-48.5" />
+      <point x="5244.746597248815" y="5328.0" />
+      <point x="5266.334927292454" y="5328.0" />
+      <point x="-101.5" y="456.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsENGTest" target="pl.competencyproject.model.dao.classes.ManageWordsENG">
+      <point x="52.5" y="-103.0" />
+      <point x="3223.127600234116" y="3886.0" />
+      <point x="4752.770641745642" y="3886.0" />
+      <point x="-133.18181818181824" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ProfileController" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-29.33333333333303" y="-488.0" />
+      <point x="1134.322072072072" y="2200.0" />
+      <point x="1089.1081081081074" y="2200.0" />
+      <point x="1089.1081081081074" y="1071.0" />
+      <point x="1416.4840733590731" y="1071.0" />
+      <point x="1416.4840733590731" y="195.0" />
+      <point x="4124.423771405287" y="195.0" />
+      <point x="-52.86486486486501" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.DictionaryController">
+      <point x="103.19999999999982" y="-136.0" />
+      <point x="1038.4043859484013" y="6864.0" />
+      <point x="4192.603872703874" y="6864.0" />
+      <point x="-150.33333333333303" y="235.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsPLTest" target="pl.competencyproject.model.dao.classes.ManageWordsPL">
+      <point x="0.0" y="-103.0" />
+      <point x="6879.61733161955" y="3796.0" />
+      <point x="6914.935513437731" y="3796.0" />
+      <point x="128.6363636363635" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionaryWords" target="pl.competencyproject.model.entities.Dictionary_Word">
+      <point x="124.57142857142844" y="-125.5" />
+      <point x="6519.370578372796" y="2320.0" />
+      <point x="6576.834864087083" y="2320.0" />
+      <point x="6576.834864087083" y="1662.0" />
+      <point x="6714.486379238598" y="1662.0" />
+      <point x="30.333333333333485" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.MainController">
+      <point x="-103.19999999999982" y="136.0" />
+      <point x="832.0043859484017" y="7526.0" />
+      <point x="651.534063611281" y="7526.0" />
+      <point x="651.534063611281" y="8530.0" />
+      <point x="772.8118413890588" y="8530.0" />
+      <point x="-119.16666666666697" y="-180.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageLevelsTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="88.80000000000018" y="-169.0" />
+      <point x="3023.427600234116" y="3846.0" />
+      <point x="4228.128490505708" y="3846.0" />
+      <point x="-67.0" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageLevels" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="111.66666666666697" y="-115.0" />
+      <point x="4406.795157172375" y="2370.0" />
+      <point x="4542.753490505708" y="2370.0" />
+      <point x="4542.753490505708" y="285.0" />
+      <point x="4181.694041675557" y="285.0" />
+      <point x="4.405405405404963" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot">
+      <point x="86.33333333333303" y="-290.0" />
+      <point x="1025.9785080557253" y="7880.0" />
+      <point x="7383.477337077338" y="7880.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageWordsENG">
+      <point x="-194.79310344827582" y="-390.0" />
+      <point x="6374.793979738808" y="4888.0" />
+      <point x="4822.334927292454" y="4888.0" />
+      <point x="4822.334927292454" y="3886.0" />
+      <point x="4859.316096291097" y="3886.0" />
+      <point x="-26.636363636363512" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageUsers" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-119.58333333333303" y="-191.5" />
+      <point x="454.57207207207193" y="1101.0" />
+      <point x="260.65540540540496" y="1101.0" />
+      <point x="260.65540540540496" y="155.0" />
+      <point x="4106.802149783665" y="155.0" />
+      <point x="-70.48648648648668" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsPL" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="-117.91666666666652" y="-81.5" />
+      <point x="6668.382483134701" y="2190.0" />
+      <point x="4378.628490505708" y="2190.0" />
+      <point x="4378.628490505708" y="1001.0" />
+      <point x="4284.586823839041" y="1001.0" />
+      <point x="78.75" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.enums.TypeOfDictionaryDownloaded">
+      <point x="50.11111111111131" y="-235.0" />
+      <point x="4393.048317148317" y="6208.0" />
+      <point x="4522.649270044297" y="6208.0" />
+      <point x="4522.649270044297" y="3866.0" />
+      <point x="4504.855182063053" y="3866.0" />
+      <point x="-65.3125" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.entities.Word_PL">
+      <point x="111.31034482758605" y="-390.0" />
+      <point x="6680.89742801467" y="5188.0" />
+      <point x="7283.939403691622" y="5188.0" />
+      <point x="7283.939403691622" y="1672.0" />
+      <point x="7312.139403691621" y="1672.0" />
+      <point x="78.40000000000009" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.classes.ManageWordsENG">
+      <point x="-83.15789473684208" y="-169.0" />
+      <point x="5632.071080342133" y="5018.0" />
+      <point x="4800.334927292454" y="5018.0" />
+      <point x="4800.334927292454" y="3896.0" />
+      <point x="4806.043369018369" y="3896.0" />
+      <point x="-79.90909090909099" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TeachingController" target="pl.competencyproject.controller.AbstractController">
+      <point x="-86.0" y="70.0" />
+      <point x="476.9543859484015" y="6864.0" />
+      <point x="464.41095501525297" y="6864.0" />
+      <point x="464.41095501525297" y="7506.0" />
+      <point x="687.909063611281" y="7506.0" />
+      <point x="-112.125" y="-92.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-149.68421052631584" y="-169.0" />
+      <point x="5565.54476455266" y="5058.0" />
+      <point x="1734.689108170624" y="5058.0" />
+      <point x="1734.689108170624" y="2310.0" />
+      <point x="1690.3820081395356" y="2310.0" />
+      <point x="8.350000000000364" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.entities.Stat">
+      <point x="-72.79999999999927" y="-224.0" />
+      <point x="542.8798255998531" y="3886.0" />
+      <point x="189.45438594840152" y="3886.0" />
+      <point x="189.45438594840152" y="2350.0" />
+      <point x="32.75" y="2350.0" />
+      <point x="32.75" y="1672.0" />
+      <point x="91.75" y="1672.0" />
+      <point x="-66.0" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionarySentencesTest" target="pl.competencyproject.model.entities.Dictionary_Sentence">
+      <point x="105.85714285714312" y="-114.0" />
+      <point x="7621.244784965753" y="3856.0" />
+      <point x="8094.932506789534" y="3856.0" />
+      <point x="8094.932506789534" y="1652.0" />
+      <point x="8051.099173456201" y="1652.0" />
+      <point x="27.41666666666697" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords" target="pl.competencyproject.model.entities.Dictionary_Word">
+      <point x="0.0" y="-80.5" />
+      <point x="6337.334864087083" y="1642.0" />
+      <point x="6593.153045905265" y="1642.0" />
+      <point x="-91.0" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.enums.TypeOfDictionaryLanguage">
+      <point x="-111.3103448275865" y="-390.0" />
+      <point x="6458.276738359497" y="4858.0" />
+      <point x="6109.6440437936635" y="4858.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.entities.Dictionary_Sentence">
+      <point x="194.79310344827582" y="-390.0" />
+      <point x="6764.38018663536" y="5258.0" />
+      <point x="8105.932506789534" y="5258.0" />
+      <point x="82.25" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionLogon" target="pl.competencyproject.model.dao.classes.ManageUsers">
+      <point x="-111.33333333333303" y="-214.0" />
+      <point x="1570.6986748062022" y="1642.0" />
+      <point x="704.6099508599509" y="1642.0" />
+      <point x="130.45454545454595" y="191.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.entities.Dictionary_Word">
+      <point x="46.30769230769238" y="-246.0" />
+      <point x="5040.642619600147" y="3586.0" />
+      <point x="5700.775212792306" y="3586.0" />
+      <point x="5700.775212792306" y="2370.0" />
+      <point x="6104.240568890188" y="2370.0" />
+      <point x="6104.240568890188" y="1632.0" />
+      <point x="6532.486379238598" y="1632.0" />
+      <point x="-151.66666666666652" y="114.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageFamilyTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-48.57142857142844" y="-147.0" />
+      <point x="2370.073753575972" y="3776.0" />
+      <point x="1797.2641081706238" y="3776.0" />
+      <point x="1797.2641081706238" y="2300.0" />
+      <point x="1707.0820081395354" y="2300.0" />
+      <point x="25.050000000000182" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageFamily" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-116.14285714285688" y="-92.5" />
+      <point x="2535.699028805545" y="2250.0" />
+      <point x="1790.5820081395354" y="2250.0" />
+      <point x="108.55000000000018" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.csv.LibraryCSV">
+      <point x="-16.631578947368325" y="-169.0" />
+      <point x="5698.597396131607" y="4978.0" />
+      <point x="5581.334927292454" y="4978.0" />
+      <point x="5581.334927292454" y="3616.0" />
+      <point x="5857.299149801368" y="3616.0" />
+      <point x="5857.299149801368" y="2350.0" />
+      <point x="5687.69104169326" y="2350.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.dao.classes.ManageUsers">
+      <point x="-31.200000000000728" y="-224.0" />
+      <point x="584.4798255998517" y="3746.0" />
+      <point x="612.3144963144964" y="3746.0" />
+      <point x="612.3144963144964" y="1632.0" />
+      <point x="574.155405405405" y="1632.0" />
+      <point x="0.0" y="191.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageLevels" target="pl.competencyproject.model.entities.Level">
+      <point x="-22.33333333333303" y="-115.0" />
+      <point x="4272.795157172375" y="2310.0" />
+      <point x="4201.086823839041" y="2310.0" />
+      <point x="4201.086823839041" y="1622.0" />
+      <point x="3200.2459147481322" y="1622.0" />
+      <point x="87.91666666666606" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageStats" target="pl.competencyproject.model.dao.interfaces.ManagingStats">
+      <point x="-111.85714285714312" y="-103.5" />
+      <point x="757.2982625482618" y="2340.0" />
+      <point x="152.25" y="2340.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageWordsENG">
+      <point x="-70.60869565217399" y="-456.0" />
+      <point x="5297.22623164028" y="3506.0" />
+      <point x="4965.861550836551" y="3506.0" />
+      <point x="79.90909090909099" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageUsersTest" target="pl.competencyproject.model.dao.classes.ManageUsers">
+      <point x="71.33333333333303" y="-125.0" />
+      <point x="527.6478296478294" y="1672.0" />
+      <point x="469.79176904176893" y="1672.0" />
+      <point x="-104.36363636363603" y="191.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionaryWords" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-186.8571428571429" y="-125.5" />
+      <point x="6207.942006944225" y="2230.0" />
+      <point x="1807.2820081395353" y="2230.0" />
+      <point x="125.25" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.controller.AbstractController">
+      <point x="-28.777777777777374" y="-290.0" />
+      <point x="910.8673969446149" y="7890.0" />
+      <point x="903.534063611281" y="7890.0" />
+      <point x="103.5" y="92.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.TestController">
+      <point x="51.600000000000364" y="-136.0" />
+      <point x="986.8043859484019" y="6854.0" />
+      <point x="3299.7510172260177" y="6854.0" />
+      <point x="-106.5" y="268.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.enums.TypeOfDictionaryDownloaded">
+      <point x="-99.7894736842104" y="-169.0" />
+      <point x="5615.439501394765" y="5028.0" />
+      <point x="4546.381592232272" y="5028.0" />
+      <point x="4546.381592232272" y="3876.0" />
+      <point x="4557.105182063053" y="3876.0" />
+      <point x="-13.0625" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="-53.25" y="-268.0" />
+      <point x="3353.0010172260177" y="6238.0" />
+      <point x="2570.2523250045433" y="6238.0" />
+      <point x="2570.2523250045433" y="3786.0" />
+      <point x="2568.4572705637866" y="3786.0" />
+      <point x="-83.38461538461524" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionarySentences" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="-49.0" y="-92.5" />
+      <point x="7416.939403691622" y="2140.0" />
+      <point x="5828.69104169326" y="2140.0" />
+      <point x="5828.69104169326" y="1642.0" />
+      <point x="5679.988338990557" y="1642.0" />
+      <point x="5679.988338990557" y="971.0" />
+      <point x="4337.086823839041" y="971.0" />
+      <point x="131.25" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.dao.classes.ManageDictionarySentences">
+      <point x="139.1379310344828" y="-390.0" />
+      <point x="6708.725014221567" y="5218.0" />
+      <point x="7671.38764210861" y="5218.0" />
+      <point x="7671.38764210861" y="3396.0" />
+      <point x="7573.126903691622" y="3396.0" />
+      <point x="107.1875" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.AbstractController" target="pl.competencyproject.controller.MainController">
+      <point x="-34.5" y="92.0" />
+      <point x="765.534063611281" y="8510.0" />
+      <point x="868.1451747223928" y="8510.0" />
+      <point x="-23.83333333333303" y="-180.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.controller.MenuLayoutController">
+      <point x="0.0" y="-290.0" />
+      <point x="939.6451747223923" y="7890.0" />
+      <point x="948.534063611281" y="7890.0" />
+      <point x="948.534063611281" y="7566.0" />
+      <point x="1038.4043859484013" y="7566.0" />
+      <point x="103.19999999999982" y="136.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="115.11111111111131" y="-290.0" />
+      <point x="1054.7562858335036" y="7890.0" />
+      <point x="8677.601561620228" y="7890.0" />
+      <point x="8677.601561620228" y="115.0" />
+      <point x="4256.58593356745" y="115.0" />
+      <point x="79.29729729729752" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.ExamController" target="pl.competencyproject.controller.AbstractController">
+      <point x="-86.0" y="70.0" />
+      <point x="1207.0029970595128" y="6258.0" />
+      <point x="1223.2529970595128" y="6258.0" />
+      <point x="1223.2529970595128" y="7576.0" />
+      <point x="825.909063611281" y="7576.0" />
+      <point x="25.875" y="-92.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.entities.Dictionary_Word">
+      <point x="83.48275862068976" y="-390.0" />
+      <point x="6653.069841807774" y="5178.0" />
+      <point x="6984.61733161955" y="5178.0" />
+      <point x="6984.61733161955" y="1672.0" />
+      <point x="6835.819712571931" y="1672.0" />
+      <point x="151.66666666666652" y="114.5" />
+    </edge>
+    <edge source="pl.Main" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="33.600000000000364" y="-58.5" />
+      <point x="1007.0304054054054" y="8941.0" />
+      <point x="1153.5029970595128" y="8941.0" />
+      <point x="1153.5029970595128" y="5328.0" />
+      <point x="1575.3049657539536" y="5328.0" />
+      <point x="1575.3049657539536" y="2320.0" />
+      <point x="1656.982008139535" y="2320.0" />
+      <point x="-25.050000000000182" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.interfaces.ILibraryLevels" target="pl.competencyproject.model.entities.Level">
+      <point x="0.0" y="-59.0" />
+      <point x="3421.127600234116" y="1662.0" />
+      <point x="3059.579248081466" y="1662.0" />
+      <point x="-52.75" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionFactoryConfig" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="0.0" y="-136.5" />
+      <point x="4349.253490505708" y="295.0" />
+      <point x="4177.288636270152" y="295.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-88.75" y="-268.0" />
+      <point x="3317.5010172260177" y="6248.0" />
+      <point x="1432.5029970595128" y="6248.0" />
+      <point x="1432.5029970595128" y="5248.0" />
+      <point x="1021.155405405405" y="5248.0" />
+      <point x="1021.155405405405" y="1061.0" />
+      <point x="1412.0786679536682" y="1061.0" />
+      <point x="1412.0786679536682" y="185.0" />
+      <point x="4120.018365999882" y="185.0" />
+      <point x="-57.270270270269975" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionarySentences" target="pl.competencyproject.model.entities.Dictionary_Sentence">
+      <point x="147.0" y="-92.5" />
+      <point x="7612.939403691622" y="2360.0" />
+      <point x="8083.932506789534" y="2360.0" />
+      <point x="8083.932506789534" y="1662.0" />
+      <point x="7996.265840122867" y="1662.0" />
+      <point x="-27.41666666666697" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="-116.42105263157873" y="-169.0" />
+      <point x="5598.807922447397" y="5038.0" />
+      <point x="4364.937206037206" y="5038.0" />
+      <point x="4364.937206037206" y="3866.0" />
+      <point x="4325.583035960253" y="3866.0" />
+      <point x="30.45454545454504" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageWordsPL">
+      <point x="158.86956521739148" y="-456.0" />
+      <point x="5526.704492509845" y="3736.0" />
+      <point x="6760.571877074095" y="3736.0" />
+      <point x="-25.72727272727252" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionarySentencesTest" target="pl.competencyproject.model.dao.classes.ManageDictionarySentences">
+      <point x="0.0" y="-114.0" />
+      <point x="7515.38764210861" y="3436.0" />
+      <point x="7401.626903691622" y="3436.0" />
+      <point x="-64.3125" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageUsers" target="pl.competencyproject.model.dao.interfaces.ManagingUsers">
+      <point x="-71.75" y="-191.5" />
+      <point x="502.40540540540496" y="1091.0" />
+      <point x="414.65540540540496" y="1091.0" />
+      <point x="0.0" y="146.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot" target="pl.competencyproject.model.mechanicsOfQuestion.Teacher">
+      <point x="12.583333333333258" y="-48.5" />
+      <point x="7396.060670410671" y="7616.0" />
+      <point x="7490.289837077338" y="7616.0" />
+      <point x="-84.5" y="291.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader">
+      <point x="150.33333333333303" y="-235.0" />
+      <point x="4493.27053937054" y="6228.0" />
+      <point x="5144.746597248815" y="6228.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionarySentencesTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="70.57142857142844" y="-114.0" />
+      <point x="7585.959070680039" y="3846.0" />
+      <point x="7652.344809097027" y="3846.0" />
+      <point x="7652.344809097027" y="175.0" />
+      <point x="4230.153501135017" y="175.0" />
+      <point x="52.86486486486501" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="53.25" y="-268.0" />
+      <point x="3459.5010172260177" y="6188.0" />
+      <point x="4281.583035960253" y="6188.0" />
+      <point x="4281.583035960253" y="3876.0" />
+      <point x="4276.855763232981" y="3876.0" />
+      <point x="-18.272727272727025" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.DictionaryController" target="pl.competencyproject.controller.AbstractController">
+      <point x="150.33333333333303" y="235.0" />
+      <point x="4493.27053937054" y="6864.0" />
+      <point x="4423.603872703873" y="6864.0" />
+      <point x="4423.603872703873" y="7636.0" />
+      <point x="929.409063611281" y="7636.0" />
+      <point x="129.375" y="-92.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageLevels" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="67.0" y="-115.0" />
+      <point x="4362.128490505708" y="2290.0" />
+      <point x="4223.086823839041" y="2290.0" />
+      <point x="4223.086823839041" y="1051.0" />
+      <point x="4197.086823839041" y="1051.0" />
+      <point x="-8.75" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.dao.classes.ManageDictionaryWords">
+      <point x="88.26086956521749" y="-456.0" />
+      <point x="5456.095796857671" y="3676.0" />
+      <point x="6297.910260912479" y="3676.0" />
+      <point x="-96.88888888888891" y="125.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.TestController" target="pl.competencyproject.controller.ExamController">
+      <point x="-124.25" y="-268.0" />
+      <point x="3282.0010172260177" y="6258.0" />
+      <point x="1379.0029970595128" y="6258.0" />
+      <point x="86.0" y="70.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsENG" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="122.08333333333326" y="-81.5" />
+      <point x="5008.035793260794" y="2370.0" />
+      <point x="5315.562308412309" y="2370.0" />
+      <point x="5315.562308412309" y="1652.0" />
+      <point x="5690.988338990557" y="1652.0" />
+      <point x="5690.988338990557" y="265.0" />
+      <point x="4190.504852486369" y="265.0" />
+      <point x="13.216216216215798" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionarySentencesTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-35.285714285714675" y="-114.0" />
+      <point x="7480.101927822896" y="3446.0" />
+      <point x="6973.61733161955" y="3446.0" />
+      <point x="6973.61733161955" y="2170.0" />
+      <point x="1823.982008139535" y="2170.0" />
+      <point x="141.94999999999982" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageLevelsTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-88.80000000000018" y="-169.0" />
+      <point x="2845.827600234116" y="3756.0" />
+      <point x="1808.2641081706238" y="3756.0" />
+      <point x="1808.2641081706238" y="2290.0" />
+      <point x="1723.7820081395353" y="2290.0" />
+      <point x="41.75" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionarySentences" target="pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences">
+      <point x="49.0" y="-92.5" />
+      <point x="7514.939403691622" y="2340.0" />
+      <point x="7894.932506789534" y="2340.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsPL" target="pl.competencyproject.model.entities.Word_PL">
+      <point x="117.91666666666652" y="-81.5" />
+      <point x="6904.215816468035" y="2370.0" />
+      <point x="7261.939403691622" y="2370.0" />
+      <point x="7261.939403691622" y="1662.0" />
+      <point x="7233.739403691621" y="1662.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageWordsPL" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-23.583333333333485" y="-81.5" />
+      <point x="6762.715816468035" y="2340.0" />
+      <point x="7014.939403691622" y="2340.0" />
+      <point x="7014.939403691622" y="205.0" />
+      <point x="4216.9372849188" y="205.0" />
+      <point x="39.648648648648305" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.messages.Email" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="50.57142857142844" y="235.5" />
+      <point x="1660.3696911196907" y="1672.0" />
+      <point x="1644.920897028424" y="1672.0" />
+      <point x="-37.11111111111131" y="-214.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.classes.ManageFamily">
+      <point x="-115.76923076923094" y="-246.0" />
+      <point x="4878.565696523223" y="3696.0" />
+      <point x="2693.5341936407094" y="3696.0" />
+      <point x="41.69230769230762" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.classes.ManageLevels">
+      <point x="-46.30769230769238" y="-246.0" />
+      <point x="4948.027234984762" y="3666.0" />
+      <point x="4374.310308687526" y="3666.0" />
+      <point x="79.18181818181802" y="115.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.CSVReader" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="35.304347826086996" y="-456.0" />
+      <point x="5403.139275118541" y="3606.0" />
+      <point x="5846.299149801368" y="3606.0" />
+      <point x="5846.299149801368" y="235.0" />
+      <point x="4203.721068702585" y="235.0" />
+      <point x="26.432432432432506" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.GeneralManager" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="0.0" y="-81.5" />
+      <point x="4205.836823839041" y="638.0" />
+      <point x="4155.753490505708" y="638.0" />
+      <point x="4155.753490505708" y="305.0" />
+      <point x="4172.883230864747" y="305.0" />
+      <point x="-4.405405405405872" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageFamily" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="77.42857142857156" y="-92.5" />
+      <point x="2729.2704573769734" y="2350.0" />
+      <point x="4164.003436710964" y="2350.0" />
+      <point x="4164.003436710964" y="1081.0" />
+      <point x="4144.586823839041" y="1081.0" />
+      <point x="-61.25" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.enums.TypeOfDictionaryDownloaded">
+      <point x="-250.44827586206884" y="-390.0" />
+      <point x="6319.138807325015" y="4908.0" />
+      <point x="4592.374757224758" y="4908.0" />
+      <point x="4592.374757224758" y="3876.0" />
+      <point x="4583.230182063053" y="3876.0" />
+      <point x="13.0625" y="58.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.model.dao.classes.ManageUsers">
+      <point x="-86.33333333333303" y="-290.0" />
+      <point x="853.3118413890593" y="7870.0" />
+      <point x="163.10438594840116" y="7870.0" />
+      <point x="163.10438594840116" y="2370.0" />
+      <point x="584.8144963144964" y="2370.0" />
+      <point x="584.8144963144964" y="1652.0" />
+      <point x="521.973587223587" y="1652.0" />
+      <point x="-52.18181818181802" y="191.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageDictionaryWords" target="pl.competencyproject.model.dao.classes.GeneralManager">
+      <point x="-62.28571428571422" y="-125.5" />
+      <point x="6332.513435515653" y="2210.0" />
+      <point x="4367.628490505708" y="2210.0" />
+      <point x="4367.628490505708" y="1011.0" />
+      <point x="4267.086823839041" y="1011.0" />
+      <point x="61.25" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences" target="pl.competencyproject.model.entities.Dictionary_Sentence">
+      <point x="0.0" y="-47.5" />
+      <point x="7894.932506789534" y="1672.0" />
+      <point x="7886.599173456201" y="1672.0" />
+      <point x="-137.08333333333303" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageStats" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="0.0" y="-103.5" />
+      <point x="869.155405405405" y="1051.0" />
+      <point x="1333.8759652509652" y="1051.0" />
+      <point x="1333.8759652509652" y="175.0" />
+      <point x="4115.612960594477" y="175.0" />
+      <point x="-61.67567567567585" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap" target="pl.competencyproject.model.entities.Word_ENG">
+      <point x="-139.1379310344828" y="-390.0" />
+      <point x="6430.4491521526015" y="4868.0" />
+      <point x="5653.247806080333" y="4868.0" />
+      <point x="5653.247806080333" y="3566.0" />
+      <point x="5535.69104169326" y="3566.0" />
+      <point x="5535.69104169326" y="1642.0" />
+      <point x="5253.062308412309" y="1642.0" />
+      <point x="82.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsENGTest" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="-87.5" y="-103.0" />
+      <point x="3083.127600234116" y="3736.0" />
+      <point x="1819.2641081706238" y="3736.0" />
+      <point x="1819.2641081706238" y="2280.0" />
+      <point x="1740.482008139535" y="2280.0" />
+      <point x="58.44999999999982" y="214.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.AbstractController" target="pl.competencyproject.model.Time.GeneralClock">
+      <point x="60.375" y="-92.0" />
+      <point x="860.409063611281" y="7596.0" />
+      <point x="1917.689108170624" y="7596.0" />
+      <point x="1917.689108170624" y="2320.0" />
+      <point x="2281.2221052243235" y="2320.0" />
+      <point x="2281.2221052243235" y="1672.0" />
+      <point x="2069.814108170624" y="1672.0" />
+      <point x="26.125" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.ClassesToRunnable.ThradForCSVReader" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-100.0" y="-48.5" />
+      <point x="5044.746597248815" y="5328.0" />
+      <point x="3947.329248081466" y="5328.0" />
+      <point x="3947.329248081466" y="285.0" />
+      <point x="4164.072420053937" y="285.0" />
+      <point x="-13.216216216215798" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.LibraryCSV" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="0.0" y="-104.0" />
+      <point x="5687.69104169326" y="1672.0" />
+      <point x="5768.0964470986655" y="1672.0" />
+      <point x="5768.0964470986655" y="245.0" />
+      <point x="4199.315663297179" y="245.0" />
+      <point x="22.027027027026634" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingWordsPL" target="pl.competencyproject.model.entities.Word_PL">
+      <point x="0.0" y="-58.5" />
+      <point x="7132.939403691622" y="1672.0" />
+      <point x="7155.339403691622" y="1672.0" />
+      <point x="-78.40000000000009" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageWordsENGTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-17.5" y="-103.0" />
+      <point x="3153.127600234116" y="3716.0" />
+      <point x="2404.689108170624" y="3716.0" />
+      <point x="2404.689108170624" y="245.0" />
+      <point x="4146.450798432315" y="245.0" />
+      <point x="-30.83783783783747" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.LibraryLevels" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-31.5" y="-115.0" />
+      <point x="3779.329248081466" y="3786.0" />
+      <point x="3837.127600234116" y="3786.0" />
+      <point x="3837.127600234116" y="275.0" />
+      <point x="4159.66701464853" y="275.0" />
+      <point x="-17.62162162162167" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageDictionaryWordsTest" target="pl.competencyproject.model.dao.classes.ManageWordsENG">
+      <point x="0.0" y="-246.0" />
+      <point x="4994.334927292454" y="3646.0" />
+      <point x="4912.588823563824" y="3646.0" />
+      <point x="26.636363636363512" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.TeachingController">
+      <point x="-103.19999999999982" y="-136.0" />
+      <point x="832.0043859484017" y="6864.0" />
+      <point x="648.9543859484015" y="6864.0" />
+      <point x="86.0" y="70.0" />
+    </edge>
+    <edge source="pl.competencyproject.controller.MenuLayoutController" target="pl.competencyproject.controller.ProfileController">
+      <point x="-51.600000000000364" y="-136.0" />
+      <point x="883.6043859484012" y="6854.0" />
+      <point x="773.7043859484015" y="6854.0" />
+      <point x="773.7043859484015" y="5278.0" />
+      <point x="1174.655405405405" y="5278.0" />
+      <point x="1174.655405405405" y="3786.0" />
+      <point x="1251.655405405405" y="3786.0" />
+      <point x="88.0" y="488.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageUsersTest" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="-71.33333333333303" y="-125.0" />
+      <point x="384.9811629811634" y="1652.0" />
+      <point x="256.25" y="1652.0" />
+      <point x="256.25" y="145.0" />
+      <point x="4102.39674437826" y="145.0" />
+      <point x="-74.89189189189165" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.FileOfCSV" target="pl.competencyproject.model.csv.LibraryCSV">
+      <point x="0.0" y="-103.5" />
+      <point x="6012.299149801368" y="2330.0" />
+      <point x="5792.09104169326" y="2330.0" />
+      <point x="104.40000000000009" y="104.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.csv.ReaderCSVTest" target="pl.competencyproject.model.dao.classes.ManageWordsPL">
+      <point x="66.52631578947376" y="-169.0" />
+      <point x="5781.755290868449" y="5128.0" />
+      <point x="6623.299149801368" y="5128.0" />
+      <point x="6623.299149801368" y="3746.0" />
+      <point x="6786.299149801368" y="3746.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap" target="pl.competencyproject.model.mechanicsOfQuestion.Word">
+      <point x="0.0" y="-81.0" />
+      <point x="8324.457867613954" y="3896.0" />
+      <point x="8467.451786845453" y="3896.0" />
+      <point x="-46.5" y="136.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.AbstractController" target="pl.competencyproject.controller.MenuLayoutController">
+      <point x="-25.875" y="-92.0" />
+      <point x="774.159063611281" y="7536.0" />
+      <point x="883.6043859484012" y="7536.0" />
+      <point x="-51.600000000000364" y="136.0" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.interfaces.ManagingLevels" target="pl.competencyproject.model.entities.Level">
+      <point x="0.0" y="-92.0" />
+      <point x="3691.127600234116" y="1642.0" />
+      <point x="3129.9125814148" y="1642.0" />
+      <point x="17.58333333333394" y="92.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.SessionLogon" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="74.22222222222263" y="-214.0" />
+      <point x="1756.254230361758" y="1652.0" />
+      <point x="1834.936776061776" y="1652.0" />
+      <point x="1834.936776061776" y="215.0" />
+      <point x="4133.234582216099" y="215.0" />
+      <point x="-44.05405405405418" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.ManageStatTest" target="pl.competencyproject.model.dao.classes.ManageStats">
+      <point x="10.399999999999636" y="-224.0" />
+      <point x="626.079825599852" y="3766.0" />
+      <point x="803.905405405405" y="3766.0" />
+      <point x="-65.25" y="103.5" />
+    </edge>
+    <edge source="pl.competencyproject.controller.LogonController" target="pl.competencyproject.controller.MainController">
+      <point x="64.75" y="290.0" />
+      <point x="1004.3951747223923" y="8530.0" />
+      <point x="963.4785080557258" y="8530.0" />
+      <point x="71.5" y="-180.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.mechanicsOfQuestion.ThreadBot" target="pl.competencyproject.model.enums.TypeOfUsedDatabase">
+      <point x="62.916666666666515" y="-48.5" />
+      <point x="7446.394003744004" y="7636.0" />
+      <point x="8663.857192250858" y="7636.0" />
+      <point x="8663.857192250858" y="125.0" />
+      <point x="4252.180528162044" y="125.0" />
+      <point x="74.89189189189165" y="47.5" />
+    </edge>
+    <edge source="pl.competencyproject.model.dao.classes.ManageStats" target="pl.competencyproject.model.dao.SessionLogon">
+      <point x="37.285714285713766" y="-103.5" />
+      <point x="906.4411196911187" y="2240.0" />
+      <point x="1523.3820081395356" y="2240.0" />
+      <point x="-158.64999999999964" y="214.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="1543.333333333333" y="8082.666666666666" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -2,7 +2,7 @@ package pl.competencyproject.model.dao.classes;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import pl.competencyproject.model.connection.SessionFactoryConfig;
+import pl.competencyproject.model.dao.SessionFactoryConfig;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 public abstract class GeneralManager {
