@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 
@@ -57,9 +58,12 @@ public class TestController extends AbstractController implements Initializable 
     @FXML
     public void loadDictionaries(){
         DictionaryMap dictionaryMap=DictionaryMap.getInstance();
-        
+        dictionaryMap.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
         dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue().toString(),nameOfCategoryChoiceBox.getValue().toString());
+        //if()
         dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
+        dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG);
+        dictionaryMap.initDownloadDate();
     }
     @FXML
     public void startingExam(){
