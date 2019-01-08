@@ -136,6 +136,7 @@ public class DictionaryMap implements IDictionaryMap {
         }
     }
 
+    //dasz to ogarnąć do jutra ?nw bo troche glowa mnie pobolewa i juz tak ze 7 godzin siedze, znaczy konkretnie coprawic
 
     public void lightReset() {
         this.currentSession = 0;
@@ -146,8 +147,12 @@ public class DictionaryMap implements IDictionaryMap {
         lightReset();
         this.dictionary.clear();
         this.keysAllMap.clear();
-        this.dictionarySentencysFromBase.clear();
-        this.dictionaryWordsFromBase.clear();
+        if (this.dictionarySentencysFromBase != null) {
+            this.dictionarySentencysFromBase.clear();
+        }
+        if (this.dictionaryWordsFromBase != null) {
+            this.dictionaryWordsFromBase.clear();
+        }
         this.sizeOfFullMap = 0;
     }
 
@@ -161,7 +166,7 @@ public class DictionaryMap implements IDictionaryMap {
         }
     }
 
-    private void resetCordsToDB(){
+    private void resetCordsToDB() {
         nameOfLevel = null;
         nameOfCategory = null;
         headOfFamily = null;

@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ChooseTestController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ChooseTestController">
    <children>
       <ComboBox layoutX="53.0" layoutY="65.0" prefWidth="150.0" />
       <ComboBox layoutX="203.0" layoutY="65.0" prefWidth="150.0" />

@@ -48,8 +48,8 @@ public class LogonController extends AbstractController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Thread bot = new Thread(new ThreadBot());
-        bot.start();
+       // Thread bot = new Thread(new ThreadBot());
+      //  bot.start();
         MU= new ManageUsers(TypeOfUsedDatabase.OnlineOrginalDatabase);
         if (!SessionLogon.logged) {
             logOutButton.setDisable(true);

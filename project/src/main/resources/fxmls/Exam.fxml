@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
+<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
     <children>
         <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -40,16 +40,16 @@
                                     <children>
                                         <VBox layoutX="169.0" layoutY="-25.0" prefHeight="82.0" prefWidth="672.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                <Label alignment="CENTER" prefHeight="16.0" prefWidth="672.0" text="PYTANIE">
+                                                <Label fx:id="questionLabel" alignment="CENTER" prefHeight="16.0" prefWidth="672.0" text="Question">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Label>
-                                    <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="SHOW ANSWER" textFill="#fcfdfd">
+                                    <Button mnemonicParsing="false" onAction="#showingAnswer" prefHeight="86.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="Show answer" textFill="#fcfdfd">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Label alignment="CENTER" prefHeight="70.0" prefWidth="672.0" text="HIDDEN ANSWER">
+                                    <Label fx:id="hiddenAnswerLabel" alignment="CENTER" prefHeight="70.0" prefWidth="672.0" visible="false">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -71,20 +71,20 @@
                                        <font>
                                           <Font size="24.0" />
                                        </font></TextField>
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="702.0" style="-fx-background-color: #385d2c; -fx-background-radius: 150px;" text="Check" textFill="#fcfdfd">
+                                                <Button mnemonicParsing="false" onAction="#checkingAnswer" prefHeight="25.0" prefWidth="702.0" style="-fx-background-color: #385d2c; -fx-background-radius: 150px;" text="Check" textFill="#fcfdfd">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Button>
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                <HBox prefHeight="35.0" prefWidth="674.0">
                                                     <children>
-                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" text="CORRECTS : 0" textFill="#3ea810">
+                                                        <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" textFill="#3ea810">
                                                             <font>
-                                                                <Font size="30.0" />
+                                                                <Font size="24.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" text="WRONGS : 0" textFill="RED">
+                                                        <Label fx:id="wrongAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" textFill="RED">
                                                             <font>
-                                                                <Font size="30.0" />
+                                                                <Font size="24.0" />
                                                             </font>
                                                         </Label>
                                                     </children>

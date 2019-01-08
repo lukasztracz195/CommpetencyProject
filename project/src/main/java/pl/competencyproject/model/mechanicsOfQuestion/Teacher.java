@@ -99,7 +99,7 @@ public class Teacher implements ITeacher {
             }
             if (!currentMapQuestion.isEmpty()) {
                 key = currentMapQuestion.lastKey();
-                currentQuestion = key.toString();
+                currentQuestion = key.getWord();
                 currentAnswer = currentMapQuestion.get(key);
             }
         } catch (InterruptedException e) {
@@ -153,6 +153,5 @@ public class Teacher implements ITeacher {
         totalNumberOfGoodAnswers = 0;
         totalValueProgress = 0.0;
     }
-
 }
 

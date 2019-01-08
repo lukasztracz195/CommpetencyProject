@@ -60,6 +60,7 @@ public class ThreadBot implements Runnable {
         save.println("Total Good Answers: " + teacher.getTotalNumberOfGoodAnswers());
         save.println("Total Wrong Answers: " + teacher.getTotalNumberOfWrongAnswers());
         save.println("Total ValueProgress: " + teacher.getTotalValueProgress());
+        teacher.getFactoryDictionary().hardReset();
         save.close();
     }
 }
