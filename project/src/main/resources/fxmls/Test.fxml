@@ -26,7 +26,7 @@
             <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
          </children>
       </FlowPane>
-      <Button fx:id="startExamButton" disable="true" layoutX="115.0" layoutY="381.0" mnemonicParsing="false" onAction="#startingExam" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Start Exam">
+      <Button fx:id="startExamButton" disable="true" layoutX="116.0" layoutY="402.0" mnemonicParsing="false" onAction="#startingExam" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Start Exam">
          <font>
             <Font size="36.0" />
          </font>
@@ -41,16 +41,16 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button layoutX="679.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearChoice" prefHeight="25.0" prefWidth="111.0" text="Clear" />
+      <Button layoutX="529.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearChoice" prefHeight="25.0" prefWidth="111.0" text="Clear" />
       <ProgressBar fx:id="progressBar" layoutX="116.0" layoutY="275.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
       <Label fx:id="returnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="332.0" prefHeight="42.0" prefWidth="524.0" text="How proggressBar will disapeare return to menu" textAlignment="CENTER" visible="false">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="headsOfFamilyChoiceBox" disable="true" layoutX="529.0" layoutY="161.0" prefWidth="150.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="529.0" layoutY="128.0" prefHeight="34.0" prefWidth="150.0" text="Heads of family" textAlignment="CENTER" />
-      <Button fx:id="loadDictionaryButton" disable="true" layoutX="43.0" layoutY="214.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
+      <ChoiceBox fx:id="headsOfFamilyChoiceBox" layoutX="43.0" layoutY="255.0" prefHeight="26.0" prefWidth="186.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="223.0" prefHeight="34.0" prefWidth="150.0" text="Heads of family" textAlignment="CENTER" />
+      <Button fx:id="loadDictionaryButton" disable="true" layoutX="295.0" layoutY="312.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
          <font>
             <Font size="18.0" />
          </font>
