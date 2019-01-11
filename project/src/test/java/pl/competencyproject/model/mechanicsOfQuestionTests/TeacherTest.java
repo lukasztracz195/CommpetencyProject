@@ -2,7 +2,7 @@ package pl.competencyproject.model.mechanicsOfQuestionTests;
 /*
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.PrepareExam;
 import org.junit.jupiter.api.Assertions;
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.dao.SessionLogon;
@@ -59,7 +59,7 @@ public class TeacherTest {
         }
     }
 
-    @Test
+    @PrepareExam
     public void TeachingTest(){
         teacher = Teacher.getInstance(type);
         teacher.initDictionary("B2","test", TypeOfDictionaryDownloaded.DictionaryOfWords, TypeOfDictionaryLanguage.ENGtoPL);

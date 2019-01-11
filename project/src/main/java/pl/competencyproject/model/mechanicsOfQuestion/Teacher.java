@@ -21,14 +21,14 @@ public class Teacher implements ITeacher {
     private String currentQuestion;
     private Word key;
     private List<String> currentAnswer;
-    private int currentRound = 0;
+    private int currentRound = 1;
     private int sizeCurrentMapQuestionOnStart;
     private int numberOfGoodAnswers = 0;
     private int numberOfWrongAnswers = 0;
     private int totalNumberOfGoodAnswers = 0;
     private int totalNumberOfWrongAnswers = 0;
     private double totalValueProgress = 0.0;
-    private double valueProgress = 0;
+    private double valueProgress = 0.0;
     private int numberMaxOfSessions;
 
     public Teacher() {
@@ -76,19 +76,25 @@ public class Teacher implements ITeacher {
         currentMapQuestion.remove(key, currentAnswer);
         changeQuestion(delayInMilisecundes);
         numberOfGoodAnswers++;
+        getCalcValueProgress();
     }
 
     private void badAnswer(int delayInMilisecundes) {
-        Word oldKey = new Word(key);
-        List<String> tmpValue = new ArrayList<>(currentAnswer);
-        getCurrentMapQuestion().remove(key, tmpValue);
-        oldKey.decreasNumberOfAttempts();
-        getCurrentMapQuestion().put(oldKey, tmpValue);
-        if (oldKey.getNumberOfTries() == 0) {
-            getCurrentMapQuestion().remove(oldKey, tmpValue);
+        if (delayInMilisecundes > 0) {
+            currentMapQuestion.remove(key, currentAnswer);
+        }else {
+            Word oldKey = new Word(key);
+            List<String> tmpValue = new ArrayList<>(currentAnswer);
+            getCurrentMapQuestion().remove(key, tmpValue);
+            oldKey.decreasNumberOfAttempts();
+            getCurrentMapQuestion().put(oldKey, tmpValue);
+            if (oldKey.getNumberOfTries() == 0) {
+                getCurrentMapQuestion().remove(oldKey, tmpValue);
+            }
+            numberOfWrongAnswers++;
         }
+        getCalcValueProgress();
         changeQuestion(delayInMilisecundes);
-        numberOfWrongAnswers++;
     }
 
     private void changeQuestion(int delayInMilisecundes) {
@@ -109,14 +115,14 @@ public class Teacher implements ITeacher {
 
     public void initNextRoundOfQuestions() {
         if (currentRound <= numberMaxOfSessions) {
-            getValueProgress();
+            getCalcValueProgress();
             currentMapQuestion = factoryDictionary.getRandTenMap();
             sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
             currentRound++;
         }
     }
 
-    public Double getValueProgress() {
+    public double getCalcValueProgress() {
         //int fullSizeOfDDictionary = factoryDictionary.getSizeOfFullMap();
         double valuePart1 = (double) 1 / getNumberMaxOfSessions();
         double valuePart2 = ((double) (sizeCurrentMapQuestionOnStart - numberOfGoodAnswers + numberOfWrongAnswers) / (double) getNumberMaxOfSessions());
@@ -128,8 +134,7 @@ public class Teacher implements ITeacher {
         totalNumberOfGoodAnswers += numberOfGoodAnswers;
         totalNumberOfWrongAnswers += numberOfWrongAnswers;
         totalValueProgress += valueProgress;
-        numberOfGoodAnswers = 0;
-        numberOfWrongAnswers = 0;
+
         return valueProgress;
     }
 
@@ -152,6 +157,11 @@ public class Teacher implements ITeacher {
         totalNumberOfWrongAnswers = 0;
         totalNumberOfGoodAnswers = 0;
         totalValueProgress = 0.0;
+    }
+
+    public void resetGoodAndWrongsAnswers(){
+        numberOfGoodAnswers = 0;
+        numberOfWrongAnswers = 0;
     }
 }
 

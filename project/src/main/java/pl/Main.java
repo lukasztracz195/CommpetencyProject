@@ -9,6 +9,7 @@ import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
 import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
 //import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
 
@@ -47,7 +48,10 @@ public class Main extends Application {
 
     @Override
     public void stop() {
+        DictionaryMap dic = DictionaryMap.getInstance();
+        dic.hardReset();
         SessionLogon.getInstance().logOut();
+
     }
 
 }

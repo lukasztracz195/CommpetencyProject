@@ -11,7 +11,7 @@ public interface ITeacher {
 
     public void initNextRoundOfQuestions();
 
-    public Double getValueProgress();
+    public double getCalcValueProgress();
 
     public String randGoodOrBadAnswer();
 

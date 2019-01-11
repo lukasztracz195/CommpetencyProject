@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import pl.competencyproject.model.dao.SessionLogon;
+import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +33,7 @@ public class MenuLayoutController extends AbstractController implements Initiali
             String s = "Witaj " + welcome[0].trim();
             witaj.setText(s);
         }
+        ManageDictionaryWords MDW = new ManageDictionaryWords(TypeOfUsedDatabase.OnlineOrginalDatabase);
     }
 
     @FXML
@@ -66,21 +69,11 @@ public class MenuLayoutController extends AbstractController implements Initiali
     }
 
     @FXML
-    public void nauka() {
-
-        FXMLLoader loader = MainController.createLoader(MainController.Teaching, this);
-        Pane pane = MainController.createPane(loader);
-        TeachingController controller = loader.getController();
-        controller.setMainController(mainController);
-        mainController.setScreen(pane);
-    }
-
-    @FXML
     public void test() {
 
-        FXMLLoader loader = MainController.createLoader(MainController.Test, this);
+        FXMLLoader loader = MainController.createLoader(MainController.PrepareExam, this);
         Pane pane = MainController.createPane(loader);
-        TestController controller = loader.getController();
+        PrepareExamController controller = loader.getController();
         controller.setMainController(mainController);
         mainController.setScreen(pane);
     }

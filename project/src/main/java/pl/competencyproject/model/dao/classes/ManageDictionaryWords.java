@@ -4,11 +4,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
+import org.hibernate.type.StandardBasicTypes;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords;
 import pl.competencyproject.model.entities.Dictionary_Word;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public class ManageDictionaryWords extends GeneralManager implements ManagingDictionaryWords {
@@ -121,16 +123,17 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
 
     public synchronized void setFamilyinExistedDictionaryWord(Integer idDictionaryWord, Integer idFamily) {
         reset();
-        NativeQuery query = session.createSQLQuery("UPDATE DICTIONARY_WORDS SET idFamily = :ID_Family WHERE idDictionaryWords = :ID_Dictionary");
+        NativeQuery query = session.createNativeQuery("UPDATE DICTIONARY_WORDS SET idFamily = :ID_Family WHERE idDictionaryWords = :ID_Dictionary");
         query.setParameter("ID_Family", idFamily);
         query.setParameter("ID_Dictionary", idDictionaryWord);
         int result = query.executeUpdate();
     }
 
-    public synchronized Integer countDictionaryMap(int idLevel){
+    public synchronized Integer countDictionaryMap(Integer idLevel){
         reset();
-        NativeQuery query = session.createSQLQuery("SELECT idDictionaryWords FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
+        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) AS suma FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
         query.setParameter("idLevel", idLevel);
-        return query.getMaxResults();
+        ((NativeQuery) query).addScalar( "suma", StandardBasicTypes.INTEGER);
+        return (Integer) query.getResultList().get(0);
     }
 }

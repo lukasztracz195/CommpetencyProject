@@ -1,7 +1,9 @@
 package pl.competencyproject.model.mechanicsOfQuestion;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Synchronized;
 import pl.competencyproject.model.dao.classes.*;
 import pl.competencyproject.model.entities.*;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
@@ -10,6 +12,7 @@ import pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 
 import java.util.*;
+
 
 @Getter
 @Setter
@@ -47,6 +50,16 @@ public class DictionaryMap implements IDictionaryMap {
         keysAllMap = new HashMap<>();
         currentSession = 0;
         sizeOfFullMap = 0;
+    }
+
+    @Override
+    public synchronized int getSizeOfFullMap() {
+        return sizeOfFullMap;
+    }
+
+    @Override
+    public synchronized int getNumberOfRecordsToDownload() {
+        return numberOfRecordsToDownload-1;
     }
 
     public static DictionaryMap getInstance() {
@@ -96,7 +109,7 @@ public class DictionaryMap implements IDictionaryMap {
     }
 
     @Override
-    public void setDictionaryOfSentences(String nameOfLevel, String nameOfCategory) {
+    public synchronized void setDictionaryOfSentences(String nameOfLevel, String nameOfCategory) {
         resetCordsToDB();
         this.nameOfLevel = nameOfLevel;
         this.nameOfCategory = nameOfCategory;
@@ -120,7 +133,6 @@ public class DictionaryMap implements IDictionaryMap {
         this.typeDictionary = TypeOfDictionaryDownloaded.DictionaryOfFamilys;
         prepareIDs();
     }
-
 
     public void initDownloadDate() {
         if (typeLangToLang != null) {

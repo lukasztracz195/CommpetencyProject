@@ -22,7 +22,6 @@ public class ThreadBot implements Runnable {
 
     @Override
     public void run() {
-        Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         SessionLogon.IdLoggedUser = 1;
         Teacher teacher = new Teacher();
         DictionaryMap DM = DictionaryMap.getInstance();

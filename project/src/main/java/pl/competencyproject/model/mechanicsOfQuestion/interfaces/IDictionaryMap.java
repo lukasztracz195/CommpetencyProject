@@ -23,6 +23,8 @@ public interface IDictionaryMap {
 
     public void setDictionaryOfFamily( String headOfFamily);
 
+    public  int getNumberOfRecordsToDownload();
+
 
 
 }

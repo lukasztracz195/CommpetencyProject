@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import pl.competencyproject.model.ClassesToRunnable.ThreadForDownloadData;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
@@ -14,11 +15,16 @@ import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfFamilys;
 import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfWords;
 
-public class TestController extends AbstractController implements Initializable {
+public class PrepareExamController extends AbstractController implements Initializable {
 
     @FXML
     private ChoiceBox typeOfDictionaryChoiceBox;
@@ -40,19 +46,18 @@ public class TestController extends AbstractController implements Initializable 
     private ProgressBar progressBar;
     @FXML
     private Label returnLabel;
-
-    private boolean finisheSent = false;
-
-    private DictionaryMap dictionaryMap;
-
     @FXML
     private Label feedbackLabel;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
+    private boolean finisheSent = false;
+    private DictionaryMap dictionaryMap;
+    private ManageLevels ML;
+    private ManageFamily MF;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
         super.setClockDate(clockLabel, dateLabel);
         setChoiceBoxOfTypesOfDictionary();
         enableChoiceBoxes();
@@ -60,21 +65,46 @@ public class TestController extends AbstractController implements Initializable 
 
     @FXML
     public void loadDictionaries() {
+        if(dictionaryMap != null) {
+            dictionaryMap.hardReset();
+        }
         dictionaryMap = DictionaryMap.getInstance();
+            loadDictionaryButton.setDisable(true);
+            dictionaryMap.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
 
-        dictionaryMap.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
+            if (headsOfFamilyChoiceBox.isDisabled()) {
+                dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue().toString(), nameOfCategoryChoiceBox.getValue().toString());
+            } else if (typeOfDictionaryChoiceBox.isDisabled())
+                dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
 
-        if (headsOfFamilyChoiceBox.isDisabled()) {
-            dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue().toString(), nameOfCategoryChoiceBox.getValue().toString());
-        } else if (typeOfDictionaryChoiceBox.isDisabled())
-            dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
+            dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG);
+            progressBar.setVisible(true);
             int howMatch = dictionaryMap.getNumberOfRecordsToDownload();
-        dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG); // trzeba dać userowi wybór czyli kolejny choice box
-        dictionaryMap.initDownloadDate();
 
 
-        startExamButton.setDisable(false);
-    }
+            ExecutorService es = Executors.newSingleThreadExecutor();
+            es.execute(new ThreadForDownloadData());
+            Timer timer = new Timer();
+            TimerTask task = new TimerTask() {
+                public void run() {
+                    System.out.println(dictionaryMap.getSizeOfFullMap()+" / "+  howMatch);
+                    progressBar.setProgress(dictionaryMap.getSizeOfFullMap() / (double) howMatch);
+                    if (dictionaryMap.getSizeOfFullMap() == howMatch) {
+                        if (!es.isShutdown()) {
+                            es.shutdown();
+                        }
+                        progressBar.setVisible(false);
+                        startExamButton.setDisable(false);
+                        timer.cancel();
+                    }
+                }
+            };
+
+            timer.schedule(task, 0, 1000);
+
+        }
+
+
 
     @FXML
     public void startingExam() {

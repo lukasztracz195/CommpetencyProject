@@ -15,14 +15,13 @@ public class MainController implements Initializable , Runnable{
     @FXML
     private StackPane mainStackPane;
 
-    public static final String Logon = "/fxmls/Logon.fxml";
-    public static final String Menu = "/fxmls/MainMenuLayout.fxml";
-    public static final String MainScreen = "/fxmls/MainScreen.fxml";
-    public static final String Teaching = "/fxmls/Nauka.fxml";
-    public static final String Dictionary = "/fxmls/Slownik.fxml";
-    public static final String Test = "/fxmls/Test.fxml";
-    public static final String Account = "/fxmls/Profil.fxml";
-    public static final String Exam = "/fxmls/Exam.fxml";
+    public static final String Logon = "/fxmls/LogonScene.fxml";
+    public static final String Menu = "/fxmls/MainMenuScene.fxml";
+    public static final String MainScreen = "/fxmls/GeneralScene.fxml";
+    public static final String Dictionary = "/fxmls/DictionaryScene.fxml";
+    public static final String PrepareExam = "/fxmls/PrepareExamScene.fxml";
+    public static final String Account = "/fxmls/AccountScene.fxml";
+    public static final String Exam = "/fxmls/ExamScene.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -31,7 +30,7 @@ public class MainController implements Initializable , Runnable{
 
     public void loadLogonScreen() {
 
-        FXMLLoader loader = this.createLoader(MainController.Logon, this);
+        FXMLLoader loader = createLoader(MainController.Logon, this);
         Pane pane = MainController.createPane(loader);
         LogonController logonController = loader.getController();
         logonController.setMainController(this);
