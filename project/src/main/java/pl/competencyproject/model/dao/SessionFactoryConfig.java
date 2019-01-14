@@ -14,34 +14,38 @@ public class SessionFactoryConfig {
     private static final String databaseOriginalOnline = "hibernate_online_original.cfg.xml";
     private static final String databaseTestOnline = "hibernate_online_test.cfg.xml";
     private static final String databaseTestOffline = "hibernate_offline_test.cfg.xml";
-    private static  String used;
+    private static String used;
+
     private SessionFactoryConfig() {
     }
-    public synchronized static SessionFactory getSessionFactory( TypeOfUsedDatabase type) {
+
+    public synchronized static SessionFactory getSessionFactory(TypeOfUsedDatabase type) {
         String configFileName = chooseConfigFile(type);
         SessionFactory session = sessionFactories.get(configFileName);
-
         if (session == null || session.isClosed()) {
             session = configure(configFileName);
             sessionFactories.put(configFileName, session);
         }
         return session;
     }
-     private static String chooseConfigFile(TypeOfUsedDatabase type){
-        if(type == TypeOfUsedDatabase.OnlineOrginalDatabase){
+
+    private static String chooseConfigFile(TypeOfUsedDatabase type) {
+        if (type == TypeOfUsedDatabase.OnlineOrginalDatabase) {
             return databaseOriginalOnline;
-        }else if(type == TypeOfUsedDatabase.OnlineTestDatabase){
+        } else if (type == TypeOfUsedDatabase.OnlineTestDatabase) {
             return databaseTestOnline;
-        }else
+        } else
             return databaseTestOffline;
     }
+
     private static SessionFactory configure(String configFileName) {
         used = configFileName;
         return new Configuration().configure(configFileName).buildSessionFactory();
     }
-    public static void close(){
+
+    public static void close() {
         SessionFactory session = sessionFactories.get(used);
-        if(session.isOpen()){
+        if (session.isOpen()) {
             session.close();
         }
     }
