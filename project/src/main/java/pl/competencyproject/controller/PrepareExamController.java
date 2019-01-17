@@ -3,7 +3,10 @@ package pl.competencyproject.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.Pane;
 import pl.competencyproject.model.ClassesToRunnable.ThreadForDownloadData;
 import pl.competencyproject.model.dao.classes.ManageFamily;
@@ -11,13 +14,11 @@ import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -168,7 +169,6 @@ public class PrepareExamController extends AbstractController implements Initial
 
     @FXML
     public void back() {
-        dictionaryMap.hardReset();
         super.back(mainController, this);
     }
 
