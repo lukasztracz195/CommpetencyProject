@@ -12,10 +12,9 @@ import pl.competencyproject.model.timeClock.GeneralClock;
 
 public abstract class AbstractController {
 
-     MainController mainController;
-    private Timeline timeline;
+    MainController mainController;
     private GeneralClock clock;
-     SessionLogon sessionLogon = SessionLogon.getInstance();
+    SessionLogon sessionLogon = SessionLogon.getInstance();
 
     protected void back(MainController mainController, Object toGetClass) {
         FXMLLoader loader = MainController.createLoader(MainController.Menu, toGetClass);
@@ -25,9 +24,9 @@ public abstract class AbstractController {
         mainController.setScreen(pane);
     }
 
-     void setClockDate(Label clockLabel, Label dateLabel) {
+    void setClockDate(Label clockLabel, Label dateLabel) {
         clock = sessionLogon.getClockDate();
-        timeline = new Timeline(new KeyFrame(
+        Timeline timeline = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 ae -> {
                     clockLabel.setText(clock.getTime());
@@ -37,7 +36,7 @@ public abstract class AbstractController {
         timeline.play();
     }
 
-     void setMainController(MainController mainController) {
+    void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 }
