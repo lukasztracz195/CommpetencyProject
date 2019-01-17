@@ -6,16 +6,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
-import pl.competencyproject.model.multithreadProcessing.ThreadForSentData;
 import pl.competencyproject.model.csv.CSVReader;
-import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.multithreadProcessing.ThreadForSentData;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,16 +23,17 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
+import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfWords;
+import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.NONE;
 
 public class DictionaryController extends AbstractController implements Initializable {
 
     @FXML
     private ChoiceBox<TypeOfDictionaryDownloaded> typeOfDictionaryChoiceBox;
     @FXML
-    private ChoiceBox nameOfLevelChoiceBox;
+    private ChoiceBox <String> nameOfLevelChoiceBox;
     @FXML
-    private ChoiceBox nameOfCategoryChoiceBox;
+    private ChoiceBox <String> nameOfCategoryChoiceBox;
     @FXML
     private Button addNewDictionaryButton;
     @FXML
@@ -44,14 +44,13 @@ public class DictionaryController extends AbstractController implements Initiali
     private ProgressBar progressBar;
     @FXML
     private Label returnLabel;
-
-    private boolean finisheSent = false;
-
     @FXML
     private Label feedbackLabel;
+    private TypeOfUsedDatabase usedDatabase = TypeOfUsedDatabase.OnlineOrginalDatabase;
 
-    private ManageLevels ML = new ManageLevels(TypeOfUsedDatabase.OnlineTestDatabase);
-    private ManageFamily MF = new ManageFamily(TypeOfUsedDatabase.OnlineTestDatabase);
+
+
+    private ManageLevels ML = new ManageLevels(usedDatabase);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,10 +60,10 @@ public class DictionaryController extends AbstractController implements Initiali
     }
 
     @FXML
-    public void addDictionary() throws FileNotFoundException {
-        returnLabel.setVisible(true);
-        CSVReader csvReader = CSVReader.getInstance(TypeOfUsedDatabase.OnlineTestDatabase);
-        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem().toString(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem().toString());
+    public void addDictionary(){
+
+        CSVReader csvReader = CSVReader.getInstance(usedDatabase);
+        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem());
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
@@ -72,31 +71,43 @@ public class DictionaryController extends AbstractController implements Initiali
 
         List<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
         if (selectedFiles != null) {
-            for (int i = 0; i < selectedFiles.size(); i++) {
-                selectedFiles.get(i).getAbsolutePath();
-                csvReader.chooseCSV(selectedFiles.get(i));
+            for (File selectedFile : selectedFiles) {
+
+                csvReader.chooseCSV(selectedFile);
             }
             csvReader.setTypeDictionary(DictionaryOfWords);
-            int howMatch = csvReader.getNumberOfLinesToSendTODB();
-            feedbackLabel.setVisible(true);
-            progressBar.setVisible(true);
-            progressBar.setProgress(0);
-            feedbackLabel.setText("Adding to Database file with "+howMatch+" lines");
-            ExecutorService es = Executors.newSingleThreadExecutor();
-            es.execute(new ThreadForSentData(TypeOfUsedDatabase.OnlineOrginalDatabase));
-            addNewDictionaryButton.setDisable(true);
-            Timer timer = new Timer("Timer");
-            TimerTask task = new TimerTask() {
-                public void run() {
-                        progressBar.setProgress(csvReader.getValueProgress() / (double) howMatch);
-                    if(csvReader.getTransferCommplete()) {
-                        progressBar.setVisible(false);
-                        timer.cancel();
+            if(csvReader.checkHeaderWordsSentenses(csvReader.getHeader())) {
+                returnLabel.setVisible(true);
+                int howManyRecords = csvReader.getNumberOfLinesToSendTODB();
+                feedbackLabel.setVisible(true);
+                feedbackLabel.setTextFill(new Color(0, 0, 0, 1));
+                progressBar.setVisible(true);
+                progressBar.setProgress(0);
+                feedbackLabel.setText("Adding to Database file with " + howManyRecords + " lines");
+                ExecutorService es = Executors.newSingleThreadExecutor();
+                es.execute(new ThreadForSentData(usedDatabase));
+                addNewDictionaryButton.setDisable(true);
+                Timer timer = new Timer("Timer");
+                TimerTask task = new TimerTask() {
+                    public void run() {
+                        System.out.println(csvReader.getValueProgress()+" "+howManyRecords);
+                        progressBar.setProgress(csvReader.getValueProgress() / (double) howManyRecords);
+                        if (csvReader.getTransferCommplete()) {
+                            progressBar.setVisible(false);
+                           if(!es.isShutdown()){
+                               es.shutdown();
+                           }
+                            timer.cancel();
+                        }
                     }
-                }
-            };
-            timer.schedule(task,0,1000);
-            disableChoiceBoxes();
+                };
+                timer.schedule(task, 0, 1000);
+                disableChoiceBoxes();
+            }else{
+                feedbackLabel.setVisible(true);
+                feedbackLabel.setTextFill(new Color(1, 0, 0, 1));
+                feedbackLabel.setText("Wrong header in your file \""+csvReader.getHeader()+"\"");
+            }
 
         }
     }
@@ -104,9 +115,9 @@ public class DictionaryController extends AbstractController implements Initiali
     @FXML
     public void clearChoice() {
         typeOfDictionaryChoiceBox.setValue(NONE);
-        nameOfLevelChoiceBox.setValue(NONE);
+        nameOfLevelChoiceBox.setValue(NONE.toString());
         nameOfLevelChoiceBox.setDisable(true);
-        nameOfCategoryChoiceBox.setValue(NONE);
+        nameOfCategoryChoiceBox.setValue(NONE.toString());
         nameOfCategoryChoiceBox.setDisable(true);
         addNewDictionaryButton.setDisable(true);
         feedbackLabel.setVisible(false);

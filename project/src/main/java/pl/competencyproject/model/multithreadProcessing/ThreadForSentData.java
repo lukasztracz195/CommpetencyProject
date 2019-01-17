@@ -15,7 +15,6 @@ public class ThreadForSentData implements Runnable {
     public void run() {
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         csvReader.initSentToDB();
-        Thread.currentThread().interrupt();
     }
 }
 

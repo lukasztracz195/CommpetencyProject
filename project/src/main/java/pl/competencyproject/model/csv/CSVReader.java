@@ -6,7 +6,6 @@ import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +20,7 @@ public class CSVReader {
     private Integer choosedLevel;
     private List<String> listOfLines;
     private boolean transferCommplete =false;
+    private String header;
 
     private String choosedCSV;
     private String StringENG;
@@ -130,13 +130,18 @@ public class CSVReader {
     private void readLinesFromFile() {
         listOfLines = null;
         listOfLines = new ArrayList<>();
+        int counter =0;
         while (fileOfCSV.getRead().hasNextLine()) {
             String line = fileOfCSV.getRead().nextLine();
+            if(counter == 0){
+                header = line;
+            }
             if (line.contains(";")) {
                 listOfLines.add(line);
             }
+            counter++;
         }
-        numberOfLines = listOfLines.size();
+        numberOfLines = listOfLines.size()-1;
     }
 
     private int insertDictionaryWordswithoutFamily() {
@@ -144,7 +149,7 @@ public class CSVReader {
         MWE = new ManageWordsENG(type);
         MWP = new ManageWordsPL(type);
         MDW = new ManageDictionaryWords(type);
-        String header = listOfLines.get(0);
+        header = listOfLines.get(0);
         if (checkHeaderWordsSentenses(header)) {
             String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
@@ -161,7 +166,7 @@ public class CSVReader {
                     records++;
                 }
             }
-        } else System.out.println("Nagłówek się nie zgadza");
+        } else {System.out.println("Nagłówek się nie zgadza"); }
         return records;
     }
 
@@ -171,7 +176,7 @@ public class CSVReader {
         MWP = new ManageWordsPL(type);
         MDW = new ManageDictionaryWords(type);
 
-        String header = listOfLines.get(0);
+         header = listOfLines.get(0);
         if (checkHeaderWordsSentenses(header)) {
             String[] headerParts = header.split(";");
             setIndexesPLENG(headerParts);
@@ -319,11 +324,15 @@ public class CSVReader {
         CSVReader.instance = null;
     }
 
-    private boolean checkHeaderWordsSentenses(String header) {
+    public boolean checkHeaderWordsSentenses(String header) {
         if (header.equals("WordPL;WordENG") || header.equals("WordENG;WordPL")) {
             return true;
         }
         return false;
+    }
+
+    public String getHeader(){
+        return header;
     }
 
     private void setIndexesPLENG(String[] line) {
