@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="512.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.PrepareExamController">
+<AnchorPane prefHeight="512.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.PrepareExamController">
    <children>
       <Button layoutY="31.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu">
          <font>
@@ -44,13 +44,13 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="loadDictionaryButton" disable="true" layoutX="506.0" layoutY="174.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
+      <Button fx:id="loadDictionaryButton" disable="true" layoutX="468.0" layoutY="179.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="54.0" prefWidth="218.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <ProgressBar fx:id="progressBar" layoutX="123.0" layoutY="344.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
-      <GridPane layoutX="23.0" layoutY="102.0" prefHeight="230.0" prefWidth="412.0">
+      <GridPane layoutX="16.0" layoutY="122.0" prefHeight="224.0" prefWidth="419.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="207.79998779296875" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.20001220703125" minWidth="10.0" prefWidth="118.20001220703125" />
@@ -63,7 +63,7 @@
             <RowConstraints maxHeight="173.80001678466797" minHeight="3.599987792968733" prefHeight="50.40001220703127" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox fx:id="typeOfDictionaryChoiceBox" prefHeight="26.0" prefWidth="214.0" />
+            <ChoiceBox fx:id="typeOfDictionaryChoiceBox" disable="true" prefHeight="26.0" prefWidth="214.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="189.0" text="Type of dictionary" textAlignment="CENTER" GridPane.columnIndex="1" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="170.0" text="Name of level" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="nameOfLevelChoiceBox" disable="true" prefHeight="26.0" prefWidth="231.0" GridPane.rowIndex="1" />
@@ -74,5 +74,7 @@
             <Button mnemonicParsing="false" onAction="#clearChoice" prefHeight="26.0" prefWidth="224.0" text="Clear" GridPane.rowIndex="4" />
          </children>
       </GridPane>
+      <ChoiceBox fx:id="languagesOrderChoiceBox" layoutX="17.0" layoutY="88.0" prefHeight="26.0" prefWidth="211.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="84.0" prefHeight="34.0" prefWidth="158.0" text="Languages order" textAlignment="CENTER" />
    </children>
 </AnchorPane>

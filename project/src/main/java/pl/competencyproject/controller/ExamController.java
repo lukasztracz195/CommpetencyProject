@@ -2,12 +2,16 @@ package pl.competencyproject.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
 import pl.competencyproject.model.pollingMechanizm.Teacher;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ExamController extends AbstractController implements Initializable {
@@ -69,6 +73,8 @@ public class ExamController extends AbstractController implements Initializable 
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
         wrongAnswerLabel.setText("Wrongs: " + teacher.getNumberOfWrongAnswers());
         hiddenAnswerLabel.setVisible(false);
+
+        openDecisionWindow();
     }
 
 
@@ -86,6 +92,24 @@ public class ExamController extends AbstractController implements Initializable 
         sessionLogon.logOut();
     }
 
+    private void openDecisionWindow(){
+
+        if(teacher.getCurrentMapQuestion().isEmpty()){
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Test");
+            confirmation.setContentText("Czy chcesz kontynuować test?");
+            confirmation.setHeaderText("Potwierdzenie");
+            Optional<ButtonType> action = confirmation.showAndWait();
+            if (action.get() == ButtonType.OK) {
+                teacher.initNextRoundOfQuestions();
+            } else{
+                teacher.saveProgressToDB();
+                teacher.getFactoryDictionary().hardReset();
+                super.back(mainController, this);
+            }
+        }
+    }
+
     private void setInformationAboutNumbersOfQuestion(){
         StringBuilder sb = new StringBuilder();
         sb.append(teacher.getNummerQuestion())
@@ -96,15 +120,15 @@ public class ExamController extends AbstractController implements Initializable 
     private void setExamInformation() {
         setInformationAboutNumbersOfQuestion();
         StringBuilder sb = new StringBuilder();
-        DictionaryMap dic = teacher.getFactoryDictionary();
-        int sizeFullMap = dic.getSizeOfFullMap();
-        int used = dic.getCollectionOfuniqueness().size();
+        DictionaryMap dm = teacher.getFactoryDictionary();
+        int sizeFullMap = dm.getSizeOfFullMap();
+        int used = dm.getCollectionOfuniqueness().size();
         int rest = sizeFullMap - used;
         sb.append("Session ")
                 .append(teacher.getCurrentRound())
                 .append(" from ")
                 .append(teacher.getNumberMaxOfSessions())
-                .append(" the were ")
+                .append(" remained ")
                 .append(rest)
                 .append(" questions");
         examInformationLabel.setText(sb.toString());

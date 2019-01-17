@@ -28,6 +28,8 @@ import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.Dictio
 public class PrepareExamController extends AbstractController implements Initializable {
 
     @FXML
+    private ChoiceBox languagesOrderChoiceBox;
+    @FXML
     private ChoiceBox typeOfDictionaryChoiceBox;
     @FXML
     private ChoiceBox nameOfLevelChoiceBox;
@@ -78,7 +80,7 @@ public class PrepareExamController extends AbstractController implements Initial
             } else if (typeOfDictionaryChoiceBox.isDisabled())
                 dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
 
-            dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.PLtoENG);
+            dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.valueOf(languagesOrderChoiceBox.getValue().toString()));
             progressBar.setVisible(true);
             int howMatch = dictionaryMap.getNumberOfRecordsToDownload();
 
@@ -119,8 +121,11 @@ public class PrepareExamController extends AbstractController implements Initial
 
     @FXML
     public void clearChoice() {
+        languagesOrderChoiceBox.setValue(null);
+        languagesOrderChoiceBox.setDisable(false);
+
         typeOfDictionaryChoiceBox.setValue(null);
-        typeOfDictionaryChoiceBox.setDisable(false);
+        typeOfDictionaryChoiceBox.setDisable(true);
 
         nameOfLevelChoiceBox.setValue(null);
         nameOfLevelChoiceBox.setDisable(true);
@@ -130,8 +135,8 @@ public class PrepareExamController extends AbstractController implements Initial
 
         headsOfFamilyChoiceBox.setValue(null);
 
-        headsOfFamilyChoiceBox.setDisable(false);
-        typeOfDictionaryChoiceBox.setDisable(false);
+        headsOfFamilyChoiceBox.setDisable(true);
+        typeOfDictionaryChoiceBox.setDisable(true);
 
         startExamButton.setDisable(true);
         loadDictionaryButton.setDisable(true);
@@ -139,7 +144,7 @@ public class PrepareExamController extends AbstractController implements Initial
     }
 
     private void setChoiceBoxOfTypesOfDictionary() {
-
+        languagesOrderChoiceBox.getItems().addAll(TypeOfDictionaryLanguage.PLtoENG,TypeOfDictionaryLanguage.ENGtoPL);
         typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords.toString());
         nameOfLevelChoiceBox.getItems().add("B2");
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
@@ -147,6 +152,7 @@ public class PrepareExamController extends AbstractController implements Initial
     }
 
     private void disableChoiceBoxes() {
+        languagesOrderChoiceBox.setDisable(true);
         typeOfDictionaryChoiceBox.setDisable(true);
         nameOfLevelChoiceBox.setDisable(true);
         nameOfCategoryChoiceBox.setDisable(true);
@@ -156,10 +162,10 @@ public class PrepareExamController extends AbstractController implements Initial
 
     private void enableChoiceBoxes() {
 
+        languagesOrderChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> typeOfDictionaryChoiceBox.setDisable(false));
+        languagesOrderChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(false));
         typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfLevelChoiceBox.setDisable(false));
         nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfCategoryChoiceBox.setDisable(false));
-        //nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(false));
-        // nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldvalue,newvalue)->startExamButton.setDisable(false));
         nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldvalue, newvalue) -> loadDictionaryButton.setDisable(false));
 
         typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(true));
