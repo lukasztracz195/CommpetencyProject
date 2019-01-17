@@ -1,4 +1,4 @@
-package pl.competencyproject.model.Time;
+package pl.competencyproject.model.timeClock;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;

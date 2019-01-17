@@ -1,7 +1,4 @@
-package pl.competencyproject.model.mechanicsOfQuestion.interfaces;
-
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+package pl.competencyproject.model.pollingMechanizm.interfaces;
 
 public interface ITeacher {
 

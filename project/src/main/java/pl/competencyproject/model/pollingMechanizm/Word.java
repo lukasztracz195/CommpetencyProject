@@ -1,4 +1,4 @@
-package pl.competencyproject.model.mechanicsOfQuestion;
+package pl.competencyproject.model.pollingMechanizm;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

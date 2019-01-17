@@ -1,4 +1,4 @@
-package pl.competencyproject.model.ClassesToRunnable;
+package pl.competencyproject.model.multithreadProcessing;
 
 import pl.competencyproject.model.csv.CSVReader;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;

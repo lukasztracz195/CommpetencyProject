@@ -1,14 +1,12 @@
-package pl.competencyproject.model.mechanicsOfQuestion;
+package pl.competencyproject.model.pollingMechanizm;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Synchronized;
 import pl.competencyproject.model.dao.classes.*;
 import pl.competencyproject.model.entities.*;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.interfaces.IDictionaryMap;
+import pl.competencyproject.model.pollingMechanizm.interfaces.IDictionaryMap;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 
 import java.util.*;

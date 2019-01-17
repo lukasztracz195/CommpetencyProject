@@ -1,6 +1,6 @@
-package pl.competencyproject.model.ClassesToRunnable;
+package pl.competencyproject.model.multithreadProcessing;
 
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
 
 public class ThreadForDownloadData implements Runnable {
 

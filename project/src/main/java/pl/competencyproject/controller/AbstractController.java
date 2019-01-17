@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import pl.competencyproject.model.dao.SessionLogon;
-import pl.competencyproject.model.Time.GeneralClock;
+import pl.competencyproject.model.timeClock.GeneralClock;
 
 public abstract class AbstractController {
 

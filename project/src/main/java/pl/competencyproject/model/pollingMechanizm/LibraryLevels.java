@@ -1,4 +1,4 @@
-package pl.competencyproject.model.mechanicsOfQuestion;
+package pl.competencyproject.model.pollingMechanizm;
 
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.entities.Level;

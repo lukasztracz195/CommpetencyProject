@@ -1,7 +1,6 @@
-package pl.competencyproject.model.mechanicsOfQuestion;
+package pl.competencyproject.model.pollingMechanizm;
 
 import pl.competencyproject.model.dao.SessionLogon;
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import java.io.FileNotFoundException;

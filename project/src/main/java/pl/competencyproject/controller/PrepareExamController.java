@@ -8,12 +8,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.Pane;
-import pl.competencyproject.model.ClassesToRunnable.ThreadForDownloadData;
+import pl.competencyproject.model.multithreadProcessing.ThreadForDownloadData;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
 
 import java.net.URL;
 import java.util.ResourceBundle;

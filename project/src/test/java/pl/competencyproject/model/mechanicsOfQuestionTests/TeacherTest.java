@@ -10,9 +10,9 @@ import pl.competencyproject.model.dao.classes.ManageLevels;
 import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
-import pl.competencyproject.model.mechanicsOfQuestion.Word;
+import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
+import pl.competencyproject.model.pollingMechanizm.Teacher;
+import pl.competencyproject.model.pollingMechanizm.Word;
 
 import java.util.List;
 import java.util.Map;

@@ -4,14 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import pl.competencyproject.model.dao.classes.ManageStats;
-import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
+import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
+import pl.competencyproject.model.pollingMechanizm.Teacher;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ExamController extends AbstractController implements Initializable {

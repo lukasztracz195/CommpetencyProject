@@ -1,4 +1,4 @@
-package pl.competencyproject.model.mechanicsOfQuestion.interfaces;
+package pl.competencyproject.model.pollingMechanizm.interfaces;
 
 import pl.competencyproject.model.entities.Level;
 

@@ -8,10 +8,9 @@ import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
-import pl.competencyproject.model.Time.GeneralClock;
-import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
-import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
-//import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
+import pl.competencyproject.model.timeClock.GeneralClock;
+import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
+//import pl.competencyproject.model.pollingMechanizm.Teacher;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

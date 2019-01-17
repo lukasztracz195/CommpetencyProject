@@ -1,12 +1,12 @@
 
-package pl.competencyproject.model.mechanicsOfQuestion;
+package pl.competencyproject.model.pollingMechanizm;
 
 import lombok.Getter;
 import pl.competencyproject.model.csv.CSVReader;
 
 import pl.competencyproject.model.dao.classes.ManageStats;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.interfaces.ITeacher;
+import pl.competencyproject.model.pollingMechanizm.interfaces.ITeacher;
 
 import java.util.*;
 

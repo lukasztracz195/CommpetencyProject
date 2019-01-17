@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import pl.competencyproject.model.dao.classes.ManageUsers;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
-import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
 import pl.competencyproject.model.messages.Email;
 import java.net.URL;
 import java.util.ResourceBundle;
