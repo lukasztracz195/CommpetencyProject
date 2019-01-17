@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import pl.competencyproject.model.dao.classes.ManageStats;
+import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
 import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
 
@@ -50,22 +52,21 @@ public class ExamController extends AbstractController implements Initializable 
     @FXML
     public void showingAnswer() throws InterruptedException {
         hiddenAnswerLabel.setVisible(true);
+        hiddenAnswerLabel.setText(teacher.getCurrentAnswer().toString());
+        teacher.answerWithoutPoints(0);
         setExamInformation();
         setProgressValueInfo();
-        hiddenAnswerLabel.setText(teacher.getCurrentAnswer().toString());
-        teacher.checkAnswer("abcdefghij", 5);
         questionLabel.setText(teacher.getCurrentQuestion());
         odpowiedz.clear();
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
         wrongAnswerLabel.setText("Wrongs: " + teacher.getNumberOfWrongAnswers());
-
     }
 
     @FXML
     public void checkingAnswer() {
+        teacher.checkAnswer(odpowiedz.getText(), 0);
         setExamInformation();
         setProgressValueInfo();
-        teacher.checkAnswer(odpowiedz.getText(), 0);
         odpowiedz.clear();
         questionLabel.setText(teacher.getCurrentQuestion());
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
@@ -76,17 +77,19 @@ public class ExamController extends AbstractController implements Initializable 
 
     @FXML
     public void back() {
+        teacher.saveProgressToDB();
         teacher.getFactoryDictionary().hardReset();
         super.back(mainController, this);
     }
 
     @FXML
     public void logout() {
+        teacher.saveProgressToDB();
         mainController.loadLogonScreen();
         sessionLogon.logOut();
     }
 
-    public void setExamInformation() {
+    private void setExamInformation() {
         StringBuilder sb = new StringBuilder();
         DictionaryMap dic = teacher.getFactoryDictionary();
         int sizeFullMap = dic.getSizeOfFullMap();
@@ -94,7 +97,7 @@ public class ExamController extends AbstractController implements Initializable 
         int rest = sizeFullMap - used;
         sb.append("Session ")
                 .append(teacher.getCurrentRound())
-                .append(" ")
+                .append(" from ")
                 .append(teacher.getNumberMaxOfSessions())
                 .append(" the were ")
                 .append(rest)
@@ -102,7 +105,10 @@ public class ExamController extends AbstractController implements Initializable 
         examInformationLabel.setText(sb.toString());
     }
 
-    public void setProgressValueInfo() {
+    private void setProgressValueInfo() {
         totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress()));
-        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()));    }
+        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()));
+    }
+
+
 }

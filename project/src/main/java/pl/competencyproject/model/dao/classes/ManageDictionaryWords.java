@@ -131,9 +131,15 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
 
     public synchronized Integer countDictionaryMap(Integer idLevel){
         reset();
-        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) AS suma FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
+        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
         query.setParameter("idLevel", idLevel);
-        ((NativeQuery) query).addScalar( "suma", StandardBasicTypes.INTEGER);
-        return (Integer) query.getResultList().get(0);
+        return Integer.valueOf( query.getSingleResult().toString());
+    }
+
+    public synchronized Integer countFamilys(Integer idLevel){
+        reset();
+        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel AND idFamilie IS NOT NULL");
+        query.setParameter("idLevel", idLevel);
+        return Integer.valueOf( query.getSingleResult().toString());
     }
 }

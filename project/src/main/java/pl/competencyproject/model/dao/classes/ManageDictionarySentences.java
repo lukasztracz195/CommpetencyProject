@@ -3,6 +3,8 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
+import org.hibernate.type.StandardBasicTypes;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
@@ -81,10 +83,11 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return result;
     }
 
-    public synchronized Integer countSentencys(int idLevel){
+    public synchronized Integer countSentencys(Integer idLevel){
         reset();
-        NativeQuery query = session.createSQLQuery("SELECT idDictionary FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel");
+        Query query = session.createSQLQuery("SELECT COUNT(idDictionary) AS suma FROM DICTIONARY_SENTENCES WHERE idLevel = :idLevel");
         query.setParameter("idLevel", idLevel);
-        return query.getMaxResults();
+        ((NativeQuery) query).addScalar( "suma", StandardBasicTypes.INTEGER);
+        return (Integer) query.getResultList().get(0);
     }
 }

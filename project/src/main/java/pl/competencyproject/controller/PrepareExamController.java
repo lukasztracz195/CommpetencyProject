@@ -87,9 +87,8 @@ public class PrepareExamController extends AbstractController implements Initial
             Timer timer = new Timer();
             TimerTask task = new TimerTask() {
                 public void run() {
-                    System.out.println(dictionaryMap.getSizeOfFullMap()+" / "+  howMatch);
-                    progressBar.setProgress(dictionaryMap.getSizeOfFullMap() / (double) howMatch);
-                    if (dictionaryMap.getSizeOfFullMap() == howMatch) {
+                    progressBar.setProgress(dictionaryMap.getDownloadedRecords() / (double) howMatch);
+                    if (dictionaryMap.getDownloadedRecords() == howMatch) {
                         if (!es.isShutdown()) {
                             es.shutdown();
                         }

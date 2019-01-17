@@ -1,15 +1,16 @@
 package pl.competencyproject.model.dao.classes;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingStats;
+import pl.competencyproject.model.entities.Level;
 import pl.competencyproject.model.entities.Stat;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -124,5 +125,42 @@ public class ManageStats extends GeneralManager implements ManagingStats {
         long diffInMillies = Math.abs(d2.getTime() - d1.getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return diff;
+    }
+
+    public List getAllStatsOnLevel(int idLevel){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE idLevel = :idLevel");
+        query.addEntity(Level.class);
+        query.setParameter("idLevel",idLevel);
+        List list = query.list();
+        if (list == null) {
+            list = new LinkedList();
+        }
+        return list;
+    }
+
+    public List getAllStatsForUser(){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE idUser = :idUser");
+        query.addEntity(Level.class);
+        query.setParameter("idUser",SessionLogon.IdLoggedUser);
+        List list = query.list();
+        if (list == null) {
+            list = new LinkedList();
+        }
+        return list;
+    }
+
+    public List GetAllStatsOnLevelForUser(int idLevel){
+        reset();
+        NativeQuery query = session.createSQLQuery("SELECT * FROM LEVELS WHERE idUser = :idUser AND idLevel = :idLevel");
+        query.addEntity(Level.class);
+        query.setParameter("idLevel",idLevel);
+        query.setParameter("idUser",SessionLogon.IdLoggedUser);
+        List list = query.list();
+        if (list == null) {
+            list = new LinkedList();
+        }
+        return list;
     }
 }

@@ -3,6 +3,8 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
+import org.hibernate.type.StandardBasicTypes;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingFamily;
 import pl.competencyproject.model.entities.Family;
@@ -88,10 +90,5 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         }
     }
 
-    public synchronized Integer countFamilys(int idFamily){
-        reset();
-        NativeQuery query = session.createSQLQuery("SELECT idFamilie FROM FAMILIES WHERE idFamily = :idFamily");
-        query.setParameter("idFamily", idFamily);
-        return query.getMaxResults();
-    }
+
 }

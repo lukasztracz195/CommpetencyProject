@@ -37,6 +37,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     private int numberMaxOfSessions;
     private int sizeOfFullMap;
+    private int downloadedRecords = 0;
     private int numberOfRecordsToDownload;
     private int currentSession;
 
@@ -52,14 +53,14 @@ public class DictionaryMap implements IDictionaryMap {
         sizeOfFullMap = 0;
     }
 
-    @Override
-    public synchronized int getSizeOfFullMap() {
-        return sizeOfFullMap;
+
+    public synchronized int getDownloadedRecords() {
+        return downloadedRecords;
     }
 
     @Override
     public synchronized int getNumberOfRecordsToDownload() {
-        return numberOfRecordsToDownload-1;
+        return numberOfRecordsToDownload;
     }
 
     public static DictionaryMap getInstance() {
@@ -148,8 +149,6 @@ public class DictionaryMap implements IDictionaryMap {
         }
     }
 
-    //dasz to ogarnąć do jutra ?nw bo troche glowa mnie pobolewa i juz tak ze 7 godzin siedze, znaczy konkretnie coprawic
-
     public void lightReset() {
         this.currentSession = 0;
         this.collectionOfuniqueness.clear();
@@ -166,6 +165,7 @@ public class DictionaryMap implements IDictionaryMap {
             this.dictionaryWordsFromBase.clear();
         }
         this.sizeOfFullMap = 0;
+        downloadedRecords = 0;
     }
 
     private void setNumberOfRecordsToDownload() {
@@ -187,6 +187,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     private void prepareIDs() {
         ManageLevels ML = new ManageLevels(typeDB);
+        ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
         idLevel = ML.existLevel(nameOfLevel, nameOfCategory);
         setNumberOfRecordsToDownload();
         if (typeDictionary.equals(TypeOfDictionaryDownloaded.DictionaryOfFamilys)) {
@@ -194,9 +195,9 @@ public class DictionaryMap implements IDictionaryMap {
             idFamily = MF.existFamily(headOfFamily);
             Family F = MF.getFamily(idFamily);
             idLevel = F.getIdLevel();
-            numberOfRecordsToDownload = MF.countFamilys(idFamily);
+            numberOfRecordsToDownload = MDW.countFamilys(idLevel);
         }
-
+        System.out.println("numberOfRecordsToDownload in prepareIDs" + numberOfRecordsToDownload);
     }
 
     private Integer findUniqueID() {
@@ -247,6 +248,7 @@ public class DictionaryMap implements IDictionaryMap {
                 listValues.add(value);
                 dictionary.replace(key.getWord(), listValues);
             }
+            downloadedRecords++;
         }
         numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
     }
@@ -274,6 +276,7 @@ public class DictionaryMap implements IDictionaryMap {
             keysAllMap.put(keysAllMap.size(), word);
             dictionary.put(word.getWord(), listS);
             sizeOfFullMap++;
+            downloadedRecords++;
         }
         numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
     }

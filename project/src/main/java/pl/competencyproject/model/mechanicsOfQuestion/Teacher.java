@@ -2,11 +2,9 @@
 package pl.competencyproject.model.mechanicsOfQuestion;
 
 import lombok.Getter;
-import lombok.Setter;
 import pl.competencyproject.model.csv.CSVReader;
-import pl.competencyproject.model.dao.classes.ManageLevels;
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+
+import pl.competencyproject.model.dao.classes.ManageStats;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.mechanicsOfQuestion.interfaces.ITeacher;
 
@@ -21,6 +19,7 @@ public class Teacher implements ITeacher {
     private String currentQuestion;
     private Word key;
     private List<String> currentAnswer;
+    private int fullSizeOfDictionary;
     private int currentRound = 1;
     private int sizeCurrentMapQuestionOnStart;
     private int numberOfGoodAnswers = 0;
@@ -35,12 +34,15 @@ public class Teacher implements ITeacher {
 
     }
 
-    public void setDictionary(DictionaryMap dictionary){
+    public void setDictionary(DictionaryMap dictionary) {
         factoryDictionary = dictionary;
         currentMapQuestion = factoryDictionary.getRandTenMap();
+        sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
+        fullSizeOfDictionary = factoryDictionary.getSizeOfFullMap();
         numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
         changeQuestion(0);
     }
+
     /*
     private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
         ManageLevels ML = new ManageLevels(type);
@@ -53,7 +55,6 @@ public class Teacher implements ITeacher {
             List<Integer> diffrentsAnswers = new ArrayList<>();
             //0 == good  1 == bad
             int size = currentAnswer.size();
-            System.out.println("Value: " + currentAnswer.toString());
             for (String s : currentAnswer) {
                 diffrentsAnswers.add(CSVReader.levenstein(answer, s));
             }
@@ -72,17 +73,25 @@ public class Teacher implements ITeacher {
     }
 
 
-    private void goodAnswer(int delayInMilisecundes) {
+    public void goodAnswer(int delayInMilisecundes) {
+        numberOfGoodAnswers++;
+        calculateTotalProgress(true);
         currentMapQuestion.remove(key, currentAnswer);
         changeQuestion(delayInMilisecundes);
-        numberOfGoodAnswers++;
-        getCalcValueProgress();
+
+    }
+
+    public void answerWithoutPoints(int delayInMilisecundes){
+        calculateTotalProgress(true);
+        currentMapQuestion.remove(key, currentAnswer);
+        changeQuestion(delayInMilisecundes);
     }
 
     private void badAnswer(int delayInMilisecundes) {
-        if (delayInMilisecundes > 0) {
+        if (key.getNumberOfTries() == 0) {
+            calculateTotalProgress(false);
             currentMapQuestion.remove(key, currentAnswer);
-        }else {
+        } else {
             Word oldKey = new Word(key);
             List<String> tmpValue = new ArrayList<>(currentAnswer);
             getCurrentMapQuestion().remove(key, tmpValue);
@@ -92,8 +101,8 @@ public class Teacher implements ITeacher {
                 getCurrentMapQuestion().remove(oldKey, tmpValue);
             }
             numberOfWrongAnswers++;
+            calcuateProgresValue();
         }
-        getCalcValueProgress();
         changeQuestion(delayInMilisecundes);
     }
 
@@ -115,27 +124,11 @@ public class Teacher implements ITeacher {
 
     public void initNextRoundOfQuestions() {
         if (currentRound <= numberMaxOfSessions) {
-            getCalcValueProgress();
             currentMapQuestion = factoryDictionary.getRandTenMap();
             sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
             currentRound++;
+            resetGoodAndWrongsAnswers();
         }
-    }
-
-    public double getCalcValueProgress() {
-        //int fullSizeOfDDictionary = factoryDictionary.getSizeOfFullMap();
-        double valuePart1 = (double) 1 / getNumberMaxOfSessions();
-        double valuePart2 = ((double) (sizeCurrentMapQuestionOnStart - numberOfGoodAnswers + numberOfWrongAnswers) / (double) getNumberMaxOfSessions());
-        if (valuePart2 < 1 / 2.0 * getNumberMaxOfSessions()) {
-            valuePart2 = -valuePart2;
-        }
-        double valuePart3 = valuePart1 * valuePart2;
-        valueProgress = valuePart1 + valuePart3;
-        totalNumberOfGoodAnswers += numberOfGoodAnswers;
-        totalNumberOfWrongAnswers += numberOfWrongAnswers;
-        totalValueProgress += valueProgress;
-
-        return valueProgress;
     }
 
     public String randGoodOrBadAnswer() {
@@ -153,15 +146,56 @@ public class Teacher implements ITeacher {
         return result;
     }
 
-    public void resetProgress(){
+    public void resetTotalProgress() {
         totalNumberOfWrongAnswers = 0;
         totalNumberOfGoodAnswers = 0;
         totalValueProgress = 0.0;
     }
 
-    public void resetGoodAndWrongsAnswers(){
+    public void resetGoodAndWrongsAnswers() {
         numberOfGoodAnswers = 0;
         numberOfWrongAnswers = 0;
+    }
+
+    private void resetProgress(){
+        valueProgress = 0.0;
+    }
+
+    private double calculateProgressForGoodAnswer() {
+        double tmpProggres = (100.0 / fullSizeOfDictionary) / 3;
+        int factor = key.getNumberOfTries();
+        tmpProggres = tmpProggres * factor;
+        return tmpProggres;
+    }
+
+    private double calculateProgressForBadAnswer( ) {
+        return (100.0 / fullSizeOfDictionary);
+    }
+
+    private void calculateTotalProgress(boolean goodAnswer) {
+        if (goodAnswer) {
+            valueProgress = numberOfGoodAnswers*1.0/(numberOfWrongAnswers + sizeCurrentMapQuestionOnStart);
+            if(numberMaxOfSessions > 1) {
+                totalValueProgress += calculateProgressForGoodAnswer();
+            }else{
+                totalValueProgress = valueProgress;
+            }
+            totalNumberOfGoodAnswers += numberOfGoodAnswers;
+
+        } else {
+            valueProgress = numberOfGoodAnswers*1.0/(numberOfWrongAnswers + sizeCurrentMapQuestionOnStart);
+            totalValueProgress -= calculateProgressForBadAnswer();
+            totalNumberOfWrongAnswers += numberOfWrongAnswers;
+        }
+    }
+
+    private void calcuateProgresValue(){
+        valueProgress = numberOfGoodAnswers*1.0/(numberOfWrongAnswers + sizeCurrentMapQuestionOnStart);
+    }
+
+    public void saveProgressToDB(){
+        ManageStats MS = new ManageStats(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        MS.addStat(this.factoryDictionary.getIdLevel(),totalValueProgress);
     }
 }
 
