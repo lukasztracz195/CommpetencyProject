@@ -28,29 +28,29 @@
                     <rowConstraints>
                   <RowConstraints maxHeight="65.59998168945313" minHeight="7.000005626678465" prefHeight="7.000005626678465" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="28.800003051757816" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="54.39999694824219" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="372.1999877929687" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="45.00000610351562" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="392.19999389648444" minHeight="10.0" prefHeight="384.19999389648444" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977" prefHeight="14.600012207031227" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <SplitPane dividerPositions="0.41084854994629433" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <SplitPane dividerPositions="0.4049111807732497" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="672.0">
                                     <children>
-                                        <VBox layoutX="169.0" layoutY="-25.0" prefHeight="82.0" prefWidth="672.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <VBox layoutX="169.0" layoutY="-25.0" prefHeight="141.0" prefWidth="682.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                <Label fx:id="questionLabel" alignment="CENTER" prefHeight="16.0" prefWidth="672.0" text="Question">
+                                                <Label fx:id="questionLabel" alignment="CENTER" prefHeight="12.0" prefWidth="672.0" text="Question">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Label>
-                                    <Button mnemonicParsing="false" onAction="#showingAnswer" prefHeight="86.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="Show answer" textFill="#fcfdfd">
+                                    <Button mnemonicParsing="false" onAction="#showingAnswer" prefHeight="24.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="Show answer" textFill="#fcfdfd">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Label fx:id="hiddenAnswerLabel" alignment="CENTER" prefHeight="70.0" prefWidth="672.0" visible="false" wrapText="true">
+                                    <Label fx:id="hiddenAnswerLabel" alignment="CENTER" prefHeight="70.0" prefWidth="672.0" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                                        <font>
-                                          <Font size="16.0" />
+                                          <Font size="24.0" />
                                        </font>
                                     </Label>
                                             </children>
@@ -66,7 +66,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="odpowiedz" promptText="This is place for your answer">
+                                                <TextField fx:id="odpowiedz" promptText="This is place for your answer" style="-fx-background-color: #66ccff; -fx-background-radius: 150px;">
                                        <font>
                                           <Font size="18.0" />
                                        </font></TextField>
@@ -137,7 +137,7 @@
                         </SplitPane>
                         <Label fx:id="examInformationLabel" alignment="CENTER" prefHeight="31.0" prefWidth="670.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <font>
-                                <Font size="23.0" />
+                                <Font size="21.0" />
                             </font>
                         </Label>
                         <BorderPane prefHeight="363.0" prefWidth="61.0" GridPane.rowIndex="3" />

@@ -88,9 +88,9 @@ public class ExamController extends AbstractController implements Initializable 
 
     private void setInformationAboutNumbersOfQuestion(){
         StringBuilder sb = new StringBuilder();
-        sb.append(teacher.getNumberOfGoodAnswers())
+        sb.append(teacher.getNummerQuestion())
                 .append(" / ").
-                append(teacher.getCurrentMapQuestion());
+                append(teacher.getNumberAllQuestions());
         counterQuestionLabel.setText(sb.toString());
     }
     private void setExamInformation() {

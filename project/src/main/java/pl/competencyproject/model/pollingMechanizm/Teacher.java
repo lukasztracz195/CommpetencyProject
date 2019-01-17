@@ -29,6 +29,8 @@ public class Teacher implements ITeacher {
     private double totalValueProgress = 0.0;
     private double valueProgress = 0.0;
     private int numberMaxOfSessions;
+    private int nummerQuestion = 0;
+    private int numberAllQuestions;
 
     public Teacher() {
 
@@ -38,6 +40,7 @@ public class Teacher implements ITeacher {
         factoryDictionary = dictionary;
         currentMapQuestion = factoryDictionary.getRandTenMap();
         sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
+        numberAllQuestions = sizeCurrentMapQuestionOnStart;
         fullSizeOfDictionary = factoryDictionary.getSizeOfFullMap();
         numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
         changeQuestion(0);
@@ -75,6 +78,7 @@ public class Teacher implements ITeacher {
 
     public void goodAnswer(int delayInMilisecundes) {
         numberOfGoodAnswers++;
+        nummerQuestion++;
         calculateTotalProgress(true);
         currentMapQuestion.remove(key, currentAnswer);
         changeQuestion(delayInMilisecundes);
@@ -83,6 +87,7 @@ public class Teacher implements ITeacher {
 
     public void answerWithoutPoints(int delayInMilisecundes){
         calculateTotalProgress(true);
+        numberAllQuestions--;
         currentMapQuestion.remove(key, currentAnswer);
         changeQuestion(delayInMilisecundes);
     }
