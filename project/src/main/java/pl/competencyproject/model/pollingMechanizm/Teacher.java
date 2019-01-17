@@ -41,25 +41,19 @@ public class Teacher implements ITeacher {
         currentMapQuestion = factoryDictionary.getRandTenMap();
         sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
         numberAllQuestions = sizeCurrentMapQuestionOnStart;
+        nummerQuestion++;
         fullSizeOfDictionary = factoryDictionary.getSizeOfFullMap();
         numberMaxOfSessions = factoryDictionary.calculateTheNumberOfCombinations();
         changeQuestion(0);
     }
 
-    /*
-    private Integer getIdOfLevel(String nameLevel, String nameCategorie) {
-        ManageLevels ML = new ManageLevels(type);
-        int result = ML.existLevel(nameLevel, nameCategorie);
-        return result;
-    }
-*/
     public boolean checkAnswer(String answer, int delayInMilisecundes) {
         if (!currentMapQuestion.isEmpty()) {
             List<Integer> diffrentsAnswers = new ArrayList<>();
             //0 == good  1 == bad
             int size = currentAnswer.size();
             for (String s : currentAnswer) {
-                diffrentsAnswers.add(CSVReader.levenstein(answer, s));
+                diffrentsAnswers.add(CSVReader.levenstein(answer.toLowerCase(), s.toLowerCase()));
             }
             Collections.sort(diffrentsAnswers);
             int checked = diffrentsAnswers.get(0);
@@ -95,6 +89,7 @@ public class Teacher implements ITeacher {
     private void badAnswer(int delayInMilisecundes) {
         if (key.getNumberOfTries() == 0) {
             calculateTotalProgress(false);
+            numberAllQuestions--;
             currentMapQuestion.remove(key, currentAnswer);
         } else {
             Word oldKey = new Word(key);
@@ -131,8 +126,11 @@ public class Teacher implements ITeacher {
         if (currentRound <= numberMaxOfSessions) {
             currentMapQuestion = factoryDictionary.getRandTenMap();
             sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
+            numberAllQuestions = sizeCurrentMapQuestionOnStart;
+            nummerQuestion = 0;
             currentRound++;
             resetGoodAndWrongsAnswers();
+            valueProgress = 0.0;
         }
     }
 

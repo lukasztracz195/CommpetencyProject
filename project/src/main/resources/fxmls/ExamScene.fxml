@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
+<AnchorPane onKeyReleased="#checkPressEnter" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
     <children>
         <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -26,29 +26,28 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0" prefWidth="59.0" />
                     </columnConstraints>
                     <rowConstraints>
-                  <RowConstraints maxHeight="65.59998168945313" minHeight="7.000005626678465" prefHeight="7.000005626678465" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="28.800003051757816" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="45.00000610351562" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="392.19999389648444" minHeight="10.0" prefHeight="384.19999389648444" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="21.199996948242188" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="39.99998779296876" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="404.0000122070312" minHeight="10.0" prefHeight="404.0000122070312" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977" prefHeight="14.600012207031227" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <SplitPane dividerPositions="0.4049111807732497" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <SplitPane dividerPositions="0.38480635551142006" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="672.0">
                                     <children>
                                         <VBox layoutX="169.0" layoutY="-25.0" prefHeight="141.0" prefWidth="682.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
                                             <children>
-                                                <Label fx:id="questionLabel" alignment="CENTER" prefHeight="12.0" prefWidth="672.0" text="Question">
+                                                <Label fx:id="questionLabel" alignment="CENTER" prefHeight="66.0" prefWidth="672.0" text="Question" wrapText="true">
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="22.0" />
                                        </font></Label>
-                                    <Button mnemonicParsing="false" onAction="#showingAnswer" prefHeight="24.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="Show answer" textFill="#fcfdfd">
+                                    <Button mnemonicParsing="false" onAction="#showingAnswer" prefHeight="35.0" prefWidth="672.0" style="-fx-background-color: #033979; -fx-background-radius: 150px;" text="Show answer" textFill="#fcfdfd">
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Label fx:id="hiddenAnswerLabel" alignment="CENTER" prefHeight="70.0" prefWidth="672.0" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                                    <Label fx:id="hiddenAnswerLabel" alignment="CENTER" prefHeight="50.0" prefWidth="672.0" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -66,7 +65,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="odpowiedz" promptText="This is place for your answer" style="-fx-background-color: #66ccff; -fx-background-radius: 150px;">
+                                                <TextField fx:id="odpowiedz" alignment="CENTER" onKeyReleased="#checkPressEnter" promptText="This is place for your answer" style="-fx-background-color: #f4ff81; -fx-background-radius: 150px;">
                                        <font>
                                           <Font size="18.0" />
                                        </font></TextField>
@@ -76,17 +75,17 @@
                                        </font></Button>
                                                 <HBox prefHeight="46.0" prefWidth="669.0">
                                                     <children>
-                                                        <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" textFill="#3ea810">
+                                                        <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" style="-fx-background-color: #dcedc8;" textFill="#3ea810">
                                                             <font>
                                                                 <Font size="24.0" />
                                                             </font>
                                                         </Label>
-                                          <Label fx:id="counterQuestionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0">
+                                          <Label fx:id="counterQuestionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" style="-fx-background-color: #b39ddb;">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="wrongAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" textFill="RED">
+                                          <Label fx:id="wrongAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" style="-fx-background-color: #ffcdd2;" textFill="RED">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -105,22 +104,22 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Label fx:id="totalValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.rowIndex="1">
+                                                <Label fx:id="totalValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" style="-fx-background-color: #b3e5fc;" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font size="19.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="currentValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="currentValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" style="-fx-background-color: #b3e5fc;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font size="19.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="TotalValueProgress">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" style="-fx-background-color: #81d4fa;" text="TotalValueProgress">
                                                    <font>
                                                       <Font size="19.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="CurrentValueProgress" GridPane.columnIndex="1">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" style="-fx-background-color: #03a9f4;" text="CurrentValueProgress" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="19.0" />
                                                    </font>
@@ -135,18 +134,18 @@
                                 </AnchorPane>
                             </items>
                         </SplitPane>
-                        <Label fx:id="examInformationLabel" alignment="CENTER" prefHeight="31.0" prefWidth="670.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="examInformationLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="670.0" style="-fx-background-color: #33ccff; -fx-background-radius: 150px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font size="21.0" />
                             </font>
                         </Label>
-                        <BorderPane prefHeight="363.0" prefWidth="61.0" GridPane.rowIndex="3" />
-                        <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <BorderPane prefHeight="363.0" prefWidth="61.0" GridPane.rowIndex="2" />
+                        <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <cursor>
                                 <Cursor fx:constant="H_RESIZE" />
                             </cursor>
                         </BorderPane>
-                        <Button mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#back" prefHeight="8.0" prefWidth="62.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu" />
                     </children>
                 </GridPane>
             </center>

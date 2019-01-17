@@ -6,11 +6,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
 import pl.competencyproject.model.pollingMechanizm.Teacher;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -39,6 +40,8 @@ public class ExamController extends AbstractController implements Initializable 
     @FXML
     private Label counterQuestionLabel;
     private Teacher teacher;
+    private boolean lastTrue = false;
+    private String lastAnswer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +49,7 @@ public class ExamController extends AbstractController implements Initializable 
         teacher = new Teacher();
         teacher.setDictionary(DictionaryMap.getInstance());
         questionLabel.setText(teacher.getCurrentQuestion());
+        lastAnswer = teacher.getCurrentAnswer().toString();
         setExamInformation();
         setProgressValueInfo();
     }
@@ -53,6 +57,7 @@ public class ExamController extends AbstractController implements Initializable 
     @FXML
     public void showingAnswer() throws InterruptedException {
         hiddenAnswerLabel.setVisible(true);
+        hiddenAnswerLabel.setTextFill(new Color(0,0,0,1));
         hiddenAnswerLabel.setText(teacher.getCurrentAnswer().toString());
         teacher.answerWithoutPoints(0);
         setExamInformation();
@@ -64,16 +69,25 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     @FXML
-    public void checkingAnswer() {
-        teacher.checkAnswer(odpowiedz.getText(), 0);
+    public void checkingAnswer() throws InterruptedException {
+
+        showHidenLabel();
+
+        boolean good = teacher.checkAnswer(odpowiedz.getText(), 0);
+        if(!good){
+            System.out.println("wrong");
+            lastAnswer = teacher.getCurrentAnswer().toString();
+            setInformationAboutCorrectAnswer();
+        }else{ System.out.println("good");
+            showHidenLabel();
+        }
         setExamInformation();
         setProgressValueInfo();
         odpowiedz.clear();
+
         questionLabel.setText(teacher.getCurrentQuestion());
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
         wrongAnswerLabel.setText("Wrongs: " + teacher.getNumberOfWrongAnswers());
-        hiddenAnswerLabel.setVisible(false);
-
         openDecisionWindow();
     }
 
@@ -101,7 +115,17 @@ public class ExamController extends AbstractController implements Initializable 
             confirmation.setHeaderText("Potwierdzenie");
             Optional<ButtonType> action = confirmation.showAndWait();
             if (action.get() == ButtonType.OK) {
-                teacher.initNextRoundOfQuestions();
+                if(teacher.getNumberMaxOfSessions() == 1){
+                    teacher.getFactoryDictionary().lightReset();
+                }else {
+                    teacher.initNextRoundOfQuestions();
+                }
+                showHidenLabel();
+                setProgressValueInfo();
+                setInformationAboutNumbersOfQuestion();
+                setExamInformation();
+                correctAnswerLabel.setText("Corrects: 0" );
+                wrongAnswerLabel.setText("Wrongs: 0");
             } else{
                 teacher.saveProgressToDB();
                 teacher.getFactoryDictionary().hardReset();
@@ -135,9 +159,28 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setProgressValueInfo() {
-        totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress()));
-        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()));
+        totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
+        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
     }
 
+    private void setInformationAboutCorrectAnswer() throws InterruptedException {
+        hiddenAnswerLabel.setVisible(true);
+        hiddenAnswerLabel.setTextFill(new Color(1,0,0,1));
+        hiddenAnswerLabel.setText("Correct was:"+lastAnswer);
+    }
 
+    @FXML
+    private void checkPressEnter(KeyEvent e) throws InterruptedException {
+        if (e.getCode().toString().equals("ENTER")) {
+            checkingAnswer();
+        }
+    }
+
+    private void showHidenLabel(){
+        if(hiddenAnswerLabel.isVisible()){
+            hiddenAnswerLabel.setVisible(false);
+        }else{
+            hiddenAnswerLabel.setVisible(true);
+        }
+    }
 }
