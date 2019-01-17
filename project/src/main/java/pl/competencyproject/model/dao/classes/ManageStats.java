@@ -31,7 +31,6 @@ public class ManageStats extends GeneralManager implements ManagingStats {
             try {
                 tx = session.beginTransaction();
                 Stat stat = new Stat(SessionLogon.IdLoggedUser, IdLevel, valueProgress);
-                System.out.println(stat.toString());
                 idStat = (Integer) session.save(stat);
                 tx.commit();
             } catch (HibernateException e) {

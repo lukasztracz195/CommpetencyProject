@@ -197,7 +197,6 @@ public class DictionaryMap implements IDictionaryMap {
             idLevel = F.getIdLevel();
             numberOfRecordsToDownload = MDW.countFamilys(idLevel);
         }
-        System.out.println("numberOfRecordsToDownload in prepareIDs" + numberOfRecordsToDownload);
     }
 
     private Integer findUniqueID() {

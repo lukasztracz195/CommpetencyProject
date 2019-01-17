@@ -29,12 +29,11 @@
                   <RowConstraints maxHeight="65.59998168945313" minHeight="7.000005626678465" prefHeight="7.000005626678465" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="28.800003051757816" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="65.59998168945313" minHeight="10.0" prefHeight="54.39999694824219" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="346.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977" prefHeight="38.39995117187499" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="104.99996032714847" minHeight="10.0" prefHeight="18.399999999999977" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="372.1999877929687" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="104.99996032714847" minHeight="6.399999999999977" prefHeight="14.600012207031227" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <SplitPane dividerPositions="0.3857479387514723" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <SplitPane dividerPositions="0.41084854994629433" orientation="VERTICAL" prefHeight="343.0" prefWidth="538.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="672.0">
                                     <children>
@@ -58,7 +57,7 @@
                                         </VBox>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="672.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="239.0" prefWidth="672.0">
                                     <children>
                                         <VBox layoutX="-2.0" prefHeight="173.0" prefWidth="674.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
@@ -75,20 +74,61 @@
                                        <font>
                                           <Font size="24.0" />
                                        </font></Button>
-                                                <HBox prefHeight="35.0" prefWidth="674.0">
+                                                <HBox prefHeight="46.0" prefWidth="669.0">
                                                     <children>
                                                         <Label fx:id="correctAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0" textFill="#3ea810">
                                                             <font>
                                                                 <Font size="24.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="wrongAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" textFill="RED">
-                                                            <font>
-                                                                <Font size="24.0" />
-                                                            </font>
-                                                        </Label>
+                                          <Label fx:id="counterQuestionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="142.0" prefWidth="344.0">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="wrongAnswerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="345.0" textFill="RED">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
                                                     </children>
                                                 </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <GridPane prefHeight="30.0" prefWidth="718.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label fx:id="totalValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="currentValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="TotalValueProgress">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="CurrentValueProgress" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </HBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -107,22 +147,6 @@
                             </cursor>
                         </BorderPane>
                         <Button mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu" GridPane.rowIndex="1" />
-                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label fx:id="totalValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.rowIndex="1" />
-                        <Label fx:id="currentValueProgressLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="TotalValueProgress" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="338.0" text="CurrentValueProgress" GridPane.columnIndex="1" />
-                     </children>
-                  </GridPane>
                     </children>
                 </GridPane>
             </center>

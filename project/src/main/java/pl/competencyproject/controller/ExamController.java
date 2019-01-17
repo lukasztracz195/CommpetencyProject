@@ -36,7 +36,8 @@ public class ExamController extends AbstractController implements Initializable 
     private Label totalValueProgressLabel;
     @FXML
     private Label currentValueProgressLabel;
-
+    @FXML
+    private Label counterQuestionLabel;
     private Teacher teacher;
 
     @Override
@@ -89,7 +90,15 @@ public class ExamController extends AbstractController implements Initializable 
         sessionLogon.logOut();
     }
 
+    private void setInformationAboutNumbersOfQuestion(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(teacher.getNumberOfGoodAnswers())
+                .append(" / ").
+                append(teacher.getCurrentMapQuestion());
+        counterQuestionLabel.setText(sb.toString());
+    }
     private void setExamInformation() {
+        setInformationAboutNumbersOfQuestion();
         StringBuilder sb = new StringBuilder();
         DictionaryMap dic = teacher.getFactoryDictionary();
         int sizeFullMap = dic.getSizeOfFullMap();
