@@ -138,7 +138,7 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
 
     public synchronized Integer countFamilys(Integer idLevel) {
         reset();
-        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel AND idFamilie IS NOT NULL");
+        Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel AND idFamily IS NOT NULL");
         query.setParameter("idLevel", idLevel);
         return Integer.valueOf(query.getSingleResult().toString());
     }

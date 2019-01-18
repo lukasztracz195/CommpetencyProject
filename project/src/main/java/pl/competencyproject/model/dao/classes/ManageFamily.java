@@ -3,13 +3,12 @@ package pl.competencyproject.model.dao.classes;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
-import org.hibernate.type.StandardBasicTypes;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingFamily;
 import pl.competencyproject.model.entities.Family;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageFamily extends GeneralManager implements ManagingFamily {
@@ -90,5 +89,17 @@ public class ManageFamily extends GeneralManager implements ManagingFamily {
         }
     }
 
-
+    public synchronized List<String> getHeadOfFamilys(Integer idLevel){
+        reset();
+        Family family = null;
+        NativeQuery query = session.createSQLQuery("SELECT * FROM FAMILIES WHERE idLevel = :idLevel");
+        query.addEntity(Family.class);
+        query.setParameter("idLevel", idLevel);
+        List<Family> result =  query.list();
+        List<String> resultList = new ArrayList<>();
+        for (Family family1 : result) {
+            resultList.add(family1.getHeadFamily());
+        }
+        return resultList;
+    }
 }

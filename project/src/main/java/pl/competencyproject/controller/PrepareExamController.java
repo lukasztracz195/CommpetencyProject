@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.Pane;
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
 import pl.competencyproject.model.multithreadProcessing.ThreadForDownloadData;
 import pl.competencyproject.model.dao.classes.ManageFamily;
 import pl.competencyproject.model.dao.classes.ManageLevels;
@@ -22,21 +23,22 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfFamilys;
-import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfWords;
+import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
+import static pl.competencyproject.model.enums.TypeOfDictionaryLanguage.ENGtoPL;
+import static pl.competencyproject.model.enums.TypeOfDictionaryLanguage.PLtoENG;
 
 public class PrepareExamController extends AbstractController implements Initializable {
 
     @FXML
-    private ChoiceBox languagesOrderChoiceBox;
+    private ChoiceBox<TypeOfDictionaryLanguage> languagesOrderChoiceBox;
     @FXML
-    private ChoiceBox typeOfDictionaryChoiceBox;
+    private ChoiceBox<TypeOfDictionaryDownloaded> typeOfDictionaryChoiceBox;
     @FXML
-    private ChoiceBox nameOfLevelChoiceBox;
+    private ChoiceBox<String> nameOfLevelChoiceBox;
     @FXML
-    private ChoiceBox nameOfCategoryChoiceBox;
+    private ChoiceBox<String> nameOfCategoryChoiceBox;
     @FXML
-    private ChoiceBox headsOfFamilyChoiceBox;
+    private ChoiceBox<String> headsOfFamilyChoiceBox;
     @FXML
     private Button startExamButton;
     @FXML
@@ -62,50 +64,121 @@ public class PrepareExamController extends AbstractController implements Initial
         ML = new ManageLevels(TypeOfUsedDatabase.OnlineOrginalDatabase);
         MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
         super.setClockDate(clockLabel, dateLabel);
-        setChoiceBoxOfTypesOfDictionary();
-        enableChoiceBoxes();
+        languagesOrderChoiceBox.getItems().addAll(PLtoENG, ENGtoPL);
+
+        languagesOrderChoiceBox.setOnAction(e -> {
+            if (!languagesOrderChoiceBox.getSelectionModel().isEmpty()) {
+                if (typeOfDictionaryChoiceBox.getValue() == null) {
+                    typeOfDictionaryChoiceBox.getItems().addAll(DictionaryOfWords, DictionaryOfFamilys, DictionaryOfSentences);
+                }
+                typeOfDictionaryChoiceBox.setDisable(false);
+            } else {
+                typeOfDictionaryChoiceBox.setValue(null);
+                typeOfDictionaryChoiceBox.setDisable(true);
+            }
+        });
+
+        typeOfDictionaryChoiceBox.setOnAction(e -> {
+            if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
+                headsOfFamilyChoiceBox.setDisable(false);
+            } else {
+                headsOfFamilyChoiceBox.setValue(null);
+                headsOfFamilyChoiceBox.setDisable(true);
+            }
+            if (!typeOfDictionaryChoiceBox.getSelectionModel().isEmpty()) {
+                nameOfLevelChoiceBox.getItems().addAll(ML.getNamesLevels());
+                nameOfLevelChoiceBox.setDisable(false);
+            } else {
+
+                nameOfLevelChoiceBox.setDisable(true);
+            }
+        });
+        nameOfLevelChoiceBox.setOnAction(e -> {
+            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
+                nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories(nameOfLevelChoiceBox.getValue()));
+                nameOfCategoryChoiceBox.setDisable(false);
+            } else {
+                nameOfLevelChoiceBox.setValue(null);
+                nameOfCategoryChoiceBox.setDisable(true);
+            }
+
+
+        });
+
+        nameOfCategoryChoiceBox.setOnAction(e -> {
+            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
+                if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
+                    headsOfFamilyChoiceBox.getItems().addAll(MF.getHeadOfFamilys(ML.existLevel(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem())));
+                }
+                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
+                    loadDictionaryButton.setDisable(false);
+                } else {
+                    loadDictionaryButton.setDisable(true);
+                }
+            }
+
+
+        });
+
+        headsOfFamilyChoiceBox.setOnAction(e -> {
+            if (!headsOfFamilyChoiceBox.getSelectionModel().isEmpty()) {
+                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
+                    loadDictionaryButton.setDisable(false);
+                } else {
+                    loadDictionaryButton.setDisable(true);
+                }
+            }
+        });
+
     }
 
     @FXML
     public void loadDictionaries() {
-        if(dictionaryMap != null) {
+        if (dictionaryMap != null) {
             dictionaryMap.hardReset();
         }
         dictionaryMap = DictionaryMap.getInstance();
-            loadDictionaryButton.setDisable(true);
-            dictionaryMap.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
-
-            if (headsOfFamilyChoiceBox.isDisabled()) {
-                dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue().toString(), nameOfCategoryChoiceBox.getValue().toString());
-            } else if (typeOfDictionaryChoiceBox.isDisabled())
-                dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue().toString());
-
-            dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.valueOf(languagesOrderChoiceBox.getValue().toString()));
-            progressBar.setVisible(true);
-            int howMatch = dictionaryMap.getNumberOfRecordsToDownload();
-
-
-            ExecutorService es = Executors.newSingleThreadExecutor();
-            es.execute(new ThreadForDownloadData());
-            Timer timer = new Timer();
-            TimerTask task = new TimerTask() {
-                public void run() {
-                    progressBar.setProgress(dictionaryMap.getDownloadedRecords() / (double) howMatch);
-                    if (dictionaryMap.getDownloadedRecords() == howMatch) {
-                        if (!es.isShutdown()) {
-                            es.shutdown();
-                        }
-                        progressBar.setVisible(false);
-                        startExamButton.setDisable(false);
-                        timer.cancel();
-                    }
-                }
-            };
-
-            timer.schedule(task, 0, 1000);
-
+        loadDictionaryButton.setDisable(true);
+        dictionaryMap.setTypeDB(TypeOfUsedDatabase.OnlineOrginalDatabase);
+        switch (typeOfDictionaryChoiceBox.getValue()) {
+            case DictionaryOfWords: {
+                dictionaryMap.setDictionaryOfWords(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getValue());
+                break;
+            }
+            case DictionaryOfFamilys: {
+                dictionaryMap.setDictionaryOfFamily(headsOfFamilyChoiceBox.getValue());
+                break;
+            }
+            case DictionaryOfSentences: {
+                dictionaryMap.setDictionaryOfSentences(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getValue());
+                break;
+            }
         }
+        dictionaryMap.setTypeLangToLang(TypeOfDictionaryLanguage.valueOf(languagesOrderChoiceBox.getValue().toString()));
+        progressBar.setVisible(true);
+        int howMatch = dictionaryMap.getNumberOfRecordsToDownload();
 
+
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.execute(new ThreadForDownloadData());
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            public void run() {
+                progressBar.setProgress(dictionaryMap.getDownloadedRecords() / (double) howMatch);
+                if (dictionaryMap.getDownloadedRecords() == howMatch) {
+                    if (!es.isShutdown()) {
+                        es.shutdown();
+                    }
+                    progressBar.setVisible(false);
+                    startExamButton.setDisable(false);
+                    timer.cancel();
+                }
+            }
+        };
+
+        timer.schedule(task, 0, 1000);
+
+    }
 
 
     @FXML
@@ -115,63 +188,31 @@ public class PrepareExamController extends AbstractController implements Initial
         ExamController controller = loader.getController();
         controller.setMainController(mainController);
         mainController.setScreen(pane);
-
-        disableChoiceBoxes();
     }
 
     @FXML
     public void clearChoice() {
-        languagesOrderChoiceBox.setValue(null);
+
         languagesOrderChoiceBox.setDisable(false);
 
-        typeOfDictionaryChoiceBox.setValue(null);
         typeOfDictionaryChoiceBox.setDisable(true);
+        typeOfDictionaryChoiceBox.setValue(null);
 
-        nameOfLevelChoiceBox.setValue(null);
         nameOfLevelChoiceBox.setDisable(true);
+        nameOfLevelChoiceBox.setValue(null);
 
-        nameOfCategoryChoiceBox.setValue(null);
         nameOfCategoryChoiceBox.setDisable(true);
-
-        headsOfFamilyChoiceBox.setValue(null);
+        nameOfCategoryChoiceBox.setValue(null);
 
         headsOfFamilyChoiceBox.setDisable(true);
-        typeOfDictionaryChoiceBox.setDisable(true);
+        headsOfFamilyChoiceBox.setValue(null);
+
 
         startExamButton.setDisable(true);
         loadDictionaryButton.setDisable(true);
         feedbackLabel.setVisible(false);
     }
 
-    private void setChoiceBoxOfTypesOfDictionary() {
-        languagesOrderChoiceBox.getItems().addAll(TypeOfDictionaryLanguage.PLtoENG,TypeOfDictionaryLanguage.ENGtoPL);
-        typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords.toString());
-        nameOfLevelChoiceBox.getItems().add("B2");
-        nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
-        headsOfFamilyChoiceBox.getItems().add(DictionaryOfFamilys.toString());
-    }
-
-    private void disableChoiceBoxes() {
-        languagesOrderChoiceBox.setDisable(true);
-        typeOfDictionaryChoiceBox.setDisable(true);
-        nameOfLevelChoiceBox.setDisable(true);
-        nameOfCategoryChoiceBox.setDisable(true);
-        headsOfFamilyChoiceBox.setDisable(true);
-    }
-
-
-    private void enableChoiceBoxes() {
-
-        languagesOrderChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> typeOfDictionaryChoiceBox.setDisable(false));
-        languagesOrderChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(false));
-        typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfLevelChoiceBox.setDisable(false));
-        nameOfLevelChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> nameOfCategoryChoiceBox.setDisable(false));
-        nameOfCategoryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldvalue, newvalue) -> loadDictionaryButton.setDisable(false));
-
-        typeOfDictionaryChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> headsOfFamilyChoiceBox.setDisable(true));
-        headsOfFamilyChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> typeOfDictionaryChoiceBox.setDisable(true));
-        headsOfFamilyChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldvalue, newvalue) -> loadDictionaryButton.setDisable(false));
-    }
 
     @FXML
     public void back() {

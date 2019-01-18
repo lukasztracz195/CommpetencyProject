@@ -40,10 +40,7 @@ public class ExamController extends AbstractController implements Initializable 
     @FXML
     private Label counterQuestionLabel;
     private Teacher teacher;
-    private boolean lastTrue = false;
     private String lastAnswer;
-    private double totalValueProgressRounded;
-    private double currentValueProgressRounded;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,7 +54,7 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     @FXML
-    public void showingAnswer() throws InterruptedException {
+    public void showingAnswer() {
         hiddenAnswerLabel.setVisible(true);
         hiddenAnswerLabel.setTextFill(new Color(0, 0, 0, 1));
         hiddenAnswerLabel.setText(teacher.getCurrentAnswer().toString());
@@ -71,11 +68,12 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     @FXML
-    public void checkingAnswer() throws InterruptedException {
+    public void checkingAnswer() {
         lastAnswer = teacher.getCurrentAnswer().toString();
         boolean good = teacher.checkAnswer(odpowiedz.getText(), 0);
         if (!good) {
-            hiddenAnswerLabel.setVisible(true);
+            if (!lastAnswer.equals(teacher.getCurrentAnswer().toString()))
+                hiddenAnswerLabel.setVisible(true);
             setInformationAboutCorrectAnswer();
         }
         setExamInformation();
@@ -116,7 +114,9 @@ public class ExamController extends AbstractController implements Initializable 
                 } else {
                     teacher.initNextRoundOfQuestions();
                 }
-                showHidenLabel();
+                hideLabel();
+                questionLabel.setText(teacher.getCurrentQuestion());
+                lastAnswer = teacher.getCurrentAnswer().toString();
                 setProgressValueInfo();
                 setInformationAboutNumbersOfQuestion();
                 setExamInformation();
@@ -131,12 +131,10 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setInformationAboutNumbersOfQuestion() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(teacher.getNummerQuestion())
-                .append(" / ").
-                append(teacher.getNumberAllQuestions());
-        counterQuestionLabel.setText(sb.toString());
-        lastAnswer = teacher.getCurrentAnswer().toString();
+        String sb = (teacher.getNummerQuestion()) +
+                " / " +
+                teacher.getNumberAllQuestions();
+        counterQuestionLabel.setText(sb);
     }
 
     private void setExamInformation() {
@@ -157,32 +155,28 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setProgressValueInfo() {
-        totalValueProgressRounded = teacher.getTotalValueProgress();
-        currentValueProgressRounded = teacher.getValueProgress();
+        double totalValueProgressRounded = teacher.getTotalValueProgress();
+        double currentValueProgressRounded = teacher.getValueProgress();
 
-        totalValueProgressLabel.setText(String.valueOf(teacher.round(totalValueProgressRounded, 2)) + "%");
-        currentValueProgressLabel.setText(String.valueOf(teacher.round(currentValueProgressRounded * 100, 2)) + "%");
+        if (teacher.getNumberMaxOfSessions() == 1) {
+            totalValueProgressLabel.setText((teacher.round(totalValueProgressRounded * 100, 2)) + "%");
+        } else {
+            totalValueProgressLabel.setText((teacher.round(totalValueProgressRounded, 2)) + "%");
+        }
+
+        currentValueProgressLabel.setText((teacher.round(currentValueProgressRounded * 100, 2)) + "%");
     }
 
-    private void setInformationAboutCorrectAnswer() throws InterruptedException {
+    private void setInformationAboutCorrectAnswer() {
         hiddenAnswerLabel.setVisible(true);
         hiddenAnswerLabel.setTextFill(new Color(1, 0, 0, 1));
         hiddenAnswerLabel.setText("Correct was:" + lastAnswer);
     }
 
     @FXML
-    public void checkPressEnter(KeyEvent e) throws InterruptedException {
+    public void checkPressEnter(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER")) {
             checkingAnswer();
-        }
-    }
-
-    @FXML
-    public void showHidenLabel() {
-        if (hiddenAnswerLabel.isVisible()) {
-            hiddenAnswerLabel.setVisible(false);
-        } else {
-            hiddenAnswerLabel.setVisible(true);
         }
     }
 

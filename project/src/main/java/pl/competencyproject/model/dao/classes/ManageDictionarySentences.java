@@ -9,7 +9,9 @@ import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionarySentences;
 import pl.competencyproject.model.entities.Dictionary_Sentence;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.pollingMechanizm.PairOfCSV;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageDictionarySentences extends GeneralManager implements ManagingDictionarySentences {
@@ -74,13 +76,17 @@ public class ManageDictionarySentences extends GeneralManager implements Managin
         return dicSentency;
     }
 
-    public synchronized List<Dictionary_Sentence> getListbyLevel(Integer idLevel) {
+    public synchronized List<PairOfCSV> getListbyLevel(Integer idLevel) {
         reset();
         NativeQuery query = session.createSQLQuery("SELECT * FROM DICTIONARY_SENTENCES WHERE idLevel =  :idLevel");
         query.addEntity(Dictionary_Sentence.class);
         query.setParameter("idLevel", idLevel);
-        List result = query.list();
-        return result;
+        List<Dictionary_Sentence> list = query.list();
+        List<PairOfCSV> listOfPair = new ArrayList<>();
+        for (Dictionary_Sentence row : list) {
+            listOfPair.add(new PairOfCSV( row.getSentencesENG(),  row.getSentencesPL()));
+        }
+        return listOfPair;
     }
 
     public synchronized Integer countSentencys(Integer idLevel){

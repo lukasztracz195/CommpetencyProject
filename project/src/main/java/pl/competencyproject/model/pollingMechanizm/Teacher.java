@@ -4,20 +4,7 @@ package pl.competencyproject.model.pollingMechanizm;
 
 import lombok.Getter;
 import pl.competencyproject.model.csv.CSVReader;
-
-
 import pl.competencyproject.model.dao.classes.ManageStats;
-
-import pl.competencyproject.model.dao.classes.ManageLevels;
-
-import pl.competencyproject.model.dao.SessionLogon;
-import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
-import pl.competencyproject.model.dao.classes.ManageWordsENG;
-import pl.competencyproject.model.dao.classes.ManageWordsPL;
-
-import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
-import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
-
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.pollingMechanizm.interfaces.ITeacher;
 
@@ -136,6 +123,7 @@ public class Teacher implements ITeacher {
     }
 
     public void initNextRoundOfQuestions() {
+        if(numberMaxOfSessions > 1){
         if (currentRound <= numberMaxOfSessions) {
             currentMapQuestion = factoryDictionary.getRandTenMap();
             sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
@@ -144,6 +132,12 @@ public class Teacher implements ITeacher {
             currentRound++;
             resetGoodAndWrongsAnswers();
             valueProgress = 0.0;
+        }}else{
+            factoryDictionary.lightReset();
+            currentMapQuestion = factoryDictionary.getRandTenMap();
+            sizeCurrentMapQuestionOnStart = currentMapQuestion.size();
+            numberAllQuestions = sizeCurrentMapQuestionOnStart;
+            nummerQuestion = 0;
         }
     }
 
@@ -222,6 +216,7 @@ public class Teacher implements ITeacher {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
+
 
 }
 

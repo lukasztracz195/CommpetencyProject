@@ -18,8 +18,7 @@ public class DictionaryMap implements IDictionaryMap {
 
     private static DictionaryMap instance;
 
-    private List<Dictionary_Word> dictionaryWordsFromBase;
-    private List<Dictionary_Sentence> dictionarySentencysFromBase;
+    private List<PairOfCSV> dictionaryWordsFromBase;
 
     private Map<String, List<String>> dictionary;
     private Map<Integer, Word> keysAllMap;
@@ -156,11 +155,8 @@ public class DictionaryMap implements IDictionaryMap {
         lightReset();
         this.dictionary.clear();
         this.keysAllMap.clear();
-        if (this.dictionarySentencysFromBase != null) {
-            this.dictionarySentencysFromBase.clear();
-        }
         if (this.dictionaryWordsFromBase != null) {
-            this.dictionaryWordsFromBase.clear();
+            dictionaryWordsFromBase = null;
         }
         this.sizeOfFullMap = 0;
         downloadedRecords = 0;
@@ -195,6 +191,7 @@ public class DictionaryMap implements IDictionaryMap {
             idLevel = F.getIdLevel();
             numberOfRecordsToDownload = MDW.countFamilys(idLevel);
         }
+        System.out.println("idLevel: "+idLevel+" | idFamily: "+idFamily);
     }
 
     private Integer findUniqueID() {
@@ -208,61 +205,20 @@ public class DictionaryMap implements IDictionaryMap {
         collectionOfuniqueness.add(selected);
         return selected;
     }
-/*
-    //DZIAŁA ALE MAŁO WYDAJNIE
-    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
-        ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
-        ManageWordsENG MWE = new ManageWordsENG(typeDB);
-        ManageWordsPL MWP = new ManageWordsPL(typeDB);
 
-        if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
-            dictionaryWordsFromBase = MDW.getDictionaryByLevel(idDictionary);
-        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
-            dictionaryWordsFromBase = MDW.getDictionaryByFamilie(idDictionary);
-        }
-
-        for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
-            Dictionary_Word tmpEntite = dictionaryWordsFromBase.get(i);
-            Word_ENG tmpWordENG = MWE.getWordENG(tmpEntite.getIdWordENG());
-            Word_PL tmpWordPL = MWP.getWordPL(tmpEntite.getIdWordPL());
-            List<String> listValues;
-            Word key = null;
-            String value = null;
-            if (typeLanguage == TypeOfDictionaryLanguage.ENGtoPL) {
-                key = new Word(tmpWordENG.getWordENG());
-                value = tmpWordPL.getWordPL();
-            } else if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
-                key = new Word(tmpWordPL.getWordPL());
-                value = tmpWordENG.getWordENG();
-            }
-            if (!dictionary.containsKey(key.getWord())) {
-                listValues = new ArrayList<>();
-                listValues.add(value);
-                keysAllMap.put(keysAllMap.size(), key);
-                dictionary.put(key.getWord(), listValues);
-                sizeOfFullMap++;
-            } else {
-                listValues = dictionary.get(key.getWord());
-                listValues.add(value);
-                dictionary.replace(key.getWord(), listValues);
-            }
-            downloadedRecords++;
-        }
-        numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
-    }
-*/
     private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB){
+        System.out.println("id: "+idDictionary+"| typ Dictionary: "+ type.toString()+" | type Language:"+typeLanguage.toString());
         List<String> listValues;
         Word key = null;
         String value = null;
         ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
-        List<PairOfCSV> list =null; MDW.getDictionary(idLevel,typeLanguage);
+        dictionaryWordsFromBase  =null;
         if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
-            list = MDW.getDictionary(idLevel,typeLanguage);
+            dictionaryWordsFromBase = MDW.getDictionary(idLevel,typeLanguage);
         } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
-            list = MDW.getDictionaryOfFamily(idLevel,typeLanguage);
+            dictionaryWordsFromBase = MDW.getDictionaryOfFamily(idLevel,typeLanguage);
         }
-        for (PairOfCSV pairOfCSV : list) {
+        for (PairOfCSV pairOfCSV : dictionaryWordsFromBase) {
             key = new Word(pairOfCSV.getKey());
             value = pairOfCSV.getValue();
             if (!dictionary.containsKey(key.getWord())) {
@@ -285,11 +241,11 @@ public class DictionaryMap implements IDictionaryMap {
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;
         MDS = new ManageDictionarySentences(typeDB);
-        dictionarySentencysFromBase = MDS.getListbyLevel(idDictionary);
-        for (int i = 0; i < dictionarySentencysFromBase.size(); i++) {
-            Dictionary_Sentence tmpEntite = dictionarySentencysFromBase.get(i);
-            String wordENG = tmpEntite.getSentencesENG();
-            String wordPL = tmpEntite.getSentencesPL();
+        dictionaryWordsFromBase = MDS.getListbyLevel(idDictionary);
+        for (int i = 0; i < dictionaryWordsFromBase.size(); i++) {
+            PairOfCSV tmpEntite = dictionaryWordsFromBase.get(i);
+            String wordENG = tmpEntite.getKey();
+            String wordPL = tmpEntite.getValue();
             String value = "";
             Word word = null;
             if (typeLanguage == TypeOfDictionaryLanguage.PLtoENG) {
