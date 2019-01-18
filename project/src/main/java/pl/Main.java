@@ -8,9 +8,28 @@ import javafx.stage.Stage;
 import pl.competencyproject.controller.MainController;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.Mutex;
+
 import pl.competencyproject.model.timeClock.GeneralClock;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
 //import pl.competencyproject.model.pollingMechanizm.Teacher;
+
+//import pl.competencyproject.model.timeClock.GeneralClock;
+//
+//import pl.competencyproject.model.mechanicsOfQuestion.ThreadBot;
+
+
+//import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
+//
+//
+//
+//import pl.competencyproject.model.dao.classes.ManageWordsENG;
+//import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
+//import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+//import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+//import pl.competencyproject.model.mechanicsOfQuestion.DictionaryMap;
+//import pl.competencyproject.model.mechanicsOfQuestion.Teacher;
+
+
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
