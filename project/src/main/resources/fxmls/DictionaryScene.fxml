@@ -8,40 +8,55 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="512.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.DictionaryController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.DictionaryController">
    <children>
-      <Button layoutY="31.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu">
+      <Button layoutX="21.0" layoutY="60.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <FlowPane alignment="CENTER_RIGHT" layoutY="-3.0" prefHeight="34.0" prefWidth="794.0" style="-fx-background-color: #3399ff;">
+      <FlowPane alignment="CENTER_RIGHT" layoutY="-3.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #3399ff;">
          <children>
             <Label fx:id="witaj" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="530.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-            <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="89.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </FlowPane>
-      <Button fx:id="addNewDictionaryButton" disable="true" layoutX="115.0" layoutY="381.0" mnemonicParsing="false" onAction="#addDictionary" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Add new dictionary">
+      <Button fx:id="addNewDictionaryButton" disable="true" layoutX="387.0" layoutY="556.0" mnemonicParsing="false" onAction="#addDictionary" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Add new dictionary">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="typeOfDictionaryChoiceBox" layoutX="81.0" layoutY="162.0" prefHeight="26.0" prefWidth="186.0" />
-      <ChoiceBox fx:id="nameOfLevelChoiceBox" disable="true" layoutX="267.0" layoutY="162.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="nameOfCategoryChoiceBox" disable="true" layoutX="417.0" layoutY="162.0" prefWidth="150.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="128.0" prefHeight="34.0" prefWidth="186.0" text="Type of dictionary" textAlignment="CENTER" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="128.0" prefHeight="34.0" prefWidth="150.0" text="Name of category" textAlignment="CENTER" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="128.0" prefHeight="34.0" prefWidth="150.0" text="Name of level" textAlignment="CENTER" />
+      <ChoiceBox fx:id="typeOfDictionaryChoiceBox" layoutX="199.0" layoutY="144.0" prefHeight="50.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="nameOfLevelChoiceBox" disable="true" layoutX="431.0" layoutY="143.0" prefHeight="50.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="nameOfCategoryChoiceBox" disable="true" layoutX="673.0" layoutY="144.0" prefHeight="50.0" prefWidth="200.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="97.0" prefHeight="50.0" prefWidth="200.0" text="Type of dictionary" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="672.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" text="Name of category" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="436.0" layoutY="99.0" prefHeight="50.0" prefWidth="200.0" text="Name of level" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="214.0" prefHeight="54.0" prefWidth="546.0" text="Please wait..." visible="false">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button layoutX="567.0" layoutY="162.0" mnemonicParsing="false" onAction="#clearChoice" prefHeight="25.0" prefWidth="111.0" text="Clear" />
+      <Button layoutX="920.0" layoutY="144.0" mnemonicParsing="false" onAction="#clearChoice" prefHeight="50.0" prefWidth="200.0" text="Clear">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
       <ProgressBar fx:id="progressBar" layoutX="116.0" layoutY="275.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
       <Label fx:id="returnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="332.0" prefHeight="42.0" prefWidth="524.0" text="How proggressBar will disapeare return to menu" textAlignment="CENTER" visible="false">
          <font>

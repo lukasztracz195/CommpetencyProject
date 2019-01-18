@@ -11,46 +11,49 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="512.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.PrepareExamController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.PrepareExamController">
    <children>
-      <Button layoutY="31.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu">
+      <Button layoutX="7.0" layoutY="58.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #66cccc; -fx-background-radius: 15;" text="Menu">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <FlowPane alignment="CENTER_RIGHT" layoutY="-3.0" prefHeight="34.0" prefWidth="794.0" style="-fx-background-color: #3399ff;">
+      <FlowPane alignment="CENTER_RIGHT" layoutY="-3.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #3399ff;">
          <children>
             <Label fx:id="witaj" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="530.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-            <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE" />
+            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </FlowPane>
-      <Button fx:id="startExamButton" disable="true" layoutX="116.0" layoutY="402.0" mnemonicParsing="false" onAction="#startingExam" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Start Exam">
+      <Button fx:id="startExamButton" disable="true" layoutX="380.0" layoutY="594.0" mnemonicParsing="false" onAction="#startingExam" prefHeight="96.0" prefWidth="564.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Start Exam">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="214.0" prefHeight="54.0" prefWidth="546.0" text="Please wait..." visible="false">
+      <Label fx:id="feedbackLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="388.0" layoutY="369.0" prefHeight="54.0" prefWidth="546.0" text="Please wait..." visible="false">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <ProgressBar fx:id="progressBar" layoutX="123.0" layoutY="353.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
-      <Label fx:id="returnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="332.0" prefHeight="42.0" prefWidth="524.0" text="How proggressBar will disapeare return to menu" textAlignment="CENTER" visible="false">
+      <ProgressBar fx:id="progressBar" layoutX="377.0" layoutY="444.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
+      <Label fx:id="returnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="397.0" layoutY="533.0" prefHeight="42.0" prefWidth="524.0" text="How proggressBar will disapeare return to menu" textAlignment="CENTER" visible="false">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="loadDictionaryButton" disable="true" layoutX="468.0" layoutY="179.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="54.0" prefWidth="218.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
+      <Button fx:id="loadDictionaryButton" disable="true" layoutX="533.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadDictionaries" prefHeight="54.0" prefWidth="218.0" style="-fx-background-color: #99ccff; -fx-background-radius: 15;" text="Load Dictionary">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ProgressBar fx:id="progressBar" layoutX="123.0" layoutY="344.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
-      <GridPane layoutX="16.0" layoutY="122.0" prefHeight="224.0" prefWidth="419.0">
+      <ProgressBar fx:id="progressBar" layoutX="377.0" layoutY="484.0" prefHeight="18.0" prefWidth="564.0" progress="0.0" visible="false" />
+      <GridPane layoutX="93.0" layoutY="182.0" prefHeight="355.0" prefWidth="458.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="207.79998779296875" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.20001220703125" minWidth="10.0" prefWidth="118.20001220703125" />
@@ -63,18 +66,36 @@
             <RowConstraints maxHeight="173.80001678466797" minHeight="3.599987792968733" prefHeight="50.40001220703127" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox fx:id="typeOfDictionaryChoiceBox" disable="true" prefHeight="26.0" prefWidth="214.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="189.0" text="Type of dictionary" textAlignment="CENTER" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="170.0" text="Name of level" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox fx:id="nameOfLevelChoiceBox" disable="true" prefHeight="26.0" prefWidth="231.0" GridPane.rowIndex="1" />
-            <ChoiceBox fx:id="nameOfCategoryChoiceBox" disable="true" prefHeight="26.0" prefWidth="278.0" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="169.0" text="Name of category" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox fx:id="headsOfFamilyChoiceBox" disable="true" prefHeight="26.0" prefWidth="232.0" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="183.0" text="Heads of family" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#clearChoice" prefHeight="26.0" prefWidth="224.0" text="Clear" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="typeOfDictionaryChoiceBox" disable="true" prefHeight="30.0" prefWidth="211.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="189.0" text="Type of dictionary" textAlignment="CENTER" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="170.0" text="Name of level" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ChoiceBox fx:id="nameOfLevelChoiceBox" disable="true" prefHeight="30.0" prefWidth="231.0" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="nameOfCategoryChoiceBox" disable="true" prefHeight="30.0" prefWidth="278.0" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="169.0" text="Name of category" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ChoiceBox fx:id="headsOfFamilyChoiceBox" disable="true" prefHeight="30.0" prefWidth="242.0" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="197.0" text="Heads of family" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Button mnemonicParsing="false" onAction="#clearChoice" prefHeight="30.0" prefWidth="224.0" text="Clear" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </GridPane>
-      <ChoiceBox fx:id="languagesOrderChoiceBox" layoutX="17.0" layoutY="88.0" prefHeight="26.0" prefWidth="211.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="84.0" prefHeight="34.0" prefWidth="158.0" text="Languages order" textAlignment="CENTER" />
+      <ChoiceBox fx:id="languagesOrderChoiceBox" layoutX="93.0" layoutY="150.0" prefHeight="30.0" prefWidth="211.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="145.0" prefHeight="34.0" prefWidth="158.0" text="Languages order" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>
