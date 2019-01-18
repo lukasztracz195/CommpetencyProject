@@ -42,6 +42,8 @@ public class ExamController extends AbstractController implements Initializable 
     private Teacher teacher;
     private boolean lastTrue = false;
     private String lastAnswer;
+    private double totalValueProgressRounded;
+    private double currentValueProgressRounded;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -159,8 +161,13 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setProgressValueInfo() {
-        totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
-        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
+        totalValueProgressRounded = teacher.getTotalValueProgress();
+        currentValueProgressRounded = teacher.getValueProgress();
+
+        totalValueProgressLabel.setText(String.valueOf(teacher.round(totalValueProgressRounded,2))+"%");
+        currentValueProgressLabel.setText(String.valueOf(teacher.round(currentValueProgressRounded*100,2))+"%");
+        //totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
+        //currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
     }
 
     private void setInformationAboutCorrectAnswer() throws InterruptedException {

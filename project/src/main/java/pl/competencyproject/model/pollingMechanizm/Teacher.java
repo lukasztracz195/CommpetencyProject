@@ -214,7 +214,7 @@ public class Teacher implements ITeacher {
         MS.addStat(this.factoryDictionary.getIdLevel(),round(totalValueProgress,2));
     }
 
-    public static double round(double value, int places) {
+    public double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
         long factor = (long) Math.pow(10, places);
@@ -222,5 +222,6 @@ public class Teacher implements ITeacher {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
+
 }
 
