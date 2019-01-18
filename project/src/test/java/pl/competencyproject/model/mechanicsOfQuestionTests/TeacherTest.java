@@ -1,5 +1,5 @@
-package pl.competencyproject.model.mechanicsOfQuestionTests;
-/*
+/*package pl.competencyproject.model.mechanicsOfQuestionTests;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.PrepareExam;

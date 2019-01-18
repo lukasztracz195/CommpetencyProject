@@ -110,7 +110,7 @@ public class LogonController extends AbstractController implements Initializable
 
     @FXML
     public void controlLogSignCheckButton()   {
-        if (statusLogin) {
+         if (statusLogin) {
             login();
             if (SessionLogon.logged) {
                 loginMenu();
@@ -210,6 +210,7 @@ public class LogonController extends AbstractController implements Initializable
     private void checkPressEnter(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER")) {
             controlLogSignCheckButton();
+
         }
     }
 }

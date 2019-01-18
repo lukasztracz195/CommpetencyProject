@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
@@ -42,6 +43,8 @@ public class ExamController extends AbstractController implements Initializable 
     private Teacher teacher;
     private boolean lastTrue = false;
     private String lastAnswer;
+    private double totalValueProgressRounded;
+    private double currentValueProgressRounded;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -84,7 +87,6 @@ public class ExamController extends AbstractController implements Initializable 
         setExamInformation();
         setProgressValueInfo();
         odpowiedz.clear();
-
         questionLabel.setText(teacher.getCurrentQuestion());
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
         wrongAnswerLabel.setText("Wrongs: " + teacher.getNumberOfWrongAnswers());
@@ -159,8 +161,13 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setProgressValueInfo() {
-        totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
-        currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
+        totalValueProgressRounded = teacher.getTotalValueProgress();
+        currentValueProgressRounded = teacher.getValueProgress();
+
+        totalValueProgressLabel.setText(String.valueOf(teacher.round(totalValueProgressRounded,2))+"%");
+        currentValueProgressLabel.setText(String.valueOf(teacher.round(currentValueProgressRounded*100,2))+"%");
+        //totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
+        //currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
     }
 
     private void setInformationAboutCorrectAnswer() throws InterruptedException {
@@ -175,6 +182,13 @@ public class ExamController extends AbstractController implements Initializable 
             checkingAnswer();
         }
     }
+
+//    @FXML
+//    private void checkPressEnter(KeyEvent e) throws InterruptedException {
+//        if (e.getCode()== KeyCode.ENTER) {
+//            checkingAnswer();
+//        }
+//    }
 
     private void showHidenLabel(){
         if(hiddenAnswerLabel.isVisible()){

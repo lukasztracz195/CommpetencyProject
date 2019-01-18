@@ -1,10 +1,23 @@
 
 package pl.competencyproject.model.pollingMechanizm;
 
+
 import lombok.Getter;
 import pl.competencyproject.model.csv.CSVReader;
 
+
 import pl.competencyproject.model.dao.classes.ManageStats;
+
+import pl.competencyproject.model.dao.classes.ManageLevels;
+
+import pl.competencyproject.model.dao.SessionLogon;
+import pl.competencyproject.model.dao.classes.ManageDictionaryWords;
+import pl.competencyproject.model.dao.classes.ManageWordsENG;
+import pl.competencyproject.model.dao.classes.ManageWordsPL;
+
+import pl.competencyproject.model.enums.TypeOfDictionaryDownloaded;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
+
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.pollingMechanizm.interfaces.ITeacher;
 
@@ -198,7 +211,17 @@ public class Teacher implements ITeacher {
 
     public void saveProgressToDB(){
         ManageStats MS = new ManageStats(TypeOfUsedDatabase.OnlineOrginalDatabase);
-        MS.addStat(this.factoryDictionary.getIdLevel(),totalValueProgress);
+        MS.addStat(this.factoryDictionary.getIdLevel(),round(totalValueProgress,2));
     }
+
+    public double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+
 }
 
