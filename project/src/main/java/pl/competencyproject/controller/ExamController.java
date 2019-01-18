@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
@@ -86,7 +87,6 @@ public class ExamController extends AbstractController implements Initializable 
         setExamInformation();
         setProgressValueInfo();
         odpowiedz.clear();
-
         questionLabel.setText(teacher.getCurrentQuestion());
         correctAnswerLabel.setText("Corrects: " + teacher.getNumberOfGoodAnswers());
         wrongAnswerLabel.setText("Wrongs: " + teacher.getNumberOfWrongAnswers());
@@ -182,6 +182,13 @@ public class ExamController extends AbstractController implements Initializable 
             checkingAnswer();
         }
     }
+
+//    @FXML
+//    private void checkPressEnter(KeyEvent e) throws InterruptedException {
+//        if (e.getCode()== KeyCode.ENTER) {
+//            checkingAnswer();
+//        }
+//    }
 
     private void showHidenLabel(){
         if(hiddenAnswerLabel.isVisible()){

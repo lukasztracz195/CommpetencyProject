@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onKeyReleased="#checkPressEnter" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
+<AnchorPane onKeyReleased="#checkPressEnter" prefHeight="516.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.ExamController">
     <children>
         <BorderPane minHeight="400.0" prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -65,7 +65,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="odpowiedz" alignment="CENTER" onKeyReleased="#checkPressEnter" promptText="This is place for your answer" style="-fx-background-color: #f4ff81; -fx-background-radius: 150px;">
+                                                <TextField fx:id="odpowiedz" alignment="CENTER" promptText="This is place for your answer" style="-fx-background-color: #f4ff81; -fx-background-radius: 150px;">
                                        <font>
                                           <Font size="18.0" />
                                        </font></TextField>
