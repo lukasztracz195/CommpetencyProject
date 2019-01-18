@@ -4,13 +4,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
-import org.hibernate.type.StandardBasicTypes;
 import pl.competencyproject.model.dao.SessionLogon;
 import pl.competencyproject.model.dao.interfaces.ManagingDictionaryWords;
 import pl.competencyproject.model.entities.Dictionary_Word;
+import pl.competencyproject.model.enums.TypeOfDictionaryLanguage;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
+import pl.competencyproject.model.pollingMechanizm.PairOfCSV;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageDictionaryWords extends GeneralManager implements ManagingDictionaryWords {
@@ -20,7 +21,6 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
     public ManageDictionaryWords(TypeOfUsedDatabase type) {
         super(type);
     }
-
 
 
     public synchronized Integer insertDictionaryWords(Integer idLevel, Integer idFamily, Integer idWordENG, Integer idWordPL) {
@@ -129,17 +129,53 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         int result = query.executeUpdate();
     }
 
-    public synchronized Integer countDictionaryMap(Integer idLevel){
+    public synchronized Integer countDictionaryMap(Integer idLevel) {
         reset();
         Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel");
         query.setParameter("idLevel", idLevel);
-        return Integer.valueOf( query.getSingleResult().toString());
+        return Integer.valueOf(query.getSingleResult().toString());
     }
 
-    public synchronized Integer countFamilys(Integer idLevel){
+    public synchronized Integer countFamilys(Integer idLevel) {
         reset();
         Query query = session.createSQLQuery("SELECT COUNT(idDictionaryWords) FROM DICTIONARY_WORDS WHERE idLevel = :idLevel AND idFamilie IS NOT NULL");
         query.setParameter("idLevel", idLevel);
-        return Integer.valueOf( query.getSingleResult().toString());
+        return Integer.valueOf(query.getSingleResult().toString());
+    }
+
+    public synchronized List<PairOfCSV> getDictionary(Integer idLevel, TypeOfDictionaryLanguage type) {
+        reset();
+        Query query = null;
+        if (type.equals(TypeOfDictionaryLanguage.ENGtoPL)) {
+            query = session.createSQLQuery(" SELECT WE.wordENG,WP.wordPL FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idLevel = :idLevel ORDER BY WE.wordENG ");
+        } else {
+            query = session.createSQLQuery("SELECT WP.wordPL, WE.wordENG FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idLevel = :idLevel ORDER BY WP.wordPL ");
+        }
+        query.setParameter("idLevel", idLevel);
+        List<Object[]> list = query.list();
+        List<PairOfCSV> listOfPair = new ArrayList<>();
+        for (Object[] row : list) {
+            listOfPair.add(new PairOfCSV((String) row[0], (String) row[1]));
+        }
+        return listOfPair;
+    }
+
+    public synchronized List<PairOfCSV> getDictionaryOfFamily(Integer idFamilie, TypeOfDictionaryLanguage type) {
+        reset();
+        Query query = null;
+        if (type.equals(TypeOfDictionaryLanguage.ENGtoPL)) {
+            query = session.createSQLQuery(" SELECT WE.wordENG,WP.wordPL FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamilie = :idFamilie ORDER BY WE.wordENG ");
+        } else {
+            query = session.createSQLQuery("SELECT WP.wordPL, WE.wordENG FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamilie = :idFamilie ORDER BY WP.wordPL ");
+        }
+        query.setParameter("idFamilie", idFamilie);
+        List<Object[]> list = query.list();
+        List<PairOfCSV> listOfPair = new ArrayList<>();
+        for (Object[] row : list) {
+            listOfPair.add(new PairOfCSV((String) row[0], (String) row[1]));
+        }
+        return listOfPair;
+
+
     }
 }

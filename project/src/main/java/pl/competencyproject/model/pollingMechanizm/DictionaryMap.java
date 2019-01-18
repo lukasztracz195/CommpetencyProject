@@ -208,7 +208,8 @@ public class DictionaryMap implements IDictionaryMap {
         collectionOfuniqueness.add(selected);
         return selected;
     }
-
+/*
+    //DZIAŁA ALE MAŁO WYDAJNIE
     private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
         ManageWordsENG MWE = new ManageWordsENG(typeDB);
@@ -249,7 +250,37 @@ public class DictionaryMap implements IDictionaryMap {
         }
         numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
     }
+*/
+    private void initDictionaryofWordsOrDictionarysFamilys(Integer idDictionary, TypeOfDictionaryDownloaded type, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB){
+        List<String> listValues;
+        Word key = null;
+        String value = null;
+        ManageDictionaryWords MDW = new ManageDictionaryWords(typeDB);
+        List<PairOfCSV> list =null; MDW.getDictionary(idLevel,typeLanguage);
+        if (type == TypeOfDictionaryDownloaded.DictionaryOfWords) {
+            list = MDW.getDictionary(idLevel,typeLanguage);
+        } else if (type == TypeOfDictionaryDownloaded.DictionaryOfFamilys) {
+            list = MDW.getDictionaryOfFamily(idLevel,typeLanguage);
+        }
+        for (PairOfCSV pairOfCSV : list) {
+            key = new Word(pairOfCSV.getKey());
+            value = pairOfCSV.getValue();
+            if (!dictionary.containsKey(key.getWord())) {
+                listValues = new ArrayList<>();
+                listValues.add(value);
+                keysAllMap.put(keysAllMap.size(), key);
+                dictionary.put(key.getWord(), listValues);
+                sizeOfFullMap++;
+            } else {
+                listValues = dictionary.get(key.getWord());
+                listValues.add(value);
+                dictionary.replace(key.getWord(), listValues);
+            }
+            downloadedRecords++;
 
+        }
+        numberMaxOfSessions = 3 * calculateTheNumberOfCombinations();
+    }
 
     private void initDictionaryOfSentencys(Integer idDictionary, TypeOfDictionaryLanguage typeLanguage, TypeOfUsedDatabase typeDB) {
         ManageDictionarySentences MDS;

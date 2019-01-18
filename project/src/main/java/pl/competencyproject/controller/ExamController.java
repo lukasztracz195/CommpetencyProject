@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import pl.competencyproject.model.pollingMechanizm.DictionaryMap;
@@ -60,7 +59,7 @@ public class ExamController extends AbstractController implements Initializable 
     @FXML
     public void showingAnswer() throws InterruptedException {
         hiddenAnswerLabel.setVisible(true);
-        hiddenAnswerLabel.setTextFill(new Color(0,0,0,1));
+        hiddenAnswerLabel.setTextFill(new Color(0, 0, 0, 1));
         hiddenAnswerLabel.setText(teacher.getCurrentAnswer().toString());
         teacher.answerWithoutPoints(0);
         setExamInformation();
@@ -73,16 +72,11 @@ public class ExamController extends AbstractController implements Initializable 
 
     @FXML
     public void checkingAnswer() throws InterruptedException {
-
-        showHidenLabel();
-
+        lastAnswer = teacher.getCurrentAnswer().toString();
         boolean good = teacher.checkAnswer(odpowiedz.getText(), 0);
-        if(!good){
-            System.out.println("wrong");
-            lastAnswer = teacher.getCurrentAnswer().toString();
+        if (!good) {
+            hiddenAnswerLabel.setVisible(true);
             setInformationAboutCorrectAnswer();
-        }else{ System.out.println("good");
-            showHidenLabel();
         }
         setExamInformation();
         setProgressValueInfo();
@@ -108,27 +102,27 @@ public class ExamController extends AbstractController implements Initializable 
         sessionLogon.logOut();
     }
 
-    private void openDecisionWindow(){
+    private void openDecisionWindow() {
 
-        if(teacher.getCurrentMapQuestion().isEmpty()){
+        if (teacher.getCurrentMapQuestion().isEmpty()) {
             Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
             confirmation.setTitle("Test");
             confirmation.setContentText("Czy chcesz kontynuować test?");
             confirmation.setHeaderText("Potwierdzenie");
             Optional<ButtonType> action = confirmation.showAndWait();
             if (action.get() == ButtonType.OK) {
-                if(teacher.getNumberMaxOfSessions() == 1){
+                if (teacher.getNumberMaxOfSessions() == 1) {
                     teacher.getFactoryDictionary().lightReset();
-                }else {
+                } else {
                     teacher.initNextRoundOfQuestions();
                 }
                 showHidenLabel();
                 setProgressValueInfo();
                 setInformationAboutNumbersOfQuestion();
                 setExamInformation();
-                correctAnswerLabel.setText("Corrects: 0" );
+                correctAnswerLabel.setText("Corrects: 0");
                 wrongAnswerLabel.setText("Wrongs: 0");
-            } else{
+            } else {
                 teacher.saveProgressToDB();
                 teacher.getFactoryDictionary().hardReset();
                 super.back(mainController, this);
@@ -136,13 +130,15 @@ public class ExamController extends AbstractController implements Initializable 
         }
     }
 
-    private void setInformationAboutNumbersOfQuestion(){
+    private void setInformationAboutNumbersOfQuestion() {
         StringBuilder sb = new StringBuilder();
         sb.append(teacher.getNummerQuestion())
                 .append(" / ").
                 append(teacher.getNumberAllQuestions());
         counterQuestionLabel.setText(sb.toString());
+        lastAnswer = teacher.getCurrentAnswer().toString();
     }
+
     private void setExamInformation() {
         setInformationAboutNumbersOfQuestion();
         StringBuilder sb = new StringBuilder();
@@ -164,37 +160,34 @@ public class ExamController extends AbstractController implements Initializable 
         totalValueProgressRounded = teacher.getTotalValueProgress();
         currentValueProgressRounded = teacher.getValueProgress();
 
-        totalValueProgressLabel.setText(String.valueOf(teacher.round(totalValueProgressRounded,2))+"%");
-        currentValueProgressLabel.setText(String.valueOf(teacher.round(currentValueProgressRounded*100,2))+"%");
-        //totalValueProgressLabel.setText(String.valueOf(teacher.getTotalValueProgress())+"%");
-        //currentValueProgressLabel.setText(String.valueOf(teacher.getValueProgress()*100)+"%");
+        totalValueProgressLabel.setText(String.valueOf(teacher.round(totalValueProgressRounded, 2)) + "%");
+        currentValueProgressLabel.setText(String.valueOf(teacher.round(currentValueProgressRounded * 100, 2)) + "%");
     }
 
     private void setInformationAboutCorrectAnswer() throws InterruptedException {
         hiddenAnswerLabel.setVisible(true);
-        hiddenAnswerLabel.setTextFill(new Color(1,0,0,1));
-        hiddenAnswerLabel.setText("Correct was:"+lastAnswer);
+        hiddenAnswerLabel.setTextFill(new Color(1, 0, 0, 1));
+        hiddenAnswerLabel.setText("Correct was:" + lastAnswer);
     }
 
     @FXML
-    private void checkPressEnter(KeyEvent e) throws InterruptedException {
+    public void checkPressEnter(KeyEvent e) throws InterruptedException {
         if (e.getCode().toString().equals("ENTER")) {
             checkingAnswer();
         }
     }
 
-//    @FXML
-//    private void checkPressEnter(KeyEvent e) throws InterruptedException {
-//        if (e.getCode()== KeyCode.ENTER) {
-//            checkingAnswer();
-//        }
-//    }
-
-    private void showHidenLabel(){
-        if(hiddenAnswerLabel.isVisible()){
+    @FXML
+    public void showHidenLabel() {
+        if (hiddenAnswerLabel.isVisible()) {
             hiddenAnswerLabel.setVisible(false);
-        }else{
+        } else {
             hiddenAnswerLabel.setVisible(true);
         }
+    }
+
+    @FXML
+    public void hideLabel() {
+        hiddenAnswerLabel.setVisible(false);
     }
 }

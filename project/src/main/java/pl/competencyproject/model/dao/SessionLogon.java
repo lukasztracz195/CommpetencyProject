@@ -1,12 +1,12 @@
 package pl.competencyproject.model.dao;
 
 import pl.competencyproject.model.dao.classes.ManageUsers;
-import pl.competencyproject.model.timeClock.GeneralClock;
 import pl.competencyproject.model.entities.User;
 import pl.competencyproject.model.enums.TypeOfUsedDatabase;
 import pl.competencyproject.model.messages.Email;
+import pl.competencyproject.model.timeClock.GeneralClock;
 
-import java.util.*;
+import java.util.Random;
 
 public class SessionLogon {
 
