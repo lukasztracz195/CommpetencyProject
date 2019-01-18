@@ -1,0 +1,14 @@
+pl
+pl.competencyproject.controller
+pl.competencyproject.model
+pl.competencyproject.model.csv
+pl.competencyproject.model.dao
+pl.competencyproject.model.dao.classes
+pl.competencyproject.model.dao.interfaces
+pl.competencyproject.model.entities
+pl.competencyproject.model.enums
+pl.competencyproject.model.messages
+pl.competencyproject.model.multithreadProcessing
+pl.competencyproject.model.pollingMechanizm
+pl.competencyproject.model.pollingMechanizm.interfaces
+pl.competencyproject.model.timeClock

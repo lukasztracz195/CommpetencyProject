@@ -67,6 +67,7 @@ public class PrepareExamController extends AbstractController implements Initial
         languagesOrderChoiceBox.getItems().addAll(PLtoENG, ENGtoPL);
 
         languagesOrderChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
             if (!languagesOrderChoiceBox.getSelectionModel().isEmpty()) {
                 if (typeOfDictionaryChoiceBox.getValue() == null) {
                     typeOfDictionaryChoiceBox.getItems().addAll(DictionaryOfWords, DictionaryOfFamilys, DictionaryOfSentences);
@@ -79,6 +80,7 @@ public class PrepareExamController extends AbstractController implements Initial
         });
 
         typeOfDictionaryChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
             if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
                 headsOfFamilyChoiceBox.setDisable(false);
             } else {
@@ -94,6 +96,7 @@ public class PrepareExamController extends AbstractController implements Initial
             }
         });
         nameOfLevelChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
             if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
                 nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories(nameOfLevelChoiceBox.getValue()));
                 nameOfCategoryChoiceBox.setDisable(false);
@@ -106,6 +109,7 @@ public class PrepareExamController extends AbstractController implements Initial
         });
 
         nameOfCategoryChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
             if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
                 if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
                     headsOfFamilyChoiceBox.getItems().addAll(MF.getHeadOfFamilys(ML.existLevel(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem())));
@@ -121,6 +125,7 @@ public class PrepareExamController extends AbstractController implements Initial
         });
 
         headsOfFamilyChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
             if (!headsOfFamilyChoiceBox.getSelectionModel().isEmpty()) {
                 if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
                     loadDictionaryButton.setDisable(false);
@@ -129,7 +134,6 @@ public class PrepareExamController extends AbstractController implements Initial
                 }
             }
         });
-
     }
 
     @FXML
@@ -158,26 +162,29 @@ public class PrepareExamController extends AbstractController implements Initial
         progressBar.setVisible(true);
         int howMatch = dictionaryMap.getNumberOfRecordsToDownload();
 
-
-        ExecutorService es = Executors.newSingleThreadExecutor();
-        es.execute(new ThreadForDownloadData());
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            public void run() {
-                progressBar.setProgress(dictionaryMap.getDownloadedRecords() / (double) howMatch);
-                if (dictionaryMap.getDownloadedRecords() == howMatch) {
-                    if (!es.isShutdown()) {
-                        es.shutdown();
+        if (howMatch > 0) {
+            feedbackLabel.setVisible(false);
+            ExecutorService es = Executors.newSingleThreadExecutor();
+            es.execute(new ThreadForDownloadData());
+            Timer timer = new Timer();
+            TimerTask task = new TimerTask() {
+                public void run() {
+                    progressBar.setProgress(dictionaryMap.getDownloadedRecords() / (double) howMatch);
+                    if (dictionaryMap.getDownloadedRecords() == howMatch) {
+                        if (!es.isShutdown()) {
+                            es.shutdown();
+                        }
+                        progressBar.setVisible(false);
+                        startExamButton.setDisable(false);
+                        timer.cancel();
                     }
-                    progressBar.setVisible(false);
-                    startExamButton.setDisable(false);
-                    timer.cancel();
                 }
-            }
-        };
-
-        timer.schedule(task, 0, 1000);
-
+            };
+            timer.schedule(task, 0, 1000);
+        } else {
+            feedbackLabel.setVisible(true);
+            feedbackLabel.setText("This Dictionary haven't content yet. We are Sorry!");
+        }
     }
 
 
