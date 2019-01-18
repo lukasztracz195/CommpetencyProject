@@ -14,81 +14,81 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="516.0" prefWidth="794.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.competencyproject.controller.LogonController">
     <children>
         <BorderPane prefHeight="516.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
                 <GridPane prefHeight="386.0" prefWidth="674.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.4000244140625" minWidth="10.0" prefWidth="133.40003662109376" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="533.5999771118165" minWidth="10.0" prefWidth="507.99996337890633" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.20001220703125" minWidth="10.0" prefWidth="128.399951171875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.4000244140625" minWidth="10.0" prefWidth="99.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1091.0" minWidth="10.0" prefWidth="1091.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="0.0" prefWidth="75.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints maxHeight="85.6" minHeight="10.0" prefHeight="58.40000915527344" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="400.80000801086425" minHeight="10.0" prefHeight="371.9999755859375" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="107.99998779296874" minHeight="8.199972534179722" prefHeight="51.20002441406251" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="509.0" minHeight="10.0" prefHeight="509.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="107.99998779296874" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                <children>
                   <VBox prefHeight="344.0" prefWidth="542.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <FlowPane prefHeight="38.0" prefWidth="516.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="38.0" prefWidth="171.0" style="-fx-background-color: #66cc66; -fx-background-radius: 15;" text="Log in" textAlignment="CENTER">
+                              <Label alignment="CENTER" prefHeight="60.0" prefWidth="455.0" style="-fx-background-color: #66cc66; -fx-background-radius: 15;" text="Log in" textAlignment="CENTER">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="36.0" />
                                  </font>
                               </Label>
                               <ToggleButton fx:id="toggleButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#changeToogleButton" prefHeight="38.0" prefWidth="162.0" style="-fx-background-radius: 15;" textOverrun="CENTER_ELLIPSIS">
                                  <font>
-                                    <Font size="19.0" />
+                                    <Font size="26.0" />
                                  </font></ToggleButton>
-                              <Label alignment="CENTER" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #6699ff; -fx-background-radius: 15;" text="Sign in">
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="468.0" style="-fx-background-color: #6699ff; -fx-background-radius: 15;" text="Sign in">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="36.0" />
                                  </font>
                               </Label>
                            </children>
                         </FlowPane>
                         <Label alignment="CENTER" prefHeight="21.0" prefWidth="516.0" />
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="516.0" text="Email">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="1095.0" text="Email">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="36.0" />
                            </font>
                         </Label>
                         <TextField fx:id="emailTextField" onKeyReleased="#checkPressEnter" prefHeight="36.0" prefWidth="516.0" promptText="Here enter your Email:">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </TextField>
-                        <Label fx:id="emailFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
+                        <Label fx:id="emailFeedbackLabel" alignment="CENTER" prefHeight="35.0" prefWidth="1117.0" textFill="RED">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="516.0" text="Password">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="1097.0" text="Password">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="36.0" />
                            </font>
                         </Label>
                         <PasswordField fx:id="passwordTextField" onKeyReleased="#checkPressEnter" prefHeight="36.0" prefWidth="516.0" promptText="Enter your password:">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </PasswordField>
-                        <Label fx:id="passwordFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
+                        <Label fx:id="passwordFeedbackLabel" alignment="CENTER" prefHeight="35.0" prefWidth="1127.0" textFill="RED">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="codeLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" text="Code">
+                        <Label fx:id="codeLabel" alignment="CENTER" prefHeight="35.0" prefWidth="1102.0" text="Code">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="36.0" />
                            </font>
                         </Label>
                         <TextField fx:id="codeTextField" accessibleRole="PASSWORD_FIELD" onKeyReleased="#checkPressEnter" prefHeight="36.0" prefWidth="516.0" promptText="Here enter your code">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </TextField>
                         <Label fx:id="codeFeedbackLabel" alignment="CENTER" prefHeight="34.0" prefWidth="516.0" textFill="RED">
@@ -96,9 +96,9 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Button fx:id="approvesButton" mnemonicParsing="false" onAction="#controlLogSignCheckButton" prefHeight="58.0" prefWidth="516.0" style="-fx-background-color: #0066ff; -fx-background-radius: 60;" text="Log in" textFill="WHITE">
+                        <Button fx:id="approvesButton" mnemonicParsing="false" onAction="#controlLogSignCheckButton" prefHeight="51.0" prefWidth="1095.0" style="-fx-background-color: #0066ff; -fx-background-radius: 60;" text="Log in" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="36.0" />
                            </font>
                         </Button>
                      </children>
@@ -109,13 +109,22 @@
          <top>
             <FlowPane prefHeight="31.0" prefWidth="794.0" style="-fx-background-color: #3399ff;" BorderPane.alignment="CENTER">
                <children>
-                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="34.0" prefWidth="496.0" scaleShape="false" text="TeachingEnglishApp" textFill="WHITE">
+                        <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" pickOnBounds="false" prefHeight="51.0" prefWidth="914.0" scaleShape="false" text="TeachingEnglishApp" textFill="WHITE">
                      <font>
-                        <Font name="System Italic" size="24.0" />
+                        <Font name="System Italic" size="36.0" />
                      </font></Label>
-                        <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE" />
-                        <Button fx:id="logOutButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="clockLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="125.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: #0033cc; -fx-background-radius: 15;" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                        <Button fx:id="logOutButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" prefHeight="50.0" prefWidth="123.0" style="-fx-background-color: #cc0000; -fx-background-radius: 15;" text="Log out" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
                </children>
             </FlowPane>
          </top>

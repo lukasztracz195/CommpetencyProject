@@ -38,7 +38,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MainController.MainScreen));
         StackPane root = loader.load();
         primaryStage.setTitle("TeachingEnglishApp");
-        Scene scene = new Scene(root, 794, 516);
+        Scene scene = new Scene(root, 1280, 720 );//TO DO RESIZE APPLICATION
 //         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
