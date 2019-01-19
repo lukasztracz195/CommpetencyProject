@@ -160,15 +160,15 @@ public class ManageDictionaryWords extends GeneralManager implements ManagingDic
         return listOfPair;
     }
 
-    public synchronized List<PairOfCSV> getDictionaryOfFamily(Integer idFamilie, TypeOfDictionaryLanguage type) {
+    public synchronized List<PairOfCSV> getDictionaryOfFamily(Integer idFamily, TypeOfDictionaryLanguage type) {
         reset();
         Query query = null;
         if (type.equals(TypeOfDictionaryLanguage.ENGtoPL)) {
-            query = session.createSQLQuery(" SELECT WE.wordENG,WP.wordPL FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamilie = :idFamilie ORDER BY WE.wordENG ");
+            query = session.createSQLQuery(" SELECT WE.wordENG,WP.wordPL FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamily = :idFamily ORDER BY WE.wordENG ");
         } else {
-            query = session.createSQLQuery("SELECT WP.wordPL, WE.wordENG FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamilie = :idFamilie ORDER BY WP.wordPL ");
+            query = session.createSQLQuery("SELECT WP.wordPL, WE.wordENG FROM DICTIONARY_WORDS AS DW LEFT JOIN WORDS_PL AS WP ON DW.idWordPL = WP.idWordPL JOIN WORDS_ENG AS WE ON DW.idWordENG = WE.idWordENG WHERE DW.idFamily = :idFamily ORDER BY WP.wordPL ");
         }
-        query.setParameter("idFamilie", idFamilie);
+        query.setParameter("idFamily", idFamily);
         List<Object[]> list = query.list();
         List<PairOfCSV> listOfPair = new ArrayList<>();
         for (Object[] row : list) {

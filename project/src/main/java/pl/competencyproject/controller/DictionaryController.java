@@ -23,8 +23,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.DictionaryOfWords;
-import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.NONE;
+import static pl.competencyproject.model.enums.TypeOfDictionaryDownloaded.*;
 
 public class DictionaryController extends AbstractController implements Initializable {
 
@@ -63,7 +62,7 @@ public class DictionaryController extends AbstractController implements Initiali
     public void addDictionary(){
 
         CSVReader csvReader = CSVReader.getInstance(usedDatabase);
-        csvReader.chooseLevel(nameOfLevelChoiceBox.getSelectionModel().getSelectedItem(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem());
+        csvReader.chooseLevel(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getValue());
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
@@ -75,7 +74,7 @@ public class DictionaryController extends AbstractController implements Initiali
 
                 csvReader.chooseCSV(selectedFile);
             }
-            csvReader.setTypeDictionary(DictionaryOfWords);
+            csvReader.setTypeDictionary(typeOfDictionaryChoiceBox.getValue());
             if(csvReader.checkHeaderWordsSentenses(csvReader.getHeader())) {
                 returnLabel.setVisible(true);
                 int howManyRecords = csvReader.getNumberOfLinesToSendTODB();
@@ -136,7 +135,7 @@ public class DictionaryController extends AbstractController implements Initiali
 
     private void setChoiceBoxOfTypesOfDictionary() {
 
-        typeOfDictionaryChoiceBox.getItems().add(DictionaryOfWords);
+        typeOfDictionaryChoiceBox.getItems().addAll(DictionaryOfWords);
         nameOfLevelChoiceBox.getItems().add("B2");
         nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories("B2"));
     }

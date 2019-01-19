@@ -65,75 +65,11 @@ public class PrepareExamController extends AbstractController implements Initial
         MF = new ManageFamily(TypeOfUsedDatabase.OnlineOrginalDatabase);
         super.setClockDate(clockLabel, dateLabel);
         languagesOrderChoiceBox.getItems().addAll(PLtoENG, ENGtoPL);
-
-        languagesOrderChoiceBox.setOnAction(e -> {
-            feedbackLabel.setVisible(false);
-            if (!languagesOrderChoiceBox.getSelectionModel().isEmpty()) {
-                if (typeOfDictionaryChoiceBox.getValue() == null) {
-                    typeOfDictionaryChoiceBox.getItems().addAll(DictionaryOfWords, DictionaryOfFamilys, DictionaryOfSentences);
-                }
-                typeOfDictionaryChoiceBox.setDisable(false);
-            } else {
-                typeOfDictionaryChoiceBox.setValue(null);
-                typeOfDictionaryChoiceBox.setDisable(true);
-            }
-        });
-
-        typeOfDictionaryChoiceBox.setOnAction(e -> {
-            feedbackLabel.setVisible(false);
-            if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
-                headsOfFamilyChoiceBox.setDisable(false);
-            } else {
-                headsOfFamilyChoiceBox.setValue(null);
-                headsOfFamilyChoiceBox.setDisable(true);
-            }
-            if (!typeOfDictionaryChoiceBox.getSelectionModel().isEmpty()) {
-                nameOfLevelChoiceBox.getItems().addAll(ML.getNamesLevels());
-                nameOfLevelChoiceBox.setDisable(false);
-            } else {
-
-                nameOfLevelChoiceBox.setDisable(true);
-            }
-        });
-        nameOfLevelChoiceBox.setOnAction(e -> {
-            feedbackLabel.setVisible(false);
-            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
-                nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories(nameOfLevelChoiceBox.getValue()));
-                nameOfCategoryChoiceBox.setDisable(false);
-            } else {
-                nameOfLevelChoiceBox.setValue(null);
-                nameOfCategoryChoiceBox.setDisable(true);
-            }
-
-
-        });
-
-        nameOfCategoryChoiceBox.setOnAction(e -> {
-            feedbackLabel.setVisible(false);
-            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
-                if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
-                    headsOfFamilyChoiceBox.getItems().addAll(MF.getHeadOfFamilys(ML.existLevel(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getSelectionModel().getSelectedItem())));
-                }
-                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
-                    loadDictionaryButton.setDisable(false);
-                } else {
-                    loadDictionaryButton.setDisable(true);
-                }
-            }
-
-
-        });
-
-        headsOfFamilyChoiceBox.setOnAction(e -> {
-            feedbackLabel.setVisible(false);
-            if (!headsOfFamilyChoiceBox.getSelectionModel().isEmpty()) {
-                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
-                    loadDictionaryButton.setDisable(false);
-                } else {
-                    loadDictionaryButton.setDisable(true);
-                }
-            }
-        });
+        languagesOrderChoiceBoxAction();
+        typeOfDictionaryChoiceBoxAction();
+        nameOfLevelChoiceBoxAction();
+        nameOfCategoryChoiceBoxAction();
+        headsOfFamilyChoiceBoxAction();
     }
 
     @FXML
@@ -203,7 +139,7 @@ public class PrepareExamController extends AbstractController implements Initial
         languagesOrderChoiceBox.setDisable(false);
 
         typeOfDictionaryChoiceBox.setDisable(true);
-        typeOfDictionaryChoiceBox.setValue(null);
+        typeOfDictionaryChoiceBox.setValue(NONE);
 
         nameOfLevelChoiceBox.setDisable(true);
         nameOfLevelChoiceBox.setValue(null);
@@ -230,5 +166,87 @@ public class PrepareExamController extends AbstractController implements Initial
     public void logout() {
         mainController.loadLogonScreen();
         sessionLogon.logOut();
+    }
+
+    private void languagesOrderChoiceBoxAction() {
+        languagesOrderChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
+            if (!languagesOrderChoiceBox.getSelectionModel().isEmpty()) {
+                if (typeOfDictionaryChoiceBox.getValue() == null) {
+                    typeOfDictionaryChoiceBox.getItems().addAll(DictionaryOfWords);
+                }
+                typeOfDictionaryChoiceBox.setDisable(false);
+            } else {
+                typeOfDictionaryChoiceBox.setValue(null);
+                typeOfDictionaryChoiceBox.setDisable(true);
+            }
+        });
+    }
+
+    private void typeOfDictionaryChoiceBoxAction() {
+        typeOfDictionaryChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
+            if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
+                headsOfFamilyChoiceBox.setDisable(false);
+            } else {
+                headsOfFamilyChoiceBox.setValue(null);
+                headsOfFamilyChoiceBox.setDisable(true);
+            }
+            if (!typeOfDictionaryChoiceBox.getSelectionModel().isEmpty()) {
+                nameOfLevelChoiceBox.getItems().clear();
+                nameOfLevelChoiceBox.getItems().addAll(ML.getNamesLevels());
+                nameOfLevelChoiceBox.setDisable(false);
+            } else {
+
+                nameOfLevelChoiceBox.setDisable(true);
+            }
+        });
+    }
+
+    private void nameOfLevelChoiceBoxAction() {
+        nameOfLevelChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
+            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
+                nameOfCategoryChoiceBox.getItems().clear();
+                nameOfCategoryChoiceBox.getItems().addAll(ML.getCategories(nameOfLevelChoiceBox.getValue()));
+                nameOfCategoryChoiceBox.setDisable(false);
+            } else {
+                nameOfLevelChoiceBox.setValue(null);
+                nameOfCategoryChoiceBox.setDisable(true);
+            }
+        });
+    }
+
+    private void nameOfCategoryChoiceBoxAction() {
+        nameOfCategoryChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
+            if (!nameOfLevelChoiceBox.getSelectionModel().isEmpty()) {
+                if (typeOfDictionaryChoiceBox.getValue().equals(DictionaryOfFamilys)) {
+                    headsOfFamilyChoiceBox.getItems().clear();
+                    headsOfFamilyChoiceBox.getItems().addAll(MF.getHeadOfFamilys(ML.existLevel(nameOfLevelChoiceBox.getValue(), nameOfCategoryChoiceBox.getValue())));
+
+                }
+                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
+                    loadDictionaryButton.setDisable(false);
+                } else {
+                    loadDictionaryButton.setDisable(true);
+                }
+            }
+
+
+        });
+    }
+
+    private void headsOfFamilyChoiceBoxAction() {
+        headsOfFamilyChoiceBox.setOnAction(e -> {
+            feedbackLabel.setVisible(false);
+            if (!headsOfFamilyChoiceBox.getSelectionModel().isEmpty()) {
+                if (!(languagesOrderChoiceBox.getSelectionModel().isEmpty() && typeOfDictionaryChoiceBox.getSelectionModel().isEmpty() && nameOfLevelChoiceBox.getSelectionModel().isEmpty())) {
+                    loadDictionaryButton.setDisable(false);
+                } else {
+                    loadDictionaryButton.setDisable(true);
+                }
+            }
+        });
     }
 }

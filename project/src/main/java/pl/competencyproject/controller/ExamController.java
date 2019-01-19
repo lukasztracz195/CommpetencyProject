@@ -131,10 +131,12 @@ public class ExamController extends AbstractController implements Initializable 
     }
 
     private void setInformationAboutNumbersOfQuestion() {
-        String sb = (teacher.getNummerQuestion()) +
-                " / " +
-                teacher.getNumberAllQuestions();
-        counterQuestionLabel.setText(sb);
+        if(teacher.getNummerQuestion() <= 10) {
+            String sb = (teacher.getNummerQuestion()) +
+                    " / " +
+                    teacher.getNumberAllQuestions();
+            counterQuestionLabel.setText(sb);
+        }
     }
 
     private void setExamInformation() {
