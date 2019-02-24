@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/compproject</property>
+        <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3307/compproject</property>
         <property name="hibernate.connection.username">januszteam</property>
         <property name="hibernate.connection.password">aezakmi195</property>
 
